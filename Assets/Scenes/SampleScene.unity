@@ -449,7 +449,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.98918414, y: 1.3136594}
+  m_Size: {x: 0.95436186, y: 1.3136594}
   m_EdgeRadius: 0
 --- !u!212 &1208655129
 SpriteRenderer:
@@ -531,7 +531,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b524dc66049d2f648bc27fdeb0be710d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStrength: 25
+  jumpStrength: 12
+  speed: 8
   rb: {fileID: 1208655127}
   groundCheck: {fileID: 747899491}
   groundLayer:
