@@ -125,7 +125,7 @@ TextureImporter:
         width: 2636
         height: 1237
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -146,7 +146,7 @@ TextureImporter:
         width: 17920
         height: 3284
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,6 +154,27 @@ TextureImporter:
       bones: []
       spriteID: c2f6100de7af7af4092fe834af2d19ea
       internalID: -280768328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv0.Middleground_2
+      rect:
+        serializedVersion: 2
+        x: 5087
+        y: 5
+        width: 8880
+        height: 3287
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b61b9112ea4ec064581432535f2c5a4e
+      internalID: 1941324893
       vertices: []
       indices: 
       edges: []
@@ -169,6 +190,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv0.Middleground_2: 1941324893
       Lv0.Middleground_0: -424887247
       Lv0.Middleground_1: -280768328
   spritePackingTag: 
