@@ -25,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashTime = 0.4f; // Duration of the player's dash
     private bool isDashing; // Is the player dashing or not
 
+    // Animation members
+    private Animator anim; // Reference to animator component
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>(); // Sets animator reference
+    }
+
     void Update()
     {
         // Sets the player direction
@@ -33,14 +41,27 @@ public class PlayerMovement : MonoBehaviour
         // Jump when jump button is pressed (w or up)
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            anim.SetTrigger("takeOff");
+            anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }
         
         // Makes player's jump shorter if jump button is released
         if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
         {
+            anim.SetBool("isJumping", false);
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
+
+        // Performs run animation
+        if (horizontal == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }
+        else
+        {
+            anim.SetBool("isRunning", true);
+        }        
 
         // Performs the player action
         if (Input.GetButtonDown("Action"))
