@@ -11,6 +11,9 @@ TagManager:
   - 
   - Water
   - UI
+  - Closest Foreground
+  - Sub Foreground
+  - Immediate Foreground
   - 
   - 
   - 
@@ -20,6 +23,9 @@ TagManager:
   - 
   - 
   - 
+  - Interactable
+  - Ground/Platform
+  - Player
   - 
   - 
   - 
@@ -28,16 +34,31 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Immediate Background
+  - Sub Background
+  - Farthest Background
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Furthest Background
+    uniqueID: 577486477
+    locked: 0
+  - name: Background
+    uniqueID: 1228403499
+    locked: 0
+  - name: Behind Objects
+    uniqueID: 612687665
+    locked: 0
+  - name: Player & Platforms
+    uniqueID: 1036971331
+    locked: 0
+  - name: Infront Objects
+    uniqueID: 49244527
+    locked: 0
+  - name: Foreground
+    uniqueID: 3052031257
+    locked: 0
+  - name: Closest Foreground
+    uniqueID: 184230875
     locked: 0
