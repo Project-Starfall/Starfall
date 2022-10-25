@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2336383230915536095}
   - component: {fileID: -5794237978801083443}
   - component: {fileID: 6824588430596058833}
+  - component: {fileID: 7460644606559463617}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -211,6 +212,26 @@ MonoBehaviour:
     m_Bits: 0
   dashSpeed: 15
   dashTime: 0.4
+--- !u!95 &7460644606559463617
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391329979638527778}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3e7d5bb8298b92b46905cf6a3e1b9b8e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2242491399945989260
 GameObject:
   m_ObjectHideFlags: 0

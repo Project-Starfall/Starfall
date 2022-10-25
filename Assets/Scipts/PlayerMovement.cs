@@ -52,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", false);
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
-
+                
         // Performs run animation
         if (horizontal == 0)
         {
