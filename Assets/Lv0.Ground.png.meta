@@ -120,9 +120,9 @@ TextureImporter:
       name: Lv0.Ground_0
       rect:
         serializedVersion: 2
-        x: 671
+        x: 641
         y: 0
-        width: 4084
+        width: 4253
         height: 2777
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -141,9 +141,9 @@ TextureImporter:
       name: Lv0.Ground_1
       rect:
         serializedVersion: 2
-        x: 15176
+        x: 15093
         y: 0
-        width: 4544
+        width: 4627
         height: 2777
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -164,7 +164,7 @@ TextureImporter:
         serializedVersion: 2
         x: 6100
         y: 0
-        width: 5543
+        width: 5456
         height: 2777
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -185,8 +185,8 @@ TextureImporter:
         serializedVersion: 2
         x: 6165
         y: 0
-        width: 1669
-        height: 2793
+        width: 1599
+        height: 2781
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
