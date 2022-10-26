@@ -119,8 +119,7 @@ public class PlayerMovement : MonoBehaviour
             switch (starPower)
             {
                 case 0:
-                    if (!isDashing)
-                        StartCoroutine(Dash(dashDirection));
+                    StartCoroutine(Dash(dashDirection));
                     break;
                 case 1:
                     Debug.Log("NOT DASH!!!");
