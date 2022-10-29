@@ -122,10 +122,10 @@ TextureImporter:
         serializedVersion: 2
         x: 79
         y: 1660
-        width: 906
-        height: 1432
+        width: 905
+        height: 1585
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -144,9 +144,9 @@ TextureImporter:
         x: 1148
         y: 1684
         width: 905
-        height: 1519
+        height: 1585
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,10 +164,10 @@ TextureImporter:
         serializedVersion: 2
         x: 2262
         y: 1664
-        width: 906
-        height: 1550
+        width: 905
+        height: 1585
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,9 +186,9 @@ TextureImporter:
         x: 109
         y: 49
         width: 905
-        height: 1574
+        height: 1585
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -209,7 +209,7 @@ TextureImporter:
         width: 905
         height: 1585
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,27 +217,6 @@ TextureImporter:
       bones: []
       spriteID: c8fa6ff325c7ef14ea8c49b2fe115f2c
       internalID: -2114180713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: MC Flame Vector Sheet_7
-      rect:
-        serializedVersion: 2
-        x: 2375
-        y: 112
-        width: 905
-        height: 1401
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2465c5ce7ec4524d828a98e661540e4
-      internalID: -759423998
       vertices: []
       indices: 
       edges: []
