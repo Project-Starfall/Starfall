@@ -53,6 +53,11 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
+        if (rb.velocity.y < 0f && anim.GetBool("isJumping")==true)
+        {
+            anim.SetBool("isJumping", false);
+        }
+
         // Performs run animation
         if (horizontal == 0)
         {
