@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Map : MonoBehaviour, Interactable
+public class LevelZeroMap : MonoBehaviour, Interactable
 {
    private readonly TYPE itemType = TYPE.Item; // The interactable tpye of the item
+   [SerializeField] private ParticleSystem particles;
+   [SerializeField] private Color color;
 
-   public void onDetect() {
+   public void onEnter() {
 
    }
 
-   public void offDetect() {
+   public void onLeave() {
 
    }
 
