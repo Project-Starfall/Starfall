@@ -3,7 +3,8 @@
  */
 public enum TYPE {
    Powerup,
-   Item
+   Item,
+   Puzzle
 }
 
 /*

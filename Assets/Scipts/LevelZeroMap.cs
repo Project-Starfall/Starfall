@@ -9,14 +9,15 @@ public class LevelZeroMap : MonoBehaviour, Interactable
    [SerializeField] private Color color;
 
    public void onEnter() {
-
+      Debug.Log("Entered Range");
    }
 
    public void onLeave() {
-
+      Debug.Log("Exited Range");
    }
 
    public bool run(Player player) {
+      Debug.Log("Runs map");
       return true;
    }
 
