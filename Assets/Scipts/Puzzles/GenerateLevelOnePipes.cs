@@ -10,18 +10,15 @@ public enum PIPE_TYPE
    Cross
 }
 
-public class Pipe
-{
-   private PIPE_TYPE pipeType;
-   private int top, bottom, left, right;
-   private int orientation;
+public class Pipe {
+   private PIPE_TYPE pipeType;                  // The type of the pipe
+   private int[] definition = { 0, 0, 0, 0 };   // Defines which sides of the pipe is the connection
+                                                // {Top, Bottom, Left, Right}
+   private int orientation;                     // The orientation of the pipe
 
-   public Pipe(PIPE_TYPE pipeType) {
+   public Pipe(PIPE_TYPE pipeType)
+   {
       this.pipeType = pipeType;
-      this.top = 0;
-      this.bottom = 0;
-      this.left = 0;
-      this.right = 0;
       this.orientation = 0;
       switch (pipeType) {
          case PIPE_TYPE.Straight:
@@ -48,8 +45,6 @@ public class Pipe
             throw Exception;
       }
    }
-
-
 }
 
 public class GenerateLevelOnePipes
