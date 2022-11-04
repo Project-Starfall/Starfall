@@ -142,12 +142,14 @@ public class PlayerMovement : MonoBehaviour
         float gravity;
 
         isDashing = true;
-        rb.velocity = new Vector2(0f, 0f);
-        rb.AddForce(new Vector2(dashSpeed * direction, 0f), ForceMode2D.Impulse);
+        anim.enabled = false;
+        rb.velocity = new Vector2(dashSpeed * direction, 0f);
+        //rb.AddForce(new Vector2(dashSpeed * direction, 0f), ForceMode2D.Impulse);
         gravity = rb.gravityScale;
         rb.gravityScale = 0;
         yield return new WaitForSeconds(dashTime);
-        isDashing = false;
         rb.gravityScale = gravity;
+        anim.enabled = true;
+        isDashing = false;
     }
 }
