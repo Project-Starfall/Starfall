@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // Movement members
     private float horizontal; // Player's movement direction
-    private bool  isFacingRight = true; // Player orientation
+    private bool isFacingRight = true; // Player orientation
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
     private int starPower = 0; // Star power currently equipped
     [SerializeField] private float speed = 8f; // Player's movement speed
@@ -19,11 +19,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask interactLayer; // Layer containing interactable objects
 
     // Dash members
+    bool canDash = true; // Can the player dash yet?
     private float dashDirection = 1f; // Direction the player will dash in
                                       // (positive = right, negative = left)
+    [SerializeField] float dashRate = 0.5f;
     [SerializeField] private float dashSpeed = 15f; // Velocity of the player's dash
     [SerializeField] private float dashTime = 0.4f; // Duration of the player's dash
-    private bool isDashing; // Is the player dashing or not
+    private bool isDashing; // Is the player dashing or not?
+    float nextDash = 0f; // When the player can dash next
 
     // Animation members
     private Animator anim; // Reference to animator component
@@ -35,6 +38,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        // Allows the player to dash again if they are on the ground
+        if (IsGrounded())
+            canDash = true;
+
         // Sets the player direction
         horizontal = Input.GetAxisRaw("Horizontal");
 
@@ -124,7 +131,12 @@ public class PlayerMovement : MonoBehaviour
             switch (starPower)
             {
                 case 0:
-                    StartCoroutine(Dash(dashDirection));
+                    if (nextDash < Time.time && canDash == true)
+                    {
+                        canDash = false;
+                        nextDash = Time.time + dashRate;
+                        StartCoroutine(Dash(dashDirection));
+                    }
                     break;
                 case 1:
                     Debug.Log("NOT DASH!!!");
@@ -144,7 +156,6 @@ public class PlayerMovement : MonoBehaviour
         isDashing = true;
         anim.enabled = false;
         rb.velocity = new Vector2(dashSpeed * direction, 0f);
-        //rb.AddForce(new Vector2(dashSpeed * direction, 0f), ForceMode2D.Impulse);
         gravity = rb.gravityScale;
         rb.gravityScale = 0;
         yield return new WaitForSeconds(dashTime);
