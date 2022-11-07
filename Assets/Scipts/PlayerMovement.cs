@@ -153,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float gravity;
 
+        anim.SetBool("isDashing", true);
         isDashing = true;
         anim.enabled = false;
         rb.velocity = new Vector2(dashSpeed * direction, 0f);
@@ -162,5 +163,6 @@ public class PlayerMovement : MonoBehaviour
         rb.gravityScale = gravity;
         anim.enabled = true;
         isDashing = false;
+        anim.SetBool("isDashing", false);
     }
 }
