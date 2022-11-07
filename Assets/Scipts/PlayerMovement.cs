@@ -31,9 +31,13 @@ public class PlayerMovement : MonoBehaviour
     // Animation members
     private Animator anim; // Reference to animator component
 
+    public GameObject dashRender;
+
     private void Start()
     {
         anim = GetComponent<Animator>(); // Sets animator reference
+        dashRender = GameObject.Find("/PlayerCharacter/Dash art");
+        dashRender.GetComponent<Renderer>().enabled = false;
     }
 
     void Update()
@@ -152,17 +156,17 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dash (float direction)
     {
         float gravity;
-
-        anim.SetBool("isDashing", true);
+        
         isDashing = true;
         anim.enabled = false;
+        dashRender.GetComponent<Renderer>().enabled = true;
         rb.velocity = new Vector2(dashSpeed * direction, 0f);
         gravity = rb.gravityScale;
         rb.gravityScale = 0;
         yield return new WaitForSeconds(dashTime);
         rb.gravityScale = gravity;
+        dashRender.GetComponent<Renderer>().enabled = false;
         anim.enabled = true;
         isDashing = false;
-        anim.SetBool("isDashing", false);
     }
 }
