@@ -153,10 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
+  - name: themeMusic
     clip: {fileID: 0}
     volume: 0
     pitch: 0.1
+    loop: 0
     source: {fileID: 0}
 --- !u!4 &38511092
 Transform:
