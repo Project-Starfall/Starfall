@@ -12,21 +12,16 @@ public enum PIPE_TYPE {
 }
 
 public class Pipe : MonoBehaviour {
-   private PIPE_TYPE pipeType;                  // The type of the pipe
+   [SerializeField] private PIPE_TYPE pipeType;                  // The type of the pipe
    private int[] definition = { 0, 0, 0, 0 };   // Defines which sides of the pipe is the connection
                                                 // {Top, Right, Bottom, Left}
    private int orientation;                     // The orientation of the pipe
    private bool isPowered;                      // Indicate that the currently has power
-   [SerializeField]
-   private int posX;
-   [SerializeField]
-   private int posY;
-
-   private Quaternion startingRotation;
+   [SerializeField] public int posX;
+   [SerializeField] public int posY;
 
    // Start is called before the first frame update
    void Start() {
-      startingRotation = transform.rotation;
       orientation = 0;
       isPowered = false;
    }
