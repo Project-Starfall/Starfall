@@ -49,6 +49,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             anim.SetTrigger("takeOff");
+            FindObjectOfType<audioManager>().play("jumpSound");
             anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }
@@ -154,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
         float gravity;
 
         isDashing = true;
+        FindObjectOfType<audioManager>().play("dashSound");
         anim.enabled = false;
         rb.velocity = new Vector2(dashSpeed * direction, 0f);
         gravity = rb.gravityScale;
