@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Names the types of pipes
@@ -30,13 +32,14 @@ public class Pipe : MonoBehaviour {
    void Update() {
 
    }
+
    private void OnMouseDown() {
       for(int i = 0; i < 90 ; i++)
          transform.Rotate(new Vector3(0, 0, 1));
    }
 
-      //initialize the Pipe object setting the definitions for the given Pipetype
-      public void selectPipeType(PIPE_TYPE pipeType) {
+   //initialize the Pipe object setting the definitions for the given Pipetype
+   public void selectPipeType(PIPE_TYPE pipeType) {
       this.pipeType = pipeType;
       //There is probably a painfully more easy way to do this
       switch (pipeType) {

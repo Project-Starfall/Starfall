@@ -13,12 +13,19 @@ public class PipePuzzleGameHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      GameObject[] pipesInGrid = pipeContainer.GetComponentsInChildren<GameObject>();
-      foreach(GameObject currentPipe in pipesInGrid) {
-         Pipe pipe = currentPipe.GetComponent<Pipe>();
-         Debug.Log($"current {currentPipe.name}:{pipe.getType()} | ({pipe.posX},{pipe.posY})");
+      Pipe[] pipesInGrid = pipeContainer.GetComponentsInChildren<Pipe>();
+      foreach(Pipe pipe in pipesInGrid) {
+         puzzleGrid[pipe.posX, pipe.posY] = pipe;
       }
-      generate(player);
+      string test = "|";
+      for (int y = 1; y < 9; y++) {
+         for(int x = 0; x < 10; x++) {
+            test += $"{puzzleGrid[x, y].getType()}|";
+         }
+         test += "\n|";
+      }
+
+      Debug.Log(test);
     }
 
     // Update is called once per frame
