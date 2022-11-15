@@ -3212,6 +3212,10 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[6].y
       value: 0.22
       objectReference: {fileID: 0}
+    - target: {fileID: 311806586684429266, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 00f4d761b920ef6408da6bbea1325a0b, type: 2}
     - target: {fileID: 391329979638527778, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
@@ -6149,7 +6153,7 @@ PolygonCollider2D:
   m_GameObject: {fileID: 900678137}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 00f4d761b920ef6408da6bbea1325a0b, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
