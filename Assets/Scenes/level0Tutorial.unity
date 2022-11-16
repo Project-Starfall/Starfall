@@ -157,13 +157,7 @@ MonoBehaviour:
     clip: {fileID: 0}
     volume: 0.5
     pitch: 1
-    loop: 0
-    source: {fileID: 0}
-  - name: walkingSound
-    clip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: jumpSound
     clip: {fileID: 8300000, guid: 344407a2e2877384bb5d5be7fab4e1fb, type: 3}
@@ -175,6 +169,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 04726e92dbfc6a349bd6c36ed4a198b0, type: 3}
     volume: 1
     pitch: 1.25
+    loop: 0
+    source: {fileID: 0}
+  - name: walkingSound
+    clip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+    volume: 1
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!4 &38511092
@@ -3357,6 +3357,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6824588430596058833, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: walkingSound
+      value: 
+      objectReference: {fileID: 774735744}
     - target: {fileID: 8853398153689734073, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5904,6 +5908,11 @@ Transform:
   m_Father: {fileID: 173128968}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &774735744 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4982922287143141717, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+  m_PrefabInstance: {fileID: 561063079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &789891040
 GameObject:
   m_ObjectHideFlags: 0

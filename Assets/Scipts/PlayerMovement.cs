@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     // Animation members
     private Animator anim; // Reference to animator component
 
+    // Audio members
+    public AudioSource walkingSound;
+
     private void Start()
     {
         anim = GetComponent<Animator>(); // Sets animator reference
@@ -45,11 +48,11 @@ public class PlayerMovement : MonoBehaviour
         // Sets the player direction
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Jump when jump button is pressed (w or up)
+        // Jump when jump button is pressed (w or up) and play jump sound effect
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
-            anim.SetTrigger("takeOff");
             FindObjectOfType<audioManager>().play("jumpSound");
+            anim.SetTrigger("takeOff");
             anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }
@@ -74,7 +77,9 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anim.SetBool("isRunning", true);
-        }        
+        }
+
+        
 
         // Performs the player action
         if (Input.GetButtonDown("Action"))
@@ -91,6 +96,11 @@ public class PlayerMovement : MonoBehaviour
         // (isDashing will likely be replaced by var "isActing" when more powers are implimented
         if (!isDashing)
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        
+        if (horizontal == 0 || IsGrounded() == false)
+            walkingSound.enabled = false;
+        else
+            walkingSound.enabled = true;
     }
 
     // Flips the player's sprite horizontally when moving a different direction
@@ -149,13 +159,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Dashes the player forward
+    // Dashes the player forward and play dash sound effect
     IEnumerator Dash (float direction)
     {
         float gravity;
 
-        isDashing = true;
         FindObjectOfType<audioManager>().play("dashSound");
+        isDashing = true;
         anim.enabled = false;
         rb.velocity = new Vector2(dashSpeed * direction, 0f);
         gravity = rb.gravityScale;
