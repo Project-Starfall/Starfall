@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class PipePuzzleGameHandler : MonoBehaviour
     private Pipe[,] puzzleGrid = new Pipe[10, 10]; // The pipe puzzle grid
     [SerializeField] Player player;
     [SerializeField] GameObject pipeContainer;
+
+    [SerializeField] Sprite[] sprites;
     
     // Start is called before the first frame update
     void Start()
@@ -17,15 +20,8 @@ public class PipePuzzleGameHandler : MonoBehaviour
       foreach(Pipe pipe in pipesInGrid) {
          puzzleGrid[pipe.posX, pipe.posY] = pipe;
       }
-      string test = "|";
-      for (int y = 1; y < 9; y++) {
-         for(int x = 0; x < 10; x++) {
-            test += $"{puzzleGrid[x, y].getType()}|";
-         }
-         test += "\n|";
-      }
 
-      Debug.Log(test);
+      generate();
     }
 
     // Update is called once per frame
@@ -34,14 +30,49 @@ public class PipePuzzleGameHandler : MonoBehaviour
         
     }
 
-   public bool generate(Player player) {
-      System.Random random = new System.Random(12345)/* Get the seed from player */;
+   public bool generate() {
+      System.Random random = new System.Random()/* Get the seed from player */;
       int start, // the y coordinate of the starting block
           end;   // the y coordinate of the ending   block
+
+      // fill the grid with random pipes to start
+      for (int x = 1; x <= 8; x++)
+      {
+         for (int y = 1; y <= 8; y++)
+         {
+            switch(random.Next(5))
+            {
+               case 0:
+                  puzzleGrid[x, y].setType(PIPE_TYPE.Straight);
+                  puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[2];
+                  break;
+               case 1:
+                  puzzleGrid[x, y].setType(PIPE_TYPE.Cross);
+                  puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[3];
+                  break;
+               case 2:
+                  puzzleGrid[x, y].setType(PIPE_TYPE.Corner);
+                  puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[4];
+                  break;
+               case 3:
+                  puzzleGrid[x, y].setType(PIPE_TYPE.Junction);
+                  puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[5];
+                  break;
+               case 4:
+                  puzzleGrid[x, y].setType(PIPE_TYPE.Empty);
+                  puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = null;
+                  break;
+            }
+         }
+      }
 
       // Determine the positions of start and end 
       start = random.Next(grid_min, grid_max + 1);
       end = random.Next(grid_min, grid_max + 1);
+      puzzleGrid[0, start].setType(PIPE_TYPE.Start);
+      puzzleGrid[0, start].GetComponentInParent<SpriteRenderer>().sprite = sprites[0];
+      puzzleGrid[9, end].setType(PIPE_TYPE.End);
+      puzzleGrid[9, end].GetComponentInParent<SpriteRenderer>().sprite = sprites[1];
 
       //loop until first path is generated
       for (int i = grid_min; i <= grid_max; i++) {

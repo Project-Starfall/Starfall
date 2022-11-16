@@ -1138,6 +1138,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 872809759}
   pipeContainer: {fileID: 395459049}
+  sprites:
+  - {fileID: 280583901, guid: c6a6878e3ab840645855fc1cf87e323f, type: 3}
+  - {fileID: -941051762, guid: c6a6878e3ab840645855fc1cf87e323f, type: 3}
+  - {fileID: -164549436, guid: c6a6878e3ab840645855fc1cf87e323f, type: 3}
+  - {fileID: 115937303, guid: c6a6878e3ab840645855fc1cf87e323f, type: 3}
+  - {fileID: -2065218530, guid: c6a6878e3ab840645855fc1cf87e323f, type: 3}
+  - {fileID: 1638618184, guid: c6a6878e3ab840645855fc1cf87e323f, type: 3}
 --- !u!1 &201487992
 GameObject:
   m_ObjectHideFlags: 0

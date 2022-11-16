@@ -34,8 +34,7 @@ public class Pipe : MonoBehaviour {
    }
 
    private void OnMouseDown() {
-      for(int i = 0; i < 90 ; i++)
-         transform.Rotate(new Vector3(0, 0, 1));
+         transform.Rotate(new Vector3(0, 0, -90));
    }
 
    //initialize the Pipe object setting the definitions for the given Pipetype
