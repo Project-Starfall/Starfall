@@ -16,12 +16,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4817416991684265157, guid: 30018bbbfd2ea9e4d8d09141f8184cfb, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.9564483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817416991684265157, guid: 30018bbbfd2ea9e4d8d09141f8184cfb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.9786825
       objectReference: {fileID: 0}
     - target: {fileID: 4817416991684265157, guid: 30018bbbfd2ea9e4d8d09141f8184cfb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25.784563
+      value: 25.7759
       objectReference: {fileID: 0}
     - target: {fileID: 4817416991684265157, guid: 30018bbbfd2ea9e4d8d09141f8184cfb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4817416991684265158, guid: 30018bbbfd2ea9e4d8d09141f8184cfb, type: 3}
       propertyPath: m_Name
-      value: WallSegment
+      value: WallBraceSplit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30018bbbfd2ea9e4d8d09141f8184cfb, type: 3}
