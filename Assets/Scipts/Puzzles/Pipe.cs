@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 // Names the types of pipes
@@ -12,7 +14,8 @@ public enum PIPE_TYPE {
 }
 
 public class Pipe : MonoBehaviour {
-   [SerializeField] private PIPE_TYPE pipeType;                  // The type of the pipe
+   [SerializeField] private PipePuzzleGameHandler handler; // The game handler
+   [SerializeField] private PIPE_TYPE pipeType; // The type of the pipe
    private int[] definition = { 0, 0, 0, 0 };   // Defines which sides of the pipe is the connection
                                                 // {Top, Right, Bottom, Left}
    private int orientation;                     // The orientation of the pipe
@@ -20,8 +23,12 @@ public class Pipe : MonoBehaviour {
    [SerializeField] public int posX;
    [SerializeField] public int posY;
 
+   [SerializeField] Material materialGlow;
+   [SerializeField] Material materialGlownot;
+   private SpriteRenderer pipeRenderer;
    // Start is called before the first frame update
    void Start() {
+      pipeRenderer = (SpriteRenderer) GetComponentInParent<SpriteRenderer>();
       orientation = 0;
       isPowered = false;
    }
@@ -30,13 +37,17 @@ public class Pipe : MonoBehaviour {
    void Update() {
 
    }
+
    private void OnMouseDown() {
-      for(int i = 0; i < 90 ; i++)
-         transform.Rotate(new Vector3(0, 0, 1));
+      transform.Rotate(new Vector3(0, 0, -90));
+
+         pipeRenderer.material = materialGlownot;
+         pipeRenderer.material = materialGlow;
+
    }
 
-      //initialize the Pipe object setting the definitions for the given Pipetype
-      public void selectPipeType(PIPE_TYPE pipeType) {
+   //initialize the Pipe object setting the definitions for the given Pipetype
+   public void selectPipeType(PIPE_TYPE pipeType) {
       this.pipeType = pipeType;
       //There is probably a painfully more easy way to do this
       switch (pipeType) {
