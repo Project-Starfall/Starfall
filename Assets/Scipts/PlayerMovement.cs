@@ -116,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Determines if the player is near an interactable
-    private bool NearInteractable()
+    private Collider2D NearInteractable()
     {
         return Physics2D.OverlapCircle(interactCheck.position, 1.0f, interactLayer);
     }
@@ -124,10 +124,16 @@ public class PlayerMovement : MonoBehaviour
     // Performs player action
     private void Action()
     {
+        Collider2D collider;
+
         // Interact if interactable is nearby
-        if (NearInteractable())
+        if (collider = NearInteractable())
         {
+            Interactable interactable;
+
             Debug.Log("Interact");
+            interactable = collider.GetComponentInParent<Interactable>();
+            interactable.run(new Player());
         }
         // Otherwise, use currently equipped star power
         else
