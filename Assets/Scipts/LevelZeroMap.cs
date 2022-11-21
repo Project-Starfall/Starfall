@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class LevelZeroMap : MonoBehaviour, Interactable
 {
-   private readonly TYPE itemType = TYPE.Item; // The interactable tpye of the item
+   private readonly TYPE itemType = TYPE.Item; // The interactable type of the item
    [SerializeField] private ParticleSystem particles;
    [SerializeField] private Color color;
 
    public void onEnter() {
       Debug.Log("Entered Range");
+      var spriteRenderer = GetComponentInParent<SpriteRenderer>();
    }
 
    public void onLeave() {

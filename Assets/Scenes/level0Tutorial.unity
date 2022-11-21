@@ -4770,6 +4770,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1691690109}
   - component: {fileID: 1691690108}
+  - component: {fileID: 1691690110}
+  - component: {fileID: 1691690111}
   m_Layer: 18
   m_Name: Map
   m_TagString: Untagged
@@ -4846,6 +4848,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 18.036, y: -0.735, z: -25.23}
+--- !u!114 &1691690110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691690107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59427eb39d0b7cd41a0469c09572752b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particles: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!58 &1691690111
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691690107}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.8794488
 --- !u!4 &1699868774 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4555767011098569945, guid: 1ecb95ccfa77c674abf80aeb6e7a9361, type: 3}
