@@ -19,6 +19,7 @@ public class LevelZeroMap : MonoBehaviour, Interactable
 
    public bool run(Player player) {
       Debug.Log("Runs map");
+      Destroy(gameObject);
       return true;
    }
 

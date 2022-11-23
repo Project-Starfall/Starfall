@@ -12,26 +12,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float speed = 8f; // Player's movement speed
 
     // Physics members
-    [SerializeField] private Rigidbody2D rb; // Player's physics body
     [SerializeField] private Transform groundCheck; // Checks for ground beneath player
     [SerializeField] private LayerMask groundLayer; // Ground layer the player will walk on
     [SerializeField] private Transform interactCheck; // Checks for nearby interactable
     [SerializeField] private LayerMask interactLayer; // Layer containing interactable objects
+    [SerializeField] private Rigidbody2D rb; // Player's physics body
 
     // Dash members
     bool canDash = true; // Can the player dash yet?
+    private bool isDashing; // Is the player dashing or not?
     private float dashDirection = 1f; // Direction the player will dash in
                                       // (positive = right, negative = left)
     [SerializeField] float dashRate = 0.5f;
     [SerializeField] private float dashSpeed = 15f; // Velocity of the player's dash
     [SerializeField] private float dashTime = 0.4f; // Duration of the player's dash
-    private bool isDashing; // Is the player dashing or not?
-    float nextDash = 0f; // When the player can dash next
+    private float nextDash = 0f; // When the player can dash next
 
     // Animation members
     private Animator anim; // Reference to animator component
+    public GameObject dashRender; // reference to the dash renderer component
 
-    public GameObject dashRender;
 
     private void Start()
     {
@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
+        // Performs landing animation
         if (rb.velocity.y < 0f && anim.GetBool("isJumping")==true)
         {
             anim.SetBool("isJumping", false);
@@ -94,31 +95,6 @@ public class PlayerMovement : MonoBehaviour
         // (isDashing will likely be replaced by var "isActing" when more powers are implimented
         if (!isDashing)
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-    }
-
-    // Flips the player's sprite horizontally when moving a different direction
-    private void Flip()
-    {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            dashDirection *= -1f;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
-    }
-
-    // Determines if the player is on the ground
-    private bool IsGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
-
-    // Determines if the player is near an interactable
-    private Collider2D NearInteractable()
-    {
-        return Physics2D.OverlapCircle(interactCheck.position, 1.0f, interactLayer);
     }
 
     // Performs player action
@@ -174,5 +150,30 @@ public class PlayerMovement : MonoBehaviour
         dashRender.GetComponent<Renderer>().enabled = false;
         anim.enabled = true;
         isDashing = false;
+    }
+
+    // Flips the player's sprite horizontally when moving a different direction
+    private void Flip()
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            dashDirection *= -1f;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
+        }
+    }
+
+    // Determines if the player is on the ground
+    private bool IsGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    // Determines if the player is near an interactable
+    private Collider2D NearInteractable()
+    {
+        return Physics2D.OverlapCircle(interactCheck.position, 1.0f, interactLayer);
     }
 }
