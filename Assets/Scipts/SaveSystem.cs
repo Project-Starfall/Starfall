@@ -12,7 +12,7 @@ public static class SaveSystem
 
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        var data = new PlayerData(player);
+        PlayerData data = new PlayerData(player);
 
         // Close the file
         formatter.Serialize(stream, data);
