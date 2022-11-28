@@ -4718,13 +4718,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3614831444588630038}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 3614831444588630043}
+        m_TargetAssemblyTypeName: Player, Assembly-CSharp
+        m_MethodName: SaveGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -5316,7 +5316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1139687503
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7414,9 +7414,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3614831444588630038}
+      - m_Target: {fileID: 3614831444588630043}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: LoadGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8533,3 +8533,16 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 391329979638527778, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
   m_PrefabInstance: {fileID: 3614831444588630037}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3614831444588630043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614831444588630038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa7b84ae49b49740aa02f8c3ef38bf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 2
