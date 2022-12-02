@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim; // Reference to animator component
     public GameObject dashRender; // reference to the dash renderer component
 
+    // Audio members
+    public AudioSource walkingSound;
 
     private void Start()
     {
@@ -49,9 +51,10 @@ public class PlayerMovement : MonoBehaviour
         // Sets the player direction
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Jump when jump button is pressed (w or up)
+        // Jump when jump button is pressed (w or up) and play jump sound effect
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
+            FindObjectOfType<audioManager>().play("jumpSound");
             anim.SetTrigger("takeOff");
             anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
@@ -78,7 +81,9 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             anim.SetBool("isRunning", true);
-        }        
+        }
+
+        
 
         // Performs the player action
         if (Input.GetButtonDown("Action"))
@@ -95,6 +100,11 @@ public class PlayerMovement : MonoBehaviour
         // (isDashing will likely be replaced by var "isActing" when more powers are implimented
         if (!isDashing)
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        
+        if (horizontal == 0 || IsGrounded() == false)
+            walkingSound.enabled = false;
+        else
+            walkingSound.enabled = true;
     }
 
     // Performs player action
@@ -134,11 +144,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // Dashes the player forward
+    // Dashes the player forward and play dash sound effect
     IEnumerator Dash (float direction)
     {
         float gravity;
-        
+
+        FindObjectOfType<audioManager>().play("dashSound");
         isDashing = true;
         anim.enabled = false;
         dashRender.GetComponent<Renderer>().enabled = true;

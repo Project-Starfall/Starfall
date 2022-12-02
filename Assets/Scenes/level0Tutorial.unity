@@ -339,6 +339,75 @@ MonoBehaviour:
   - {x: 0.16654657, y: -0.22007321, z: 0}
   - {x: 0.16000852, y: 0.083523795, z: 0}
   - {x: -0.16000842, y: 0.069868505, z: 0}
+--- !u!1 &38511090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 38511092}
+  - component: {fileID: 38511091}
+  m_Layer: 0
+  m_Name: audioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &38511091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38511090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0f6045c4251864a989d9ca7155c140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: themeMusic
+    clip: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: jumpSound
+    clip: {fileID: 8300000, guid: 344407a2e2877384bb5d5be7fab4e1fb, type: 3}
+    volume: 1
+    pitch: 0.81
+    loop: 0
+    source: {fileID: 0}
+  - name: dashSound
+    clip: {fileID: 8300000, guid: 04726e92dbfc6a349bd6c36ed4a198b0, type: 3}
+    volume: 1
+    pitch: 1.25
+    loop: 0
+    source: {fileID: 0}
+  - name: walkingSound
+    clip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+--- !u!4 &38511092
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38511090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &115113080
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2207,6 +2276,10 @@ PrefabInstance:
       propertyPath: m_InstanceId
       value: -4840
       objectReference: {fileID: 0}
+    - target: {fileID: 4982922287143141717, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: m_Pitch
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 5742395071122100153, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2259,6 +2332,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6824588430596058833, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: walkingSound
+      value: 
+      objectReference: {fileID: 774735744}
     - target: {fileID: 8853398153689734073, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -3186,6 +3263,11 @@ Transform:
   m_Father: {fileID: 173128968}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &774735744 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 4982922287143141717, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+  m_PrefabInstance: {fileID: 561063079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &789891040
 GameObject:
   m_ObjectHideFlags: 0
