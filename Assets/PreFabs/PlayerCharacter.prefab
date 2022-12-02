@@ -177,6 +177,7 @@ Transform:
   - {fileID: 747899491}
   - {fileID: 4708961548688732182}
   - {fileID: 7507002630718986609}
+  - {fileID: 4625863348517306508}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -299,7 +300,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpStrength: 11
   speed: 8
-  rb: {fileID: 1571940032822836572}
   groundCheck: {fileID: 747899491}
   groundLayer:
     serializedVersion: 2
@@ -308,6 +308,7 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 262144
+  rb: {fileID: 1571940032822836572}
   dashRate: 0.5
   dashSpeed: 20
   dashTime: 0.2
@@ -713,6 +714,87 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &4868420745448340538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4625863348517306508}
+  - component: {fileID: 5046047058745334796}
+  m_Layer: 0
+  m_Name: Shadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4625863348517306508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4868420745448340538}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6210514447402423030}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5046047058745334796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4868420745448340538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 0000000031df842443edce3d6f69ef02194deab5
+  m_ShapePath:
+  - {x: -0.4497223, y: -0.34358072, z: 0}
+  - {x: -0.51693726, y: -0.1948824, z: 0}
+  - {x: -0.52810955, y: -0.06080866, z: 0}
+  - {x: -0.50017834, y: 0.050919056, z: 0}
+  - {x: -0.41079617, y: 0.19616556, z: 0}
+  - {x: -0.215271, y: 0.30230713, z: 0}
+  - {x: -0.075611115, y: 0.3302393, z: 0}
+  - {x: 0.09774399, y: 0.33240843, z: 0}
+  - {x: 0.20370865, y: 0.30789375, z: 0}
+  - {x: 0.31543636, y: 0.26320267, z: 0}
+  - {x: 0.39944553, y: 0.11453867, z: 0}
+  - {x: 0.46068287, y: -0.06080866, z: 0}
+  - {x: 0.47185612, y: -0.25633287, z: 0}
+  - {x: 0.4215784, y: -0.37923384, z: 0}
+  - {x: 0.28213024, y: -0.49441338, z: 0}
+  - {x: 0.10873985, y: -0.54123926, z: 0}
+  - {x: 0.15877819, y: -0.70859146, z: 0}
+  - {x: 0.17577648, y: -0.8766632, z: 0}
+  - {x: 0.075222015, y: -0.92670107, z: 0}
+  - {x: -0.036506653, y: -0.94346046, z: 0}
+  - {x: -0.12588882, y: -0.9043555, z: 0}
+  - {x: -0.14264774, y: -0.8373189, z: 0}
+  - {x: -0.15940762, y: -0.71441793, z: 0}
+  - {x: -0.17057991, y: -0.55241203, z: 0}
+  - {x: -0.25996304, y: -0.5133076, z: 0}
+  - {x: -0.37169075, y: -0.44068432, z: 0}
+  m_ShapePathHash: 1822824493
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 44542
 --- !u!1 &7703879262076214262
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +1075,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8669906170934811751}
   m_LocalRotation: {x: -0, y: -0, z: 0.0034885968, w: 0.9999939}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.051, y: -0.057, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1029,7 +1111,7 @@ MonoBehaviour:
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
-  m_ShadowIntensityEnabled: 0
+  m_ShadowIntensityEnabled: 1
   m_ShadowIntensity: 0.75
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
