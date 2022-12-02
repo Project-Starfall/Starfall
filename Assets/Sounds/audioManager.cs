@@ -35,13 +35,13 @@ public class audioManager : MonoBehaviour
         }
     }
 
-    //
+    // Upon game launch play theme music
     void Start()
     {
         play("themeMusic");
     }
 
-    //
+    // finds and plays audio clip of specified name
     public void play(string name)
     {
         // find audio clip of said name within sounds file
@@ -57,6 +57,5 @@ public class audioManager : MonoBehaviour
         // play audio clip of said name
         s.source.Play();
     }
-    //FindObjectOfType<audioManager>().play("dashSound"); bracheys ways
-    // audioManager.instance.play("dashSound");  syntax for movement script
+    // FindObjectOfType<audioManager>().play("dashSound"); example of calling in other scripts
 }
