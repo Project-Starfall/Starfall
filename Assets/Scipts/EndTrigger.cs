@@ -11,7 +11,7 @@ public class EndTrigger : MonoBehaviour
         Debug.Log("LEVEL WON!");
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("DETECTS TRIGGER");
         SceneManager.LoadScene(2);
