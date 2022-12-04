@@ -5,10 +5,11 @@ public class EndTrigger : MonoBehaviour
 {
     public EndTrigger gameManager;
 
+    public GameObject completeLevelUI;
+
     public void CompleteLevel ()
     {
-        Debug.Log("LEVEL WON!");
-        Debug.Log("LEVEL WON!");
+        completeLevelUI.SetActive(true);
     }
 
     void OnTriggerEnter2D(Collider2D other)
