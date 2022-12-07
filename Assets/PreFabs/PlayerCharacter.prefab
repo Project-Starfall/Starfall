@@ -313,8 +313,8 @@ MonoBehaviour:
   dashRate: 0.5
   dashSpeed: 20
   dashTime: 0.2
-  walkingSound: {fileID: 0}
   dashRender: {fileID: 0}
+  walkingSound: {fileID: 4982922287143141717}
 --- !u!114 &5826138619121241355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -892,7 +892,7 @@ MonoBehaviour:
   - {x: -0.37169075, y: -0.44068432, z: 0}
   m_ShapePathHash: 1822824493
   m_Mesh: {fileID: 0}
-  m_InstanceId: 44542
+  m_InstanceId: 70966
 --- !u!1 &7703879262076214262
 GameObject:
   m_ObjectHideFlags: 0
