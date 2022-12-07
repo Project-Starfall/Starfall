@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using static Constants.Pipes;
 
 // Names the types of pipes
 public enum PIPE_TYPE {
@@ -17,70 +20,87 @@ public class Pipe : MonoBehaviour {
    [SerializeField] private PipePuzzleGameHandler handler; // The game handler
    [SerializeField] private PIPE_TYPE pipeType; // The type of the pipe
    private int[] definition = { 0, 0, 0, 0 };   // Defines which sides of the pipe is the connection
-                                                // {Top, Right, Bottom, Left}
-   private int orientation;                     // The orientation of the pipe
-   private bool isPowered;                      // Indicate that the currently has power
+                                                // {Left, Bottom, Right, Top}
+   private int orientation = 0;                 // The orientation of the pipe
+   [SerializeField ]private bool isPowered = false; // Indicate that the currently has power
    [SerializeField] public int posX;
    [SerializeField] public int posY;
 
    [SerializeField] Material materialGlow;
    [SerializeField] Material materialGlownot;
    private SpriteRenderer pipeRenderer;
+
    // Start is called before the first frame update
    void Start() {
       pipeRenderer = (SpriteRenderer) GetComponentInParent<SpriteRenderer>();
-      orientation = 0;
-      isPowered = false;
    }
 
    // Update is called once per frame
    void Update() {
-
+      
    }
 
    private void OnMouseDown() {
+      orientation = (orientation + 1) % 4;
       transform.Rotate(new Vector3(0, 0, -90));
+      handler.checkPower();
+   }
 
-         pipeRenderer.material = materialGlownot;
-         pipeRenderer.material = materialGlow;
-
+   public void setPoweredMaterial(bool powered)
+   {
+      if (powered) pipeRenderer.material = materialGlow;
+      else pipeRenderer.material = materialGlownot;
    }
 
    //initialize the Pipe object setting the definitions for the given Pipetype
-   public void selectPipeType(PIPE_TYPE pipeType) {
+   public void setType(PIPE_TYPE pipeType) {
       this.pipeType = pipeType;
+      definition = new int[4] { 0, 0, 0, 0 };
       //There is probably a painfully more easy way to do this
       switch (pipeType) {
          case PIPE_TYPE.Straight:
-            definition[1] = 1;
-            definition[3] = 1;
+            definition[LEFT] = 1;
+            definition[RIGHT] = 1;
             break;
          case PIPE_TYPE.Corner:
-            definition[2] = 1;
-            definition[3] = 1;
+            definition[LEFT] = 1;
+            definition[BOTTOM] = 1;
             break;
          case PIPE_TYPE.Cross:
-            definition[0] = 1;
-            definition[1] = 1;
-            definition[2] = 1;
-            definition[3] = 1;
+            definition[LEFT] = 1;
+            definition[BOTTOM] = 1;
+            definition[RIGHT] = 1;
+            definition[TOP] = 1;
             break;
          case PIPE_TYPE.Junction:
-            definition[1] = 1;
-            definition[2] = 1;
-            definition[3] = 1;
+            definition[LEFT] = 1;
+            definition[BOTTOM] = 1;
+            definition[RIGHT] = 1;
             break;
          case PIPE_TYPE.Start:
-            definition[1] = 1;
+            definition[RIGHT] = 1;
             isPowered = true;
             break;
          case PIPE_TYPE.End:
-            definition[3] = 1;
+            definition[LEFT] = 1;
+            break;
+         case PIPE_TYPE.Empty:
+            definition[LEFT] = 0;
+            definition[BOTTOM] = 0;
+            definition[RIGHT] = 0;
+            definition[TOP] = 0;
             break;
          default:
-            Debug.Log("Could not create pipe object.\n Unknown pipe type given");
+            UnityEngine.Debug.Log("Could not create pipe object.\n Unknown pipe type given");
             break;
       }
+   }
+
+   //Rotate the pipe
+   public void rotate(int rotation)
+   {
+      orientation = (orientation + rotation) % 4;
+      transform.Rotate(new Vector3(0, 0, rotation * -90));
    }
 
    // Getters and setters for the object fields
@@ -96,9 +116,6 @@ public class Pipe : MonoBehaviour {
    }
    public bool getIsPowered() {
       return isPowered;
-   }
-   public void setType(PIPE_TYPE value) {
-      pipeType = value;
    }
    public void setOrientation(int value) {
       orientation = value;

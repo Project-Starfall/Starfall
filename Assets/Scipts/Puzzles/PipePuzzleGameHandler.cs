@@ -3,9 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Constants.Pipes;
 
 #pragma warning disable CS0660 // Type defines operator == or operator != but does not override Object.Equals(object o)
 #pragma warning disable CS0661 // Type defines operator == or operator != but does not override Object.Equals(object o)
+/**********************************************************************
+ * A point containing an x coordinate and y coordinate relating to
+ * a grid based puzzle.
+ *********************************************************************/
 public class Point
 {
    public int x { get; set; }
@@ -40,38 +45,188 @@ public class Point
 
 public class PipePuzzleGameHandler : MonoBehaviour
 {
-    private int grid_max = 8;                      // The max size of the playable grid
-    private int grid_min = 1;                      // The min size of the playable grid
-    private Pipe[,] puzzleGrid = new Pipe[10, 10]; // The pipe puzzle grid
-    [SerializeField] Player player;                // Reference to the Player
-    [SerializeField] GameObject pipeContainer;     // The container with the pipe gameobjects
-    [SerializeField] Sprite[] sprites;             // Pipe sprite sheet
+   private int grid_max = 8;                      // The max size of the playable grid
+   private int grid_min = 1;                      // The min size of the playable grid
+   private Pipe[,] puzzleGrid = new Pipe[10, 10]; // The pipe puzzle grid
+   private Point start, end;                      // Starting and end points
+   [SerializeField] Player player;                // Reference to the Player
+   [SerializeField] GameObject pipeContainer;     // The container with the pipe gameobjects
+   [SerializeField] Sprite[] sprites;             // Pipe sprite sheet
     
-    // Start is called before the first frame update
-    void Start()
-    {
-      // Take pipe gameobjects and put them into the game manager grid
-      Pipe[] pipesInGrid = pipeContainer.GetComponentsInChildren<Pipe>();
-      foreach(Pipe pipe in pipesInGrid) {
-         puzzleGrid[pipe.posX, pipe.posY] = pipe;
+   // Start is called before the first frame update
+   void Start()
+   {
+     // Take pipe gameobjects and put them into the game manager grid
+     Pipe[] pipesInGrid = pipeContainer.GetComponentsInChildren<Pipe>();
+     foreach(Pipe pipe in pipesInGrid) {
+        puzzleGrid[pipe.posX, pipe.posY] = pipe;
+     }
+
+     // Generate the path and fill the grid with random pipes
+     generateGrid(0);
+
+      checkPower();
+   }
+
+   /*******************************************************************
+    * Runs every update to determin if the game is complete
+    ******************************************************************/
+   public void FixedUpdate()
+   {
+      var endPipe = puzzleGrid[end.x - 1, end.y];
+      if(endPipe.getIsPowered())
+      {
+         if (endPipe.getDefinition()[(RIGHT + endPipe.getOrientation()) % 4] == 1)
+         {
+            Debug.Log("You Win");
+            // WIN CONDITION
+         }
+      }
+   }
+
+   /*******************************************************************
+    * Check if the pipes are powered or not.
+    ******************************************************************/
+   public void checkPower() 
+   {
+      //check from start path powered
+      //set all pipes to unpowered,
+      //ensures all unpowered pipes get properly unpowered prevents loops not connected to start
+      for (int x = 1; x <= grid_max; x++)
+      {
+         for (int y = 1; y <= grid_max; y++)
+         {
+            puzzleGrid[x, y].setIsPowered(false);
+         }
       }
 
-      // Generate the path and fill the grid with random pipes
-      generate();
+      //iterate through valid path setting powered
+      recursiveIsPowered(puzzleGrid[start.x + 1, start.y], 32, LEFT);
 
-      // Spin the pipes :3
-    }
+      //set pipe material to powered or unpowered.
+      for (int x = 1; x <= grid_max; x++)
+      {
+         for (int y = 1; y <= grid_max; y++)
+         {
+            if(puzzleGrid[x, y].getIsPowered())
+            {
+               puzzleGrid[x, y].setPoweredMaterial(true);
+            }
+            else
+            {
+               puzzleGrid[x, y].setPoweredMaterial(false);
+            }
+         }
+      }
+   }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   /*******************************************************************
+    * Recursivly traces the path of the pipe setting all pipes on 
+    * the path to powered on.
+    * @param Pipe:pipe - Instance of the current pipe in the path
+    * @param Int:ttl   - The time to live of the traced path
+    *                    prevents infinite loop
+    * @param Int:from  - The side the trace entered from
+    * @return bool     - Returns the power state
+    ******************************************************************/
+   public void recursiveIsPowered(Pipe pipe, int ttl, int from)
+   {
+      if (ttl <= 0) return;
+      // determine if this pipe connects
+      switch (from)
+      {
+         case TOP:
+            if (pipe.getDefinition()[(TOP + pipe.getOrientation()) % 4] == 1)
+            {
+               pipe.setIsPowered(true);
+            }
+            break;
+         case BOTTOM:
+            if (pipe.getDefinition()[(BOTTOM + pipe.getOrientation()) % 4] == 1)
+            {
+               pipe.setIsPowered(true);
+            }
+            break;
+         case LEFT:
+            if (pipe.getDefinition()[(LEFT + pipe.getOrientation()) % 4] == 1)
+            {
+               pipe.setIsPowered(true);
+            }
+            break;
+         case RIGHT:
+            if (pipe.getDefinition()[(RIGHT + pipe.getOrientation()) % 4] == 1)
+            {
+               pipe.setIsPowered(true);
+            }
+            break;
+         default:
+            // Error with piped passed
+            throw new Exception();
+      }
 
-   public void generate() {
+      //send power
+      if (pipe.getIsPowered())
+      {
+         if (pipe.getDefinition()[(TOP + pipe.getOrientation()) % 4] == 1 && from != TOP)
+         {
+            if (pipe.posY + 1 <= 8)
+            {
+               recursiveIsPowered(puzzleGrid[pipe.posX, pipe.posY + 1], ttl - 1, BOTTOM);
+            }
+         }
+         if (pipe.getDefinition()[(BOTTOM + pipe.getOrientation()) % 4] == 1 && from != BOTTOM)
+         {
+            if (pipe.posY - 1 >= 1)
+            {
+               recursiveIsPowered(puzzleGrid[pipe.posX, pipe.posY - 1], ttl - 1, TOP);
+            }
+         }
+
+         if (pipe.getDefinition()[(RIGHT + pipe.getOrientation()) % 4] == 1 && from != RIGHT)
+         {
+            if (pipe.posX + 1 <= 8)
+            {
+               recursiveIsPowered(puzzleGrid[pipe.posX + 1, pipe.posY], ttl - 1, LEFT);
+            }
+         }
+
+         if (pipe.getDefinition()[(LEFT + pipe.getOrientation()) % 4] == 1 && from != LEFT)
+         {
+            if (pipe.posX - 1 >= 1)
+            {
+               recursiveIsPowered(puzzleGrid[pipe.posX - 1, pipe.posY], ttl - 1, RIGHT);
+            }
+         }
+      }
+   }
+
+   /*******************************************************************
+    * Gets the current puzzle grid
+    * @return Pipe[,] - returns the current puzzle grid
+    ******************************************************************/
+   public Pipe[,] getPuzzleGrid()
+   {
+      return this.puzzleGrid;
+   }
+
+   /*******************************************************************
+    * This is the algorithm to generate the pipe grid. A singular path
+    * is generated to ensure the puzzle can be completed. The rest of
+    * the space is filled in and rotated randomly. The generation
+    * follows simple rules.
+    * - The path must always go foward or not at all (never go back)
+    *     - This prevents the path from looping back in on itself
+    * - The path must travel toward the end goal when the path can
+    *   no longer go foward
+    * - The greater disparity between the next step and end goal
+    *   forces the generation to travel more in the direciton of the 
+    *   end goal
+    * - The path cannot go on itself
+    ******************************************************************/
+   public void generateGrid(int seed) {
       System.Random random = new System.Random() /* Get the seed from player */;
       int dirCurrent,
-          dirNew; // Direction the pipe last went [wentFoward 1 ,wentUp 2, wentDown 3]
+          dirNew; // Direction the pipe last went [wentFoward 1,wentUp 2, wentDown 3]
       Point currentPoint,     // Current calculated or last generated point
             endPoint,         // The point before the end generation aims at
             nextPoint,        // The point being calulated
@@ -79,33 +234,32 @@ public class PipePuzzleGameHandler : MonoBehaviour
      
 
       // fill the grid with random pipes to start
-      for (int x = 1; x <= 8; x++)
+      for (int x = 1; x <= grid_max; x++)
       {
-         for (int y = 1; y <= 8; y++)
+         for (int y = 1; y <= grid_max; y++)
          {
             var roll = random.Next(101);
-            if (roll <= 15) {
+            if (roll <= 45) {
                puzzleGrid[x, y].setType(PIPE_TYPE.Straight);
                puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[2];
-            } else if (roll <= 20) {
+            } else if (roll <= 55) {
                puzzleGrid[x, y].setType(PIPE_TYPE.Cross);
                puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[3];
-            } else if (roll <= 35) {
+            } else if (roll <= 80) {
                puzzleGrid[x, y].setType(PIPE_TYPE.Corner);
                puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[4];
-            } else if (roll <= 55) {
+            } else if (roll <= 100) {
                puzzleGrid[x, y].setType(PIPE_TYPE.Junction);
                puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = sprites[5];
-            } else {
-               puzzleGrid[x, y].setType(PIPE_TYPE.Empty);
-               puzzleGrid[x, y].GetComponentInParent<SpriteRenderer>().sprite = null;
             }
          }
       }
 
       // Determine the positions of start and end
       startPoint = new Point(1, random.Next(grid_min, grid_max + 1));
-      endPoint   = new Point(8, random.Next(grid_min, grid_max + 1));
+      endPoint   = new Point(grid_max, random.Next(grid_min, grid_max + 1));
+      this.start = new Point(startPoint.x - 1, startPoint.y);
+      this.end   = new Point(endPoint.x + 1, endPoint.y);
       puzzleGrid[startPoint.x - 1, startPoint.y].setType(PIPE_TYPE.Start);
       puzzleGrid[startPoint.x - 1, startPoint.y].setIsPowered(true);
       puzzleGrid[startPoint.x - 1, startPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[0];
@@ -135,6 +289,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
                x++;
                dirNew = 1;
             }
+            //       is at the bottom of grid      last came from above
             else if (currentPoint.y == grid_min && dirCurrent == 3) // if cant go back up move foward regardless
             {
                nextPoint.x += 1;
@@ -142,7 +297,8 @@ public class PipePuzzleGameHandler : MonoBehaviour
                x++;
                dirNew = 1;
             }
-            else if (currentPoint.y == grid_max && dirCurrent == 2) // if cant go back up move foward regardless
+            //       is at the top of grid         last came from below
+            else if (currentPoint.y == grid_max && dirCurrent == 2) // if cant go back down move foward regardless
             {
                nextPoint.x += 1;
                nextPoint.y = currentPoint.y;
@@ -151,7 +307,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
             }
             else
             {
-               nextPoint.x = currentPoint.x;
+               nextPoint.x = currentPoint.x; // x stays where it is
 
                // Determine if y goes up, or down
                if (currentPoint.y == grid_min) // forced up by bottom of grid
@@ -183,14 +339,16 @@ public class PipePuzzleGameHandler : MonoBehaviour
                }
             }
          }
-         else
+         else // either directly below or above end goal
          {
+            // if below, move up
             if (currentPoint.y < endPoint.y)
             {
                nextPoint.x = currentPoint.x;
                nextPoint.y += 1;
                dirNew = 2;
             }
+            // if above, move down
             else
             {
                nextPoint.x = currentPoint.x;
@@ -198,8 +356,9 @@ public class PipePuzzleGameHandler : MonoBehaviour
                dirNew = 3;
             }
          }
-
-         // Evaluate next point and choose pipe appropriate pipe type
+         // TODO: add chance of straight being cross or junction
+         //       add chance of corner being cross or junciton
+         // Evaluate next point and choose appropriate pipe type
          if (dirCurrent == 1 && dirNew == 1 || dirCurrent != 1 && dirNew != 1)
          {
             puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Straight);
@@ -230,13 +389,11 @@ public class PipePuzzleGameHandler : MonoBehaviour
       }
 
       // Rotate the pieces randomly
-      int[] rotations = new int[4] {0, 90, 180, 270};
-      for (int x = 1; x <= 8; x++)
+      for (int x = 1; x <= grid_max; x++)
       {
-         for (int y = 1; y <= 8; y++)
+         for (int y = 1; y <= grid_max; y++)
          {
-            var transform = (Transform) puzzleGrid[x, y].GetComponentInParent<Transform>();
-            transform.Rotate(new Vector3(0,0, rotations[random.Next(4)]));
+            puzzleGrid[x, y].rotate(random.Next(4));
          }
       }
    }
