@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : MonoBehaviour {
     // Movement members
     private float horizontal; // Player's movement direction
     private bool isFacingRight = true; // Player orientation
@@ -59,10 +57,9 @@ public class PlayerMovement : MonoBehaviour
             anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }
-        
+
         // Makes player's jump shorter if jump button is released
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
+        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) {
             anim.SetBool("isJumping", false);
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
@@ -74,28 +71,23 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Performs run animation
-        if (horizontal == 0)
-        {
+        if (horizontal == 0) {
             anim.SetBool("isRunning", false);
-        }
-        else
-        {
+        } else {
             anim.SetBool("isRunning", true);
         }
 
         
 
         // Performs the player action
-        if (Input.GetButtonDown("Action"))
-        {
+        if (Input.GetButtonDown("Action")) {
             Action();
         }
 
         Flip();
     }
 
-    private void FixedUpdate()
-    {
+    private void FixedUpdate() {
         // Move player along set vector (Vector direction set in Update)
         // (isDashing will likely be replaced by var "isActing" when more powers are implimented
         if (!isDashing)
@@ -122,10 +114,8 @@ public class PlayerMovement : MonoBehaviour
             interactable.run(new Player());
         }
         // Otherwise, use currently equipped star power
-        else
-        {
-            switch (starPower)
-            {
+        else {
+            switch (starPower) {
                 case 0:
                     if (nextDash < Time.time && canDash == true)
                     {
