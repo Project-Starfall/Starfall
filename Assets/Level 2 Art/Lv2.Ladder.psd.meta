@@ -113,7 +113,7 @@ TextureImporter:
         width: 144
         height: 480
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,6 +121,48 @@ TextureImporter:
       bones: []
       spriteID: 37d6d53759ae94e43a527e076bf38bd0
       internalID: 126388243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv2.Ladder_1
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 332
+        width: 147
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de4bf19593eebea4898bdf1e798baf1f
+      internalID: 25921247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv2.Ladder_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 427
+        width: 144
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e50488b0e45efc54680d469897f093c2
+      internalID: 1213601775
       vertices: []
       indices: 
       edges: []
@@ -136,6 +178,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv2.Ladder_2: 1213601775
+      Lv2.Ladder_1: 25921247
       Lv2.Ladder_0: 126388243
   spritePackingTag: 
   pSDRemoveMatte: 0
