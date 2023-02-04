@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5378035213477376695}
   - component: {fileID: 6742565975356948944}
   - component: {fileID: 3837582551572238634}
+  - component: {fileID: 7539474085925265875}
   m_Layer: 0
   m_Name: Lv2.VeryShortLadder
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.44, y: 0.69}
   m_EdgeRadius: 0
+--- !u!114 &7539474085925265875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5140949622379024186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3fb6f7c4f6d546449bc33d680d5b8bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LadderMoveSpeed: 6
