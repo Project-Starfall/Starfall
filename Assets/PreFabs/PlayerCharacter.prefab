@@ -327,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3979e9c8cfd78424ca203a8f8a99d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 1
 --- !u!95 &561063081
 Animator:
   serializedVersion: 4
@@ -360,7 +361,7 @@ AudioSource:
   m_audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
-  m_Pitch: 0.5
+  m_Pitch: 0.55
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -892,7 +893,7 @@ MonoBehaviour:
   - {x: -0.37169075, y: -0.44068432, z: 0}
   m_ShapePathHash: 1822824493
   m_Mesh: {fileID: 0}
-  m_InstanceId: 70966
+  m_InstanceId: 52884
 --- !u!1 &7703879262076214262
 GameObject:
   m_ObjectHideFlags: 0
