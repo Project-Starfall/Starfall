@@ -50,20 +50,20 @@ TagManager:
   - name: MiddleGround
     uniqueID: 1834184557
     locked: 0
-  - name: Behind Objects
-    uniqueID: 612687665
-    locked: 0
   - name: Speciality Behind
     uniqueID: 409268895
+    locked: 0
+  - name: Behind Objects
+    uniqueID: 612687665
     locked: 0
   - name: Player & Platforms
     uniqueID: 1036971331
     locked: 0
-  - name: Speciality Infront
-    uniqueID: 2660680513
-    locked: 0
   - name: Infront Objects
     uniqueID: 49244527
+    locked: 0
+  - name: Speciality Infront
+    uniqueID: 2660680513
     locked: 0
   - name: Foreground
     uniqueID: 3052031257
