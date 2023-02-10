@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Level1Handler : MonoBehaviour
 {
@@ -32,6 +33,9 @@ public class Level1Handler : MonoBehaviour
    SpriteRenderer playerRenderer;
    int playerSeed;
 
+   [SerializeField]
+   PlayableDirector timeline;
+
    // Start is called before the first frame update
    void Start()
    {
@@ -44,6 +48,7 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    public void openExteriorDoorSequence()
    {
+      timeline.Resume();
       currentPuzzle += 1;
       puzzle1comp = 1;
       return;

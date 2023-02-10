@@ -29,7 +29,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
 
    public bool run(Player player)
    {
-      //Initate the puzzle
+      handler.openExteriorDoorSequence();
       return true;
    }
 
