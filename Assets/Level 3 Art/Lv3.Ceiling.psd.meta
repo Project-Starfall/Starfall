@@ -113,7 +113,7 @@ TextureImporter:
         width: 512
         height: 350
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,6 +121,69 @@ TextureImporter:
       bones: []
       spriteID: 82d33454185f1a44f8e316c144083b76
       internalID: -1540754442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv3.wall_edge
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 163
+        width: 428
+        height: 45
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 474eb4ed7297c164cb83ce9de1b7ba8e
+      internalID: 295548033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv3.small_flagstones
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 162
+        width: 123
+        height: 47
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba6ede9986e4ba4cb2de23717ca1206
+      internalID: -538724778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv3.Single_flagstone
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 163
+        width: 64
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f53daa4a4be36bb4ea0a047217b4b6a7
+      internalID: 1857028704
       vertices: []
       indices: 
       edges: []
@@ -136,7 +199,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv3.Single_flagstone: 1857028704
+      Lv3.small_flagstones: -538724778
       Lv3.Ceiling: -1540754442
+      Lv3.wall_edge: 295548033
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
