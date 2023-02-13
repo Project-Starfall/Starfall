@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
     private float horizontal; // Player's movement direction
     private bool isFacingRight = true; // Player orientation
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
-    private int starPower = 0; // Star power currently equipped
+    private int starPower = 1; // Star power currently equipped
     [SerializeField] private float speed = 8f; // Player's movement speed
 
     // Physics members
@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private LayerMask groundLayer; // Ground layer the player will walk on
     [SerializeField] private Transform interactCheck; // Checks for nearby interactable
     [SerializeField] private LayerMask interactLayer; // Layer containing interactable objects
+    [SerializeField] private LayerMask grappleableLayer; // Layer containing grappleable points
     [SerializeField] private Rigidbody2D rb; // Player's physics body
 
     // Dash members
@@ -102,21 +103,22 @@ public class PlayerMovement : MonoBehaviour {
     // Performs player action
     private void Action()
     {
-        Collider2D collider;
+        Collider2D interactCheck;
+        Collider2D grappleCheck;
 
         // Interact if interactable is nearby
-        if (collider = NearInteractable())
+        if (interactCheck = NearInteractable())
         {
             Interactable interactable;
 
             Debug.Log("Interact");
-            interactable = collider.GetComponentInParent<Interactable>();
+            interactable = interactCheck.GetComponentInParent<Interactable>();
             interactable.run(new Player());
         }
         // Otherwise, use currently equipped star power
         else {
             switch (starPower) {
-                case 0:
+                case 0: // Dash
                     if (nextDash < Time.time && canDash == true)
                     {
                         canDash = false;
@@ -124,8 +126,12 @@ public class PlayerMovement : MonoBehaviour {
                         StartCoroutine(Dash(dashDirection));
                     }
                     break;
-                case 1:
-                    Debug.Log("NOT DASH!!!");
+                case 1: // Grapple
+                    // Grapple if grappleable is nearby
+                    if (grappleCheck = NearGrappleable())
+                    {
+                        Debug.Log("Grappled");
+                    }
                     break;
                 default:
                     Debug.Log("PANIC!!!");
@@ -176,5 +182,10 @@ public class PlayerMovement : MonoBehaviour {
     private Collider2D NearInteractable()
     {
         return Physics2D.OverlapCircle(interactCheck.position, 1.0f, interactLayer);
+    }
+
+    private Collider2D NearGrappleable()
+    {
+        return Physics2D.OverlapCircle(interactCheck.position, 1.0f, grappleableLayer);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrapplePoint : MonoBehaviour
+public class Grapple : MonoBehaviour, Grappleable
 {
     // Start is called before the first frame update
     void Start()
@@ -11,19 +11,19 @@ public class GrapplePoint : MonoBehaviour
     }
 
    // Is ran when the grapple is first detected
-   void onEnter()
+   void Grappleable.onEnter()
    {
 
    }
    
    // Is ran when the grapple is no longer detected
-   void onLeave()
+   void Grappleable.onLeave()
    {
 
    }
       
    // Called when the player presses the interact key
-   void grapple(Player player)
+   void Grappleable.grapple(Player player)
    {
 
    }
