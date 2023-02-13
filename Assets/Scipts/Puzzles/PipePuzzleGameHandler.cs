@@ -61,11 +61,6 @@ public class PipePuzzleGameHandler : MonoBehaviour
      foreach(Pipe pipe in pipesInGrid) {
         puzzleGrid[pipe.posX, pipe.posY] = pipe;
      }
-
-     // Generate the path and fill the grid with random pipes
-     generateGrid(0);
-
-      checkPower();
    }
 
    /*******************************************************************
@@ -224,7 +219,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
     * - The path cannot go on itself
     ******************************************************************/
    public void generateGrid(int seed) {
-      System.Random random = new System.Random() /* Get the seed from player */;
+      System.Random random = new System.Random(seed) /* Get the seed from player */;
       int dirCurrent,
           dirNew; // Direction the pipe last went [wentFoward 1,wentUp 2, wentDown 3]
       Point currentPoint,     // Current calculated or last generated point

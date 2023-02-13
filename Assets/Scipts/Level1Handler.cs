@@ -18,10 +18,10 @@ public class Level1Handler : MonoBehaviour
    [SerializeField]
    GameObject pinpad;
    int[] pinpadCode = new int[4];
-   int pipe1seed;
-   int pipe2seed;
-   int pipe3seed;
-   int pipe4seed;
+   int pipe1seed { get; set; }
+   int pipe2seed { get; set; }
+   int pipe3seed { get; set; }
+   int pipe4seed { get; set; }
 
    // Puzzle Completion
    int puzzle1comp { get; set; } = 0;
@@ -52,6 +52,11 @@ public class Level1Handler : MonoBehaviour
       {
          pinpadCode[i] = random.Next(0, 10);
       }
+
+      pipe1seed = random.Next(0, 10000);
+      pipe2seed = random.Next(0, 10000);
+      pipe3seed = random.Next(0, 10000);
+      pipe4seed = random.Next(0, 10000);
 
    }
 
