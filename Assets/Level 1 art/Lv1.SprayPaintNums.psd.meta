@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 240
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4168d23f900995146add4345a30ab79f
+      internalID: -1891176967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_2
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 0
+        width: 254
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f280982fd26e5c4ba9c87cb086c7991
+      internalID: -244836658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_3
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 0
+        width: 274
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b854439d346351443bbbdaf04ad92576
+      internalID: -143828473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_4
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 0
+        width: 263
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42847fb295d92294a815fff653d298fb
+      internalID: -776603022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_5
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 0
+        width: 249
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db6903608c7faab42b696bcd092b696e
+      internalID: -1906522125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_6
+      rect:
+        serializedVersion: 2
+        x: 1279
+        y: 0
+        width: 249
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4101e0ea2eb6f6145b08965756355701
+      internalID: 1637921466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_7
+      rect:
+        serializedVersion: 2
+        x: 1529
+        y: 0
+        width: 263
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb6c92c4fa4c66b4ea448f21e0942cd5
+      internalID: -157695832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_
+      rect:
+        serializedVersion: 2
+        x: 1791
+        y: 0
+        width: 239
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33b122f23c8ba9848869e77eadbf372a
+      internalID: -556212730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_8
+      rect:
+        serializedVersion: 2
+        x: 2030
+        y: 0
+        width: 231
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98a402123e276ef44b15a5c94402db81
+      internalID: 864430694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.SprayPaintNums_9
+      rect:
+        serializedVersion: 2
+        x: 2261
+        y: 0
+        width: 287
+        height: 512
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8e28e42348d0f47baaa57396edf764
+      internalID: -825796598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,10 +324,20 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Lv1.SprayPaintNums_7: -157695832
+      Lv1.SprayPaintNums_8: 864430694
+      Lv1.SprayPaintNums_6: 1637921466
+      Lv1.SprayPaintNums_4: -776603022
+      Lv1.SprayPaintNums_5: -1906522125
+      Lv1.SprayPaintNums_: -556212730
+      Lv1.SprayPaintNums_2: -244836658
+      Lv1.SprayPaintNums_3: -143828473
+      Lv1.SprayPaintNums_9: -825796598
+      Lv1.SprayPaintNums_1: -1891176967
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

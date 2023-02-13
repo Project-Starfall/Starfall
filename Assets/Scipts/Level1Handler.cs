@@ -17,6 +17,11 @@ public class Level1Handler : MonoBehaviour
    GameObject puzzle4;
    [SerializeField]
    GameObject pinpad;
+   int[] pinpadCode = new int[4];
+   int pipe1seed;
+   int pipe2seed;
+   int pipe3seed;
+   int pipe4seed;
 
    // Puzzle Completion
    int puzzle1comp { get; set; } = 0;
@@ -40,7 +45,14 @@ public class Level1Handler : MonoBehaviour
    void Start()
    {
       playerSeed = player.seed;
-      playerRenderer.sortingLayerName = "Speciality Infront";
+      System.Random random = new System.Random(playerSeed);
+
+      // generate the pincode
+      for(int i = 0; i < 4; i++)
+      {
+         pinpadCode[i] = random.Next(0, 10);
+      }
+
    }
 
    /*******************************************************************
@@ -48,7 +60,7 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    public void openExteriorDoorSequence()
    {
-      timeline.Resume();
+      timeline.Play();
       currentPuzzle += 1;
       puzzle1comp = 1;
       return;

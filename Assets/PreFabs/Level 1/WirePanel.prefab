@@ -97,3 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17409d5df58c5a4fa49d032fd678892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  handler: {fileID: 0}
+  puzzleNumber: 0
+  completed: 0
