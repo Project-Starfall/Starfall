@@ -125,6 +125,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Lv3.WaterSmall
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 69
+        width: 1035
+        height: 562
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85c32d8bf9965124b9bf6258d1d58584
+      internalID: -1469894339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -136,6 +157,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv3.WaterSmall: -1469894339
       Lv3.Water: -1324463080
   spritePackingTag: 
   pSDRemoveMatte: 0
