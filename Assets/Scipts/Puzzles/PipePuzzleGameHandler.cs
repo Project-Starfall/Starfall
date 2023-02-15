@@ -59,8 +59,13 @@ public class PipePuzzleGameHandler : MonoBehaviour
      // Take pipe gameobjects and put them into the game manager grid
      Pipe[] pipesInGrid = pipeContainer.GetComponentsInChildren<Pipe>();
      foreach(Pipe pipe in pipesInGrid) {
+         pipe.loadRenderer();
         puzzleGrid[pipe.posX, pipe.posY] = pipe;
      }
+      generateGrid(0);
+
+      checkPower();
+
    }
 
    /*******************************************************************

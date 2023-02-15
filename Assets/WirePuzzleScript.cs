@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WirePuzzleScript : MonoBehaviour, Interactable
 {
+   [SerializeField] Canvas pipecanvas;
    [SerializeField] Level1Handler handler;
    [SerializeField] PipePuzzleGameHandler pipegame;
    [SerializeField] int puzzleNumber;
@@ -33,19 +34,22 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
 
    public bool run(Player player)
    {
-      switch (puzzleNumber)
-      {
-         case 1:
-            return true;
-         case 2:
-            return true;
-         case 3:
-            return true;
-         case 4:
-            return true;
-         default:
-            return false;
-      }
+      pipecanvas.enabled = pipecanvas.enabled;
+      /*      switch (puzzleNumber)
+            {
+               case 1:
+
+                  return true;
+               case 2:
+                  return true;
+               case 3:
+                  return true;
+               case 4:
+                  return true;
+               default:
+                  return false;
+            }*/
+      return true;
    }
 
    public void setEnabled(bool enabled)

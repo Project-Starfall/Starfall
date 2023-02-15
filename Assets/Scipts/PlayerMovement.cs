@@ -2,7 +2,9 @@ using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
-    // Movement members
+   // Movement members
+    [SerializeField]
+    private Player player; // Player Script
     private float horizontal; // Player's movement direction
     private bool isFacingRight = true; // Player orientation
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
@@ -111,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
 
             Debug.Log("Interact");
             interactable = collider.GetComponentInParent<Interactable>();
-            interactable.run(new Player());
+            interactable.run(player);
         }
         // Otherwise, use currently equipped star power
         else {

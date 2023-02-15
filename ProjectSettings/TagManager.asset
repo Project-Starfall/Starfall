@@ -71,3 +71,9 @@ TagManager:
   - name: Closest Foreground
     uniqueID: 184230875
     locked: 0
+  - name: UI
+    uniqueID: 335751545
+    locked: 0
+  - name: Puzzle Popups
+    uniqueID: 1246917529
+    locked: 0
