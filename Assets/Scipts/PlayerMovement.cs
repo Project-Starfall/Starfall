@@ -131,7 +131,10 @@ public class PlayerMovement : MonoBehaviour {
                     // Grapple if grappleable is nearby
                     if (grappleCheck = NearGrappleable())
                     {
+                        Grappleable grappleable;
+
                         Debug.Log("Grappled");
+                        grappleable = grappleCheck.GetComponentInParent<Grappleable>();
                     }
                     break;
                 default:
@@ -187,6 +190,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private Collider2D NearGrappleable()
     {
-        return Physics2D.OverlapCircle(interactCheck.position, 1.0f, grappleableLaye r);
+        return Physics2D.OverlapCircle(interactCheck.position, 1.0f, grappleableLayer);
     }
 }
