@@ -146,6 +146,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Lv3.ArchHalf
+      rect:
+        serializedVersion: 2
+        x: 694
+        y: 170
+        width: 173
+        height: 524
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f8ea2d935a441e4f8788e2343f2f97e
+      internalID: -294056256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -157,6 +178,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv3.ArchHalf: -294056256
       Lv3.Arch: 1132211160
       Lv3.Arch_1: 933218375
   spritePackingTag: 
