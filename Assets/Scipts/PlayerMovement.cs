@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
     private int starPower = 1; // Star power currently equipped
     [SerializeField] private float speed = 8f; // Player's movement speed
+    private bool isActing; // Is the player performing an action?
+    private bool disableMovement;
+    private float gravity;
 
     // Physics members
     [SerializeField] private Transform groundCheck; // Checks for ground beneath player
@@ -19,7 +22,6 @@ public class PlayerMovement : MonoBehaviour {
 
     // Dash members
     bool canDash = true; // Can the player dash yet?
-    private bool isDashing; // Is the player dashing or not?
     private float dashDirection = 1f; // Direction the player will dash in
                                       // (positive = right, negative = left)
     [SerializeField] float dashRate = 0.5f;
@@ -34,36 +36,54 @@ public class PlayerMovement : MonoBehaviour {
     // Audio members
     public AudioSource walkingSound;
 
+    // Grapple members
+    bool isGrappling = false; // Is the player grappling?
+    bool isToArc = false; // Is the player to the arc of the grapple?
+    [SerializeField] private float grappleSpeed = 0.5f;
+    private Vector2 grappleTo;
+
     private void Start()
     {
         anim = GetComponent<Animator>(); // Sets animator reference
         dashRender = GameObject.Find("/PlayerCharacter/Dash art");
         dashRender.GetComponent<Renderer>().enabled = false;
+        disableMovement = false;
+        gravity = rb.gravityScale;
     }
 
     void Update()
     {
+        if (disableMovement == false)
+        {
+            // Sets the player direction
+            horizontal = Input.GetAxisRaw("Horizontal");
+
+            // Jump when jump button is pressed (w or up) and play jump sound effect
+            if (Input.GetButtonDown("Jump") && IsGrounded())
+            {
+                FindObjectOfType<audioManager>().play("jumpSound");
+                anim.SetTrigger("takeOff");
+                anim.SetBool("isJumping", true);
+                rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
+            }
+
+            // Makes player's jump shorter if jump button is released
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            {
+                anim.SetBool("isJumping", false);
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
+
+            // Performs the player action
+            if (Input.GetButtonDown("Action"))
+            {
+                Action();
+            }
+        }
+
         // Allows the player to dash again if they are on the ground
         if (IsGrounded())
             canDash = true;
-
-        // Sets the player direction
-        horizontal = Input.GetAxisRaw("Horizontal");
-
-        // Jump when jump button is pressed (w or up) and play jump sound effect
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            FindObjectOfType<audioManager>().play("jumpSound");
-            anim.SetTrigger("takeOff");
-            anim.SetBool("isJumping", true);
-            rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
-        }
-
-        // Makes player's jump shorter if jump button is released
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f) {
-            anim.SetBool("isJumping", false);
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
 
         // Performs landing animation
         if (rb.velocity.y < 0f && anim.GetBool("isJumping")==true)
@@ -78,11 +98,16 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("isRunning", true);
         }
 
-        
-
-        // Performs the player action
-        if (Input.GetButtonDown("Action")) {
-            Action();
+        // Performs the grapple
+        if (isGrappling == true)
+        {
+            if (!isToArc)
+            {
+                float step = grappleSpeed * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, grappleTo, step);
+                if (transform.position == (Vector3)grappleTo)
+                    isToArc = false;
+            }
         }
 
         Flip();
@@ -91,7 +116,7 @@ public class PlayerMovement : MonoBehaviour {
     private void FixedUpdate() {
         // Move player along set vector (Vector direction set in Update)
         // (isDashing will likely be replaced by var "isActing" when more powers are implimented
-        if (!isDashing)
+        if (!isActing)
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         
         if (horizontal == 0 || IsGrounded() == false)
@@ -135,6 +160,8 @@ public class PlayerMovement : MonoBehaviour {
 
                         Debug.Log("Grappled");
                         grappleable = grappleCheck.GetComponentInParent<Grappleable>();
+                        grappleTo = grappleable.controlPoints[0].position;
+                        isGrappling = true;
                     }
                     break;
                 default:
@@ -147,20 +174,17 @@ public class PlayerMovement : MonoBehaviour {
     // Dashes the player forward and play dash sound effect
     IEnumerator Dash (float direction)
     {
-        float gravity;
-
         FindObjectOfType<audioManager>().play("dashSound");
-        isDashing = true;
+        isActing = true;
         anim.enabled = false;
         dashRender.GetComponent<Renderer>().enabled = true;
         rb.velocity = new Vector2(dashSpeed * direction, 0f);
-        gravity = rb.gravityScale;
-        rb.gravityScale = 0;
+        DisableGravity(rb);
         yield return new WaitForSeconds(dashTime);
-        rb.gravityScale = gravity;
+        EnableGravity(rb);
         dashRender.GetComponent<Renderer>().enabled = false;
         anim.enabled = true;
-        isDashing = false;
+        isActing = false;
     }
 
     // Flips the player's sprite horizontally when moving a different direction
@@ -191,5 +215,16 @@ public class PlayerMovement : MonoBehaviour {
     private Collider2D NearGrappleable()
     {
         return Physics2D.OverlapCircle(interactCheck.position, 1.0f, grappleableLayer);
+    }
+
+    private void DisableGravity(Rigidbody2D rb)
+    {
+        gravity = rb.gravityScale;
+        rb.gravityScale = 0;
+    }
+
+    private void EnableGravity(Rigidbody2D rb)
+    {
+        rb.gravityScale = gravity;
     }
 }

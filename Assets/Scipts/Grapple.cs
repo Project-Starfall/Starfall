@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grapple : MonoBehaviour, Grappleable
 {
-    [SerializeField] private Transform[] controlPoints;
+    [SerializeField] public Transform[] controlPoints { get; set; }
 
     private Vector2 gizmosPosition;
 
@@ -15,19 +15,19 @@ public class Grapple : MonoBehaviour, Grappleable
     }
 
    // Is ran when the grapple is first detected
-   void Grappleable.onEnter()
+   public void onEnter()
    {
 
    }
    
    // Is ran when the grapple is no longer detected
-   void Grappleable.onLeave()
+   public void onLeave()
    {
 
    }
       
    // Called when the player presses the interact key
-   void Grappleable.grapple(Player player)
+   public void grapple()
    {
 
    }
