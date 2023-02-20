@@ -113,7 +113,7 @@ TextureImporter:
         width: 512
         height: 369
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -126,15 +126,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lv3.CaveCeiling_1
+      name: Lv3.CaveCeilingBottom
       rect:
         serializedVersion: 2
-        x: 3
-        y: 120
-        width: 30
-        height: 7
+        x: 0
+        y: 140
+        width: 512
+        height: 211
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,8 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv3.CaveCeilingBottom: 1684843546
       Lv3.CaveCeiling: 1704381471
-      Lv3.CaveCeiling_1: 1684843546
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
