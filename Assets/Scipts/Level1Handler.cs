@@ -18,10 +18,10 @@ public class Level1Handler : MonoBehaviour
    [SerializeField]
    GameObject pinpad;
    int[] pinpadCode = new int[4];
-   int pipe1seed { get; set; }
-   int pipe2seed { get; set; }
-   int pipe3seed { get; set; }
-   int pipe4seed { get; set; }
+   public int pipe1seed { get; private set; }
+   public int pipe2seed { get; private set; }
+   public int pipe3seed { get; private set; }
+   public int pipe4seed { get; private set; }
 
    // Puzzle Completion
    int puzzle1comp { get; set; } = 0;
@@ -38,12 +38,15 @@ public class Level1Handler : MonoBehaviour
    SpriteRenderer playerRenderer;
    int playerSeed;
 
-   [SerializeField]
-   PlayableDirector timeline;
+  // [SerializeField] GameObject pipecanvas;
+   [SerializeField] PlayableDirector timeline;
 
    // Start is called before the first frame update
    void Start()
    {
+      // load player save
+
+      //pipecanvas.SetActive(false);
       playerSeed = player.seed;
       System.Random random = new System.Random(playerSeed);
 
@@ -65,6 +68,9 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    public void openExteriorDoorSequence()
    {
+      //save player
+      // save gamestate
+      // disable player movement
       timeline.Play();
       currentPuzzle += 1;
       puzzle1comp = 1;

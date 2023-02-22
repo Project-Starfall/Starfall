@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+   //TODO: add pinpad popup
    // Movement members
     [SerializeField]
     private Player player; // Player Script

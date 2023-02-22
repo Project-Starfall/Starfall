@@ -52,6 +52,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
    [SerializeField] Player player;                // Reference to the Player
    [SerializeField] GameObject pipeContainer;     // The container with the pipe gameobjects
    [SerializeField] Sprite[] sprites;             // Pipe sprite sheet
+   WirePuzzleScript wirebox;
     
    // Start is called before the first frame update
    void Start()
@@ -64,8 +65,14 @@ public class PipePuzzleGameHandler : MonoBehaviour
      }
       generateGrid(0);
 
-      checkPower();
+   }
 
+   /*******************************************************************
+    * Receives an instance of the wire box calling the game
+    ******************************************************************/
+   public void startGame(WirePuzzleScript wirebox)
+   {
+      this.wirebox = wirebox;
    }
 
    /*******************************************************************
@@ -78,8 +85,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
       {
          if (endPipe.getDefinition()[(RIGHT + endPipe.getOrientation()) % 4] == 1)
          {
-            Debug.Log("You Win");
-            // WIN CONDITION
+            wirebox.completeCheck(true);
          }
       }
    }
@@ -254,6 +260,17 @@ public class PipePuzzleGameHandler : MonoBehaviour
             }
          }
       }
+      // Reset start and end points
+      for(int i = 1; i <= 8; i++)
+      {
+         puzzleGrid[0, i].setType(PIPE_TYPE.Empty);
+         puzzleGrid[0, i].setIsPowered(false);
+         puzzleGrid[0, i].GetComponentInParent<SpriteRenderer>().sprite = null;
+         puzzleGrid[9, i].setType(PIPE_TYPE.Empty);
+         puzzleGrid[9, i].setIsPowered(false);
+         puzzleGrid[9, i].GetComponentInParent<SpriteRenderer>().sprite = null;
+      }
+
 
       // Determine the positions of start and end
       startPoint = new Point(1, random.Next(grid_min, grid_max + 1));
@@ -396,5 +413,8 @@ public class PipePuzzleGameHandler : MonoBehaviour
             puzzleGrid[x, y].rotate(random.Next(4));
          }
       }
+
+      // Light up the first pipe if its connected
+      checkPower();
    }
 }
