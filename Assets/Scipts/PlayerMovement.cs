@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && IsGrounded())
         {
             FindObjectOfType<audioManager>().play("jumpSound");
-            anim.SetTrigger("takeOff");
             anim.SetBool("isJumping", true);
             rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
         }
