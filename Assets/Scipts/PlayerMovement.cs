@@ -178,6 +178,6 @@ public class PlayerMovement : MonoBehaviour {
     // Determines if the player is near an interactable
     private Collider2D NearInteractable()
     {
-        return Physics2D.OverlapCircle(interactCheck.position, 5.0f, interactLayer);
+        return Physics2D.OverlapCircle(interactCheck.position, 1.0f, interactLayer);
     }
 }

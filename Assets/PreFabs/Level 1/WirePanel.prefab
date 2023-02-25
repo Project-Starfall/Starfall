@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4814077120029849761}
   - component: {fileID: 47058524658256258}
   - component: {fileID: 7114088675998846600}
-  m_Layer: 0
+  - component: {fileID: 1968333985}
+  m_Layer: 18
   m_Name: WirePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 7332481354887380176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -30.84, y: 14.47, z: 0}
-  m_LocalScale: {x: 0.2544256, y: 0.28206792, z: 1}
+  m_LocalScale: {x: 0.3864216, y: 0.42840478, z: 1.5188}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -71,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 612687665
-  m_SortingLayer: 5
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 75978208597d648ca9b481d041466ed1, type: 3}
+  m_SortingLayerID: -1634286783
+  m_SortingLayer: 8
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: ff3defdbc4bf5ab4a96d8c86d4a22599, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +98,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a17409d5df58c5a4fa49d032fd678892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pipecanvas: {fileID: 0}
   handler: {fileID: 0}
-  puzzleNumber: 0
+  pipegame: {fileID: 0}
+  puzzleNumber: 1
   completed: 0
+--- !u!61 &1968333985
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7332481354887380176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.4779696, y: -1.6393614}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 2.56, y: 2.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.2029867, y: 5.036085}
+  m_EdgeRadius: 0

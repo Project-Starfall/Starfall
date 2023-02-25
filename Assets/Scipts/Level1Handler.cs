@@ -1,22 +1,21 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
 
 public class Level1Handler : MonoBehaviour
 {
    // Puzzle Information
-   [SerializeField]
-   GameObject puzzle1;
-   [SerializeField]
-   GameObject puzzle2;
-   [SerializeField]
-   GameObject puzzle3;
-   [SerializeField]
-   GameObject puzzle4;
-   [SerializeField]
-   GameObject pinpad;
+   [SerializeField] WirePuzzleScript puzzle1;
+   [SerializeField] WirePuzzleScript puzzle2;
+   [SerializeField] WirePuzzleScript puzzle3;
+   [SerializeField] WirePuzzleScript puzzle4;
+   [SerializeField] PinPadInteractable pinpad;
+   [SerializeField] NoteInteractable note;
+
    int[] pinpadCode = new int[4];
    public int pipe1seed { get; private set; }
    public int pipe2seed { get; private set; }
@@ -24,12 +23,17 @@ public class Level1Handler : MonoBehaviour
    public int pipe4seed { get; private set; }
 
    // Puzzle Completion
-   int puzzle1comp { get; set; } = 0;
-   int puzzle2comp { get; set; } = 0;
-   int puzzle3comp { get; set; } = 0;
-   int puzzle4comp { get; set; } = 0;
+   int[] puzzlecomp = { 0, 0, 0, 0 };
    int pinpadcomp { get; set; } = 0;
    int currentPuzzle { get; set; } = 0;
+
+   // Wall numbers
+   [SerializeField] SpriteRenderer[] wallNumbers;
+   [SerializeField] Sprite[] numberSprites;
+
+   // Colliders
+   [SerializeField] BoxCollider2D[] variableColliders;
+   [SerializeField] PolygonCollider2D[] cameraConfiners;
 
    // Player
    [SerializeField]
@@ -38,8 +42,13 @@ public class Level1Handler : MonoBehaviour
    SpriteRenderer playerRenderer;
    int playerSeed;
 
+   // Camera
+   [SerializeField] CinemachineConfiner2D cameraConfine;
+
   // [SerializeField] GameObject pipecanvas;
-   [SerializeField] PlayableDirector timeline;
+   [SerializeField] PlayableDirector openExterior;
+   [SerializeField] PlayableDirector lightsOut;
+   [SerializeField] PlayableDirector openOffice;
 
    // Start is called before the first frame update
    void Start()
@@ -54,6 +63,8 @@ public class Level1Handler : MonoBehaviour
       for(int i = 0; i < 4; i++)
       {
          pinpadCode[i] = random.Next(0, 10);
+         wallNumbers[i].sprite = numberSprites[pinpadCode[i]];
+         wallNumbers[i].enabled = false;
       }
 
       pipe1seed = random.Next(0, 10000);
@@ -61,6 +72,24 @@ public class Level1Handler : MonoBehaviour
       pipe3seed = random.Next(0, 10000);
       pipe4seed = random.Next(0, 10000);
 
+      variableColliders[0].enabled = false;
+
+      cameraConfine.m_BoundingShape2D = cameraConfiners[0];
+
+      note.setEnabled(false);
+      puzzle2.setEnabled(false);
+      puzzle3.setEnabled(false);
+      puzzle4.setEnabled(false);
+   }
+
+   public char[] getPinpad()
+   {
+      char[] pinpadCode = new char[4];
+      for(int i = 0; i < 4; i++)
+      {
+         pinpadCode[i] = this.pinpadCode[i].ToString().ToCharArray()[0];
+      }
+      return  pinpadCode;
    }
 
    /*******************************************************************
@@ -71,10 +100,32 @@ public class Level1Handler : MonoBehaviour
       //save player
       // save gamestate
       // disable player movement
-      timeline.Play();
-      currentPuzzle += 1;
-      puzzle1comp = 1;
+      note.setEnabled(true);
+      puzzle2.setEnabled(true);
+      puzzle3.setEnabled(true);
+      puzzle4.setEnabled(true);
+      cameraConfine.m_BoundingShape2D = cameraConfiners[1];
+      variableColliders[0].enabled = true;
+      variableColliders[1].enabled = false;
+      openExterior.Play();
       return;
+   }
+
+   public void copmletePipe(int number)
+   {
+      puzzlecomp[number - 1] = 1;
+      currentPuzzle += 1;
+      if (currentPuzzle == 4)
+      {
+         lastWireCompleted();
+      }
+   }
+
+   public void lastWireCompleted()
+   {
+      lightsOut.Play();
+      for (int i = 0; i < 4; i++) wallNumbers[i].enabled = true;
+
    }
 
    /*******************************************************************
@@ -82,6 +133,8 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    public void openOfficeDoorSequence()
    {
+      variableColliders[2].enabled = false;
+      openOffice.Play();
       return;
    }
 }

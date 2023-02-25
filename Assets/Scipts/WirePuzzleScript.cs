@@ -41,6 +41,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
 
    public bool run(Player player)
    {
+      if (!interactEnabled) return true;
       showPuzzle(true);
             switch (puzzleNumber)
             {
@@ -88,30 +89,35 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       switch(puzzleNumber)
       {
          case 1:
-               Debug.Log("Copmleted Puzzle 1");
-               showPuzzle(false);
-               pipegame.generateGrid(0);
-               handler.openExteriorDoorSequence();
+            Debug.Log("Copmleted Puzzle 1");
+            showPuzzle(false);
+            pipegame.generateGrid(0);
+            handler.openExteriorDoorSequence();
+            handler.copmletePipe(1);
+            setEnabled(false);
             break;
          case 2:
-               Debug.Log("Copmleted Puzzle 2");
-               showPuzzle(false);
-               pipegame.generateGrid(0);
+            Debug.Log("Copmleted Puzzle 2");
+            showPuzzle(false);
+            pipegame.generateGrid(0);
+            handler.copmletePipe(2);
+            setEnabled(false);
             break;
          case 3:
-               Debug.Log("Copmleted Puzzle 3");
-               showPuzzle(false);
-               pipegame.generateGrid(0);
+            Debug.Log("Copmleted Puzzle 3");
+            showPuzzle(false);
+            pipegame.generateGrid(0);
+            handler.copmletePipe(3);
+            setEnabled(false);
             break;
          case 4:
-               Debug.Log("Copmleted Puzzle 4");
-               showPuzzle(false);
-               pipegame.generateGrid(0);
+            Debug.Log("Copmleted Puzzle 4");
+            showPuzzle(false);
+            handler.copmletePipe(4);
+            pipegame.generateGrid(0);
+            setEnabled(false);
             break;
       }
       
    }
-
-
-
 }
