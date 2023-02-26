@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int level = 1; // Current level of the game
+   public int currentLevel { get; set; }
+   public int seed { get; set; }
 
     public void SaveGame()
     {
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
         // Call the player data and saves it
         PlayerData data = SaveSystem.LoadGame();
 
+
         // The number/stage of the level
         level = data.level;
 
@@ -26,4 +29,7 @@ public class Player : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
     }
+   
+
+   
 }

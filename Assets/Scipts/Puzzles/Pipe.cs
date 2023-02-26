@@ -31,8 +31,8 @@ public class Pipe : MonoBehaviour {
    private SpriteRenderer pipeRenderer;
 
    // Start is called before the first frame update
-   void Start() {
-      pipeRenderer = (SpriteRenderer) GetComponentInParent<SpriteRenderer>();
+   public void loadRenderer() {
+      pipeRenderer = GetComponentInParent<SpriteRenderer>();
    }
 
    // Update is called once per frame

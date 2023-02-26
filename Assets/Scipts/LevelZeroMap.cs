@@ -32,4 +32,14 @@ public class LevelZeroMap : MonoBehaviour, Interactable
     {
         
     }
+
+   public bool isEnabled()
+   {
+      throw new System.NotImplementedException();
+   }
+
+   public void setEnabled(bool enabled)
+   {
+      throw new System.NotImplementedException();
+   }
 }
