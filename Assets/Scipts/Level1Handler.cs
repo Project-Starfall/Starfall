@@ -40,6 +40,8 @@ public class Level1Handler : MonoBehaviour
    Player player;
    [SerializeField]
    SpriteRenderer playerRenderer;
+   [SerializeField]
+   SpriteRenderer dashRenderer;
    int playerSeed;
 
    // Camera
@@ -113,6 +115,7 @@ public class Level1Handler : MonoBehaviour
       variableColliders[0].enabled = true;
       variableColliders[1].enabled = false;
       openExterior.Play();
+      StartCoroutine(waitForTimeline());
       return;
    }
 
@@ -148,5 +151,17 @@ public class Level1Handler : MonoBehaviour
       variableColliders[2].enabled = false;
       openOffice.Play();
       return;
+   }
+
+   /*******************************************************************
+    * Runs when the pinpad puzzle is complete
+    ******************************************************************/
+   IEnumerator waitForTimeline()
+   {
+      yield return new WaitForSeconds(6.5f);
+      playerRenderer.sortingLayerName = "Player & Platforms";
+      dashRenderer.sortingLayerName = "Player & Platforms";
+      // Enable Player movement
+      yield return null;
    }
 }
