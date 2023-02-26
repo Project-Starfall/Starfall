@@ -5,40 +5,60 @@ using UnityEngine;
 
 public class WirePuzzleScript : MonoBehaviour, Interactable
 {
-   [SerializeField] GameObject pipecanvas;
-   [SerializeField] Level1Handler handler;
-   [SerializeField] PipePuzzleGameHandler pipegame;
-   [SerializeField] int puzzleNumber;
-   [SerializeField] bool completed;
+   [SerializeField] GameObject pipecanvas; // Pipegame UI
+   [SerializeField] Level1Handler handler; // Level 1 handler
+   [SerializeField] PipePuzzleGameHandler pipegame; // Pipegame handler
+   [SerializeField] int puzzleNumber; // The number of the attached puzzle
+   [SerializeField] bool completed; // If the puzzle is completed
+
+   // Interface methods
    private bool interactEnabled = true;
    private readonly TYPE interactableType = TYPE.Puzzle;
 
    #region interfaceMethods
+   /*******************************************************************
+    * Returns the type of the Interactable
+    ******************************************************************/
    public TYPE getType()
    {
       return interactableType;
    }
 
+   /*******************************************************************
+    * Returns if the Interactable is enabled
+    ******************************************************************/
    public bool isEnabled()
    {
       return interactEnabled;
    }
 
+   /*******************************************************************
+    * Call when the player enters interactable range
+    ******************************************************************/
    public void onEnter()
    {
       // start glowing
    }
 
+   /*******************************************************************
+    * Call when the player leaves interactable range
+    ******************************************************************/
    public void onLeave()
    {
       // stop glowing
    }
+
+   /*******************************************************************
+    * Set if the interactable is enabled
+    ******************************************************************/
    public void setEnabled(bool enabled)
    {
       this.interactEnabled = enabled;
    }
-   #endregion
 
+   /*******************************************************************
+    * Call when the player presses interactable key in range
+    ******************************************************************/
    public bool run(Player player)
    {
       if (!interactEnabled) return true;
@@ -69,7 +89,11 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       
       return true;
    }
+   #endregion
 
+   /*******************************************************************
+    * Enable and disable puzzle UI
+    ******************************************************************/
    public void showPuzzle(bool state)
    {
       if (state)
@@ -82,6 +106,9 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       }
    }
 
+   /*******************************************************************
+    * Called when the puzzle is completed
+    ******************************************************************/
    public void completeCheck(bool completed)
    {
       // Enable player movement

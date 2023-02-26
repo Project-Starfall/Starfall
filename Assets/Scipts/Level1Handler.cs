@@ -67,21 +67,26 @@ public class Level1Handler : MonoBehaviour
          wallNumbers[i].enabled = false;
       }
 
+      // generate the pipe seeds
       pipe1seed = random.Next(0, 10000);
       pipe2seed = random.Next(0, 10000);
       pipe3seed = random.Next(0, 10000);
       pipe4seed = random.Next(0, 10000);
 
+      // change the scene colliders
       variableColliders[0].enabled = false;
-
       cameraConfine.m_BoundingShape2D = cameraConfiners[0];
 
+      // Disable unreachable puzzles
       note.setEnabled(false);
       puzzle2.setEnabled(false);
       puzzle3.setEnabled(false);
       puzzle4.setEnabled(false);
    }
 
+   /*******************************************************************
+    * Returns the current pinpad code as char array
+    ******************************************************************/
    public char[] getPinpad()
    {
       char[] pinpadCode = new char[4];
@@ -111,6 +116,9 @@ public class Level1Handler : MonoBehaviour
       return;
    }
 
+   /*******************************************************************
+    * Runs when a pipe puzzle is completed
+    ******************************************************************/
    public void copmletePipe(int number)
    {
       puzzlecomp[number - 1] = 1;
@@ -121,6 +129,9 @@ public class Level1Handler : MonoBehaviour
       }
    }
 
+   /*******************************************************************
+    * Runs when the last wire puzzle is completed
+    ******************************************************************/
    public void lastWireCompleted()
    {
       lightsOut.Play();
@@ -129,10 +140,11 @@ public class Level1Handler : MonoBehaviour
    }
 
    /*******************************************************************
-    * runs when the pinpad puzzle is complete
+    * Runs when the pinpad puzzle is complete
     ******************************************************************/
    public void openOfficeDoorSequence()
    {
+      pinpadcomp = 1;
       variableColliders[2].enabled = false;
       openOffice.Play();
       return;
