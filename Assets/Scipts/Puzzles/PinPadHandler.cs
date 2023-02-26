@@ -61,7 +61,7 @@ public class PinPadHandler : MonoBehaviour
       {
          if (currentIndex != 4) return;
          if (checkCode()) pinSuccess();
-         else ;// TODO: SOUND: Play Access Denied sound
+         //else ; TODO: SOUND: Play Access Denied sound
          num[0] = '_';
          num[1] = '_';
          num[2] = '_';
