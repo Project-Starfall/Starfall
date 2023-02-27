@@ -6,8 +6,8 @@ using UnityEngine;
  */
 public interface Grappleable
 {
-    public Transform[] controlPoints { get; set; }
     void onEnter();          // Is ran when the object is first detected
     void onLeave();          // is ran when the onbject is no longer detected
-    void grapple(); // called when the player presses the interact key
+    public (Transform t1, Transform t2, Transform t3, Transform t4) returnGrapple();
+                             // called when the player presses the interact key
 }

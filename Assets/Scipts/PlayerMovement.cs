@@ -39,8 +39,10 @@ public class PlayerMovement : MonoBehaviour {
     // Grapple members
     bool isGrappling = false; // Is the player grappling?
     bool isToArc = false; // Is the player to the arc of the grapple?
+    float step; // Time parameter for initial grapple movement
+    float t; // Time parameter for the grapple curve
     [SerializeField] private float grappleSpeed = 0.5f;
-    private Vector2 grappleTo;
+    private (Transform, Transform, Transform, Transform) grapplePoints;
 
     private void Start()
     {
@@ -48,6 +50,9 @@ public class PlayerMovement : MonoBehaviour {
         dashRender = GameObject.Find("/PlayerCharacter/Dash art");
         dashRender.GetComponent<Renderer>().enabled = false;
         disableMovement = false;
+        t = 0f;
+        step = 0f;
+        isGrappling = false;
         gravity = rb.gravityScale;
     }
 
@@ -103,10 +108,29 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (!isToArc)
             {
-                float step = grappleSpeed * Time.deltaTime;
-                transform.position = Vector2.MoveTowards(transform.position, grappleTo, step);
-                if (transform.position == (Vector3)grappleTo)
+                step = grappleSpeed * Time.deltaTime;
+                transform.position = Vector2.MoveTowards(transform.position, grapplePoints.Item1.position, step);
+                if (transform.position == (Vector3)grapplePoints.Item1.position)
+                {
+                    isToArc = true;
+                    step = 0f;
+                }
+            }
+            if (isToArc)
+            {
+                t += Time.deltaTime * grappleSpeed;
+                transform.position = Mathf.Pow(1 - t, 3) * grapplePoints.Item1.position +
+                    3 * Mathf.Pow(1 - t, 2) * t * grapplePoints.Item2.position +
+                    3 * (1 - t) * Mathf.Pow(t, 2) * grapplePoints.Item3.position +
+                    Mathf.Pow(t, 3) * grapplePoints.Item4.position;
+                if (t >= 1f)
+                {
                     isToArc = false;
+                    isGrappling = false;
+                    disableMovement = false;
+                    EnableGravity(rb);
+                    t = 0f;
+                }
             }
         }
 
@@ -159,8 +183,11 @@ public class PlayerMovement : MonoBehaviour {
                         Grappleable grappleable;
 
                         Debug.Log("Grappled");
+                        rb.velocity = new Vector2(0f, 0f);
+                        disableMovement = true;
+                        DisableGravity(rb);
                         grappleable = grappleCheck.GetComponentInParent<Grappleable>();
-                        grappleTo = grappleable.controlPoints[0].position;
+                        grapplePoints = grappleable.returnGrapple();
                         isGrappling = true;
                     }
                     break;

@@ -4,35 +4,39 @@ using UnityEngine;
 
 public class Grapple : MonoBehaviour, Grappleable
 {
-    [SerializeField] public Transform[] controlPoints { get; set; }
+    [SerializeField] private Transform[] controlPoints;
 
     private Vector2 gizmosPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
-   // Is ran when the grapple is first detected
-   public void onEnter()
-   {
+    // Is ran when the grapple is first detected
+    public void onEnter()
+    {
 
-   }
+    }
    
-   // Is ran when the grapple is no longer detected
-   public void onLeave()
-   {
+    // Is ran when the grapple is no longer detected
+    public void onLeave()
+    {
+ 
+    }
 
-   }
-      
-   // Called when the player presses the interact key
-   public void grapple()
-   {
+    // Called when the player presses the interact key
+    public (Transform t1, Transform t2, Transform t3, Transform t4) returnGrapple()
+    {
+        Transform t1 = controlPoints[0];
+        Transform t2 = controlPoints[1];
+        Transform t3 = controlPoints[2];
+        Transform t4 = controlPoints[3];
+        return (t1, t2, t3, t4);
+    }
 
-   }
-
-    private void OnDrawGizmos()
+  /*private void OnDrawGizmos()
     {
         for (float t = 0; t <= 1; t += 0.25f)
         {
@@ -49,7 +53,7 @@ public class Grapple : MonoBehaviour, Grappleable
 
         Gizmos.DrawLine(new Vector2(controlPoints[2].position.x, controlPoints[2].position.y),
             new Vector2(controlPoints[3].position.x, controlPoints[3].position.y));
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
