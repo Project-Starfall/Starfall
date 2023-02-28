@@ -1,24 +1,25 @@
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System;
 
 /// <summary>
 /// Defines a system for saving/loading player information.
 /// </summary>
-public static class SaveSystem
+public class SaveSystem
 {
 
-    public static string path { get; set; } = Application.persistentDataPath + "/SaveGame.StarFall";
+    readonly string configPath = Application.persistentDataPath + "/game.config";
 
     /// <summary>
     /// Saves a player's data.
     /// </summary>
     /// <param name="player">Current Player object.</param>
-    public static void SaveGame(Player player)
+    public void SaveGame(Player player, string savePath)
     {
         // Convert to binary and create a file
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(path, FileMode.Create);
+        FileStream stream = new FileStream(savePath, FileMode.Create);
 
         PlayerData data = new PlayerData(player);
 
@@ -31,14 +32,14 @@ public static class SaveSystem
     /// Loads a game from a save file.
     /// </summary>
     /// <returns></returns>
-    public static PlayerData LoadGame()
+    public PlayerData LoadGame(string savePath)
     {
         // Check if the file exists
-        if (File.Exists(path))
+        if (File.Exists(savePath))
         {
             // Convert to binary and open file
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(savePath, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
 
@@ -48,16 +49,18 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogError("Save game not found in the " + path);
+            Debug.LogError($"Save game not found in the {savePath}");
             return null;
         }
     }
 
-    public static void SaveData(GameConfig gameConfig)
+
+    public void SaveConfig(GameConfig gameConfig)
     {
+      //TODO: put in try catches
         // Convert to binary and create a file
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(path, FileMode.Create);
+        FileStream stream = new FileStream(configPath, FileMode.Create);
 
         //GameConfig data = new GameConfig(gameConfig);
 
@@ -66,14 +69,14 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static GameConfig LoadData()
+    public GameConfig LoadConfig()
     {
         // Check if the file exists
-        if (File.Exists(path))
+        if (File.Exists(configPath))
         {
             // Convert to binary and open file
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(configPath, FileMode.Open);
 
             GameConfig data = formatter.Deserialize(stream) as GameConfig;
 
@@ -83,8 +86,22 @@ public static class SaveSystem
         }
         else
         {
-            Debug.LogError("Save game files not found in the " + path);
+         try
+         {
+            FileStream stream = new FileStream(configPath, FileMode.Create);
+            BinaryFormatter formatter = new BinaryFormatter();
+
+            GameConfig gameConfig = new GameConfig();
+            formatter.Serialize(stream, gameConfig);
+            stream.Close();
+
+            return gameConfig;
+         }
+         catch (Exception)
+         {
+            Debug.LogError("Failed to create new game config!");
             return null;
+         }
         }
     }
 
