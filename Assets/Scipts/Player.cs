@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int level = 1; // Current level of the game
+
+    public DateTime time { get; internal set; }
 
     public void SaveGame()
     {
