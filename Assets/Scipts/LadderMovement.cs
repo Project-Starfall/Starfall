@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LadderMovement : MonoBehaviour
 {
-    public float LadderMoveSpeed = 6; // speed of accending or descending ladders
-    private float vertical;
+    public  float LadderMoveSpeed = 6; // speed of accending or descending ladders
+    private float vertical;            // determins if player is going up or down
 
     // Audio members
     public AudioSource ladderSound;
@@ -15,7 +15,8 @@ public class LadderMovement : MonoBehaviour
     {
         // have a chance to play ladder sound when climbing a ladder
         vertical = Input.GetAxisRaw("Vertical");
-        if (other.tag == "Player" && Random.Range(0, 12) == 0 && vertical != 0 && !other.IsTouchingLayers(LayerMask.GetMask("Ground/Platform")))
+        ladderSound = GetComponent<AudioSource>();
+        if (other.tag == "Player" && Random.Range(0, 12) == 0 && vertical != 0 && !other.IsTouchingLayers(LayerMask.GetMask("Ground/Platform")) && !ladderSound.isPlaying)
             FindObjectOfType<audioManager>().play("ladderSound");
 
         // ladder climbing capabilities when player is touching a ladder

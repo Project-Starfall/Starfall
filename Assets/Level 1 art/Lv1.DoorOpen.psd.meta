@@ -125,7 +125,7 @@ TextureImporter:
         width: 263
         height: 465
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 3, y: 0, z: 1, w: 0}
       outline: []
       physicsShape: []
@@ -133,6 +133,27 @@ TextureImporter:
       bones: []
       spriteID: 4a308a8278f6a1e4a8d1a7a4b37798ec
       internalID: -1116676574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Lv1.abyss
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 69
+        width: 230
+        height: 269
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8c122d416161954d9a7a4806e94c76e
+      internalID: -697221783
       vertices: []
       indices: 
       edges: []
@@ -148,6 +169,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv1.abyss: -697221783
       Lv1.DoorOpen_0: -1116676574
   spritePackingTag: 
   pSDRemoveMatte: 0
