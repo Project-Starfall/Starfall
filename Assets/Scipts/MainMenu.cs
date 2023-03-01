@@ -12,7 +12,8 @@ public class MainMenu : MonoBehaviour
    public void Start()
    {
       gameConfig = saveSystem.LoadConfig();
-      // for (#save)
+        // for (#save)
+      foreach (Save saveIndex in );
       //  button ()
       // button.name = save[]name
       //
@@ -20,13 +21,27 @@ public class MainMenu : MonoBehaviour
 
    public void PlayGame ()
     {
-      // If no save exists create one 
-      // if (config # saves == 0)
-      //    gameConfig.save[#saves] = newSave()
+       if (saveSystem.LoadGame(File.Exits(filePath)))
+       {
+           SaveSystem saveSystem = new Save;
+       }
 
-      // load save
-      // save[#saves - 1]
-      // gameconfig.currentPath = save[#save - 1].path;
+      // If no save exists create one 
+      if (gameConfig.saveIndex == 0)
+        {
+            gameConfig.save[Index] = new save();
+        }
+        // if (config # saves == 0)
+        //    gameConfig.save[#saves] = newSave()
+
+        // load save
+        SaveSystem.loadGame(this);
+        // save[#saves - 1]
+
+
+        // gameconfig.currentPath = save[#save - 1].path;
+        gameConfig.currentPath = Save[saveIndex - 1].configPath;
+        
         // This function starts the game
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

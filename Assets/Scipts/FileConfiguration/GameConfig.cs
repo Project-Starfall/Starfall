@@ -9,12 +9,17 @@ using UnityEngine;
 [System.Serializable]
 public class GameConfig
 {
-   private Save[] saves {get; set;}
-   private int saveIndex { get; set; } = 0;
+   private Save[] saves           { get; set;}
+
+   private int saveIndex          { get; set; } = 0;
+
    private string currentSavePath { get; set; } = string.Empty;
-   private int masterVolume { get; set; } = 100;
-   private int musicVolume { get; set; } = 100;
-   private int sfxVolume { get; set; } = 100;
+
+   private int masterVolume       { get; set; } = 100;
+
+   private int musicVolume        { get; set; } = 100;
+
+   private int sfxVolume          { get; set; } = 100;
 
    public GameConfig() {
       saves = new Save[3];
@@ -22,11 +27,25 @@ public class GameConfig
 
    public bool deleteSave(int index)
    {
-      // savesystem.removefile(path)
-      // remove index from array
-      // sort the array
-      // return if successful 
-      return true;
+        // saveSystem.removefile(path)
+        // remove index from array
+        // sort the array
+        // return if successful 
+
+      string configPath = Application.persistentDataPath + "/game.config";
+       
+      if(File.Exists(configPath))
+      {
+          File.Delete(configPath);
+          saves.Sort(saveIndex);
+
+          return true;
+      }
+      else
+      {
+          Debug.LogError($"Failed to Delete save file: {configPath}");
+          return false;
+      }
    }
 
    public Save newSave()
@@ -34,9 +53,9 @@ public class GameConfig
       SaveSystem saveSystem= new SaveSystem();
       saveIndex++;
       string name = $"save{saveIndex}";
-      //  path = "{persistantpath}\saves\save{name}.starfall"
+      // path = "{persistantpath}\saves\save{name}.starfall"
       // new save(path, name);
-      // savesystem.saveGame(new path, save)
+      // savesystem.saveGame(new path, save);
       
       // add to array
       // 

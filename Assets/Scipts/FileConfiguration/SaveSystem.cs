@@ -49,24 +49,47 @@ public class SaveSystem
         }
         else
         {
-            Debug.LogError($"Save game not found in the {savePath}");
-            return null;
+            try
+            {
+                // Convert to binary and open file
+                BinaryFormatter formatter = new BinaryFormatter();
+                FileStream stream = new FileStream(savePath, FileMode.Open);
+
+                PlayerData data = formatter.Deserialize(stream) as PlayerData;
+
+                stream.Close(); // close the stream
+
+                return data;
+            }
+
+            catch (Exception)
+            {
+                Debug.LogError($"Save game not found in the {savePath}");
+                return null;
+            }
         }
     }
 
 
     public void SaveConfig(GameConfig gameConfig)
     {
-      //TODO: put in try catches
-        // Convert to binary and create a file
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(configPath, FileMode.Create);
+        try
+        {
+            // Convert to binary and create a file
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(configPath, FileMode.Create);
 
-        //GameConfig data = new GameConfig(gameConfig);
+            //GameConfig data = new GameConfig(gameConfig);
 
-        // Close the file
-        formatter.Serialize(stream, gameConfig);
-        stream.Close();
+            // Close the file
+            formatter.Serialize(stream, gameConfig);
+            stream.Close();
+        }
+        catch (Exception)
+        {
+            Debug.LogError("Failed to save new game config!");
+        }
+        
     }
 
     public GameConfig LoadConfig()
@@ -105,4 +128,17 @@ public class SaveSystem
         }
     }
 
+    public bool removeFile(string savePath)
+    {
+        if(File.Exists(savePath))
+        {
+            File.Delete(savePath);
+            return true;
+        }
+        else
+        {
+            Debug.LogError($"File not found: {savePath}");
+            return false;
+        }
+    }
 }
