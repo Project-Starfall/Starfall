@@ -41,7 +41,8 @@ public class PlayerMovement : MonoBehaviour {
     bool isToArc = false; // Is the player to the arc of the grapple?
     float step; // Time parameter for initial grapple movement
     float t; // Time parameter for the grapple curve
-    [SerializeField] private float grappleSpeed = 0.5f;
+    [SerializeField] private float grappleStartSpeed = 15.0f;
+    [SerializeField] private float grappleEndSpeed = 4.0f;
     private (Transform, Transform, Transform, Transform) grapplePoints;
 
     private void Start()
@@ -108,7 +109,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (!isToArc)
             {
-                step = grappleSpeed * Time.deltaTime;
+                step = grappleStartSpeed * Time.deltaTime;
                 transform.position = Vector2.MoveTowards(transform.position, grapplePoints.Item1.position, step);
                 if (transform.position == (Vector3)grapplePoints.Item1.position)
                 {
@@ -118,7 +119,7 @@ public class PlayerMovement : MonoBehaviour {
             }
             if (isToArc)
             {
-                t += Time.deltaTime * grappleSpeed;
+                t += Time.deltaTime * grappleEndSpeed;
                 transform.position = Mathf.Pow(1 - t, 3) * grapplePoints.Item1.position +
                     3 * Mathf.Pow(1 - t, 2) * t * grapplePoints.Item2.position +
                     3 * (1 - t) * Mathf.Pow(t, 2) * grapplePoints.Item3.position +
