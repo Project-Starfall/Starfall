@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5434546167429638427}
   - component: {fileID: 1145111959832517855}
   - component: {fileID: 4157605189376078776}
-  m_Layer: 0
+  m_Layer: 19
   m_Name: Lv1.CatwalkOpening
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1036971331
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -941058146, guid: 200bc4df4f4495d47a4ec5f1e129dbd6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
