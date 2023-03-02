@@ -337,7 +337,7 @@ MonoBehaviour:
   m_Loop: 1
   m_bufferingTime: 0.1
   m_ClipProperties:
-    volume: 1
+    volume: 0.5
 --- !u!114 &-494830737551705858
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -364,7 +364,7 @@ MonoBehaviour:
     m_ClipIn: 0
     m_Asset: {fileID: -2702375459900377682}
     m_Duration: 3
-    m_TimeScale: 1
+    m_TimeScale: 0.5500000000000002
     m_ParentTrack: {fileID: -494830737551705858}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
