@@ -1,0 +1,96 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Level0Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 227429b2f0ebfb04782d063692121fd1, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: a9a151418bff6ca4597cca9f17490399, type: 3}
+  - {fileID: 21300000, guid: ced8a653ab181634ebed97f92b028cac, type: 3}
+  - {fileID: 21300000, guid: 26bb7ff51f6102c45bb25b1e51cad1ae, type: 3}
+  - {fileID: 2051686483, guid: 32aa9816e0f7cf34a8da7f2a10a8bd9d, type: 3}
+  - {fileID: 138471416, guid: 32aa9816e0f7cf34a8da7f2a10a8bd9d, type: 3}
+  - {fileID: 67187155, guid: 32aa9816e0f7cf34a8da7f2a10a8bd9d, type: 3}
+  - {fileID: -1091494991, guid: 32aa9816e0f7cf34a8da7f2a10a8bd9d, type: 3}
+  - {fileID: -2413806693520163455, guid: 86aab3260ffaef249a0e5a92d2ab3157, type: 3}
+  - {fileID: 21300000, guid: 447e7a27cc92f7944a6ebb647472ba68, type: 3}
+  - {fileID: -971164397, guid: 65b1af47d7b6950459baf2359bf4863a, type: 3}
+  - {fileID: 111308376, guid: 65b1af47d7b6950459baf2359bf4863a, type: 3}
+  - {fileID: 21300000, guid: a328c4c7ddfe9f14ba7f6c44922d8898, type: 3}
+  - {fileID: 21300000, guid: 3c8ef3789023b2c4abf53a5283baca11, type: 3}
+  - {fileID: 21300000, guid: 32bf7859cc67da640b8c5c1473d39389, type: 3}
+  - {fileID: 21300000, guid: e8aa6b6b1edfff6418fcb4de93008d02, type: 3}
+  - {fileID: 21300000, guid: c6ab5ddb54b3a4b4c90518416a1e8e1a, type: 3}
+  - {fileID: 21300000, guid: da510e0d4087fe542b277b0864a26b21, type: 3}
+  - {fileID: -424887247, guid: 4c9705adb44bddd4ea41c9995b77b0b4, type: 3}
+  - {fileID: -280768328, guid: 4c9705adb44bddd4ea41c9995b77b0b4, type: 3}
+  - {fileID: 1941324893, guid: 4c9705adb44bddd4ea41c9995b77b0b4, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Lv0.RoadSign
+  - Lv0.CmdRock
+  - Lv0.Tree
+  - Lv0.Ground_3
+  - Lv0.Ground_2
+  - Lv0.Ground_1
+  - Lv0.Ground_0
+  - Circle
+  - Lv0.Latern
+  - Lv0.Background_0
+  - Lv0.Background_1
+  - Lv0.DashSign
+  - Lv0.HayStalks
+  - Lv0.Hay
+  - Lv0.NightSky
+  - Lv0.HayStalk1
+  - Lv0.Barn
+  - Lv0.Middleground_0
+  - Lv0.Middleground_1
+  - Lv0.Middleground_2
+  m_RenderDataMap: {}
+  m_Tag: Level0Atlas
+  m_IsVariant: 0
