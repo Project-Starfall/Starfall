@@ -71,7 +71,7 @@ public class SaveSystem
     }
 
 
-    public void SaveConfig(GameConfig gameConfig)
+    public void SaveConfig(GameConfig gameConfig, string configPath)
     {
         try
         {
@@ -92,7 +92,7 @@ public class SaveSystem
         
     }
 
-    public GameConfig LoadConfig()
+    public GameConfig LoadConfig(string configPath)
     {
         // Check if the file exists
         if (File.Exists(configPath))
@@ -128,6 +128,7 @@ public class SaveSystem
         }
     }
 
+    // Remove a save file from the disk
     public bool removeFile(string savePath)
     {
         if(File.Exists(savePath))

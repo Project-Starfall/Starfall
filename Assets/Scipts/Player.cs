@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
 
     public DateTime time { get; internal set; }
 
+    public SaveSystem saveSystem = new SaveSystem();
+
     public void SaveGame()
     {
-        SaveSystem.SaveGame(this); // The save of the player
+        SaveSystem.SaveGame(this, ""); // The save of the player
     }
 
     public void LoadGame()

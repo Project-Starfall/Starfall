@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ using UnityEngine;
 [System.Serializable]
 public class GameConfig
 {
-   private Save[] saves           { get; set;}
+   private List<Save> saves       { get; set; } = new List<Save>();
 
    private int saveIndex          { get; set; } = 0;
 
@@ -21,8 +22,9 @@ public class GameConfig
 
    private int sfxVolume          { get; set; } = 100;
 
-   public GameConfig() {
-      saves = new Save[3];
+   public GameConfig()
+   {
+        Save save = new Save();
    }
 
    public bool deleteSave(int index)
@@ -31,19 +33,22 @@ public class GameConfig
         // remove index from array
         // sort the array
         // return if successful 
+      if (index < 0 || index >= saves.Count)
+      {
+            return false;
+      }
 
       string configPath = Application.persistentDataPath + "/game.config";
        
       if(File.Exists(configPath))
       {
           File.Delete(configPath);
-          saves.Sort(saveIndex);
 
           return true;
       }
       else
       {
-          Debug.LogError($"Failed to Delete save file: {configPath}");
+          Debug.LogWarning($"Failed to Delete save file: {configPath}");
           return false;
       }
    }
