@@ -241,7 +241,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4434191679998288190}
   - component: {fileID: 4896436951565526780}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Grapple_Zone
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
