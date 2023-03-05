@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     private float horizontal; // Player's movement direction
     private bool isFacingRight = true; // Player orientation
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
-    private int starPower = 1; // Star power currently equipped
+    [SerializeField] int starPower = 1; // Star power currently equipped
     [SerializeField] private float speed = 8f; // Player's movement speed
     private bool isActing; // Is the player performing an action?
     private bool disableMovement;
@@ -164,8 +164,8 @@ public class PlayerMovement : MonoBehaviour {
             Interactable interactable;
 
             Debug.Log("Interact");
-            interactable = collider.GetComponentInParent<Interactable>();
-            interactable.run(new Player());
+            interactable = interactCheck.GetComponentInParent<Interactable>();
+            interactable.run(player);
         }
         // Otherwise, use currently equipped star power
         else {
