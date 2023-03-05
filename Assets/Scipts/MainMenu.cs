@@ -12,7 +12,6 @@ public class MainMenu : MonoBehaviour
 
    public void Start()
    {
-      gameConfig = saveSystem.LoadConfig();
         // for (#save)
       //  button ()
       // button.name = save[]name
@@ -26,7 +25,6 @@ public class MainMenu : MonoBehaviour
       //    gameConfig.save[#saves] = newSave()
 
       // load save
-       SaveSystem.loadGame(this);
       // save[#saves - 1]
 
 
