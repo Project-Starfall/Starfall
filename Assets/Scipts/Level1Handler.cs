@@ -8,6 +8,10 @@ using UnityEngine.Playables;
 
 public class Level1Handler : MonoBehaviour
 {
+    // Fading assets destroy
+    [SerializeField] GameObject exterior;
+    [SerializeField] GameObject outside;
+
    // Puzzle Information
    [SerializeField] WirePuzzleScript puzzle1;
    [SerializeField] WirePuzzleScript puzzle2;
@@ -54,7 +58,7 @@ public class Level1Handler : MonoBehaviour
 
     private void Awake()
     {
-        Application.targetFrameRate = 10;
+        Application.targetFrameRate = 60;
     }
 
     // Start is called before the first frame update
@@ -166,6 +170,8 @@ public class Level1Handler : MonoBehaviour
       yield return new WaitForSeconds(6.5f);
       playerRenderer.sortingLayerName = "Player & Platforms";
       dashRenderer.sortingLayerName = "Player & Platforms";
+      Destroy(exterior);
+      Destroy(outside);
       // Enable Player movement
       yield return null;
    }
