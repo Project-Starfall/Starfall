@@ -98,7 +98,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    {
       if (state)
       {
-         pipecanvas.transform.localScale = new Vector2(100,100);
+         pipecanvas.transform.localScale = new Vector2(45,45);
       }
       else
       {

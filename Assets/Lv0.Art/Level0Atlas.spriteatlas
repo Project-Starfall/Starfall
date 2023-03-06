@@ -70,6 +70,7 @@ SpriteAtlas:
   - {fileID: -424887247, guid: 4c9705adb44bddd4ea41c9995b77b0b4, type: 3}
   - {fileID: -280768328, guid: 4c9705adb44bddd4ea41c9995b77b0b4, type: 3}
   - {fileID: 1941324893, guid: 4c9705adb44bddd4ea41c9995b77b0b4, type: 3}
+  - {fileID: 21300000, guid: 86bc13af0605241deae1f22168470234, type: 3}
   m_PackedSpriteNamesToIndex:
   - Lv0.RoadSign
   - Lv0.CmdRock
@@ -91,6 +92,7 @@ SpriteAtlas:
   - Lv0.Middleground_0
   - Lv0.Middleground_1
   - Lv0.Middleground_2
+  - Lv0.NightSky 1
   m_RenderDataMap: {}
   m_Tag: Level0Atlas
   m_IsVariant: 0
