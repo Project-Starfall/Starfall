@@ -52,8 +52,13 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PlayableDirector lightsOut;
    [SerializeField] PlayableDirector openOffice;
 
-   // Start is called before the first frame update
-   void Start()
+    private void Awake()
+    {
+        Application.targetFrameRate = 10;
+    }
+
+    // Start is called before the first frame update
+    void Start()
    {
       // load player save
 

@@ -77,7 +77,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
 
    /*******************************************************************
     * Runs every update to determin if the game is complete
-    ******************************************************************/
+    ******************************************************************//*
    public void FixedUpdate()
    {
       var endPipe = puzzleGrid[end.x - 1, end.y];
@@ -88,7 +88,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
             wirebox.completeCheck(true);
          }
       }
-   }
+   }*/
 
    /*******************************************************************
     * Check if the pipes are powered or not.
@@ -124,7 +124,15 @@ public class PipePuzzleGameHandler : MonoBehaviour
             }
          }
       }
-   }
+        var endPipe = puzzleGrid[end.x - 1, end.y];
+        if (endPipe.getIsPowered())
+        {
+            if (endPipe.getDefinition()[(RIGHT + endPipe.getOrientation()) % 4] == 1)
+            {
+                wirebox.completeCheck(true);
+            }
+        }
+    }
 
    /*******************************************************************
     * Recursivly traces the path of the pipe setting all pipes on 
