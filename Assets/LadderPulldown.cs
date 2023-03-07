@@ -14,10 +14,30 @@ public class LadderPulldown : MonoBehaviour, Interactable
    [SerializeField]
    private Animator ladderAnimator;
 
+   //Pulldown
+   [SerializeField]
+   private Transform pulldownTransform;
+   [SerializeField]
+   private SpriteRenderer pulldownRenderer;
+   [SerializeField]
+   private GameObject fallingHookFab;
+
+   //Falling hook
+   private GameObject fallingHook;
+
+   public void ladderDown()
+   {
+      fallingHook = Instantiate(fallingHookFab);
+      fallingHook.transform.position = pulldownTransform.position;
+      pulldownRenderer.enabled= false;
+   }
+
+
+
    #region interfaceMethods
    public bool run(Player player)
    {
-      //
+      ladderAnimator.SetTrigger("pulldown");
       return true;
    }
 
