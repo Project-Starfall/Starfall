@@ -51,22 +51,5 @@ public class GameConfig
           Debug.LogWarning($"Failed to Delete save file: {configPath}");
           return false;
       }
-   }
-
-   public Save newSave()
-   {
-      SaveSystem saveSystem= new SaveSystem();
-      saveIndex++;
-      string name = $"save{saveIndex}";
-      // path = "{persistantpath}\saves\save{name}.starfall"
-      // new save(path, name);
-      // savesystem.saveGame(new path, save);
-      
-      // add to array
-      // 
-      return new Save();
-   }
-
-
-    
+   }   
 }

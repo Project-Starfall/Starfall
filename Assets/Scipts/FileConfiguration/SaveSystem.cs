@@ -6,20 +6,19 @@ using System;
 /// <summary>
 /// Defines a system for saving/loading player information.
 /// </summary>
-public class SaveSystem
+public static class SaveSystem
 {
-
-    readonly string configPath = Application.persistentDataPath + "/game.config";
+    public static string Path { get; set; } = Application.persistentDataPath + "/SaveGame.config";
 
     /// <summary>
     /// Saves a player's data.
     /// </summary>
     /// <param name="player">Current Player object.</param>
-    public void SaveGame(Player player, string savePath)
+    public static void SaveGame(Player player)
     {
         // Convert to binary and create a file
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(savePath, FileMode.Create);
+        FileStream stream = new FileStream(Path, FileMode.Create);
 
         PlayerData data = new PlayerData(player);
 
@@ -32,14 +31,14 @@ public class SaveSystem
     /// Loads a game from a save file.
     /// </summary>
     /// <returns></returns>
-    public PlayerData LoadGame(string savePath)
+    public static PlayerData LoadGame()
     {
         // Check if the file exists
-        if (File.Exists(savePath))
+        if (File.Exists(Path))
         {
             // Convert to binary and open file
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(savePath, FileMode.Open);
+            FileStream stream = new FileStream(Path, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
 
@@ -49,97 +48,81 @@ public class SaveSystem
         }
         else
         {
-            try
-            {
-                // Convert to binary and open file
-                BinaryFormatter formatter = new BinaryFormatter();
-                FileStream stream = new FileStream(savePath, FileMode.Open);
-
-                PlayerData data = formatter.Deserialize(stream) as PlayerData;
-
-                stream.Close(); // close the stream
-
-                return data;
-            }
-
-            catch (Exception)
-            {
-                Debug.LogError($"Save game not found in the {savePath}");
-                return null;
-            }
-        }
-    }
-
-
-    public void SaveConfig(GameConfig gameConfig, string configPath)
-    {
-        try
-        {
-            // Convert to binary and create a file
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(configPath, FileMode.Create);
-
-            //GameConfig data = new GameConfig(gameConfig);
-
-            // Close the file
-            formatter.Serialize(stream, gameConfig);
-            stream.Close();
-        }
-        catch (Exception)
-        {
-            Debug.LogError("Failed to save new game config!");
-        }
-        
-    }
-
-    public GameConfig LoadConfig(string configPath)
-    {
-        // Check if the file exists
-        if (File.Exists(configPath))
-        {
-            // Convert to binary and open file
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(configPath, FileMode.Open);
-
-            GameConfig data = formatter.Deserialize(stream) as GameConfig;
-
-            stream.Close(); // close the stream
-
-            return data;
-        }
-        else
-        {
-         try
-         {
-            FileStream stream = new FileStream(configPath, FileMode.Create);
-            BinaryFormatter formatter = new BinaryFormatter();
-
-            GameConfig gameConfig = new GameConfig();
-            formatter.Serialize(stream, gameConfig);
-            stream.Close();
-
-            return gameConfig;
-         }
-         catch (Exception)
-         {
-            Debug.LogError("Failed to create new game config!");
+            Debug.LogError("Save game not found in the " + Path);
             return null;
-         }
         }
     }
 
-    // Remove a save file from the disk
-    public bool removeFile(string savePath)
-    {
-        if(File.Exists(savePath))
-        {
-            File.Delete(savePath);
-            return true;
-        }
-        else
-        {
-            Debug.LogError($"File not found: {savePath}");
-            return false;
-        }
-    }
+
+    // public static void SaveConfig(GameConfig gameConfig, string configPath)
+    // {
+    //     try
+    //     {
+    //         // Convert to binary and create a file
+    //         BinaryFormatter formatter = new BinaryFormatter();
+    //         FileStream stream = new FileStream(configPath, FileMode.Create);
+    // 
+    //         //GameConfig data = new GameConfig(gameConfig);
+    // 
+    //         // Close the file
+    //         formatter.Serialize(stream, gameConfig);
+    //         stream.Close();
+    //     }
+    //     catch (Exception)
+    //     {
+    //         Debug.LogError("Failed to save new game config!");
+    //     }
+    //     
+    // }
+    // 
+    // public static GameConfig LoadConfig(string configPath)
+    // {
+    //     // Check if the file exists
+    //     if (File.Exists(configPath))
+    //     {
+    //         // Convert to binary and open file
+    //         BinaryFormatter formatter = new BinaryFormatter();
+    //         FileStream stream = new FileStream(configPath, FileMode.Open);
+    // 
+    //         GameConfig data = formatter.Deserialize(stream) as GameConfig;
+    // 
+    //         stream.Close(); // close the stream
+    // 
+    //         return data;
+    //     }
+    //     else
+    //     {
+    //      try
+    //      {
+    //         FileStream stream = new FileStream(configPath, FileMode.Create);
+    //         BinaryFormatter formatter = new BinaryFormatter();
+    // 
+    //         GameConfig gameConfig = new GameConfig();
+    //         formatter.Serialize(stream, gameConfig);
+    //         stream.Close();
+    // 
+    //         return gameConfig;
+    //      }
+    //      catch (Exception)
+    //      {
+    //         Debug.LogError("Failed to create new game config!");
+    //         return null;
+    //      }
+    //     }
+    // }
+    // 
+    // // Remove a save file from the disk
+    // public static bool removeFile(string savePath)
+    // {
+    //     if(File.Exists(savePath))
+    //     {
+    //         File.Delete(savePath);
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         Debug.LogError($"File not found: {savePath}");
+    //         return false;
+    //     }
+    // }
 }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -9,11 +11,9 @@ public class Player : MonoBehaviour
 
     public DateTime time { get; internal set; }
 
-    public SaveSystem saveSystem = new SaveSystem();
-
     public void SaveGame()
     {
-        SaveSystem.SaveGame(this, ""); // The save of the player
+        SaveSystem.SaveGame(this); // The save of the player
     }
 
     public void LoadGame()
@@ -30,5 +30,7 @@ public class Player : MonoBehaviour
         position.y = data.position[1];
         position.z = data.position[2];
         transform.position = position;
+
+        
     }
 }
