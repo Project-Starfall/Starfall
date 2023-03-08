@@ -171,18 +171,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 2.7079327, y: 2.4454958}
-      - {x: 0.26390266, y: 3.3203914}
-      - {x: -2.1696796, y: 2.7434282}
-      - {x: -3.1895683, y: 2.9874856}
-      - {x: -4.0227013, y: -1.9870813}
-      - {x: -1.579963, y: -5.103743}
-      - {x: -2.4357712, y: -7.171652}
-      - {x: -1.4346573, y: -10.242222}
-      - {x: 2.0562577, y: -10.09207}
-      - {x: 2.1186924, y: -5.368813}
-      - {x: 4.075205, y: -3.8327782}
-      - {x: 4.605424, y: -1.3170071}
+    - - {x: -1.7, y: 5}
+      - {x: -1.7, y: -10}
+      - {x: -0.7, y: -10.6}
+      - {x: 0.9, y: -10.6}
+      - {x: 2, y: -10}
+      - {x: 2, y: 5}
 --- !u!114 &6824588430596058833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   jumpStrength: 11
+  starPower: 1
   speed: 8
   groundCheck: {fileID: 747899491}
   groundLayer:
@@ -206,12 +201,17 @@ MonoBehaviour:
   interactLayer:
     serializedVersion: 2
     m_Bits: 262144
+  grappleableLayer:
+    serializedVersion: 2
+    m_Bits: 0
   rb: {fileID: 1571940032822836572}
   dashRate: 0.5
   dashSpeed: 20
   dashTime: 0.2
   dashRender: {fileID: 0}
   walkingSound: {fileID: 4982922287143141717}
+  grappleStartSpeed: 15
+  grappleEndSpeed: 4
 --- !u!114 &5826138619121241355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,7 +480,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8669906170934811751}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0034885968, w: 0.9999939}
+  m_LocalRotation: {x: -0, y: -0, z: -0.64963067, w: 0.76025}
   m_LocalPosition: {x: -0.051, y: -0.057, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
@@ -503,9 +503,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.5
+  m_FalloffIntensity: 0.62
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.9
+  m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 31df84246f69ef02194deab56d6f536ddb23fb0a
@@ -555,8 +555,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 0.18873021
-  m_PointLightOuterRadius: 2.7976916
+  m_PointLightInnerRadius: 1.5136629
+  m_PointLightOuterRadius: 6.4761944
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
