@@ -8,6 +8,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    [SerializeField] GameObject pipecanvas; // Pipegame UI
    [SerializeField] Level1Handler handler; // Level 1 handler
    [SerializeField] PipePuzzleGameHandler pipegame; // Pipegame handler
+    [SerializeField] PlayerMovement playerMovement;
    [SerializeField] int puzzleNumber; // The number of the attached puzzle
    [SerializeField] bool completed; // If the puzzle is completed
 
@@ -67,6 +68,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             {
                case 1:
                   player.transform.position = new Vector2(-32, 1);
+                  if (player.transform.localScale.x < 0) playerMovement.Flip();
                   pipegame.generateGrid(handler.pipe1seed);
                   pipegame.startGame(this);
                   break;
@@ -85,9 +87,9 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
                default:
                   return false;
             }
-      //disable player movement
-      
-      return true;
+        handler.disablePlayerMovement(true);
+
+        return true;
    }
    #endregion
 
@@ -111,7 +113,6 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
     ******************************************************************/
    public void completeCheck(bool completed)
    {
-      // Enable player movement
       if (!completed) return;
       switch(puzzleNumber)
       {
@@ -128,20 +129,23 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             showPuzzle(false);
             pipegame.generateGrid(0);
             handler.copmletePipe(2);
-            setEnabled(false);
+                handler.disablePlayerMovement(false);
+                setEnabled(false);
             break;
          case 3:
             Debug.Log("Copmleted Puzzle 3");
             showPuzzle(false);
             pipegame.generateGrid(0);
             handler.copmletePipe(3);
-            setEnabled(false);
+                handler.disablePlayerMovement(false);
+                setEnabled(false);
             break;
          case 4:
             Debug.Log("Copmleted Puzzle 4");
             showPuzzle(false);
             handler.copmletePipe(4);
             pipegame.generateGrid(0);
+            handler.disablePlayerMovement(false);
             setEnabled(false);
             break;
       }

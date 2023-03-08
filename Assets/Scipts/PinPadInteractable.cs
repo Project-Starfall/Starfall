@@ -50,6 +50,7 @@ public class PinPadInteractable : MonoBehaviour, Interactable
    public bool run(Player player)
    {
       if (!interactEnabled) return true;
+      levelHandler.disablePlayerMovement(true);
       pinpadCanvas.transform.localScale = new Vector3(70, 70, 1);
       active = true;
       return true;
@@ -69,6 +70,7 @@ public class PinPadInteractable : MonoBehaviour, Interactable
     ******************************************************************/
    public void close()
    {
+      levelHandler.disablePlayerMovement(false);
       pinpadCanvas.transform.localScale = new Vector3(0, 0, 0);
       active = false;
    }

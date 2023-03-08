@@ -1276,6 +1276,7 @@ GameObject:
   m_Component:
   - component: {fileID: 96698974}
   - component: {fileID: 96698975}
+  - component: {fileID: 96698976}
   m_Layer: 0
   m_Name: Level1Handler
   m_TagString: Untagged
@@ -1344,10 +1345,41 @@ MonoBehaviour:
   player: {fileID: 1594167708}
   playerRenderer: {fileID: 1594167715}
   dashRenderer: {fileID: 1767863247}
+  playerMovement: {fileID: 1842615443}
   cameraConfine: {fileID: 1256189123}
   openExterior: {fileID: 1634337418}
   lightsOut: {fileID: 1885680532}
   openOffice: {fileID: 449335073}
+--- !u!114 &96698976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96698973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 772422ce83c63494da20bd1c2e7a88e7, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 96698975}
+          m_TargetAssemblyTypeName: Level1Handler, Assembly-CSharp
+          m_MethodName: disablePlayerMovement
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &97472348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14468,6 +14500,8 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 8520509426104416933, guid: 21cea9e237c095141b6b55c7e6d01616, type: 2}
     value: {fileID: 1965702801}
+  - key: {fileID: 1615223505055859791, guid: 21cea9e237c095141b6b55c7e6d01616, type: 2}
+    value: {fileID: 96698976}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1189106243
@@ -23784,6 +23818,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4819770158264529569, guid: c914aad53edfe4c45a56c345cd5e115b, type: 3}
   m_PrefabInstance: {fileID: 1839313538}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1842615443 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6824588430596058833, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+  m_PrefabInstance: {fileID: 3614831444588630037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b524dc66049d2f648bc27fdeb0be710d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1849859302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3103869621260973998, guid: e6bbc8c209b5ca045a16b1ac118185aa, type: 3}
@@ -25727,7 +25772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.23599
+      value: -45.234543
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25771,7 +25816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.77401
+      value: -10.775455
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y

@@ -99,8 +99,7 @@ public class PinPadHandler : MonoBehaviour
       lights[1].enabled = true;
       // TODO: SOUND: play success noise
       StartCoroutine(delayedClose());
-      handler.openOfficeDoorSequence();
-      
+      pinpad.setEnabled(false);
    }
 
    /*******************************************************************
@@ -109,6 +108,7 @@ public class PinPadHandler : MonoBehaviour
    IEnumerator delayedClose()
    {
       yield return new WaitForSeconds(1);
+      handler.openOfficeDoorSequence();
       pinpad.close();
       yield return null;
    }

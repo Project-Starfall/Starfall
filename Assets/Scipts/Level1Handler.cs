@@ -46,6 +46,8 @@ public class Level1Handler : MonoBehaviour
    SpriteRenderer playerRenderer;
    [SerializeField]
    SpriteRenderer dashRenderer;
+   [SerializeField]
+   PlayerMovement playerMovement;
    int playerSeed;
 
    // Camera
@@ -57,16 +59,16 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PlayableDirector openOffice;
 
     private void Awake()
-    {
+    { 
         Application.targetFrameRate = 60;
     }
 
     // Start is called before the first frame update
     void Start()
    {
-      // load player save
+        // load player save
 
-      //pipecanvas.SetActive(false);
+      playerMovement.disableMovement = true;
       playerSeed = player.seed;
       System.Random random = new System.Random(playerSeed);
 
@@ -148,7 +150,6 @@ public class Level1Handler : MonoBehaviour
    {
       lightsOut.Play();
       for (int i = 0; i < 4; i++) wallNumbers[i].enabled = true;
-
    }
 
    /*******************************************************************
@@ -159,6 +160,7 @@ public class Level1Handler : MonoBehaviour
       pinpadcomp = 1;
       variableColliders[2].enabled = false;
       openOffice.Play();
+      disablePlayerMovement(false);
       return;
    }
 
@@ -167,12 +169,17 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    IEnumerator waitForTimeline()
    {
-      yield return new WaitForSeconds(6.5f);
+      yield return new WaitForSeconds(6f);
       playerRenderer.sortingLayerName = "Player & Platforms";
       dashRenderer.sortingLayerName = "Player & Platforms";
       Destroy(exterior);
       Destroy(outside);
-      // Enable Player movement
+      disablePlayerMovement(false);
       yield return null;
    }
+
+    public void disablePlayerMovement(bool enabled)
+    {
+        playerMovement.disableMovement = enabled;
+    }
 }

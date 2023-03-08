@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] int starPower = 1; // Star power currently equipped
     [SerializeField] private float speed = 8f; // Player's movement speed
     private bool isActing; // Is the player performing an action?
-    private bool disableMovement;
+    public bool disableMovement { get; set; }
     private float gravity;
 
     // Physics members
@@ -165,7 +165,7 @@ public class PlayerMovement : MonoBehaviour {
 
             Debug.Log("Interact");
             interactable = interactCheck.GetComponentInParent<Interactable>();
-            interactable.run(player);
+            if(interactable.isEnabled()) interactable.run(player);
         }
         // Otherwise, use currently equipped star power
         else {
@@ -218,7 +218,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     // Flips the player's sprite horizontally when moving a different direction
-    private void Flip()
+    public void Flip()
     {
         if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
