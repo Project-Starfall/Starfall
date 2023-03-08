@@ -32,12 +32,22 @@ public class LadderPulldown : MonoBehaviour, Interactable
       pulldownRenderer.enabled= false;
    }
 
+   public void OnCollisionEnter(Collision collision)
+   {
+      onEnter();
+   }
+
+   public void OnCollisionExit(Collision collision)
+   {
+      onLeave();
+   }
 
 
    #region interfaceMethods
    public bool run(Player player)
    {
       ladderAnimator.SetTrigger("pulldown");
+      setEnabled(false);
       return true;
    }
 
