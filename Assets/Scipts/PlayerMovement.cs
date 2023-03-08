@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour {
     private float horizontal; // Player's movement direction
     private bool isFacingRight = true; // Player orientation
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
-    [SerializeField] int starPower = 1; // Star power currently equipped
     [SerializeField] private float speed = 8f; // Player's movement speed
     private bool isActing; // Is the player performing an action?
     private bool disableMovement;
@@ -188,37 +187,6 @@ public class PlayerMovement : MonoBehaviour {
                 StartCoroutine(Dash(dashDirection));
             }
         }
-        /*else {
-               switch (starPower) {
-                   case 0: // Dash
-                       if (nextDash < Time.time && canDash == true)
-                       {
-                           canDash = false;
-                           nextDash = Time.time + dashRate;
-                           StartCoroutine(Dash(dashDirection));
-                       }
-                       break;
-                   case 1: // Grapple
-                       Debug.Log("Grapple Check");
-                       // Grapple if grappleable is nearby
-                       if (grappleCheck = NearGrappleable())
-                       {
-                           Grappleable grappleable;
-
-                           Debug.Log("Grappled");
-                           rb.velocity = new Vector2(0f, 0f);
-                           disableMovement = true;
-                           DisableGravity(rb);
-                           grappleable = grappleCheck.GetComponentInParent<Grappleable>();
-                           grapplePoints = grappleable.returnGrapple();
-                           isGrappling = true;
-                       }
-                       break;
-                   default:
-                       Debug.Log("PANIC!!!");
-                       break;
-               }
-           }*/
     }
 
     // Dashes the player forward and play dash sound effect
