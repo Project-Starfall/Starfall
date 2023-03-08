@@ -167,38 +167,58 @@ public class PlayerMovement : MonoBehaviour {
             interactable = interactCheck.GetComponentInParent<Interactable>();
             interactable.run(player);
         }
-        // Otherwise, use currently equipped star power
-        else {
-            switch (starPower) {
-                case 0: // Dash
-                    if (nextDash < Time.time && canDash == true)
-                    {
-                        canDash = false;
-                        nextDash = Time.time + dashRate;
-                        StartCoroutine(Dash(dashDirection));
-                    }
-                    break;
-                case 1: // Grapple
-                    Debug.Log("Grapple Check");
-                    // Grapple if grappleable is nearby
-                    if (grappleCheck = NearGrappleable())
-                    {
-                        Grappleable grappleable;
+        else if (grappleCheck = NearGrappleable())
+        {
+            Grappleable grappleable;
 
-                        Debug.Log("Grappled");
-                        rb.velocity = new Vector2(0f, 0f);
-                        disableMovement = true;
-                        DisableGravity(rb);
-                        grappleable = grappleCheck.GetComponentInParent<Grappleable>();
-                        grapplePoints = grappleable.returnGrapple();
-                        isGrappling = true;
-                    }
-                    break;
-                default:
-                    Debug.Log("PANIC!!!");
-                    break;
+            Debug.Log("Grappled");
+            rb.velocity = new Vector2(0f, 0f);
+            disableMovement = true;
+            DisableGravity(rb);
+            grappleable = grappleCheck.GetComponentInParent<Grappleable>();
+            grapplePoints = grappleable.returnGrapple();
+            isGrappling = true;
+        }
+        else
+        {
+            if (nextDash < Time.time && canDash == true)
+            {
+                canDash = false;
+                nextDash = Time.time + dashRate;
+                StartCoroutine(Dash(dashDirection));
             }
         }
+        /*else {
+               switch (starPower) {
+                   case 0: // Dash
+                       if (nextDash < Time.time && canDash == true)
+                       {
+                           canDash = false;
+                           nextDash = Time.time + dashRate;
+                           StartCoroutine(Dash(dashDirection));
+                       }
+                       break;
+                   case 1: // Grapple
+                       Debug.Log("Grapple Check");
+                       // Grapple if grappleable is nearby
+                       if (grappleCheck = NearGrappleable())
+                       {
+                           Grappleable grappleable;
+
+                           Debug.Log("Grappled");
+                           rb.velocity = new Vector2(0f, 0f);
+                           disableMovement = true;
+                           DisableGravity(rb);
+                           grappleable = grappleCheck.GetComponentInParent<Grappleable>();
+                           grapplePoints = grappleable.returnGrapple();
+                           isGrappling = true;
+                       }
+                       break;
+                   default:
+                       Debug.Log("PANIC!!!");
+                       break;
+               }
+           }*/
     }
 
     // Dashes the player forward and play dash sound effect
