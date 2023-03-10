@@ -145,7 +145,7 @@ public class PlayerMovement : MonoBehaviour {
         // (isDashing will likely be replaced by var "isActing" when more powers are implimented
         if (!isActing)
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
-        
+
         if (horizontal == 0 || IsGrounded() == false)
             walkingSound.enabled = false;
         else

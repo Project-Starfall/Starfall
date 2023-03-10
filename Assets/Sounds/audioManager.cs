@@ -38,7 +38,7 @@ public class audioManager : MonoBehaviour
     // Upon game launch play theme music
     void Start()
     {
-        play("themeMusic");
+        play("menueMusic");
     }
 
     // finds and plays audio clip of specified name

@@ -3502,26 +3502,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: audioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4606873839781091247, guid: fbb9418f4e48b2041a00f5e412b10ba1, type: 3}
-      propertyPath: sounds.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606873839781091247, guid: fbb9418f4e48b2041a00f5e412b10ba1, type: 3}
-      propertyPath: sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    - target: {fileID: 4606873839781091247, guid: fbb9418f4e48b2041a00f5e412b10ba1, type: 3}
-      propertyPath: sounds.Array.data[4].name
-      value: ladderSound
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606873839781091247, guid: fbb9418f4e48b2041a00f5e412b10ba1, type: 3}
-      propertyPath: sounds.Array.data[4].pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4606873839781091247, guid: fbb9418f4e48b2041a00f5e412b10ba1, type: 3}
-      propertyPath: sounds.Array.data[4].volume
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbb9418f4e48b2041a00f5e412b10ba1, type: 3}
 --- !u!1001 &1081797085
