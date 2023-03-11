@@ -16,9 +16,13 @@ public class TutoritalHandler : MonoBehaviour
     void Awake()
     {
         Application.targetFrameRate = 60;
+
+        // fade in levelTutorialMusic background track
+        FindObjectOfType<audioManager>().play("levelTutorialMusic");
+        FindObjectOfType<audioManager>().tutorialMusicFadeIn();
     }
 
-   private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
    {
       // Lock Player Movement
       endTransition.Play();

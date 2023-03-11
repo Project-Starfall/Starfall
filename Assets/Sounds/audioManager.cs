@@ -1,12 +1,18 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class audioManager : MonoBehaviour
 {
     public sound[] sounds;
 
     public static audioManager instance;
+
+    // Control how fast the tracks cross-fade
+    [SerializeField]
+    [Range(1.0f, 10.0f)]
+    private float fadeTime;
 
     // 
     void Awake()
@@ -57,5 +63,38 @@ public class audioManager : MonoBehaviour
         // play audio clip of said name
         s.source.Play();
     }
+
+    // fade menuMusic into tutorialMusic
+    public void tutorialMusicFadeIn()
+    {
+        // start playing tutotial music muted
+        //play("levelTutorialMusic");
+        
+        sound tutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
+
+        // fade from menue music into tutorial music
+        while (tutorialMusic.source.volume < 1.0f)
+        {
+            tutorialMusic.source.volume += 0.01f / fadeTime;
+            StartCoroutine(waiteForSeconds());
+        }
+    }
+
+    public void tutorialMusicFadeOut()
+    {
+        sound tutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
+
+        // fade from menue music into tutorial music
+        while (tutorialMusic.source.volume > 0.0f)
+        {
+            tutorialMusic.source.volume -= (0.01f * Time.deltaTime) / fadeTime;
+        }
+    }
+
+    IEnumerator waiteForSeconds()
+    {
+        yield return new WaitForSeconds(7.0f);
+    }
+    
     // FindObjectOfType<audioManager>().play("dashSound"); example of calling in other scripts
 }
