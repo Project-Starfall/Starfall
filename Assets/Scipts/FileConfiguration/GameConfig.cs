@@ -10,11 +10,11 @@ using UnityEngine;
 [System.Serializable]
 public class GameConfig
 {
-   private List<Save> saves       { get; set; } = new List<Save>();
+   private Save save              { get; set; }
 
    private int saveIndex          { get; set; } = 0;
 
-   private string currentSavePath { get; set; } = string.Empty;
+  // private string currentSavePath { get; set; } = string.Empty;
 
    private int masterVolume       { get; set; } = 100;
 
@@ -27,29 +27,29 @@ public class GameConfig
         Save save = new Save();
    }
 
-   public bool deleteSave(int index)
-   {
-        // saveSystem.removefile(path)
-        // remove index from array
-        // sort the array
-        // return if successful 
-      if (index < 0 || index >= saves.Count)
-      {
-            return false;
-      }
-
-      string configPath = Application.persistentDataPath + "/game.config";
-       
-      if(File.Exists(configPath))
-      {
-          File.Delete(configPath);
-
-          return true;
-      }
-      else
-      {
-          Debug.LogWarning($"Failed to Delete save file: {configPath}");
-          return false;
-      }
-   }   
+   // public bool deleteSave(int index)
+   // {
+   //      // saveSystem.removefile(path)
+   //      // remove index from array
+   //      // sort the array
+   //      // return if successful 
+   //    if (index < 0 || index >= save.Count)
+   //    {
+   //          return false;
+   //    }
+   // 
+   //    string configPath = Application.persistentDataPath + "/game.config";
+   //     
+   //    if(File.Exists(configPath))
+   //    {
+   //        File.Delete(configPath);
+   // 
+   //        return true;
+   //    }
+   //    else
+   //    {
+   //        Debug.LogWarning($"Failed to Delete save file: {configPath}");
+   //        return false;
+   //    }
+   // }   
 }

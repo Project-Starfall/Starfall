@@ -11,6 +11,9 @@ public class Player : MonoBehaviour
 
     public DateTime time { get; internal set; }
 
+    public bool hasMap { get; set; }
+    public bool hasGrapple { get; set; }
+
     public void SaveGame()
     {
         SaveSystem.SaveGame(this); // The save of the player
@@ -31,6 +34,8 @@ public class Player : MonoBehaviour
         position.z = data.position[2];
         transform.position = position;
 
-        
+        hasMap = data.hasMap;
+
+        hasGrapple = data.hasGrapple;
     }
 }
