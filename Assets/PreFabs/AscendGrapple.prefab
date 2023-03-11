@@ -66,6 +66,7 @@ Transform:
   - {fileID: 5465228664866518039}
   - {fileID: 5965691020304597835}
   - {fileID: 3489507517724668170}
+  - {fileID: 4318468087312945083}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -107,8 +108,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1634286783
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 49b09ffa26360da42bc9eeb1e10413ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -138,6 +139,7 @@ MonoBehaviour:
   - {fileID: 5465228664866518039}
   - {fileID: 5965691020304597835}
   - {fileID: 3489507517724668170}
+  - {fileID: 4318468087312945083}
 --- !u!1 &3534941946444904055
 GameObject:
   m_ObjectHideFlags: 0
@@ -168,6 +170,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6080376506578603661}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5277002080203523016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4318468087312945083}
+  m_Layer: 0
+  m_Name: GrappleRope_Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4318468087312945083
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5277002080203523016}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6080376506578603661}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5287089740784740671
 GameObject:

@@ -40,6 +40,7 @@ public class GrappleRope : MonoBehaviour
       m_lineRenderer.positionCount = percision;
       waveSize = StartWaveSize;
       strightLine = false;
+      canGrapple = false;
 
       LinePointsToFirePoint();
 
@@ -70,7 +71,7 @@ public class GrappleRope : MonoBehaviour
    {
       if (!strightLine)
       {
-         if (m_lineRenderer.GetPosition(percision - 1).x == grapplePoint.position.x)
+         if (m_lineRenderer.GetPosition(percision - 1).x + 0.01 >= grapplePoint.position.x)
          {
             strightLine = true;
          }
@@ -84,6 +85,7 @@ public class GrappleRope : MonoBehaviour
          if (!isGrappling)
          {
             isGrappling = true;
+            canGrapple = true;
          }
          if (waveSize > 0)
          {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class LadderPulldown : MonoBehaviour, Interactable
 {
    // Interface methods
-   private bool interactEnabled = true;
+   public bool interactEnabled = true;
    private readonly TYPE interactableType = TYPE.Powerup;
 
    //Ladder
@@ -21,12 +21,15 @@ public class LadderPulldown : MonoBehaviour, Interactable
    private SpriteRenderer pulldownRenderer;
    [SerializeField]
    private GameObject fallingHookFab;
+   [SerializeField]
+   private GrappleRope grappleRope;
 
    //Falling hook
    private GameObject fallingHook;
 
    public void ladderDown()
    {
+      grappleRope.enabled = false;
       fallingHook = Instantiate(fallingHookFab);
       fallingHook.transform.position = pulldownTransform.position;
       pulldownRenderer.enabled= false;
@@ -46,6 +49,9 @@ public class LadderPulldown : MonoBehaviour, Interactable
    #region interfaceMethods
    public bool run(Player player)
    {
+      grappleRope.grapplePoint = pulldownTransform;
+      grappleRope.grappleDistanceVector = (Vector2) (grappleRope.grapplePoint.position - grappleRope.firePoint.position);
+      grappleRope.enabled = true;
       ladderAnimator.SetTrigger("pulldown");
       setEnabled(false);
       return true;
