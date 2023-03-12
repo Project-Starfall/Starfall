@@ -40,15 +40,15 @@ public class MainMenu : MonoBehaviour
      * create a new save | newSave()
      */
 
-    public void LoadGame()
+    public void LoadGameMenu()
     {
         // This function Loads a saved game
-        if(SaveSystem.saveExist())
+        if(saveExist())
         {
             LoadButtonUI.SetActive(true);
-            PlayerData playerdata = SaveSystem.LoadGame();
+            LoadGame();
             // SaveSystem.LoadGame(SceneManager.GetActiveScene().path);
-            SceneManager.LoadScene("", LoadSceneMode.Single);
+            SceneManager.LoadScene(1);
         }
         else
         {
