@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Lv2.Building_3_0
+      name: Lv2.Building_3
       rect:
         serializedVersion: 2
-        x: 324
-        y: 176
-        width: 1531
-        height: 1500
+        x: 314
+        y: 160
+        width: 1539
+        height: 1520
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,6 +121,27 @@ TextureImporter:
       bones: []
       spriteID: 8ebc4b2c410d43546b08dbb9dbfa0ac6
       internalID: 433568367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wall
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 160
+        width: 1566
+        height: 365
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6be501fbafc9474793b02e7105ee6a2
+      internalID: -415875657
       vertices: []
       indices: 
       edges: []
@@ -136,7 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Lv2.Building_3_0: 433568367
+      Lv2.Building_3: 433568367
+      Wall: -415875657
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

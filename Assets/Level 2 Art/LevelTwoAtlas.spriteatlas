@@ -35,11 +35,11 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
-      enableTightPacking: 1
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
@@ -53,18 +53,21 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a129a6213fc524d3286d9181cbb74609, type: 3}
   - {fileID: -1249871802, guid: c690b751482d843e3ad61803c5894478, type: 3}
   - {fileID: 1174097716, guid: a3b532320137c452a910f19a2338f1b8, type: 3}
+  - {fileID: 21300000, guid: 2fa676a2b82278f4db3370c10b43a9bd, type: 3}
   - {fileID: -761871037, guid: 2ab7c0f2767ae4d07af7ce4ffcdc864c, type: 3}
   - {fileID: 21300000, guid: 09f9b1e3211c24ca188e9d707e66a828, type: 3}
   - {fileID: 21300000, guid: b5ea4bf39ab2349da9f35f4011a14812, type: 3}
   - {fileID: 21300000, guid: ee19a4076ebd9445a8cce90ba0db5c7c, type: 3}
   - {fileID: 21300000, guid: 8d759f477f37a471081e2ad3e4e0b98e, type: 3}
   - {fileID: -208779196, guid: 781b1bc7219c84142b59afb02d1933c6, type: 3}
+  - {fileID: 21300000, guid: 8e23d1e7f49a108429b030b292ce1328, type: 3}
   - {fileID: 1859470882, guid: af8500f75d0244afc91c9274a5303145, type: 3}
   - {fileID: 1711853323, guid: af8500f75d0244afc91c9274a5303145, type: 3}
   - {fileID: 1511105319, guid: a379b5186af8e41b28feda14da3b1fa2, type: 3}
   - {fileID: 461116356, guid: 1fff2d792946045f4a677ae694ac06dc, type: 3}
   - {fileID: 21300000, guid: 3642c70a1fbaf4c3381458257c0dfa8c, type: 3}
   - {fileID: 21300000, guid: 082469caa76f743df9f3dfc7d49f4a38, type: 3}
+  - {fileID: -415875657, guid: 7fb5c0eb8fffa47a58fce0792c0b2974, type: 3}
   - {fileID: 433568367, guid: 7fb5c0eb8fffa47a58fce0792c0b2974, type: 3}
   - {fileID: 21300000, guid: 7ebdea6c0c8a1470983ff78b8c06d91b, type: 3}
   - {fileID: 1723234146, guid: 99f69cbc71f9a45169a454a88b8f3913, type: 3}
@@ -80,19 +83,22 @@ SpriteAtlas:
   - Lv2.Antenna
   - Lv2.Building_1_0
   - Lv2.Sidewalk_0
+  - Lv2.lamp
   - Lv2.CardboardBox_0
   - Lv2.Flag
   - Lv2.Sign_1
   - Lv2.Dumpster
   - Lv2.Ground
   - Lv2.Building_4_0
+  - CitySilhouette
   - Lv2.HotelSign_1
   - Lv2.HotelSign_0
   - Lv2.Sign_5_0
   - Lv2.Building_5_0
   - Lv2.Entrance
   - Lv2.FireHydrant
-  - Lv2.Building_3_0
+  - Wall
+  - Lv2.Building_3
   - Lv2.awning
   - Lv2.Sign_3_1
   - Lv2.Building_2_0
