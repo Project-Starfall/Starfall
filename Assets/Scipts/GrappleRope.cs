@@ -5,7 +5,11 @@ using UnityEngine;
 public class GrappleRope : MonoBehaviour
 {
    [Header("General Refernces:")]
- //  public Tutorial_GrapplingGun grapplingGun;
+   // Animation members
+   [SerializeField]
+   private Animator anim; // Reference to animator component
+   
+   //  public Tutorial_GrapplingGun grapplingGun;
    public LineRenderer m_lineRenderer;
 
    [Header("Points")]
@@ -36,6 +40,10 @@ public class GrappleRope : MonoBehaviour
 
    private void OnEnable()
    {
+
+      // Performs grapple animation
+      anim.SetBool("isGrappling", true);
+	
       moveTime = 0;
       m_lineRenderer.positionCount = percision;
       waveSize = StartWaveSize;
@@ -52,6 +60,7 @@ public class GrappleRope : MonoBehaviour
    {
       m_lineRenderer.enabled = false;
       isGrappling = false;
+	  anim.SetBool("isGrappling", false);
    }
 
    private void LinePointsToFirePoint()

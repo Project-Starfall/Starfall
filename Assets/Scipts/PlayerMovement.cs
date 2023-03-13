@@ -107,13 +107,6 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("isRunning", true);
         }
 
-	    // Performs grapple animation
-	    if (isGrappling == true) {
-	        anim.SetBool("isGrappling", true);
-	    } else {
-	        anim.SetBool("isGrappling", false);
-	    }
-		
         // Performs the grapple
         if (isGrappling == true)
         {
