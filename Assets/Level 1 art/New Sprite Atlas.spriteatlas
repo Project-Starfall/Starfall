@@ -39,7 +39,7 @@ SpriteAtlas:
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
-      enableTightPacking: 1
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
@@ -90,7 +90,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d1c6bf6ac95d8b64682498a9f7704ed8, type: 3}
   - {fileID: 21300000, guid: 31e1e19a59573f245a1ab41164ca7677, type: 3}
   - {fileID: 21300000, guid: 68bd2aea68efb4ad2b015b868be6d715, type: 3}
-  - {fileID: 21300000, guid: 49b09ffa26360da42bc9eeb1e10413ac, type: 3}
   - {fileID: 21300000, guid: 2d57a81b230bec448afdab6f4d30360e, type: 3}
   - {fileID: 21300000, guid: ff3defdbc4bf5ab4a96d8c86d4a22599, type: 3}
   - {fileID: 21300000, guid: e4b59bfb3c1253e419696e819fa96a39, type: 3}
@@ -140,7 +139,6 @@ SpriteAtlas:
   - Lv1.Floor
   - Lv1.CeilingLeftCorner
   - Lv1.Chair 1
-  - Grapple point
   - Wire puzzle pieces
   - Lv1.WirePanel_PNG
   - Lv1.Catwalk

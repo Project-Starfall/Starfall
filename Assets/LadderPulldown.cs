@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LadderPulldown : MonoBehaviour, Interactable
@@ -24,6 +25,13 @@ public class LadderPulldown : MonoBehaviour, Interactable
    [SerializeField]
    private GrappleRope grappleRope;
 
+   //Fade
+   [SerializeField]
+   private Material glowMaterial;
+   private bool isFade = false;
+   private bool fadeIn = false;
+   private float fade = 1.0f;
+
    //Falling hook
    private GameObject fallingHook;
 
@@ -35,13 +43,40 @@ public class LadderPulldown : MonoBehaviour, Interactable
       pulldownRenderer.enabled= false;
    }
 
-   public void OnCollisionEnter(Collision collision)
+   public void Update()
    {
+      if (isFade)
+      {
+         if (!fadeIn) {
+            fade -= Time.deltaTime;
+            if (fade <= 0f)
+            {
+               fade = 0f;
+               isFade = false;
+            }
+         } 
+         else
+         {
+            fade += Time.deltaTime;
+            if(fade >= 1f)
+            {
+               fade = 1f;
+               isFade = false;
+            }
+         }
+         glowMaterial.SetFloat("_Fade", fade);
+      }
+   }
+
+   public void OnTriggerEnter2D(Collider2D collision)
+   {
+      Debug.Log("Entered Collider");
       onEnter();
    }
 
-   public void OnCollisionExit(Collision collision)
+   public void OnTriggerExit2D(Collider2D collision)
    {
+      Debug.Log("Exited Collider");
       onLeave();
    }
 
@@ -69,12 +104,16 @@ public class LadderPulldown : MonoBehaviour, Interactable
 
    public void onEnter()
    {
-      throw new System.NotImplementedException();
+      fade += 0.01f;
+      isFade = true;
+      fadeIn = true;
    }
 
    public void onLeave()
    {
-      throw new System.NotImplementedException();
+      fade -= 0.01f;
+      isFade = true;
+      fadeIn = false;
    }
 
    public void setEnabled(bool enabled)

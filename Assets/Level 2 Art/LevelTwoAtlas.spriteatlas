@@ -53,7 +53,8 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a129a6213fc524d3286d9181cbb74609, type: 3}
   - {fileID: -1249871802, guid: c690b751482d843e3ad61803c5894478, type: 3}
   - {fileID: 1174097716, guid: a3b532320137c452a910f19a2338f1b8, type: 3}
-  - {fileID: 21300000, guid: 2fa676a2b82278f4db3370c10b43a9bd, type: 3}
+  - {fileID: -1242370303, guid: 2fa676a2b82278f4db3370c10b43a9bd, type: 3}
+  - {fileID: 261235140, guid: 2fa676a2b82278f4db3370c10b43a9bd, type: 3}
   - {fileID: -761871037, guid: 2ab7c0f2767ae4d07af7ce4ffcdc864c, type: 3}
   - {fileID: 21300000, guid: 09f9b1e3211c24ca188e9d707e66a828, type: 3}
   - {fileID: 21300000, guid: b5ea4bf39ab2349da9f35f4011a14812, type: 3}
@@ -83,6 +84,7 @@ SpriteAtlas:
   - Lv2.Antenna
   - Lv2.Building_1_0
   - Lv2.Sidewalk_0
+  - Lv2.spot_lamp
   - Lv2.lamp
   - Lv2.CardboardBox_0
   - Lv2.Flag

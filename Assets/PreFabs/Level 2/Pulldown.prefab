@@ -74,9 +74,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f824431a33814f4ab5b8a43d39cef45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interactEnabled: 1
   ladder: {fileID: 6985966520798646326}
   ladderAnimator: {fileID: 2230714518893652853}
-  pulldownRenderer: {fileID: 0}
+  pulldownTransform: {fileID: 2230714518893652850}
+  pulldownRenderer: {fileID: 2230714518893652852}
+  fallingHookFab: {fileID: 3938266971865439928, guid: 655006588d00331438206b758c32aa96, type: 3}
+  grappleRope: {fileID: 0}
+  glowMaterial: {fileID: 2100000, guid: e8e9926ef1976f9409ef0a94b097e59b, type: 2}
 --- !u!212 &2230714518893652852
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97,7 +102,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: e8e9926ef1976f9409ef0a94b097e59b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
