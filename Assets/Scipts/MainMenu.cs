@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using static SaveSystem;
 
 public class MainMenu : MonoBehaviour
@@ -10,12 +12,36 @@ public class MainMenu : MonoBehaviour
     // This is the pause menu
     public GameObject LoadButtonUI;
 
+    // Load button fields
+    [SerializeField]
+    Button loadButton;
+    [SerializeField]
+    Image loadBkgrdImage;
+    [SerializeField]
+    TMP_Text loadButtonTxt;
+
+
     // Start
+    public void Start()
+    {
+        if (!saveExist())
+        {
+            loadButton.enabled = false;
+            loadBkgrdImage.enabled = false;
+            loadButtonTxt.faceColor = new Color(156,156,156);
+        }
+        else
+        {
+            loadButton.enabled = true;
+            loadBkgrdImage.enabled = true;
+            loadButtonTxt.faceColor = Color.white;
+        }
+    }
     /* is there a save -> set load button active
      * if not -> disable load button
      * 
      */
-    
+
     // newgame(){
     // ss.loadgame()
     // playGame()}
@@ -23,7 +49,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame ()
    {        
       // This function starts the game
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
    }
 
     public void Quit ()
