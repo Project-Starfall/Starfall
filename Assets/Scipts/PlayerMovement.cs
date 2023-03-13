@@ -107,6 +107,13 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("isRunning", true);
         }
 
+	    // Performs grapple animation
+	    if (isGrappling == true) {
+	        anim.SetBool("isGrappling", true);
+	    } else {
+	        anim.SetBool("isGrappling", false);
+	    }
+		
         // Performs the grapple
         if (isGrappling == true)
         {
@@ -179,7 +186,6 @@ public class PlayerMovement : MonoBehaviour {
         else if (grappleCheck = NearGrappleable())
         {
             Grappleable grappleable;
-
             Debug.Log("Grappled");
             rb.velocity = new Vector2(0f, 0f);
             disableMovement = true;
@@ -214,7 +220,7 @@ public class PlayerMovement : MonoBehaviour {
         anim.enabled = true;
         isActing = false;
     }
-
+	
     // Flips the player's sprite horizontally when moving a different direction
     private void Flip()
     {
