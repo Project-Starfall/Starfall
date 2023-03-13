@@ -14,6 +14,20 @@ public class audioManager : MonoBehaviour
     [Range(1.0f, 10.0f)]
     private float fadeTime;
 
+    // Control volume of all music
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    private float musicVolume;
+
+    sound menuMusic,
+          levelTutorialMusic,
+          levelOneMusic,
+          levelTwoMusic,
+          levelThreeMusic,
+          levelFourMusic,
+          levelFiveMusic,
+          endingMusic;
+
     // 
     void Awake()
     {
@@ -39,12 +53,32 @@ public class audioManager : MonoBehaviour
             s.source.pitch  = s.pitch;
             s.source.loop   = s.loop;
         }
+        populateMusicSources();
     }
 
-    // Upon game launch play theme music
+    // Upon game launch play menu music
     void Start()
     {
-        play("menueMusic");
+        play("menuMusic");
+    }
+
+    private void populateMusicSources()
+    {
+        menuMusic = Array.Find(sounds, sound => sound.name == "menuMusic");
+        play("levelTutorialMusic");
+        levelTutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
+        play("levelOneMusic");
+        levelOneMusic = Array.Find(sounds, sound => sound.name == "levelOneMusic");
+        play("levelTwoMusic");
+        levelTwoMusic = Array.Find(sounds, sound => sound.name == "levelTwoMusic");
+        play("levelThreeMusic");
+        levelThreeMusic = Array.Find(sounds, sound => sound.name == "levelThreeMusic");
+        play("levelFourMusic");
+        levelFourMusic = Array.Find(sounds, sound => sound.name == "levelFourMusic");
+        play("levelFiveMusic");
+        levelFiveMusic = Array.Find(sounds, sound => sound.name == "levelFiveMusic");
+        play("endingMusic");
+        endingMusic = Array.Find(sounds, sound => sound.name == "endingMusic");
     }
 
     // finds and plays audio clip of specified name
@@ -64,36 +98,29 @@ public class audioManager : MonoBehaviour
         s.source.Play();
     }
 
-    // fade menuMusic into tutorialMusic
-    public void tutorialMusicFadeIn()
+    // fade into tutorialMusic
+    public void musicFadeIn()
     {
-        // start playing tutotial music muted
-        //play("levelTutorialMusic");
-        
-        sound tutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
-
-        // fade from menue music into tutorial music
-        while (tutorialMusic.source.volume < 1.0f)
+        /*if (musicClip == null)
         {
-            tutorialMusic.source.volume += 0.01f / fadeTime;
-            StartCoroutine(waiteForSeconds());
+            Debug.LogWarning("music name not recognized");
+            return;
+        }*/
+
+        while (levelTutorialMusic.source.volume < musicVolume)
+        {
+            levelTutorialMusic.source.volume += 0.01f / fadeTime;
         }
     }
 
-    public void tutorialMusicFadeOut()
+    // fade out tutorialMusic
+    public void musicFadeOut()
     {
-        sound tutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
-
-        // fade from menue music into tutorial music
-        while (tutorialMusic.source.volume > 0.0f)
+        while (levelTutorialMusic.source.volume > 0.0f)
         {
-            tutorialMusic.source.volume -= (0.01f * Time.deltaTime) / fadeTime;
+            levelTutorialMusic.source.volume -= 0.01f / fadeTime;
         }
-    }
-
-    IEnumerator waiteForSeconds()
-    {
-        yield return new WaitForSeconds(7.0f);
+        levelTutorialMusic.source.Stop();
     }
     
     // FindObjectOfType<audioManager>().play("dashSound"); example of calling in other scripts
