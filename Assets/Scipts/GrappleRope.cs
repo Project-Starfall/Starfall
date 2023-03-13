@@ -29,7 +29,7 @@ public class GrappleRope : MonoBehaviour
 
    float moveTime = 0;
 
-   [HideInInspector] public bool isGrappling = true;
+   [HideInInspector] public bool isGrappling = false;
 
    bool strightLine = true;
    public bool canGrapple = false;
@@ -41,6 +41,7 @@ public class GrappleRope : MonoBehaviour
       waveSize = StartWaveSize;
       strightLine = false;
       canGrapple = false;
+      isGrappling = false;
 
       LinePointsToFirePoint();
 
