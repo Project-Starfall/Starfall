@@ -9,7 +9,10 @@ public class PlayerData
     public int level;        // The number of levels in the game
     public float[] position; // The position of the player
 
-    public PlayerData(Player player)
+   public bool hasMap { get; set; }
+   public bool hasGrapple { get; set; }
+
+   public PlayerData(Player player)
     {
         level = player.level;    // The player in the level
         position = new float[3]; // The new position of the player

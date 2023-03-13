@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class LevelZeroMap : MonoBehaviour, Interactable
 {
-   private readonly TYPE itemType = TYPE.Item; // The interactable type of the item
    [SerializeField] private ParticleSystem particles;
    [SerializeField] private Color color;
+
+   // Interface methods
+   private bool interactEnabled = true;
+   private readonly TYPE interactableType = TYPE.Item;
 
    public void onEnter() {
       Debug.Log("Entered Range");
@@ -24,7 +27,7 @@ public class LevelZeroMap : MonoBehaviour, Interactable
    }
 
    public TYPE getType() {
-      return this.itemType;
+      return interactableType;
    }
 
     // Update is called once per frame
@@ -35,11 +38,11 @@ public class LevelZeroMap : MonoBehaviour, Interactable
 
    public bool isEnabled()
    {
-      throw new System.NotImplementedException();
+      return interactEnabled;
    }
 
    public void setEnabled(bool enabled)
    {
-      throw new System.NotImplementedException();
+      interactEnabled = enabled;
    }
 }
