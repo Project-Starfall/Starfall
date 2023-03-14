@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: menueMusic
-    clip: {fileID: 8300000, guid: 4e1ff8faed12a475eba9be0e46072269, type: 3}
-    volume: 0.01
-    pitch: 0.3
+    clip: {fileID: 8300000, guid: b01ced38fa67834449557e2d3748ad37, type: 3}
+    volume: 0.2
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: jumpSound
