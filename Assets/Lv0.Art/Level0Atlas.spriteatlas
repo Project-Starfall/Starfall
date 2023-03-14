@@ -35,7 +35,7 @@ SpriteAtlas:
       m_ForceMaximumCompressionQuality_BC6H_BC7: 0
     packingSettings:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -51,7 +51,6 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: a9a151418bff6ca4597cca9f17490399, type: 3}
-  - {fileID: 21300000, guid: ced8a653ab181634ebed97f92b028cac, type: 3}
   - {fileID: 21300000, guid: 26bb7ff51f6102c45bb25b1e51cad1ae, type: 3}
   - {fileID: 2051686483, guid: 32aa9816e0f7cf34a8da7f2a10a8bd9d, type: 3}
   - {fileID: 138471416, guid: 32aa9816e0f7cf34a8da7f2a10a8bd9d, type: 3}
@@ -61,7 +60,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 447e7a27cc92f7944a6ebb647472ba68, type: 3}
   - {fileID: -971164397, guid: 65b1af47d7b6950459baf2359bf4863a, type: 3}
   - {fileID: 111308376, guid: 65b1af47d7b6950459baf2359bf4863a, type: 3}
-  - {fileID: 21300000, guid: a328c4c7ddfe9f14ba7f6c44922d8898, type: 3}
   - {fileID: 21300000, guid: 3c8ef3789023b2c4abf53a5283baca11, type: 3}
   - {fileID: 21300000, guid: 32bf7859cc67da640b8c5c1473d39389, type: 3}
   - {fileID: 21300000, guid: e8aa6b6b1edfff6418fcb4de93008d02, type: 3}
@@ -73,7 +71,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 86bc13af0605241deae1f22168470234, type: 3}
   m_PackedSpriteNamesToIndex:
   - Lv0.RoadSign
-  - Lv0.CmdRock
   - Lv0.Tree
   - Lv0.Ground_3
   - Lv0.Ground_2
@@ -83,7 +80,6 @@ SpriteAtlas:
   - Lv0.Latern
   - Lv0.Background_0
   - Lv0.Background_1
-  - Lv0.DashSign
   - Lv0.HayStalks
   - Lv0.Hay
   - Lv0.NightSky
