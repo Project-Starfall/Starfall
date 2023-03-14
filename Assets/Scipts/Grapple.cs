@@ -68,7 +68,6 @@ public class Grapple : MonoBehaviour, Grappleable
       {
          if(moveToPoint) {
             xPos += Time.deltaTime * camSpeed;
-            Debug.Log($"initial:{xPos}");
             if (xPos >= xTarget)
             {
                xPos = xTarget;
@@ -84,21 +83,17 @@ public class Grapple : MonoBehaviour, Grappleable
                isCameraMove = false;
             }
          }
-         Debug.Log($"to:{xTarget}");
-         Debug.Log($"latter:{xPos}");
          vcam_offset.m_TrackedObjectOffset = new Vector3(xPos, 0.0f, 0.0f);
       }
    }
 
    public void OnTriggerEnter2D(Collider2D collision)
    {
-      Debug.Log("Entered Collider");
       onEnter();
    }
 
    public void OnTriggerExit2D(Collider2D collision)
    {
-      Debug.Log("Exited Collider");
       onLeave();
    }
 

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
     [SerializeField] private float speed = 8f; // Player's movement speed
     private bool isActing; // Is the player performing an action?
-    private bool disableMovement;
+    public bool disableMovement { get; set; }
     private float gravity;
 
     // Physics members
