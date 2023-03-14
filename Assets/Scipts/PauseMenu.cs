@@ -52,9 +52,9 @@ public class PauseMenu : MonoBehaviour
 
     public void loadMenu()
     {
-        Time.timeScale = 0f;
+        //Time.timeScale = 0f;
         // This function starts the game
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
         Debug.Log("Loading Menu...");
     }
 
