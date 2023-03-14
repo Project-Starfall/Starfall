@@ -1,6 +1,5 @@
+
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WirePuzzleScript : MonoBehaviour, Interactable
@@ -11,10 +10,87 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
     [SerializeField] PlayerMovement playerMovement;
    [SerializeField] int puzzleNumber; // The number of the attached puzzle
    [SerializeField] bool completed; // If the puzzle is completed
+   [SerializeField] SpriteRenderer spriteRenderer;
+   [SerializeField] PauseMenu menu;
+   private bool active = false; // if UI is active
 
    // Interface methods
    private bool interactEnabled = true;
    private readonly TYPE interactableType = TYPE.Puzzle;
+
+   private Material glowMaterial;
+   private bool isFade = false;
+   private bool fadeIn = false;
+   private float fade = 0f;
+
+   public void OnTriggerEnter2D(Collider2D collision)
+   {
+      onEnter();
+   }
+
+   public void OnTriggerExit2D(Collider2D collision)
+   {
+      onLeave();
+   }
+
+   public void onEnter()
+   {
+      isFade = true;
+      fadeIn = true;
+   }
+
+   public void onLeave()
+   {
+      isFade = true;
+      fadeIn = false;
+   }
+
+   public void Start()
+   {
+      glowMaterial = spriteRenderer.material;
+      glowMaterial.SetFloat("_Fade", 0f);
+   }
+
+   public void Update()
+   {
+      if (isFade)
+      {
+         if (!fadeIn)
+         {
+            fade -= Time.deltaTime;
+            if (fade <= 0f)
+            {
+               fade = 0f;
+               isFade = false;
+            }
+         }
+         else
+         {
+            if (interactEnabled)
+            {
+               fade += Time.deltaTime;
+               if (fade >= 1f)
+               {
+                  fade = 1f;
+                  isFade = false;
+               }
+            }
+         }
+         glowMaterial.SetFloat("_Fade", fade);
+      }
+
+      if (!active) return;
+
+      if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.RightShift))
+      {
+         pipecanvas.transform.localScale = new Vector2(0, 0);
+         active = false;
+         menu.isUIOpen = false;
+         handler.disablePlayerMovement(false);
+         setEnabled(true);
+      }
+
+   }
 
    #region interfaceMethods
    /*******************************************************************
@@ -31,22 +107,6 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    public bool isEnabled()
    {
       return interactEnabled;
-   }
-
-   /*******************************************************************
-    * Call when the player enters interactable range
-    ******************************************************************/
-   public void onEnter()
-   {
-      // start glowing
-   }
-
-   /*******************************************************************
-    * Call when the player leaves interactable range
-    ******************************************************************/
-   public void onLeave()
-   {
-      // stop glowing
    }
 
    /*******************************************************************
@@ -100,10 +160,16 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    {
       if (state)
       {
+         setEnabled(false);
+         menu.isUIOpen= true;
+         StartCoroutine(delayedActive());
          pipecanvas.transform.localScale = new Vector2(45,45);
       }
       else
       {
+         setEnabled(true);
+         menu.isUIOpen= false;
+         active = false;
          pipecanvas.transform.localScale = new Vector2(0, 0);
       }
    }
@@ -150,5 +216,11 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             break;
       }
       
+   }
+   public IEnumerator delayedActive()
+   {
+      yield return new WaitForSeconds(0.5f);
+      active = true;
+      yield return null;
    }
 }

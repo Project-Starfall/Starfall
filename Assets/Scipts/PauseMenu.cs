@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,12 +5,14 @@ public class PauseMenu : MonoBehaviour
 {
     // Set game to false
     public static bool GameIsPaused = false;
+    public bool isUIOpen { get; set; } = false;
     // This is the pause menu
     public GameObject PauseMenuUI;
 
     // Update is called once per frame
     void Update()
     {
+      if (isUIOpen) return;
         // Pause if escape is pressed down
         if(Input.GetKeyDown(KeyCode.Escape))
         {

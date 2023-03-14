@@ -57,6 +57,10 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PlayableDirector openExterior;
    [SerializeField] PlayableDirector lightsOut;
    [SerializeField] PlayableDirector openOffice;
+   [SerializeField] PlayableDirector RescueAnimation;
+
+   [SerializeField]
+    OfficePopup popup;
 
     private void Awake()
     { 
@@ -95,6 +99,15 @@ public class Level1Handler : MonoBehaviour
       puzzle2.setEnabled(false);
       puzzle3.setEnabled(false);
       puzzle4.setEnabled(false);
+   }
+
+  /*******************************************************************
+   * Rescue animation
+   ******************************************************************/
+   public void OnTriggerEnter2D(Collider2D collision)
+   {
+	   RescueAnimation.Play();
+	   return;
    }
 
    /*******************************************************************
@@ -162,6 +175,13 @@ public class Level1Handler : MonoBehaviour
       openOffice.Play();
       disablePlayerMovement(false);
       return;
+   }
+
+   public void officeRescue()
+   {
+      cameraConfine.m_BoundingShape2D = cameraConfiners[2];
+      variableColliders[3].enabled = true;
+      popup.popup(true);
    }
 
    /*******************************************************************

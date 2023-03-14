@@ -46,7 +46,7 @@ public class TutoritalHandler : MonoBehaviour
 
    public IEnumerator EndSequence()
    {
-      yield return new WaitForSeconds(2);
+      yield return new WaitForSeconds(1);
       SceneManager.LoadScene(LevelOne, LoadSceneMode.Single);
    }
 }

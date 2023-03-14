@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PinPadInteractable : MonoBehaviour, Interactable
@@ -5,12 +6,35 @@ public class PinPadInteractable : MonoBehaviour, Interactable
    // Pinpad fields
    [SerializeField] GameObject pinpadCanvas;
    [SerializeField] Level1Handler levelHandler;
+   [SerializeField] SpriteRenderer renderer;
+   [SerializeField] PauseMenu menu;
    private bool active = false; // If UI is active
    
    // Interface fields
    private bool interactEnabled = true;
    private readonly TYPE interactableType = TYPE.Puzzle;
-   
+
+   private Material glowMaterial;
+   private bool isFade = false;
+   private bool fadeIn = false;
+   private float fade = 0f;
+
+   public void Start()
+   {
+      glowMaterial = renderer.material;
+      glowMaterial.SetFloat("_Fade", 0f);
+   }
+
+   public void OnTriggerEnter2D(Collider2D collision)
+   {
+      onEnter();
+   }
+
+   public void OnTriggerExit2D(Collider2D collision)
+   {
+      onLeave();
+   }
+
    #region InterfaceMethods
    /*******************************************************************
     * Returns the type of the Interactable
@@ -33,7 +57,8 @@ public class PinPadInteractable : MonoBehaviour, Interactable
     ******************************************************************/
    public void onEnter()
    {
-      throw new System.NotImplementedException();
+      isFade = true;
+      fadeIn = true;
    }
 
    /*******************************************************************
@@ -41,7 +66,8 @@ public class PinPadInteractable : MonoBehaviour, Interactable
     ******************************************************************/
    public void onLeave()
    {
-      throw new System.NotImplementedException();
+      isFade = true;
+      fadeIn = false;
    }
 
    /*******************************************************************
@@ -50,9 +76,11 @@ public class PinPadInteractable : MonoBehaviour, Interactable
    public bool run(Player player)
    {
       if (!interactEnabled) return true;
+      menu.isUIOpen = true;
+      interactEnabled = false;
       levelHandler.disablePlayerMovement(true);
       pinpadCanvas.transform.localScale = new Vector3(70, 70, 1);
-      active = true;
+      StartCoroutine(delayedActive());
       return true;
    }
 
@@ -70,6 +98,7 @@ public class PinPadInteractable : MonoBehaviour, Interactable
     ******************************************************************/
    public void close()
    {
+      menu.isUIOpen = false;
       levelHandler.disablePlayerMovement(false);
       pinpadCanvas.transform.localScale = new Vector3(0, 0, 0);
       active = false;
@@ -80,11 +109,42 @@ public class PinPadInteractable : MonoBehaviour, Interactable
     ******************************************************************/
    void Update()
     {
+      if (isFade)
+      {
+         if (!fadeIn)
+         {
+            fade -= Time.deltaTime;
+            if (fade <= 0f)
+            {
+               fade = 0f;
+               isFade = false;
+            }
+         }
+         else
+         {
+            fade += Time.deltaTime;
+            if (fade >= 1f)
+            {
+               fade = 1f;
+               isFade = false;
+            }
+         }
+         glowMaterial.SetFloat("_Fade", fade);
+      }
+
       if (!active) return;
 
       if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.RightShift))
       {
+         interactEnabled = true;
          close();
       }
+   }
+
+   public IEnumerator delayedActive()
+   {
+      yield return new WaitForSeconds(0.5f);
+      active = true;
+      yield return null;
    }
 }
