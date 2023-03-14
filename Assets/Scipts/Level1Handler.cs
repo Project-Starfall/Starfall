@@ -99,12 +99,14 @@ public class Level1Handler : MonoBehaviour
    }
 
   /*******************************************************************
-   * Starts rescue animation
+   * Rescue animation
    ******************************************************************/
    public void OnTriggerEnter2D(Collider2D collision)
    {
 	   playerMovement.disableMovement = true;
 	   RescueAnimation.Play();
+	   disablePlayerMovement(false);
+	   return;
    }
 
    /*******************************************************************

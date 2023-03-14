@@ -1351,7 +1351,7 @@ MonoBehaviour:
   openExterior: {fileID: 1634337418}
   lightsOut: {fileID: 1885680532}
   openOffice: {fileID: 449335073}
-  RescueAnimation: {fileID: 0}
+  RescueAnimation: {fileID: 1814639047}
 --- !u!114 &96698976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26122,7 +26122,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -49.23841
+      value: -49.302635
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26166,7 +26166,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.7715874
+      value: -6.707363
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
