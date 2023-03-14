@@ -59,6 +59,9 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PlayableDirector openOffice;
    [SerializeField] PlayableDirector RescueAnimation;
 
+   [SerializeField]
+    OfficePopup popup;
+
     private void Awake()
     { 
         Application.targetFrameRate = 60;
@@ -103,9 +106,7 @@ public class Level1Handler : MonoBehaviour
    ******************************************************************/
    public void OnTriggerEnter2D(Collider2D collision)
    {
-	   playerMovement.disableMovement = true;
 	   RescueAnimation.Play();
-	   disablePlayerMovement(false);
 	   return;
    }
 
@@ -174,6 +175,13 @@ public class Level1Handler : MonoBehaviour
       openOffice.Play();
       disablePlayerMovement(false);
       return;
+   }
+
+   public void officeRescue()
+   {
+      cameraConfine.m_BoundingShape2D = cameraConfiners[2];
+      variableColliders[3].enabled = true;
+      popup.popup(true);
    }
 
    /*******************************************************************

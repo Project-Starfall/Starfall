@@ -1178,6 +1178,10 @@ PrefabInstance:
       propertyPath: glowMaterial
       value: 
       objectReference: {fileID: 2100000, guid: e8e9926ef1976f9409ef0a94b097e59b, type: 2}
+    - target: {fileID: 1415295663649137607, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1662421962}
     - target: {fileID: 3489507517724668170, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.3
@@ -6888,6 +6892,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9027170025023032168, guid: 344479b6f4cea3f448464607ac3c6032, type: 3}
   m_PrefabInstance: {fileID: 9027170023912654567}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1188735477 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7061765501846172057, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
+  m_PrefabInstance: {fileID: 2028802697}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1197442420 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7193028546793806515, guid: f7d40b492c9c9514ea1ab6b477b3313b, type: 3}
@@ -8478,6 +8487,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!212 &1591053633 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7061765501846172057, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
+  m_PrefabInstance: {fileID: 1632264324}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1603335770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8647,6 +8661,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1758421181}
+    - target: {fileID: 1415295663649137607, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1591053633}
     - target: {fileID: 3489507517724668170, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
       propertyPath: m_LocalPosition.x
       value: -11.2
@@ -9131,6 +9149,11 @@ SpriteRenderer:
 --- !u!4 &1662421959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6080376506578603661, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
+  m_PrefabInstance: {fileID: 206571005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1662421962 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7061765501846172057, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
   m_PrefabInstance: {fileID: 206571005}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686325162
@@ -11888,6 +11911,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 1758421181}
+    - target: {fileID: 1415295663649137607, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 1188735477}
     - target: {fileID: 3489507517724668170, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
       propertyPath: m_LocalPosition.x
       value: 27.899994

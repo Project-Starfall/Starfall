@@ -1,10 +1,6 @@
-using Mono.Cecil;
-using System;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
 public class PinPadHandler : MonoBehaviour
@@ -25,6 +21,61 @@ public class PinPadHandler : MonoBehaviour
       lights[0].enabled= true;
       lights[1].enabled = false;
     }
+
+   public void Update()
+   {
+      if(Input.GetKeyDown(KeyCode.Keypad0)) {
+         numberInput('0');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad1))
+      {
+         numberInput('1');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad2))
+      {
+         numberInput('2');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad3))
+      {
+         numberInput('3');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad4))
+      {
+         numberInput('4');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad5))
+      {
+         numberInput('5');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad6))
+      {
+         numberInput('6');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad7))
+      {
+         numberInput('7');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad8))
+      {
+         numberInput('8');
+      }
+      else if (Input.GetKeyDown(KeyCode.Keypad9))
+      {
+         numberInput('9');
+      }
+      else if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
+      {
+         numberInput('e');
+      }
+      else if (Input.GetKeyDown(KeyCode.Delete))
+      {
+         numberInput('c');
+      }
+      else if (Input.GetKeyDown(KeyCode.Backspace))
+      {
+         numberInput('d');
+      }
+   }
 
    /*******************************************************************
     * Screen refresh, puts buffer onto the screen

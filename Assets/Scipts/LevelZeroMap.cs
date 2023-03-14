@@ -24,6 +24,9 @@ public class LevelZeroMap : MonoBehaviour, Interactable
    private float fadeSpeed = 1f;
 
    private bool toBeDestroyed = false;
+   // Interface methods
+   private bool interactEnabled = true;
+   private readonly TYPE interactableType = TYPE.Item;
 
    public void OnTriggerEnter2D(Collider2D collision)
    {
@@ -35,9 +38,7 @@ public class LevelZeroMap : MonoBehaviour, Interactable
       onLeave();
    }
 
-   // Interface methods
-   private bool interactEnabled = true;
-   private readonly TYPE interactableType = TYPE.Item;
+
 
    public void onEnter() {
       particles.Play();

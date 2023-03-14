@@ -10,6 +10,7 @@ public class Grapple : MonoBehaviour, Grappleable
    [SerializeField] float endSpeed;
 
    // Anim control
+   [SerializeField] SpriteRenderer spriteRenderer;
    [SerializeField]
    private CinemachineVirtualCamera vcam;
    [SerializeField]
@@ -18,11 +19,10 @@ public class Grapple : MonoBehaviour, Grappleable
    private bool cameraMoves;
    [SerializeField]
    private Transform playerPos;
-   [SerializeField]
    private Material glowMaterial;
    private bool isFade = false;
    private bool fadeIn = false;
-   private float fade = 1.0f;
+   private float fade = 0.0f;
 
    private bool isCameraMove = false;
    private bool moveToPoint = false;
@@ -32,6 +32,8 @@ public class Grapple : MonoBehaviour, Grappleable
 
    public void Start()
    {
+      glowMaterial = spriteRenderer.material;
+      glowMaterial.SetFloat("_Fade", 0f);
       vcam_offset = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
       if(vcam_offset == null)
       {
