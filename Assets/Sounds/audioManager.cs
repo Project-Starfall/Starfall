@@ -29,7 +29,7 @@ public class audioManager : MonoBehaviour
           endingMusic;*/
 
     // 
-    void Start()
+    void Awake()
     {
         // if an audio manager already exists dont create a new one
         if (instance == null)
@@ -54,7 +54,12 @@ public class audioManager : MonoBehaviour
             s.source.loop   = s.loop;
         }
         //populateMusicSources();
-
+    }
+    
+    // Upon game launch play menu music
+    void Start()
+    {
+        play("menuMusic");
         play("levelTutorialMusic");
         play("levelOneMusic");
         play("levelTwoMusic");
@@ -62,12 +67,6 @@ public class audioManager : MonoBehaviour
         play("levelFourMusic");
         play("levelFiveMusic");
         play("endingMusic");
-    }
-
-    // Upon game launch play menu music
-    void Start()
-    {
-        play("menuMusic");
     }
 
     private void populateMusicSources()
