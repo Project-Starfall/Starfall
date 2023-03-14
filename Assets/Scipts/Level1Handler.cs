@@ -57,6 +57,7 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PlayableDirector openExterior;
    [SerializeField] PlayableDirector lightsOut;
    [SerializeField] PlayableDirector openOffice;
+   [SerializeField] PlayableDirector RescueAnimation;
 
     private void Awake()
     { 
@@ -95,6 +96,15 @@ public class Level1Handler : MonoBehaviour
       puzzle2.setEnabled(false);
       puzzle3.setEnabled(false);
       puzzle4.setEnabled(false);
+   }
+
+  /*******************************************************************
+   * Starts rescue animation
+   ******************************************************************/
+   public void OnTriggerEnter2D(Collider2D collision)
+   {
+	   playerMovement.disableMovement = true;
+	   RescueAnimation.Play();
    }
 
    /*******************************************************************
