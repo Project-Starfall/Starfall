@@ -19,17 +19,17 @@ public class audioManager : MonoBehaviour
     [Range(0.0f, 1.0f)]
     private float musicVolume;
 
-    sound menuMusic,
+    /*sound menuMusic,
           levelTutorialMusic,
           levelOneMusic,
           levelTwoMusic,
           levelThreeMusic,
           levelFourMusic,
           levelFiveMusic,
-          endingMusic;
+          endingMusic;*/
 
     // 
-    void Awake()
+    void Start()
     {
         // if an audio manager already exists dont create a new one
         if (instance == null)
@@ -53,7 +53,15 @@ public class audioManager : MonoBehaviour
             s.source.pitch  = s.pitch;
             s.source.loop   = s.loop;
         }
-        populateMusicSources();
+        //populateMusicSources();
+
+        play("levelTutorialMusic");
+        play("levelOneMusic");
+        play("levelTwoMusic");
+        play("levelThreeMusic");
+        play("levelFourMusic");
+        play("levelFiveMusic");
+        play("endingMusic");
     }
 
     // Upon game launch play menu music
@@ -64,21 +72,21 @@ public class audioManager : MonoBehaviour
 
     private void populateMusicSources()
     {
-        menuMusic = Array.Find(sounds, sound => sound.name == "menuMusic");
-        play("levelTutorialMusic");
-        levelTutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
-        play("levelOneMusic");
-        levelOneMusic = Array.Find(sounds, sound => sound.name == "levelOneMusic");
-        play("levelTwoMusic");
-        levelTwoMusic = Array.Find(sounds, sound => sound.name == "levelTwoMusic");
-        play("levelThreeMusic");
-        levelThreeMusic = Array.Find(sounds, sound => sound.name == "levelThreeMusic");
-        play("levelFourMusic");
-        levelFourMusic = Array.Find(sounds, sound => sound.name == "levelFourMusic");
-        play("levelFiveMusic");
-        levelFiveMusic = Array.Find(sounds, sound => sound.name == "levelFiveMusic");
-        play("endingMusic");
-        endingMusic = Array.Find(sounds, sound => sound.name == "endingMusic");
+        //menuMusic = Array.Find(sounds, sound => sound.name == "menuMusic");
+        //play("levelTutorialMusic");
+        //levelTutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
+        //play("levelOneMusic");
+        //levelOneMusic = Array.Find(sounds, sound => sound.name == "levelOneMusic");
+        //play("levelTwoMusic");
+        //levelTwoMusic = Array.Find(sounds, sound => sound.name == "levelTwoMusic");
+        //play("levelThreeMusic");
+        //levelThreeMusic = Array.Find(sounds, sound => sound.name == "levelThreeMusic");
+        //play("levelFourMusic");
+        //levelFourMusic = Array.Find(sounds, sound => sound.name == "levelFourMusic");
+        //play("levelFiveMusic");
+        //levelFiveMusic = Array.Find(sounds, sound => sound.name == "levelFiveMusic");
+        //play("endingMusic");
+        //endingMusic = Array.Find(sounds, sound => sound.name == "endingMusic");
     }
 
     // finds and plays audio clip of specified name
@@ -99,28 +107,45 @@ public class audioManager : MonoBehaviour
     }
 
     // fade into tutorialMusic
-    public void musicFadeIn()
+    public void musicFadeIn(string musicname)
     {
-        /*if (musicClip == null)
+        sound musicClip = Array.Find(sounds, sound => sound.name == musicname);
+        if (musicClip == null)
         {
             Debug.LogWarning("music name not recognized");
             return;
-        }*/
+        }
+        while (musicClip.source.volume < musicVolume)
+        {
+            musicClip.source.volume += 0.01f / fadeTime;
+        }
 
-        while (levelTutorialMusic.source.volume < musicVolume)
+        /*while (levelTutorialMusic.source.volume < musicVolume)
         {
             levelTutorialMusic.source.volume += 0.01f / fadeTime;
-        }
+        }*/
     }
 
     // fade out tutorialMusic
-    public void musicFadeOut()
+    public void musicFadeOut(string musicname)
     {
-        while (levelTutorialMusic.source.volume > 0.0f)
+        sound musicClip = Array.Find(sounds, sound => sound.name == musicname);
+        if (musicClip == null)
+        {
+            Debug.LogWarning("music name not recognized");
+            return;
+        }
+        while (musicClip.source.volume > 0.0f)
+        {
+            musicClip.source.volume -= 0.01f / fadeTime;
+        }
+        musicClip.source.Stop();
+
+        /*while (levelTutorialMusic.source.volume > 0.0f)
         {
             levelTutorialMusic.source.volume -= 0.01f / fadeTime;
         }
-        levelTutorialMusic.source.Stop();
+        levelTutorialMusic.source.Stop();*/
     }
     
     // FindObjectOfType<audioManager>().play("dashSound"); example of calling in other scripts

@@ -18,7 +18,8 @@ public class TutoritalHandler : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // fade in levelTutorialMusic background track
-        FindObjectOfType<audioManager>().musicFadeIn();
+        FindObjectOfType<audioManager>().play("levelTutorialMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("levelTutorialMusic");
 
     }
 
@@ -42,8 +43,9 @@ public class TutoritalHandler : MonoBehaviour
       SceneManager.LoadScene(LevelOne);
    }
 
-    private void OnSceneUnloaded(Scene current)
+    private void OnSceneUnloaded(Scene scene)
     {
-        FindObjectOfType<audioManager>().musicFadeOut();
+        FindObjectOfType<audioManager>().musicFadeOut("levelTutorialMusic");
+        Debug.Log("scene unloaded");
     }
 }

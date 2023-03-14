@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     public void PlayGame ()
     {
         // This function starts the game
+        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

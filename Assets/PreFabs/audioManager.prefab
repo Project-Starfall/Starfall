@@ -71,7 +71,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: levelTutorialMusic
     clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0
+    volume: 0.01
     pitch: 1
     loop: 1
     source: {fileID: 0}
