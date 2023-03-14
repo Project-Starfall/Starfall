@@ -10,7 +10,6 @@ public class LevelZeroMap : MonoBehaviour, Interactable
    [SerializeField] private Color color;
    [SerializeField] private TutoritalHandler handler;
    [SerializeField] private SpriteRenderer popupRenderer;
-   private bool interactEnabled = true;
 
    private Material glowMaterial;
    private bool isFade = false;
