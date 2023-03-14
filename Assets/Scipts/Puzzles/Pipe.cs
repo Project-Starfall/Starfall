@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using static Constants.Pipes;
 
@@ -33,11 +29,6 @@ public class Pipe : MonoBehaviour {
    // Start is called before the first frame update
    public void loadRenderer() {
       pipeRenderer = GetComponentInParent<SpriteRenderer>();
-   }
-
-   // Update is called once per frame
-   void Update() {
-      
    }
 
    private void OnMouseDown() {
