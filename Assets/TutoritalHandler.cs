@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,11 @@ public class TutoritalHandler : MonoBehaviour
    [SerializeField] Rigidbody2D playerRigidBody;
    [SerializeField] PlayableDirector endTransition;
 
+   [SerializeField] BoxCollider2D blocker;
+
+   [SerializeField] PolygonCollider2D cameraConfinerNew;
+   [SerializeField] CinemachineConfiner2D cameraConfiner;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,6 +31,12 @@ public class TutoritalHandler : MonoBehaviour
       StartCoroutine(EndSequence());
    }
 
+   public void pickupMap()
+   {
+      cameraConfiner.m_BoundingShape2D = cameraConfinerNew;
+      blocker.enabled = false;
+   }
+
    public void resetPlayerLock()
    {
       playerTransform.localRotation = Quaternion.identity;
@@ -34,7 +46,7 @@ public class TutoritalHandler : MonoBehaviour
 
    public IEnumerator EndSequence()
    {
-      yield return new WaitForSeconds(3);
-      SceneManager.LoadScene(LevelOne);
+      yield return new WaitForSeconds(2);
+      SceneManager.LoadScene(LevelOne, LoadSceneMode.Single);
    }
 }
