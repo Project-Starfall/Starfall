@@ -22,7 +22,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Grappleable
   - Interactable
   - Ground/Platform
   - Player
@@ -47,6 +47,12 @@ TagManager:
   - name: Background
     uniqueID: 1228403499
     locked: 0
+  - name: MiddleGround
+    uniqueID: 1834184557
+    locked: 0
+  - name: Speciality Behind
+    uniqueID: 409268895
+    locked: 0
   - name: Behind Objects
     uniqueID: 612687665
     locked: 0
@@ -56,9 +62,18 @@ TagManager:
   - name: Infront Objects
     uniqueID: 49244527
     locked: 0
+  - name: Speciality Infront
+    uniqueID: 2660680513
+    locked: 0
   - name: Foreground
     uniqueID: 3052031257
     locked: 0
   - name: Closest Foreground
     uniqueID: 184230875
+    locked: 0
+  - name: UI
+    uniqueID: 335751545
+    locked: 0
+  - name: Puzzle Popups
+    uniqueID: 1246917529
     locked: 0

@@ -1,0 +1,115 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4606873839781091246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4606873839781091240}
+  - component: {fileID: 4606873839781091247}
+  m_Layer: 0
+  m_Name: audioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4606873839781091240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606873839781091246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4606873839781091247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4606873839781091246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d0f6045c4251864a989d9ca7155c140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: menuMusic
+    clip: {fileID: 8300000, guid: 9cac9e5f2893152469995f7a239af501, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: jumpSound
+    clip: {fileID: 8300000, guid: 344407a2e2877384bb5d5be7fab4e1fb, type: 3}
+    volume: 1
+    pitch: 0.81
+    loop: 0
+    source: {fileID: 0}
+  - name: dashSound
+    clip: {fileID: 8300000, guid: 04726e92dbfc6a349bd6c36ed4a198b0, type: 3}
+    volume: 1
+    pitch: 1.25
+    loop: 0
+    source: {fileID: 0}
+  - name: ladderSound
+    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: levelTutorialMusic
+    clip: {fileID: 8300000, guid: 0a241c16618588a46aa66ff73110c3d1, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: levelOneMusic
+    clip: {fileID: 8300000, guid: 4f6acf15f88dc5c489de354aa0fa1510, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: levelTwoMusic
+    clip: {fileID: 8300000, guid: c928fd99305c4514a87e628a64d70bf2, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: levelThreeMusic
+    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: levelFourMusic
+    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: levelFiveMusic
+    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: endingMusic
+    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  fadeTime: 9
+  musicVolume: 0.2
