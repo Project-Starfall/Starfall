@@ -88,6 +88,17 @@ public class PlayerMovement : MonoBehaviour {
             {
                 Action();
             }
+
+            // Performs the dash
+            if (Input.GetButtonDown("Dash"))
+            {
+                if (nextDash < Time.time && canDash == true)
+                {
+                    canDash = false;
+                    nextDash = Time.time + dashRate;
+                    StartCoroutine(Dash(dashDirection));
+                }
+            }
         }
 
         // Allows the player to dash again if they are on the ground
@@ -137,7 +148,7 @@ public class PlayerMovement : MonoBehaviour {
                {
                   isToArc = false;
                   isGrappling = false;
-                  disableMovement = false;
+                  EnableMovement();
                   grappleRope.enabled = false;
                   EnableGravity(rb);
                   t = 0f;
@@ -180,21 +191,11 @@ public class PlayerMovement : MonoBehaviour {
         {
             Grappleable grappleable;
             Debug.Log("Grappled");
-            rb.velocity = new Vector2(0f, 0f);
-            disableMovement = true;
+            DisableMovement();
             DisableGravity(rb);
             grappleable = grappleCheck.GetComponentInParent<Grappleable>();
             grapplePoints = grappleable.returnGrapple();
             isGrappling = true;
-        }
-        else
-        {
-            if (nextDash < Time.time && canDash == true)
-            {
-                canDash = false;
-                nextDash = Time.time + dashRate;
-                StartCoroutine(Dash(dashDirection));
-            }
         }
     }
 
@@ -253,5 +254,16 @@ public class PlayerMovement : MonoBehaviour {
     private void EnableGravity(Rigidbody2D rb)
     {
         rb.gravityScale = gravity;
+    }
+
+    private void DisableMovement()
+    {
+        disableMovement = true;
+        rb.velocity = new Vector2(0, 0);
+    }
+
+    private void EnableMovement()
+    {
+        disableMovement = false;
     }
 }
