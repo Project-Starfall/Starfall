@@ -17,10 +17,9 @@ public class TutoritalHandler : MonoBehaviour
     {
         Application.targetFrameRate = 60;
 
-        // fade in levelTutorialMusic background track
-        FindObjectOfType<audioManager>().play("levelTutorialMusic");
+        // fade in Tutorial background track
+        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
         FindObjectOfType<audioManager>().musicFadeIn("levelTutorialMusic");
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

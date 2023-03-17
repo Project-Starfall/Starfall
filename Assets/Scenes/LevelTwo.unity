@@ -4330,6 +4330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1578186870}
   - component: {fileID: 1578186871}
+  - component: {fileID: 1578186872}
   m_Layer: 0
   m_Name: Lv1.abyss
   m_TagString: Untagged
@@ -4404,6 +4405,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1578186872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578186869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c55aebd056492541b7e40d06b0a7d00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1603335770
 PrefabInstance:
   m_ObjectHideFlags: 0

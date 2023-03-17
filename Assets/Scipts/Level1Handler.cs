@@ -59,7 +59,12 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PlayableDirector openOffice;
 
     private void Awake()
-    { 
+    {
+        // fade in level one background track
+        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeOut("levelTutorialMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("levelOneMusic");
+
         Application.targetFrameRate = 60;
     }
 

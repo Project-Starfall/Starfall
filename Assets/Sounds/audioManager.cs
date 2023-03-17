@@ -19,14 +19,14 @@ public class audioManager : MonoBehaviour
     [Range(0.0f, 1.0f)]
     private float musicVolume;
 
-    /*sound menuMusic,
+    sound menuMusic,
           levelTutorialMusic,
           levelOneMusic,
           levelTwoMusic,
           levelThreeMusic,
           levelFourMusic,
           levelFiveMusic,
-          endingMusic;*/
+          endingMusic;
 
     // 
     void Awake()
@@ -72,19 +72,12 @@ public class audioManager : MonoBehaviour
     private void populateMusicSources()
     {
         //menuMusic = Array.Find(sounds, sound => sound.name == "menuMusic");
-        //play("levelTutorialMusic");
         //levelTutorialMusic = Array.Find(sounds, sound => sound.name == "levelTutorialMusic");
-        //play("levelOneMusic");
         //levelOneMusic = Array.Find(sounds, sound => sound.name == "levelOneMusic");
-        //play("levelTwoMusic");
         //levelTwoMusic = Array.Find(sounds, sound => sound.name == "levelTwoMusic");
-        //play("levelThreeMusic");
         //levelThreeMusic = Array.Find(sounds, sound => sound.name == "levelThreeMusic");
-        //play("levelFourMusic");
         //levelFourMusic = Array.Find(sounds, sound => sound.name == "levelFourMusic");
-        //play("levelFiveMusic");
         //levelFiveMusic = Array.Find(sounds, sound => sound.name == "levelFiveMusic");
-        //play("endingMusic");
         //endingMusic = Array.Find(sounds, sound => sound.name == "endingMusic");
     }
 
@@ -138,7 +131,6 @@ public class audioManager : MonoBehaviour
         {
             musicClip.source.volume -= 0.01f / fadeTime;
         }
-        musicClip.source.Stop();
 
         /*while (levelTutorialMusic.source.volume > 0.0f)
         {

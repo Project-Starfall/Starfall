@@ -46,9 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: menuMusic
-    clip: {fileID: 8300000, guid: 4e1ff8faed12a475eba9be0e46072269, type: 3}
-    volume: 0.01
-    pitch: 0.3
+    clip: {fileID: 8300000, guid: 9cac9e5f2893152469995f7a239af501, type: 3}
+    volume: 0.2
+    pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: jumpSound
@@ -70,19 +70,19 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: levelTutorialMusic
-    clip: {fileID: 8300000, guid: 2667a0a008b044e218b63df62e2be749, type: 3}
-    volume: 0.01
+    clip: {fileID: 8300000, guid: 0a241c16618588a46aa66ff73110c3d1, type: 3}
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: levelOneMusic
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    clip: {fileID: 8300000, guid: 4f6acf15f88dc5c489de354aa0fa1510, type: 3}
     volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: levelTwoMusic
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    clip: {fileID: 8300000, guid: c928fd99305c4514a87e628a64d70bf2, type: 3}
     volume: 0
     pitch: 1
     loop: 1
@@ -111,5 +111,5 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  fadeTime: 1
-  musicVolume: 1
+  fadeTime: 9
+  musicVolume: 0.2
