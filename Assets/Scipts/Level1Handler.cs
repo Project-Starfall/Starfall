@@ -5,6 +5,7 @@ using System.Xml.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Playables;
+using static SaveSystem;
 
 public class Level1Handler : MonoBehaviour
 {
@@ -129,6 +130,7 @@ public class Level1Handler : MonoBehaviour
    public void openExteriorDoorSequence()
    {
       //save player
+      SaveGame(player);
       // save gamestate
       // disable player movement
       note.setEnabled(true);
@@ -154,6 +156,7 @@ public class Level1Handler : MonoBehaviour
       {
          lastWireCompleted();
       }
+      SaveGame(player);
    }
 
    /*******************************************************************
@@ -174,6 +177,7 @@ public class Level1Handler : MonoBehaviour
       variableColliders[2].enabled = false;
       openOffice.Play();
       disablePlayerMovement(false);
+      SaveGame(player); // save player
       return;
    }
 
@@ -182,7 +186,8 @@ public class Level1Handler : MonoBehaviour
       cameraConfine.m_BoundingShape2D = cameraConfiners[2];
       variableColliders[3].enabled = true;
       popup.popup(true);
-   }
+      SaveGame(player); // save player
+    }
 
    /*******************************************************************
     * Runs when the pinpad puzzle is complete
