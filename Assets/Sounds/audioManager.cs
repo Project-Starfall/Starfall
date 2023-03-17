@@ -102,7 +102,7 @@ public class audioManager : MonoBehaviour
     public void musicFadeIn(string musicname)
     {
         sound musicClip = Array.Find(sounds, sound => sound.name == musicname);
-        if (musicClip == null)
+        if (musicClip.source == null)
         {
             Debug.LogWarning("music name not recognized");
             return;
@@ -122,7 +122,7 @@ public class audioManager : MonoBehaviour
     public void musicFadeOut(string musicname)
     {
         sound musicClip = Array.Find(sounds, sound => sound.name == musicname);
-        if (musicClip == null)
+        if (musicClip.source == null)
         {
             Debug.LogWarning("music name not recognized");
             return;
