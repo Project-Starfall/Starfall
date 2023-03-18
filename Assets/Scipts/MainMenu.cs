@@ -42,11 +42,22 @@ public class MainMenu : MonoBehaviour
      * 
      */
 
-    // newgame(){
-    // ss.loadgame()
-    // playGame()}
+    // newgame()
+    public void NewGame ()
+    {
+        // Resets the player's postions to zero
+        transform.position = new Vector3(0,0,0);
+        // Reset map
 
-    public void PlayGame ()
+        // Reset grapple
+        
+        // load game scene
+        SceneManager.LoadScene(1, LoadSceneMode.Single);
+    }
+
+    // ss.loadgame()
+    // playGame()
+   public void PlayGame ()
    {        
       // This function starts the game
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);

@@ -71,7 +71,8 @@ public class Level1Handler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
    {
-        // load player save
+      // load player save
+      LoadGame();
 
       playerMovement.disableMovement = true;
       playerSeed = player.seed;
@@ -200,6 +201,7 @@ public class Level1Handler : MonoBehaviour
       Destroy(exterior);
       Destroy(outside);
       disablePlayerMovement(false);
+      SaveGame(player);
       yield return null;
    }
 
