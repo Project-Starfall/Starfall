@@ -66,6 +66,10 @@ public class Level1Handler : MonoBehaviour
     private void Awake()
     { 
         Application.targetFrameRate = 60;
+
+        // transition background music into level one music
+        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("levelOneMusic");
     }
 
     // Start is called before the first frame update

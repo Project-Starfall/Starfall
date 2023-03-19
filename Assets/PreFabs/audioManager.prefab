@@ -45,15 +45,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: menueMusic
-    clip: {fileID: 8300000, guid: b01ced38fa67834449557e2d3748ad37, type: 3}
+  - name: menuMusic
+    clip: {fileID: 8300000, guid: 9cac9e5f2893152469995f7a239af501, type: 3}
     volume: 0.2
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: jumpSound
     clip: {fileID: 8300000, guid: 344407a2e2877384bb5d5be7fab4e1fb, type: 3}
-    volume: 1
+    volume: 0.7
     pitch: 0.81
     loop: 0
     source: {fileID: 0}
@@ -70,44 +70,46 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: levelTutorialMusic
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 0a241c16618588a46aa66ff73110c3d1, type: 3}
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: levelOneMusic
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 4f6acf15f88dc5c489de354aa0fa1510, type: 3}
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: levelTwoMusic
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: c928fd99305c4514a87e628a64d70bf2, type: 3}
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: levelThreeMusic
     clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0.5
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: levelFourMusic
     clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0.5
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: levelFiveMusic
     clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0.5
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: endingMusic
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0.5
+    clip: {fileID: 8300000, guid: 4dcadc1f6a84bb64e83c87691d50b03b, type: 3}
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  fadeTime: 9
+  musicVolume: 0.2

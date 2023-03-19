@@ -1,6 +1,7 @@
 using UnityEngine.Audio;
 using System;
 using UnityEngine;
+using System.Collections;
 
 public class audioManager : MonoBehaviour
 {
@@ -8,7 +9,16 @@ public class audioManager : MonoBehaviour
 
     public static audioManager instance;
 
-    // 
+    // Control how fast the tracks cross-fade
+    [SerializeField]
+    [Range(1.0f, 10.0f)]
+    private float fadeTime;
+
+    // Control volume of all music
+    [SerializeField]
+    [Range(0.0f, 1.0f)]
+    private float musicVolume;
+
     void Awake()
     {
         // if an audio manager already exists dont create a new one
@@ -22,23 +32,30 @@ public class audioManager : MonoBehaviour
 
         // keep audio manger alive between scenes
         DontDestroyOnLoad(gameObject);
-        
+
         // create an audio source for every audio clip
-        foreach(sound s in sounds)
+        foreach (sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
-            s.source.clip   = s.clip;
+            s.source.clip = s.clip;
 
             s.source.volume = s.volume;
-            s.source.pitch  = s.pitch;
-            s.source.loop   = s.loop;
+            s.source.pitch = s.pitch;
+            s.source.loop = s.loop;
         }
     }
 
-    // Upon game launch play theme music
+    // Upon game launch play menu music
     void Start()
     {
-        play("menueMusic");
+        play("menuMusic");
+        play("levelTutorialMusic");
+        play("levelOneMusic");
+        play("levelTwoMusic");
+        play("levelThreeMusic");
+        play("levelFourMusic");
+        play("levelFiveMusic");
+        play("endingMusic");
     }
 
     // finds and plays audio clip of specified name
@@ -48,7 +65,7 @@ public class audioManager : MonoBehaviour
         sound s = Array.Find(sounds, sound => sound.name == name);
 
         // if audio file name is not recognized dont play
-        if(s == null)
+        if (s == null)
         {
             Debug.LogWarning("Sound: " + name + " not found.");
             return;
@@ -57,5 +74,36 @@ public class audioManager : MonoBehaviour
         // play audio clip of said name
         s.source.Play();
     }
+
+    // fade into background music of specified name
+    public void musicFadeIn(string musicname)
+    {
+        sound musicClip = Array.Find(sounds, sound => sound.name == musicname);
+        if (musicClip.source == null)
+        {
+            Debug.LogWarning("music name not recognized");
+            return;
+        }
+        while (musicClip.source.volume < musicVolume)
+        {
+            musicClip.source.volume += 0.01f / fadeTime;
+        }
+    }
+
+    // fade out of background music of specified name
+    public void musicFadeOut(string musicname)
+    {
+        sound musicClip = Array.Find(sounds, sound => sound.name == musicname);
+        if (musicClip.source == null)
+        {
+            Debug.LogWarning("music name not recognized");
+            return;
+        }
+        while (musicClip.source.volume > 0.0f)
+        {
+            musicClip.source.volume -= 0.01f / fadeTime;
+        }
+    }
+
     // FindObjectOfType<audioManager>().play("dashSound"); example of calling in other scripts
 }
