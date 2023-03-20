@@ -69,6 +69,7 @@ public class Level1Handler : MonoBehaviour
 
         // transition background music into level one music
         FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeOut("levelTutorialMusic");
         FindObjectOfType<audioManager>().musicFadeIn("levelOneMusic");
     }
 

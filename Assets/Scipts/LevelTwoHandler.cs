@@ -18,6 +18,11 @@ public class LevelTwoHandler : MonoBehaviour
     public void Awake()
     {
         Application.targetFrameRate = 60;
+
+        // transition background music into level two music
+        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeOut("levelOneMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("levelTwoMusic");
     }
 
     // Start is called before the first frame update

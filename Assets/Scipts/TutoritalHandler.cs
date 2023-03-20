@@ -21,7 +21,11 @@ public class TutoritalHandler : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Application.targetFrameRate = 60;       
+        Application.targetFrameRate = 60;
+
+        // transition background music into tutorial music
+        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("levelTutorialMusic");
     }
 
    private void OnTriggerEnter2D(Collider2D collision)
