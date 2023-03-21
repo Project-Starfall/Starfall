@@ -78,6 +78,7 @@ public class Level1Handler : MonoBehaviour
    {
       // load player save
       LoadGame();
+      Debug.Log("Loading the game...");
 
       playerMovement.disableMovement = true;
       playerSeed = player.seed;
@@ -137,6 +138,7 @@ public class Level1Handler : MonoBehaviour
    {
       //save player
       SaveGame(player);
+      Debug.Log("Saving the player...");
       // save gamestate
       // disable player movement
       note.setEnabled(true);
@@ -163,7 +165,8 @@ public class Level1Handler : MonoBehaviour
          lastWireCompleted();
       }
       SaveGame(player);
-   }
+      Debug.Log("Saving the player...");
+    }
 
    /*******************************************************************
     * Runs when the last wire puzzle is completed
@@ -184,6 +187,7 @@ public class Level1Handler : MonoBehaviour
       openOffice.Play();
       disablePlayerMovement(false);
       SaveGame(player); // save player
+      Debug.Log("Saving the player...");
       return;
    }
 
@@ -193,6 +197,7 @@ public class Level1Handler : MonoBehaviour
       variableColliders[3].enabled = true;
       popup.popup(true);
       SaveGame(player); // save player
+      Debug.Log("Saving the player...");
     }
 
    /*******************************************************************
@@ -207,6 +212,7 @@ public class Level1Handler : MonoBehaviour
       Destroy(outside);
       disablePlayerMovement(false);
       SaveGame(player);
+      Debug.Log("Saving the player...");
       yield return null;
    }
 

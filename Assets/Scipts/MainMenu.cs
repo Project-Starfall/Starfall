@@ -50,7 +50,12 @@ public class MainMenu : MonoBehaviour
         // Reset map
 
         // Reset grapple
-        
+
+        if (File.Exists(Path))
+        {
+            File.Delete(Path);
+        }
+
         // load game scene
         SceneManager.LoadScene(1, LoadSceneMode.Single);
     }

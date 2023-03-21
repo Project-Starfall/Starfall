@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static SaveSystem;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField]
+    Player player;
+
     // Set game to false
     public static bool GameIsPaused = false;
     public bool isUIOpen { get; set; } = false;
@@ -60,6 +64,8 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        SaveGame(player);
+        Debug.Log("Saving the Player...");
         Debug.Log("Quitting Game...");
         Application.Quit(); // Quit the Game
     }
