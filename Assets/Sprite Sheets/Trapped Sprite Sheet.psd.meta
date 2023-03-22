@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 3997
+        width: 696
+        height: 626
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c055dd5bb0b064edb8c7ce016eeebf55
+      internalID: -2117762874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1937
+        y: 4834
+        width: 848
+        height: 616
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a28c47331ffd342ea85737b61aa904ea
+      internalID: 711774136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 3249
+        y: 5470
+        width: 817
+        height: 656
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c39bc07fcaf944827a1cc49c002c471e
+      internalID: 369640283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 417
+        width: 1039
+        height: 2077
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e85e1e998694eccb564a8700d6839b
+      internalID: 696449176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1605
+        y: 729
+        width: 1129
+        height: 2562
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb76a403e160d43d482b9f88124968c7
+      internalID: -805654712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2946
+        y: 739
+        width: 1110
+        height: 3692
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29419a9a6892d4a3bb02fdc3d0a27e8a
+      internalID: 11752470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 4237
+        y: 740
+        width: 1110
+        height: 4327
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331973d83f1c3482ba3da7dc86e19093
+      internalID: -2086348581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Trapped Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 5468
+        y: 719
+        width: 1150
+        height: 5023
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a4731422fb724dc2bacc2f7a9bf4b62
+      internalID: -591802020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,10 +282,18 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trapped Sprite Sheet_0: -2117762874
+      Trapped Sprite Sheet_2: 369640283
+      Trapped Sprite Sheet_3: 696449176
+      Trapped Sprite Sheet_6: -2086348581
+      Trapped Sprite Sheet_4: -805654712
+      Trapped Sprite Sheet_7: -591802020
+      Trapped Sprite Sheet_1: 711774136
+      Trapped Sprite Sheet_5: 11752470
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
+  pSDShowRemoveMatteOption: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 
