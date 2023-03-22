@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static SaveSystem;
+using static Constants.Scenes;
 
 public class MainMenu : MonoBehaviour
 {
@@ -57,16 +58,8 @@ public class MainMenu : MonoBehaviour
         }
 
         // load game scene
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(Tutorial, LoadSceneMode.Single);
     }
-
-    // ss.loadgame()
-    // playGame()
-   public void PlayGame ()
-   {        
-      // This function starts the game
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
-   }
 
     public void Quit ()
     {
@@ -84,13 +77,15 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGameMenu()
     {
+        PlayerData pd;
         // This function Loads a saved game
         if(saveExist())
         {
             LoadButtonUI.SetActive(true);
-            LoadGame();
+            pd = LoadGame();
             // SaveSystem.LoadGame(SceneManager.GetActiveScene().path);
-            SceneManager.LoadScene(1);
+            // load scene ()
+            SceneManager.LoadScene(pd.level);
         }
         else
         {
