@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
         {
             loadButton.enabled = true;
             loadBkgrdImage.enabled = true;
-            loadButtonTxt.faceColor = Color.white;
+            loadButtonTxt.faceColor = new Color(255, 255, 255);
         }
     }
     /* is there a save -> set load button active
@@ -47,7 +47,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame ()
     {
         // Resets the player's postions to zero
-        transform.position = new Vector3(0,0,0);
+        // transform.position = new Vector3(0,0,0);
         // Reset map
 
         // Reset grapple
@@ -77,15 +77,15 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGameMenu()
     {
-        PlayerData pd;
+        PlayerData playerData;
         // This function Loads a saved game
         if(saveExist())
         {
             LoadButtonUI.SetActive(true);
-            pd = LoadGame();
+            playerData = LoadGame();
             // SaveSystem.LoadGame(SceneManager.GetActiveScene().path);
             // load scene ()
-            SceneManager.LoadScene(pd.level);
+            SceneManager.LoadScene(playerData.level);
         }
         else
         {

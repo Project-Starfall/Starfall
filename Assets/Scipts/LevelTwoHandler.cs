@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
+using static SaveSystem;
 
 public class LevelTwoHandler : MonoBehaviour
 {
+    [SerializeField]
+    Player player;
     [SerializeField]
     private PlayableDirector startTimeline;
     [SerializeField]
@@ -28,6 +31,12 @@ public class LevelTwoHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // save the player data
+        SaveGame(player);
+        Debug.Log("Saving the player level 2...");
+        // load player save
+        LoadGame();
+        Debug.Log("Loading the game in level 2...");
         playerMovement.disableMovement = true;
     }
 
@@ -52,6 +61,8 @@ public class LevelTwoHandler : MonoBehaviour
 
     private IEnumerator delayClose()
     {
+        SaveGame(player); // Saving the player data
+        Debug.Log("Saving the Player...");
         yield return new WaitForSeconds(3f);
         SceneManager.LoadScene(0, LoadSceneMode.Single);
         yield return null;

@@ -4,6 +4,7 @@ using static SaveSystem;
 
 public class PauseMenu : MonoBehaviour
 {
+    // player field
     [SerializeField]
     Player player;
 

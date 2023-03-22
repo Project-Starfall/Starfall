@@ -58,7 +58,7 @@ public static class SaveSystem
         }
     }
 
-
+    /*
     public static void SaveConfig(GameConfig gameConfig, string configPath)
     {
         try
@@ -115,7 +115,7 @@ public static class SaveSystem
          }
         }
     }
-    
+    */
    // // Remove a save file from the disk
    // public static bool removeFile(string savePath)
    // {

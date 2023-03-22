@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using static Constants.Scenes;
+using static SaveSystem;
 
 public class TutoritalHandler : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class TutoritalHandler : MonoBehaviour
 
    public void pickupMap()
    {
+      SaveGame(player); // Saving the player data
+      Debug.Log("Saving the Player...");
       cameraConfiner.m_BoundingShape2D = cameraConfinerNew;
       blocker.enabled = false;
    }
@@ -50,6 +53,8 @@ public class TutoritalHandler : MonoBehaviour
 
    public IEnumerator EndSequence()
    {
+      SaveGame(player); // Saving the player data
+      Debug.Log("Saving the Player...");
       yield return new WaitForSeconds(1);
       SceneManager.LoadScene(LevelOne, LoadSceneMode.Single);
    }

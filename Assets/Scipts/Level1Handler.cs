@@ -77,6 +77,9 @@ public class Level1Handler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
    {
+      // save the player data
+      SaveGame(player);
+      Debug.Log("Saving the player...");
       // load player save
       LoadGame();
       Debug.Log("Loading the game...");
