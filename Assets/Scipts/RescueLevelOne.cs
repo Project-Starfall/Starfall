@@ -27,7 +27,7 @@ public class RescueLevelOne : MonoBehaviour
    public void endRescue()
    {
       handler.officeRescue();
-      handler.disablePlayerMovement(false);
+      handler.enablePlayerMove();
       star.SetActive(false);
    }
 }

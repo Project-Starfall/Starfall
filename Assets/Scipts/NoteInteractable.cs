@@ -14,6 +14,7 @@ public class NoteInteractable : MonoBehaviour, Interactable
    private bool interactEnabled = true;
    [SerializeField] private SpriteRenderer spriteRenderer;
    [SerializeField] PauseMenu menu;
+   [SerializeField] PlayerMovement playerMovement;
 
    private Material glowMaterial;
    private bool isFade = false;
@@ -77,12 +78,13 @@ public class NoteInteractable : MonoBehaviour, Interactable
       }
       if (!active) return;
 
-      if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.RightShift))
+      if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Action"))
       {
-         note.transform.localScale = new Vector2(0, 0);
-         active = false;
+         note.SetActive(false);
+         StartCoroutine(delayedDeactive());
          menu.isUIOpen = false;
          setEnabled(true);
+         playerMovement.EnableMovement();
       }
 
    }
@@ -109,10 +111,11 @@ public class NoteInteractable : MonoBehaviour, Interactable
     ******************************************************************/
    public bool run(Player player)
    {
-      note.transform.localScale = new Vector2(28, 28);
+      note.SetActive(true);
       menu.isUIOpen = true;
       setEnabled(false);
       StartCoroutine(delayedActive());
+      playerMovement.DisableMovement();
       return true;
    }
 
@@ -127,8 +130,15 @@ public class NoteInteractable : MonoBehaviour, Interactable
 
    public IEnumerator delayedActive()
    {
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds(0.1f);
       active = true;
+      yield return null;
+   }
+
+   public IEnumerator delayedDeactive()
+   {
+      yield return new WaitForSeconds(0.1f);
+      active = false;
       yield return null;
    }
 }

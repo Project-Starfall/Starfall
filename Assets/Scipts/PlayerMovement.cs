@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float jumpStrength = 16f; // Player's jump force
     [SerializeField] private float speed = 8f; // Player's movement speed
     private bool isActing; // Is the player performing an action?
-    public bool disableMovement { get; set; }
+   public bool disableMovement { get; set; } = false;
     private float gravity;
 
     // Physics members
@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour {
         anim = GetComponent<Animator>(); // Sets animator reference
         dashRender = GameObject.Find("/PlayerCharacter/Dash art");
         dashRender.GetComponent<Renderer>().enabled = false;
-        disableMovement = false;
         t = 0f;
         step = 0f;
         isGrappling = false;
@@ -256,13 +255,14 @@ public class PlayerMovement : MonoBehaviour {
         rb.gravityScale = gravity;
     }
 
-    private void DisableMovement()
+    public void DisableMovement()
     {
         disableMovement = true;
+        horizontal = 0f;
         rb.velocity = new Vector2(0, 0);
     }
 
-    private void EnableMovement()
+    public void EnableMovement()
     {
         disableMovement = false;
     }

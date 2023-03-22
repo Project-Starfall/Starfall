@@ -55,11 +55,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
    void Start()
    {
      // Take pipe gameobjects and put them into the game manager grid
-     Pipe[] pipesInGrid = pipeContainer.GetComponentsInChildren<Pipe>();
-     foreach(Pipe pipe in pipesInGrid) {
-         pipe.loadRenderer();
-        puzzleGrid[pipe.posX, pipe.posY] = pipe;
-     }
+
       generateGrid(0);
 
    }
@@ -70,6 +66,11 @@ public class PipePuzzleGameHandler : MonoBehaviour
    public void startGame(WirePuzzleScript wirebox)
    {
       this.wirebox = wirebox;
+      Pipe[] pipesInGrid = pipeContainer.GetComponentsInChildren<Pipe>();
+      foreach(Pipe pipe in pipesInGrid) {
+         pipe.loadRenderer();
+         puzzleGrid[pipe.posX, pipe.posY] = pipe;
+      }
    }
 
    /*******************************************************************

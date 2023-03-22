@@ -54,7 +54,8 @@ public class Level1Handler : MonoBehaviour
    // Camera
    [SerializeField] CinemachineConfiner2D cameraConfine;
 
-  // [SerializeField] GameObject pipecanvas;
+   // [SerializeField] GameObject pipecanvas;
+   [SerializeField] PlayableDirector startTimeline;
    [SerializeField] PlayableDirector openExterior;
    [SerializeField] PlayableDirector lightsOut;
    [SerializeField] PlayableDirector openOffice;
@@ -80,7 +81,9 @@ public class Level1Handler : MonoBehaviour
       LoadGame();
       Debug.Log("Loading the game...");
 
-      playerMovement.disableMovement = true;
+      playerMovement.DisableMovement();
+      startTimeline.Play();
+
       playerSeed = player.seed;
       System.Random random = new System.Random(playerSeed);
 
@@ -185,7 +188,7 @@ public class Level1Handler : MonoBehaviour
       pinpadcomp = 1;
       variableColliders[2].enabled = false;
       openOffice.Play();
-      disablePlayerMovement(false);
+      playerMovement.DisableMovement();
       SaveGame(player); // save player
       Debug.Log("Saving the player...");
       return;
@@ -205,19 +208,19 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    IEnumerator waitForTimeline()
    {
-      yield return new WaitForSeconds(6f);
+      yield return new WaitForSeconds(4f);
       playerRenderer.sortingLayerName = "Player & Platforms";
       dashRenderer.sortingLayerName = "Player & Platforms";
       Destroy(exterior);
       Destroy(outside);
-      disablePlayerMovement(false);
+      playerMovement.EnableMovement();
       SaveGame(player);
       Debug.Log("Saving the player...");
       yield return null;
    }
 
-    public void disablePlayerMovement(bool enabled)
-    {
-        playerMovement.disableMovement = enabled;
-    }
+   public void enablePlayerMove()
+   {
+      playerMovement.EnableMovement();
+   }
 }

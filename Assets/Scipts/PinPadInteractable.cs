@@ -6,8 +6,9 @@ public class PinPadInteractable : MonoBehaviour, Interactable
    // Pinpad fields
    [SerializeField] GameObject pinpadCanvas;
    [SerializeField] Level1Handler levelHandler;
-   [SerializeField] SpriteRenderer renderer;
+   [SerializeField] SpriteRenderer spriteRenderer;
    [SerializeField] PauseMenu menu;
+   [SerializeField] PlayerMovement playerMovement;
    private bool active = false; // If UI is active
    
    // Interface fields
@@ -21,7 +22,7 @@ public class PinPadInteractable : MonoBehaviour, Interactable
 
    public void Start()
    {
-      glowMaterial = renderer.material;
+      glowMaterial = spriteRenderer.material;
       glowMaterial.SetFloat("_Fade", 0f);
    }
 
@@ -78,8 +79,8 @@ public class PinPadInteractable : MonoBehaviour, Interactable
       if (!interactEnabled) return true;
       menu.isUIOpen = true;
       interactEnabled = false;
-      levelHandler.disablePlayerMovement(true);
-      pinpadCanvas.transform.localScale = new Vector3(70, 70, 1);
+      playerMovement.DisableMovement();
+      pinpadCanvas.SetActive(true);
       StartCoroutine(delayedActive());
       return true;
    }
@@ -99,9 +100,9 @@ public class PinPadInteractable : MonoBehaviour, Interactable
    public void close()
    {
       menu.isUIOpen = false;
-      levelHandler.disablePlayerMovement(false);
-      pinpadCanvas.transform.localScale = new Vector3(0, 0, 0);
-      active = false;
+      playerMovement.EnableMovement();
+      pinpadCanvas.SetActive(false);
+      StartCoroutine(delayedDeactive());
    }
 
    /*******************************************************************
@@ -134,7 +135,7 @@ public class PinPadInteractable : MonoBehaviour, Interactable
 
       if (!active) return;
 
-      if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.RightShift))
+      if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Action"))
       {
          interactEnabled = true;
          close();
@@ -143,8 +144,15 @@ public class PinPadInteractable : MonoBehaviour, Interactable
 
    public IEnumerator delayedActive()
    {
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds(0.1f);
       active = true;
+      yield return null;
+   }
+
+   public IEnumerator delayedDeactive()
+   {
+      yield return new WaitForSeconds(0.1f);
+      active = false;
       yield return null;
    }
 }

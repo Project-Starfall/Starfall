@@ -81,12 +81,12 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
 
       if (!active) return;
 
-      if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.RightShift))
+      if (Input.GetButtonDown("Action") || Input.GetKeyDown(KeyCode.Escape))
       {
-         pipecanvas.transform.localScale = new Vector2(0, 0);
-         active = false;
+         StartCoroutine(delayedDeactive());
+         playerMovement.EnableMovement();
+         pipecanvas.SetActive(false);
          menu.isUIOpen = false;
-         handler.disablePlayerMovement(false);
          setEnabled(true);
       }
 
@@ -129,25 +129,26 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
                case 1:
                   player.transform.position = new Vector2(-32, 1);
                   if (player.transform.localScale.x < 0) playerMovement.Flip();
-                  pipegame.generateGrid(handler.pipe1seed);
                   pipegame.startGame(this);
+                  pipegame.generateGrid(handler.pipe1seed);
+                  
                   break;
                case 2:
-                  pipegame.generateGrid(handler.pipe2seed);
                   pipegame.startGame(this);
+                  pipegame.generateGrid(handler.pipe2seed);
                   break;
                case 3:
-                  pipegame.generateGrid(handler.pipe3seed);
                   pipegame.startGame(this);
+                  pipegame.generateGrid(handler.pipe3seed);
+                  
                   break;
                case 4:
-                  pipegame.generateGrid(handler.pipe4seed);
                   pipegame.startGame(this);
+                  pipegame.generateGrid(handler.pipe4seed);
                   break;
                default:
                   return false;
             }
-        handler.disablePlayerMovement(true);
 
         return true;
    }
@@ -161,16 +162,17 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       if (state)
       {
          setEnabled(false);
-         menu.isUIOpen= true;
+         menu.isUIOpen = true;
          StartCoroutine(delayedActive());
-         pipecanvas.transform.localScale = new Vector2(45,45);
+         playerMovement.DisableMovement();
+         pipecanvas.SetActive(true);
       }
       else
       {
-         setEnabled(true);
-         menu.isUIOpen= false;
-         active = false;
-         pipecanvas.transform.localScale = new Vector2(0, 0);
+         menu.isUIOpen = false;
+         playerMovement.EnableMovement();
+         StartCoroutine(delayedDeactive());
+         pipecanvas.SetActive(false);
       }
    }
 
@@ -185,7 +187,6 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
          case 1:
             Debug.Log("Copmleted Puzzle 1");
             showPuzzle(false);
-            pipegame.generateGrid(0);
             handler.openExteriorDoorSequence();
             handler.copmletePipe(1);
             setEnabled(false);
@@ -193,25 +194,19 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
          case 2:
             Debug.Log("Copmleted Puzzle 2");
             showPuzzle(false);
-            pipegame.generateGrid(0);
             handler.copmletePipe(2);
-                handler.disablePlayerMovement(false);
-                setEnabled(false);
+            setEnabled(false);
             break;
          case 3:
             Debug.Log("Copmleted Puzzle 3");
             showPuzzle(false);
-            pipegame.generateGrid(0);
             handler.copmletePipe(3);
-                handler.disablePlayerMovement(false);
-                setEnabled(false);
+            setEnabled(false);
             break;
          case 4:
             Debug.Log("Copmleted Puzzle 4");
             showPuzzle(false);
             handler.copmletePipe(4);
-            pipegame.generateGrid(0);
-            handler.disablePlayerMovement(false);
             setEnabled(false);
             break;
       }
@@ -219,8 +214,15 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    }
    public IEnumerator delayedActive()
    {
-      yield return new WaitForSeconds(0.5f);
+      yield return new WaitForSeconds(0.10f);
       active = true;
+      yield return null;
+   }
+
+   public IEnumerator delayedDeactive()
+   {
+      yield return new WaitForSeconds(0.10f);
+      active = false;
       yield return null;
    }
 }

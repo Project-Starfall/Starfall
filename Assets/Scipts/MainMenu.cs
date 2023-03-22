@@ -51,9 +51,9 @@ public class MainMenu : MonoBehaviour
 
         // Reset grapple
 
-        if (File.Exists(Path))
+        if (File.Exists(SaveSystem.Path))
         {
-            File.Delete(Path);
+            File.Delete(SaveSystem.Path);
         }
 
         // load game scene
