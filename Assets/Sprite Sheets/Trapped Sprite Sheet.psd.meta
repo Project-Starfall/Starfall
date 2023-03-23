@@ -105,78 +105,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Trapped Sprite Sheet_0
-      rect:
-        serializedVersion: 2
-        x: 556
-        y: 3997
-        width: 696
-        height: 626
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c055dd5bb0b064edb8c7ce016eeebf55
-      internalID: -2117762874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trapped Sprite Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 1937
-        y: 4834
-        width: 848
-        height: 616
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a28c47331ffd342ea85737b61aa904ea
-      internalID: 711774136
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Trapped Sprite Sheet_2
-      rect:
-        serializedVersion: 2
-        x: 3249
-        y: 5470
-        width: 817
-        height: 656
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c39bc07fcaf944827a1cc49c002c471e
-      internalID: 369640283
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Trapped Sprite Sheet_3
       rect:
         serializedVersion: 2
         x: 303
-        y: 417
+        y: 316
         width: 1039
-        height: 2077
+        height: 2178
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -193,11 +130,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1605
-        y: 729
+        y: 316
         width: 1129
-        height: 2562
+        height: 2975
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -214,11 +151,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2946
-        y: 739
+        y: 316
         width: 1110
-        height: 3692
+        height: 4115
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -235,11 +172,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 4237
-        y: 740
+        y: 326
         width: 1110
-        height: 4327
+        height: 4741
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -256,11 +193,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 5468
-        y: 719
+        y: 306
         width: 1150
-        height: 5023
+        height: 5436
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

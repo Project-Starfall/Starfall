@@ -14,6 +14,7 @@ public class LevelTwoHandler : MonoBehaviour
     [SerializeField]
     private PlayerMovement playerMovement;
 
+	[SerializeField] PlayableDirector TrappedAnimation;
 
     public void Awake()
     {
@@ -43,6 +44,15 @@ public class LevelTwoHandler : MonoBehaviour
         endTimeline.Play();
         StartCoroutine(delayClose());
 
+    }
+
+   /*******************************************************************
+    Rescue animation
+    ******************************************************************/
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+ 	   TrappedAnimation.Play();
+ 	   return;
     }
 
     public void allowMove()
