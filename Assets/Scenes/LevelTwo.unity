@@ -5740,7 +5740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.790161
+      value: -11.051252
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5784,7 +5784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.229839
+      value: -9.968748
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7387,8 +7387,9 @@ GameObject:
   - component: {fileID: 1299621648}
   - component: {fileID: 1299621647}
   - component: {fileID: 1299621651}
+  - component: {fileID: 1299621652}
   m_Layer: 0
-  m_Name: Trapped Sprite Sheet_6
+  m_Name: Trapped Sprite Sheet_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7474,7 +7475,7 @@ SpriteRenderer:
   m_SortingLayerID: 1036971331
   m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 696449176, guid: e00dd3c2ceaf4494484542e314137f81, type: 3}
+  m_Sprite: {fileID: -591802020, guid: e00dd3c2ceaf4494484542e314137f81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7511,8 +7512,21 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 53.58437, y: 21.743774, z: 0.19999999}
-  m_Center: {x: -21.240984, y: -15.665189, z: 0}
+  m_Size: {x: 53.58437, y: 15.391458, z: 0.19999999}
+  m_Center: {x: -21.240984, y: -12.4890175, z: 0}
+--- !u!114 &1299621652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299621646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b892e0123b3dc423493d8133ad0c90dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrappedAnimation: {fileID: 1299621647}
 --- !u!1001 &1306912070
 PrefabInstance:
   m_ObjectHideFlags: 0

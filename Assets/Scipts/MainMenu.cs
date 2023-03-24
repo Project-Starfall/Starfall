@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static SaveSystem;
+using static Constants.Scenes;
 
 public class MainMenu : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class MainMenu : MonoBehaviour
         {
             loadButton.enabled = true;
             loadBkgrdImage.enabled = true;
-            loadButtonTxt.faceColor = Color.white;
+            loadButtonTxt.faceColor = new Color(255, 255, 255);
         }
     }
     /* is there a save -> set load button active
@@ -46,27 +47,19 @@ public class MainMenu : MonoBehaviour
     public void NewGame ()
     {
         // Resets the player's postions to zero
-        transform.position = new Vector3(0,0,0);
+        // transform.position = new Vector3(0,0,0);
         // Reset map
 
         // Reset grapple
 
-        if (File.Exists(Path))
+        if (File.Exists(SaveSystem.Path))
         {
-            File.Delete(Path);
+            File.Delete(SaveSystem.Path);
         }
 
         // load game scene
-        SceneManager.LoadScene(1, LoadSceneMode.Single);
+        SceneManager.LoadScene(Tutorial, LoadSceneMode.Single);
     }
-
-    // ss.loadgame()
-    // playGame()
-   public void PlayGame ()
-   {        
-      // This function starts the game
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1, LoadSceneMode.Single);
-   }
 
     public void Quit ()
     {
@@ -84,13 +77,15 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGameMenu()
     {
+        PlayerData playerData;
         // This function Loads a saved game
         if(saveExist())
         {
             LoadButtonUI.SetActive(true);
-            LoadGame();
+            playerData = LoadGame();
             // SaveSystem.LoadGame(SceneManager.GetActiveScene().path);
-            SceneManager.LoadScene(1);
+            // load scene ()
+            SceneManager.LoadScene(playerData.level);
         }
         else
         {

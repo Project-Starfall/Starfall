@@ -2,27 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class Lv2TrappedAnimScript : MonoBehaviour
 {
-	// [SerializeField] GameObject pipecanvas
+	// [SerializeField] Timeline GameObject
     [SerializeField] PlayableDirector TrappedAnimation;
 	
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // Player
+    [SerializeField]
+    PlayerMovement playerMovement;
 	
     public void OnTriggerEnter2D(Collider2D collision)
     {
+	   Debug.Log("Entered anim collider");
  	   TrappedAnimation.Play();
  	   return;
     }
+
 }
