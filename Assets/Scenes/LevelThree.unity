@@ -170,6 +170,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 1955112867038073859, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468676948043518202, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5046047058745334796, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -2509,7 +2517,7 @@ GameObject:
   - component: {fileID: 791364819}
   - component: {fileID: 791364820}
   m_Layer: 0
-  m_Name: tunnelHandler
+  m_Name: tunnelHandler1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2551,12 +2559,12 @@ PlayableDirector:
     value: {fileID: 0}
   - key: {fileID: 5776357581701249949, guid: 0bdddab0be9139f4cb9446583bfecdfb, type: 2}
     value: {fileID: 0}
-  - key: {fileID: 2338777647124700453, guid: 890d10486959dfd4c9672e391898071e, type: 2}
-    value: {fileID: 993397063}
   - key: {fileID: -5039828576610631554, guid: 890d10486959dfd4c9672e391898071e, type: 2}
     value: {fileID: 32221298}
-  - key: {fileID: -2678118946210770833, guid: 890d10486959dfd4c9672e391898071e, type: 2}
+  - key: {fileID: -52368332407628591, guid: 890d10486959dfd4c9672e391898071e, type: 2}
     value: {fileID: 993397063}
+  - key: {fileID: 0}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!43 &793930001
@@ -2723,6 +2731,59 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &819321369
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 819321370}
+  - component: {fileID: 819321371}
+  m_Layer: 0
+  m_Name: tunnelHandler2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &819321370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819321369}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 16.660725, y: 3.2784004, z: -0.2884159}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1027712422}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!320 &819321371
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819321369}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 80d4d875e4696c948a6effe956b685f7, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 1851129726214136214, guid: 80d4d875e4696c948a6effe956b685f7, type: 2}
+    value: {fileID: 993397063}
+  - key: {fileID: -4377484561667127845, guid: 80d4d875e4696c948a6effe956b685f7, type: 2}
+    value: {fileID: 32221298}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1001 &875085047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3393,6 +3454,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 791364819}
+  - {fileID: 819321370}
   m_Father: {fileID: 0}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4446,6 +4508,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2911928762154563362, guid: 6a8fb93cfc76a9a4ebd436fe97adb3c1, type: 3}
   m_PrefabInstance: {fileID: 1169580063}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1325930037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 972527804080673225, guid: 8ecee723efd3bfe418255c05ce2d87d0, type: 3}
+  m_PrefabInstance: {fileID: 972527804484298805}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1325930038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325930037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78d4cfc2223ea0458edb116393c9eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tunnelHanddler1: {fileID: 791364820}
 --- !u!1001 &1374372251
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5652,11 +5732,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5919314
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2402307
+      value: 1.2701707
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.z

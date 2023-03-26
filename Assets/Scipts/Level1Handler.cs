@@ -41,14 +41,10 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PolygonCollider2D[] cameraConfiners;
 
    // Player
-   [SerializeField]
-   Player player;
-   [SerializeField]
-   SpriteRenderer playerRenderer;
-   [SerializeField]
-   SpriteRenderer dashRenderer;
-   [SerializeField]
-   PlayerMovement playerMovement;
+   [SerializeField] Player player;
+   [SerializeField] SpriteRenderer playerRenderer;
+   [SerializeField] SpriteRenderer dashRenderer;
+   [SerializeField] PlayerMovement playerMovement;
    int playerSeed;
 
    // Camera
@@ -61,8 +57,7 @@ public class Level1Handler : MonoBehaviour
    [SerializeField] PlayableDirector openOffice;
    [SerializeField] PlayableDirector RescueAnimation;
 
-   [SerializeField]
-    OfficePopup popup;
+   [SerializeField] OfficePopup popup;
 
     private void Awake()
     { 
