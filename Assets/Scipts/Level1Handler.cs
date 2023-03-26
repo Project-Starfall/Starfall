@@ -211,7 +211,7 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    IEnumerator waitForTimeline()
    {
-      yield return new WaitForSeconds(5.5f);
+      yield return new WaitForSeconds(6f);
       playerRenderer.sortingLayerName = "Player & Platforms";
       dashRenderer.sortingLayerName = "Player & Platforms";
       Destroy(exterior);
