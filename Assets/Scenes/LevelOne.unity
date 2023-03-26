@@ -1341,6 +1341,7 @@ MonoBehaviour:
   - {fileID: 1632772106}
   - {fileID: 889009723}
   - {fileID: 1844692271}
+  animationCollider: {fileID: 96698977}
   cameraConfiners:
   - {fileID: 1004686851}
   - {fileID: 539479025}
@@ -1399,7 +1400,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.8120308, y: 0.8322748}
+  m_Offset: {x: 3.8318539, y: 0.8322748}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1410,7 +1411,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.0952911, y: 2.5835617}
+  m_Size: {x: 8.134937, y: 2.5835617}
   m_EdgeRadius: 0
 --- !u!1001 &97472348
 PrefabInstance:
@@ -10436,6 +10437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1357889555916442615, guid: b9df5c8679c492a4a9818b2f61131c65, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1876609935741613693, guid: b9df5c8679c492a4a9818b2f61131c65, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -26669,7 +26674,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.23599
+      value: -44.806465
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26713,7 +26718,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.77401
+      value: -11.203533
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y

@@ -38,6 +38,7 @@ public class Level1Handler : MonoBehaviour
 
    // Colliders
    [SerializeField] BoxCollider2D[] variableColliders;
+   [SerializeField] BoxCollider2D animationCollider;
    [SerializeField] PolygonCollider2D[] cameraConfiners;
 
    // Player
@@ -115,8 +116,11 @@ public class Level1Handler : MonoBehaviour
    ******************************************************************/
    public void OnTriggerEnter2D(Collider2D collision)
    {
-	   RescueAnimation.Play();
-	   return;
+       playerMovement.DisableMovement();
+       RescueAnimation.Play();
+       waitForAmination();
+        Destroy(animationCollider);
+       return;
    }
 
    /*******************************************************************
@@ -149,6 +153,7 @@ public class Level1Handler : MonoBehaviour
       cameraConfine.m_BoundingShape2D = cameraConfiners[1];
       variableColliders[0].enabled = true;
       variableColliders[1].enabled = false;
+      playerMovement.DisableMovement();
       openExterior.Play();
       StartCoroutine(waitForTimeline());
       return;
@@ -206,7 +211,7 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    IEnumerator waitForTimeline()
    {
-      yield return new WaitForSeconds(4f);
+      yield return new WaitForSeconds(5.5f);
       playerRenderer.sortingLayerName = "Player & Platforms";
       dashRenderer.sortingLayerName = "Player & Platforms";
       Destroy(exterior);
@@ -217,8 +222,23 @@ public class Level1Handler : MonoBehaviour
       yield return null;
    }
 
-   public void enablePlayerMove()
+    /*******************************************************************
+     * Re-enables player movement after an animation/timeline
+     ******************************************************************/
+    public void enablePlayerMove()
    {
       playerMovement.EnableMovement();
    }
+
+    /*******************************************************************
+     * Re-enables player movement after rescue animation
+     ******************************************************************/
+    IEnumerator waitForAmination()
+    {
+        yield return new WaitForSeconds(1f);
+        playerMovement.EnableMovement();
+        SaveGame(player);
+        Debug.Log("Saving the player...");
+        yield return null;
+    }
 }
