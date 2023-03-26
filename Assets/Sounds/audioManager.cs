@@ -17,7 +17,7 @@ public class audioManager : MonoBehaviour
     // Control volume of all music
     [SerializeField]
     [Range(0.0f, 1.0f)]
-    private float musicVolume;
+    public float musicVolume;
 
     void Awake()
     {

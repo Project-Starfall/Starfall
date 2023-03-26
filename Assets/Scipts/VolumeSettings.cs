@@ -25,15 +25,15 @@ public class VolumeSettings : MonoBehaviour
         AudioListener.volume = masterVolume;
         PlayerPrefs.SetFloat("Volume", masterVolume);
     }
-/*
+
     public void setSFXVolumeSlider(float masterVolume)
     {
         AudioSource[] sfxSources = GameObject.FindObjectsOfType<AudioSource>();
-        foreach(AudioSource sfxSources in sfxSources)
+        foreach(AudioSource sfxSource in sfxSources)
         {
-            if(sfxSources.tag == "SFX")
+            if(sfxSource.tag == "SFX")
             {
-                sfxSources.masterVolume = masterVolume;
+                sfxSource.volume = masterVolume;
             }
         }
         // Set the sound volume and save it to the playerprefs
@@ -43,15 +43,15 @@ public class VolumeSettings : MonoBehaviour
     public void setMusicVolumeSlider(float masterVolume)
     {
         AudioSource[] musicSources = GameObject.FindObjectsOfType<AudioSource>();
-        foreach (AudioSource musicSources in musicSources)
+        foreach (AudioSource musicSource in musicSources)
         {
-            if (musicSources.tag == "Music")
+            if (musicSource.tag == "Music")
             {
-                musicSources.masterVolume = masterVolume;
+                musicSource.volume = masterVolume;
             }
         }
         // Set the music volume and save it to the playerprefs
         PlayerPrefs.SetFloat("MusicVolume", masterVolume);
     }
-*/
+
 }
