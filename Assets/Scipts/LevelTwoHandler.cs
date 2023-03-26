@@ -64,7 +64,7 @@ public class LevelTwoHandler : MonoBehaviour
         SaveGame(player); // Saving the player data
         Debug.Log("Saving the Player...");
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(0, LoadSceneMode.Single);
+        SceneManager.LoadScene(4, LoadSceneMode.Single);
         yield return null;
     }
 }

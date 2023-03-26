@@ -120,7 +120,7 @@ public class Level1Handler : MonoBehaviour
        playerMovement.DisableMovement();
        RescueAnimation.Play();
        waitForAmination();
-        Destroy(animationCollider);
+       Destroy(animationCollider);
        return;
    }
 
