@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class Cells : MonoBehaviour
 {
-    public List<Cell> cellsList { get; set; } = new List<Cell>();
-    [SerializeField]
-    public int cellNumber { get; set; }
+    
+    [SerializeField] List<Cell> cellsList  = new List<Cell>();
+    [SerializeField] int cellNumber;
 
+
+   public List<Cell> GetCells() { return cellsList; }
+
+   public int getCellNumber()
+   {
+      return cellNumber;
+   }
+
+   public void setCellNumber(int cellNumber)
+   {
+      this.cellNumber = cellNumber;
+   }
 }
