@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class level3Handdler : MonoBehaviour
+public class tunnelhandler2 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

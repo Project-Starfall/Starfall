@@ -5,13 +5,13 @@ using UnityEngine.Playables;
 
 public class tunnelOne : MonoBehaviour
 {
-    [SerializeField] PlayableDirector tunnelHanddler1;
+    [SerializeField] PlayableDirector tunnelHandler1;
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(Input.GetButtonDown("Action"))
         {
-            tunnelHanddler1.Play();
+            tunnelHandler1.Play();
         }
     }
 }
