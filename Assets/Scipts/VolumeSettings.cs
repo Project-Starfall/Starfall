@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class VolumeSettings : MonoBehaviour
 {
+    // the field for the volume settings
     [SerializeField] public Slider MasterVolumeSlider;
     [SerializeField] public Slider SFXVolumeSlider;
     [SerializeField] public Slider MusicVolumeSlider;
@@ -34,6 +36,7 @@ public class VolumeSettings : MonoBehaviour
                 sfxSources.masterVolume = masterVolume;
             }
         }
+        // Set the sound volume and save it to the playerprefs
         PlayerPrefs.SetFloat("SFXVolume", masterVolume);
     }
 
@@ -42,11 +45,12 @@ public class VolumeSettings : MonoBehaviour
         AudioSource[] musicSources = GameObject.FindObjectsOfType<AudioSource>();
         foreach (AudioSource musicSources in musicSources)
         {
-            if (musicSources.musicClip == "Music")
+            if (musicSources.tag == "Music")
             {
                 musicSources.masterVolume = masterVolume;
             }
         }
+        // Set the music volume and save it to the playerprefs
         PlayerPrefs.SetFloat("MusicVolume", masterVolume);
     }
 */
