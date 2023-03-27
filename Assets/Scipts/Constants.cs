@@ -23,4 +23,14 @@ namespace Constants
       public const int LevelFive = 6;
       public const int Transistion = 7;
    }
+
+   public static class ComponentsPuzzle
+   {
+      public const int MaxComponentValue = 9;
+      public const int MinComponentValue = 0;
+      public const int Operation = 0;
+      public const int Value = 1;
+      public const int Subtract = 0;
+      public const int Addition = 1;
+   }
 }
