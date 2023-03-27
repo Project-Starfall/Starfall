@@ -11,18 +11,35 @@ public class VolumeSettings : MonoBehaviour
     [SerializeField] public Slider SFXVolumeSlider;
     [SerializeField] public Slider MusicVolumeSlider;
 
+    // audio field
+    [SerializeField] public audioManager audioManager;
+
+    public AudioMixer audioMixer;
+
+    public AudioSource musicVolume;
+
+    public bool isMuted = false;
+
+    public void OnMute()
+    {
+        isMuted = !isMuted;
+        musicVolume.mute = isMuted;
+    }
+
     public void Start()
     {
         // Load the current volume, sound volume, and music volume
         MasterVolumeSlider.value = PlayerPrefs.GetFloat("Volume", 1.0f);
         SFXVolumeSlider.value    = PlayerPrefs.GetFloat("SoundVolume", 1.0f);
         MusicVolumeSlider.value  = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
+        audioManager.musicVolume = MusicVolumeSlider.value;
     }
 
     public void setMasterVolume(float masterVolume)
     {
         // Set the volume and save it to the PlayerPrefs
         AudioListener.volume = masterVolume;
+        audioMixer.SetFloat("Volume", masterVolume);
         PlayerPrefs.SetFloat("Volume", masterVolume);
     }
 
