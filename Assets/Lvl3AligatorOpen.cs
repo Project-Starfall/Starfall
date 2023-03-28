@@ -33,4 +33,14 @@ public class Lvl3AligatorOpen : MonoBehaviour
 	         anim.SetBool("InCollider", false);
 	     }
 	 }
+/*	 
+	 if(fish == 3)
+	 {
+	     playerMovement.DisableMovement();
+		 Destroy(exterior);
+		 // make next sprite visable
+	     AlligatorRoll.Play();
+		 playerMovement.EnableMovement();
+	 }
+	 */
 }
