@@ -5898,7 +5898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.051252
+      value: -7.8299637
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5942,7 +5942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.968748
+      value: -13.190037
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7545,8 +7545,9 @@ GameObject:
   - component: {fileID: 1299621649}
   - component: {fileID: 1299621648}
   - component: {fileID: 1299621647}
-  - component: {fileID: 1299621651}
   - component: {fileID: 1299621652}
+  - component: {fileID: 1299621653}
+  - component: {fileID: 1299621654}
   m_Layer: 0
   m_Name: Trapped Sprite Sheet_7
   m_TagString: Untagged
@@ -7571,6 +7572,8 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 7120848841098754759, guid: 2722002351bbe473c91fe8b0554596b9, type: 2}
     value: {fileID: 1299621648}
+  - key: {fileID: -6132119163192839212, guid: 2722002351bbe473c91fe8b0554596b9, type: 2}
+    value: {fileID: 1299621654}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &1299621648
@@ -7660,19 +7663,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1299621651
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1299621646}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 53.58437, y: 15.391458, z: 0.19999999}
-  m_Center: {x: -21.240984, y: -12.4890175, z: 0}
 --- !u!114 &1299621652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7686,6 +7676,82 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TrappedAnimation: {fileID: 1299621647}
+  spriteRenderer: {fileID: 1299621649}
+  tiedUpAlphaMask: {fileID: 2800000, guid: e00dd3c2ceaf4494484542e314137f81, type: 3}
+  rescueAlphaMask: {fileID: 2800000, guid: 0f4f62887abfaf74ea4a7abf80d26708, type: 3}
+  playerMovement: {fileID: 1758421186}
+  star: {fileID: 1299621646}
+--- !u!61 &1299621653
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299621646}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -18.799952, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 11.502496, y: 54.36}
+    newSize: {x: 11.102409, y: 43.269997}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 49.102406, y: 54.36}
+  m_EdgeRadius: 0
+--- !u!114 &1299621654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299621646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: cefd1a24d6dcd1044851359309bb5faa, type: 2}
+    - {fileID: 11400000, guid: 3215b7353530026488c163f945275077, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1299621652}
+          m_TargetAssemblyTypeName: Lv2TrappedAnimScript, Assembly-CSharp
+          m_MethodName: rescueMask
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1299621652}
+          m_TargetAssemblyTypeName: Lv2TrappedAnimScript, Assembly-CSharp
+          m_MethodName: endRescue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1306912070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7934,11 +8000,6 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2230714518893652850, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
   m_PrefabInstance: {fileID: 824571952}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &1389969366 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 2120312392503301700, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
-  m_PrefabInstance: {fileID: 2230714518778531617}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1436746280 stripped
 Transform:
@@ -12255,6 +12316,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1807693733}
     - target: {fileID: 1415295663649137607, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
+      propertyPath: camSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415295663649137607, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
       propertyPath: fadeSpeed
       value: 1.5
       objectReference: {fileID: 0}
@@ -13281,10 +13346,6 @@ PrefabInstance:
       propertyPath: grappleRope
       value: 
       objectReference: {fileID: 897808418}
-    - target: {fileID: 2230714518893652855, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
-      propertyPath: spotRenderer
-      value: 
-      objectReference: {fileID: 1389969366}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
 --- !u!1001 &2351757359228390777

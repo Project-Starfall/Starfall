@@ -10,7 +10,8 @@ public class PinPadHandler : MonoBehaviour
    [SerializeField] Level1Handler handler; // The handler for level 1
    [SerializeField] PinPadInteractable pinpad; // The pinpad
    [SerializeField] Light2D[] lights; // Interior warehouse lights
-   private char[] num = {'_', '_', '_', '_'}; // digits buffer to load on screen
+    [SerializeField] ParticleSystem particles;
+    private char[] num = {'_', '_', '_', '_'}; // digits buffer to load on screen
    private int currentIndex = 0; // where the cursor is in the buffer
    bool funnyflag = false; // flash semaphore 
    
@@ -150,6 +151,7 @@ public class PinPadHandler : MonoBehaviour
       lights[1].enabled = true;
       // TODO: SOUND: play success noise
       StartCoroutine(delayedClose());
+      particles.Stop();
       pinpad.setEnabled(false);
    }
 

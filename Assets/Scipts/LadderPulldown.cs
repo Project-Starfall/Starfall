@@ -23,6 +23,9 @@ public class LadderPulldown : MonoBehaviour, Interactable
    private GameObject fallingHookFab;
    [SerializeField]
    private GrappleRope grappleRope;
+    [SerializeField]
+    private ParticleSystem particles;
+   
 
    //Fade
    [SerializeField]
@@ -42,7 +45,8 @@ public class LadderPulldown : MonoBehaviour, Interactable
       grappleRope.enabled = false;
       fallingHook = Instantiate(fallingHookFab);
       fallingHook.transform.position = pulldownTransform.position;
-      pulldownRenderer.enabled= false;
+        particles.Stop();
+        pulldownRenderer.enabled= false;
    }
 
    public void Update()

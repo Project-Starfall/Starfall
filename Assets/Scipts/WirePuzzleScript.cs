@@ -11,7 +11,8 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    [SerializeField] int puzzleNumber; // The number of the attached puzzle
    [SerializeField] bool completed; // If the puzzle is completed
    [SerializeField] SpriteRenderer spriteRenderer;
-   [SerializeField] PauseMenu menu;
+    [SerializeField] ParticleSystem particles;
+    [SerializeField] PauseMenu menu;
    private bool active = false; // if UI is active
 
    // Interface methods
@@ -190,25 +191,29 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             handler.openExteriorDoorSequence();
             handler.copmletePipe(1);
             setEnabled(false);
+            particles.Stop();
             break;
          case 2:
             Debug.Log("Copmleted Puzzle 2");
             showPuzzle(false);
             handler.copmletePipe(2);
             setEnabled(false);
-            break;
+                particles.Stop();
+                break;
          case 3:
             Debug.Log("Copmleted Puzzle 3");
             showPuzzle(false);
             handler.copmletePipe(3);
             setEnabled(false);
-            break;
+                particles.Stop();
+                break;
          case 4:
             Debug.Log("Copmleted Puzzle 4");
             showPuzzle(false);
             handler.copmletePipe(4);
             setEnabled(false);
-            break;
+                particles.Stop();
+                break;
       }
       
    }

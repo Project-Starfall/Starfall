@@ -11,6 +11,7 @@ public class TutoritalHandler : MonoBehaviour
 {
    [SerializeField] Transform playerTransform;
    [SerializeField] Player player;
+    [SerializeField] PlayerMovement playerMovement;
    [SerializeField] Rigidbody2D playerRigidBody;
    [SerializeField] PlayableDirector endTransition;
 
@@ -54,6 +55,7 @@ public class TutoritalHandler : MonoBehaviour
    public IEnumerator EndSequence()
    {
       SaveGame(player); // Saving the player data
+      playerMovement.DisableMovement();
       Debug.Log("Saving the Player...");
       yield return new WaitForSeconds(1);
       SceneManager.LoadScene(LevelOne, LoadSceneMode.Single);
