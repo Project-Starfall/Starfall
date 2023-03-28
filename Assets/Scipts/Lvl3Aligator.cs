@@ -17,6 +17,8 @@ public class Lvl3Aligator : MonoBehaviour
     Player player;
     [SerializeField]
     PlayerMovement playerMovement;
+	[SerializeField]
+	FishingHandler FishingHandler;
 	
 	void OnTriggerEnter2D(Collider2D collision)
 	 {
@@ -33,14 +35,11 @@ public class Lvl3Aligator : MonoBehaviour
 	         anim.SetBool("InCollider", false);
 	     }
 	 }
-/*	 
-	 if(fish == 3)
+
+	 if(FishHandler.fishCount == 3)
 	 {
 	     playerMovement.DisableMovement();
-		 Destroy(exterior);
-		 // make next sprite visable
 	     AlligatorRoll.Play();
 		 playerMovement.EnableMovement();
 	 }
-	 */
 }
