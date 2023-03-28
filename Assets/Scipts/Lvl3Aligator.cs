@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
-public class Lvl3AligatorOpen : MonoBehaviour
+public class Lvl3Aligator : MonoBehaviour
 {
 	// [SerializeField] Timeline GameObject
     [SerializeField] PlayableDirector AligatorOpen;
