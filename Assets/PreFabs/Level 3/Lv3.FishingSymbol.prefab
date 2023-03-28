@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4773720558367997452}
   - component: {fileID: 4773720558367997453}
+  - component: {fileID: 4079849567479701103}
+  - component: {fileID: 5733155143767144036}
   m_Layer: 0
   m_Name: Lv3.FishingSymbol
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4773720558367997455}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -18.8336, y: -9.76, z: -0.4485518}
   m_LocalScale: {x: 0.2942475, y: 0.2942475, z: 0.2942475}
   m_ConstrainProportionsScale: 0
@@ -71,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1036971331
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: da001586a82e94a7c9243fcde54d5ac1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -84,3 +86,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4079849567479701103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773720558367997455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8995769a8924e8a44b8eea1ed54b3172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fishingGame: {fileID: 0}
+  spriteRenderer: {fileID: 4773720558367997453}
+  menu: {fileID: 0}
+  playerMovement: {fileID: 0}
+--- !u!61 &5733155143767144036
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773720558367997455}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.40133667, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.12, y: 5.12}
+    newSize: {x: 5.12, y: 5.12}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7.1266794, y: 5.12}
+  m_EdgeRadius: 0
