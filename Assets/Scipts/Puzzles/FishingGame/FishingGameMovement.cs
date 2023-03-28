@@ -46,6 +46,7 @@ public class FishingGameMovement : MonoBehaviour
         line.sortingOrder = 4;
         Material lineMaterial = GetComponent<LineRenderer>().material;
         lineMaterial.color = lineColor;
+        line.sortingLayerName = "UI";
 
         hookCollider = hook.GetComponent<CircleCollider2D>();
         trashLayer = trashLayerMask.value;
@@ -62,7 +63,7 @@ public class FishingGameMovement : MonoBehaviour
             // Move the character
             horizontal = Input.GetAxisRaw("Horizontal");
             transform.Translate(new Vector3((horizontal * playerSpeed) * Time.deltaTime, 0, 0));
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -2.9f, 3.2f), 0, 0);
+            transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, -2.9f, 3.2f), 0, 0);
 
             // Cast the fishing rode
             if (Input.GetButtonDown("Action"))
@@ -73,7 +74,7 @@ public class FishingGameMovement : MonoBehaviour
         }
 
         // Stop reeling in hook when it reaches its resting point
-        if (hook.transform.position.y >= 1.56f)
+        if (hook.transform.localPosition.y >= 1.56f)
             isReeling = false;
         // Reel in hook if it hits a piece of trash
         if (hookCollider.IsTouchingLayers(trashLayer))
@@ -87,7 +88,7 @@ public class FishingGameMovement : MonoBehaviour
             ReelRod();
         }
         // Reel in hook when it hits the bottom of the water
-        if (hook.transform.position.y <= -2.90f)
+        if (hook.transform.localPosition.y <= -2.90f)
         {
             ReelRod();
         }

@@ -10,7 +10,7 @@ public class FishMovement : MonoBehaviour
    void Start()
    {
       // Set random direction, speed, and start position
-      transform.position = new Vector3(Random.Range(-2.9f, 3f), transform.position.y, transform.position.z);
+      transform.localPosition = new Vector3(Random.Range(-2.9f, 3f), transform.localPosition.y, transform.localPosition.z);
       direction = Random.Range(-100, 100) <= 0 ? -1 : 1;
       speed = 3f;
 
@@ -26,12 +26,12 @@ public class FishMovement : MonoBehaviour
    {
       // Move fish back and forth, flipping its sprite to match its movements
       transform.Translate(new Vector3((direction * speed) * Time.deltaTime, 0, 0));
-      if (transform.position.x <= -2.9)
+      if (transform.localPosition.x <= -2.9)
       {
          direction = 1;
          FishSprite.flipX = true;
       }
-      if (transform.position.x >= 3)
+      if (transform.localPosition.x >= 3)
       {
          direction = -1;
          FishSprite.flipX = false;
