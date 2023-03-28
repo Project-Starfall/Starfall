@@ -14,7 +14,7 @@ public class TrashMovement : MonoBehaviour
     void Start()
     {
         // Set random direction, speed, and start position
-        transform.position = new Vector3(Random.Range(-2.9f, 3f), transform.position.y, transform.position.z);
+        transform.localPosition = new Vector3(Random.Range(-2.9f, 3f), transform.localPosition.y, transform.localPosition.z);
         direction = Random.Range(-100, 100) <= 0 ? -1 : 1;
         movementSpeed = 3f + Random.Range(0f, 2f);
         rotationSpeed = 15;
@@ -28,9 +28,9 @@ public class TrashMovement : MonoBehaviour
     {
         // Move trash back and forth
         transform.Translate(new Vector3((direction * movementSpeed) * Time.deltaTime, 0, 0));
-        if (transform.position.x <= -2.9)
+        if (transform.localPosition.x <= -2.9)
             direction = 1;
-        if (transform.position.x >= 3)
+        if (transform.localPosition.x >= 3)
             direction = -1;
 
         // Rotate trash along its path
