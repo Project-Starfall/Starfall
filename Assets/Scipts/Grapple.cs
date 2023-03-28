@@ -11,6 +11,7 @@ public class Grapple : MonoBehaviour, Grappleable
 
    // Anim control
    [SerializeField] SpriteRenderer spriteRenderer;
+   [SerializeField] SpriteRenderer spotRenderer;
    [SerializeField]
    private CinemachineVirtualCamera vcam;
    [SerializeField]
@@ -20,20 +21,25 @@ public class Grapple : MonoBehaviour, Grappleable
    [SerializeField]
    private Transform playerPos;
    private Material glowMaterial;
+   private Material spotMaterial;
    private bool isFade = false;
+   private bool isFadeSpot = false;
    private bool fadeIn = false;
    private float fade = 0.0f;
+   private float fadeSpot = 0.0f;
 
    private bool isCameraMove = false;
    private bool moveToPoint = false;
    private float xPos = 0.0f;
    private float xTarget;
    public float camSpeed = 5f;
+   [SerializeField] private float fadeSpeed;
 
    public void Start()
    {
       glowMaterial = spriteRenderer.material;
       glowMaterial.SetFloat("_Fade", 0f);
+      spotRenderer.color = new Color(spotRenderer  .color.r, spotRenderer.color.g, spotRenderer.color.b, 0f);
       vcam_offset = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
       if(vcam_offset == null)
       {
@@ -43,6 +49,7 @@ public class Grapple : MonoBehaviour, Grappleable
 
    public void Update()
    {
+      // Fade the glow of the hook
       if (isFade)
       {
          if (!fadeIn)
@@ -66,7 +73,31 @@ public class Grapple : MonoBehaviour, Grappleable
          glowMaterial.SetFloat("_Fade", fade);
       }
 
-      if(isCameraMove)
+      // Fade the floor spot
+      if (isFadeSpot)
+      {
+         if (!fadeIn)
+         {
+            fadeSpot -= (fadeSpeed * Time.deltaTime);
+            if (fadeSpot <= 0f)
+            {
+               fadeSpot = 0f;
+               isFadeSpot = false;
+            }
+         }
+         else
+         {
+            fadeSpot += (fadeSpeed * Time.deltaTime);
+            if (fadeSpot >= 1f)
+            {
+               fadeSpot = 1f;
+               isFadeSpot = false;
+            }
+         }
+         spotRenderer.color = new Color(spotRenderer.color.r, spotRenderer.color.g, spotRenderer.color.b, fadeSpot);
+      }
+
+      if (isCameraMove)
       {
          if(moveToPoint) {
             xPos += Time.deltaTime * camSpeed;
@@ -102,6 +133,7 @@ public class Grapple : MonoBehaviour, Grappleable
    // Is ran when the grapple is first detected
    public void onEnter()
     {
+      isFadeSpot = true;
       isFade= true;
       fadeIn= true;
 
@@ -116,6 +148,7 @@ public class Grapple : MonoBehaviour, Grappleable
     // Is ran when the grapple is no longer detected
     public void onLeave()
     {
+      isFadeSpot = true;
       isFade = true;
       fadeIn = false;
 

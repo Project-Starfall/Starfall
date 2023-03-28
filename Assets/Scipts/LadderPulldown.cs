@@ -18,6 +18,8 @@ public class LadderPulldown : MonoBehaviour, Interactable
    [SerializeField]
    private SpriteRenderer pulldownRenderer;
    [SerializeField]
+   private SpriteRenderer spotRenderer;
+   [SerializeField]
    private GameObject fallingHookFab;
    [SerializeField]
    private GrappleRope grappleRope;
@@ -26,8 +28,11 @@ public class LadderPulldown : MonoBehaviour, Interactable
    [SerializeField]
    private Material glowMaterial;
    private bool isFade = false;
+   private bool isFadeSpot = false;
    private bool fadeIn = false;
    private float fade = 1.0f;
+   private float fadeSpot = 0f;
+   [SerializeField] private float fadeSpeed = 1.5f;
 
    //Falling hook
    private GameObject fallingHook;
@@ -63,6 +68,34 @@ public class LadderPulldown : MonoBehaviour, Interactable
          }
          glowMaterial.SetFloat("_Fade", fade);
       }
+
+      // Fade the floor spot
+
+         if (isFadeSpot)
+         {
+         if (!fadeIn)
+         {
+            fadeSpot -= (fadeSpeed * Time.deltaTime);
+            if (fadeSpot <= 0f)
+            {
+               fadeSpot = 0f;
+               isFadeSpot = false;
+            }
+         }
+         else
+         {
+            if (interactEnabled)
+            {
+               fadeSpot += (fadeSpeed * Time.deltaTime);
+               if (fadeSpot >= 1f)
+               {
+                  fadeSpot = 1f;
+                  isFadeSpot = false;
+               }
+            }
+         }
+            spotRenderer.color = new Color(spotRenderer.color.r, spotRenderer.color.g, spotRenderer.color.b, fadeSpot);
+         }
    }
 
    public void OnTriggerEnter2D(Collider2D collision)
@@ -101,8 +134,10 @@ public class LadderPulldown : MonoBehaviour, Interactable
 
    public void onEnter()
    {
+      if (!interactEnabled) return;
       fade += 0.01f;
       isFade = true;
+      isFadeSpot= true;
       fadeIn = true;
    }
 
@@ -110,6 +145,7 @@ public class LadderPulldown : MonoBehaviour, Interactable
    {
       fade -= 0.01f;
       isFade = true;
+      isFadeSpot= true;
       fadeIn = false;
    }
 
