@@ -31,15 +31,18 @@ public class FishingGameMovement : MonoBehaviour
     private int trashLayer; // Int value of the "Trash" layer mask
     [SerializeField] private LayerMask trashLayerMask; // The "Trash" layer mask
 
+    // Game members
+    private bool gameCompleted;
+    private int gameNum;
+
+    // References to game objects
+    [SerializeField] FishingSpotInteractable game1Interact;
+    [SerializeField] FishingSpotInteractable game2Interact;
+    [SerializeField] FishingSpotInteractable game3Interact;
+
     // Start is called before the first frame update
     void Start()
     {
-        // NOTICE: WILL BE HANDLED BY HANDLER IN FULL ECOSYSTEM
-
-        // Set initial game values
-        horizontal = 0f;
-        DisableMovement(false);
-
         LineRenderer line = gameObject.AddComponent<LineRenderer>();
         line.widthMultiplier = 0.05f;
         line.positionCount = 2;
@@ -66,7 +69,7 @@ public class FishingGameMovement : MonoBehaviour
             transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, -2.9f, 3.2f), 0, 0);
 
             // Cast the fishing rode
-            if (Input.GetButtonDown("Action"))
+            if (Input.GetButtonDown("Cast"))
             {
                 isCasting = true;
                 DisableMovement(true);
@@ -81,10 +84,11 @@ public class FishingGameMovement : MonoBehaviour
         {
             ReelRod();
         }
+        // Reel in hook when it hits the fish
         if (hookCollider.IsTouchingLayers(fishLayer))
         {
-            movingFishSprite.enabled = false;
-            hookedFishSprite.enabled = true;
+            gameCompleted = true;
+            FishOnHook(true);
             ReelRod();
         }
         // Reel in hook when it hits the bottom of the water
@@ -92,10 +96,15 @@ public class FishingGameMovement : MonoBehaviour
         {
             ReelRod();
         }
-        
+
+        // Complete game
+        if (!isReeling && !isCasting && gameCompleted)
+        {
+            CompleteGame(gameCompleted, gameNum);
+        }
 
         // Reenable movement when resting
-        if (!isReeling && !isCasting)
+        if (!isReeling && !isCasting && !gameCompleted)
             DisableMovement(false);
 
         // Handles casting and reeling the rod
@@ -110,7 +119,7 @@ public class FishingGameMovement : MonoBehaviour
     }
 
     // Disable character movement
-    void DisableMovement(bool p)
+    public void DisableMovement(bool p)
     {
         if (p == true)
         {
@@ -126,5 +135,54 @@ public class FishingGameMovement : MonoBehaviour
     {
         isCasting = false;
         isReeling = true;
+    }
+
+    public void FishOnHook(bool v)
+    {
+        if (v == true)
+        {
+            movingFishSprite.enabled = false;
+            hookedFishSprite.enabled = true;
+        }
+        else
+        {
+            movingFishSprite.enabled = true;
+            hookedFishSprite.enabled = false;
+        }
+    }
+
+    public void SetGameNum(int num)
+    {
+        gameNum = num;
+    }
+
+    public void SetHorizontal(float h)
+    {
+        horizontal = h;
+    }
+
+    private void CompleteGame(bool completed, int gameNum)
+    {
+        if (!completed) { return; }
+        switch (gameNum)
+        {
+            case 1:
+                game1Interact.SetComplete(true);
+                Debug.Log("GAME 1 CLEAR");
+                break;
+            case 2:
+                game2Interact.SetComplete(true);
+                Debug.Log("GAME 2 CLEAR");
+                break;
+            case 3:
+                game3Interact.SetComplete(true);
+                Debug.Log("GAME 3 CLEAR");
+                break;
+        }
+    }
+
+    public void SetComplete(bool v)
+    {
+        gameCompleted = v;
     }
 }

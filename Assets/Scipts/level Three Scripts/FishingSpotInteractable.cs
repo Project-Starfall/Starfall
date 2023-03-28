@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
@@ -10,12 +11,17 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
 
    // References to game objects
    [SerializeField] GameObject fishingGame; // REFERENCE TO YOUR PARENT FISHING GAME OBJECT
+   [SerializeField] FishingGameMovement fishingGameMovement;
+   [SerializeField] FishingHandler fishingHandler;
    [SerializeField] SpriteRenderer spriteRenderer;
    [SerializeField] PauseMenu menu;
    [SerializeField] PlayerMovement playerMovement;
 
    // Data
    private bool active = false; // if UI is active
+   [SerializeField] private int gameInteractNum;
+   private bool isComplete;
+   private bool fishAdded;
 
    // InteractGlow data
    private Material glowMaterial;
@@ -26,15 +32,27 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    // Setup the glow material at very first start tick
    public void Start()
    {
-      glowMaterial = spriteRenderer.material;
-     // glowMaterial.SetFloat("_Fade", 0f); not enabled until glow material is made
+        glowMaterial = spriteRenderer.material;
+        // glowMaterial.SetFloat("_Fade", 0f); not enabled until glow material is made
+
+        interactEnabled = true;
+        isComplete = false;
+        fishAdded = false;
    }
 
    // Called to start the fishing game
    private void startFishingGame()
    {
-      // TODO: Start the fishing game from here
-      //openGame()
+        // TODO: Start the fishing game from here
+        // Initialize Game
+        fishingGameMovement.SetHorizontal(0f);
+        fishingGameMovement.DisableMovement(false);
+        fishingGameMovement.transform.localPosition = new Vector3(0f, 0f, 0f);
+        fishingGameMovement.FishOnHook(false);
+        fishingGameMovement.SetComplete(false);
+        fishingGameMovement.SetGameNum(gameInteractNum);
+
+        openGame();
    }
 
    // Used to enable the game canvas
@@ -52,9 +70,11 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    {
       if (completed)
       {
-         // Play a timeline?
-         // wait to complete?
-         // Play complete noise?
+         fishingGame.SetActive(false); // closes the game on the canvas
+         StartCoroutine(delayedDeactive());
+         menu.isUIOpen = false;
+         playerMovement.EnableMovement();
+         AddFish();
       }
       else
       {
@@ -102,7 +122,12 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
 
       if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Action"))
       {
-         closeGame(false);
+          closeGame(false);
+      }
+
+      if (isComplete)
+      {
+          closeGame(true);      
       }
    }
 
@@ -158,6 +183,19 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
       active = false;
       yield return null;
    }
+
+   public void SetComplete(bool v)
+   {
+        isComplete = v;
+        Debug.Log("GAME SET TO COMPLETE");
+   }
+
+    private void AddFish()
+    {
+        if (!fishAdded)
+            fishingHandler.fishCount += 1;
+        fishAdded = true;
+    }
 
    // Calls the on enter and on leave functions from the interface when the collider is entered or left
    public void OnTriggerEnter2D(Collider2D collision)
