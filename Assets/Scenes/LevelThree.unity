@@ -6830,9 +6830,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1581683982}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d60fabb18adddba47ba9e7ec25cfe159, type: 3}
+  m_Script: {fileID: 11500000, guid: e662e9a706df58143adb18c79d25a1e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tunnelHandler2: {fileID: 819321371}
+  cameraConfiner: {fileID: 1495004060}
+  tunnelConfiner: {fileID: 322089633}
 --- !u!1001 &1622894055
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7431,7 +7434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9766326
+      value: 0.6635384
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7475,7 +7478,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.9766326
+      value: -0.6635384
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
