@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 using Cinemachine;
 using static SaveSystem;
 
-public class level3Handler : MonoBehaviour
+public class LevelThreeHandler : MonoBehaviour
 {
     // Camera
     [SerializeField] CinemachineConfiner2D cameraConfine;
@@ -16,6 +16,7 @@ public class level3Handler : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
+        Debug.Log($"{name}");
 
         // transition background music into level one music
         FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
