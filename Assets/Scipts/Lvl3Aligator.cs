@@ -10,7 +10,7 @@ public class Lvl3Aligator : MonoBehaviour
     [SerializeField] PlayableDirector Alligator;
 	
     // Animation members
-    private Animator anim; // Reference to animator component
+    [SerializeField] Animator anim; // Reference to animator component
 	
     // Player
     [SerializeField]

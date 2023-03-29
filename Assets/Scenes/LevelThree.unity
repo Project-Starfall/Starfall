@@ -6850,9 +6850,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546326d35f8ef410a96fa19c4f24fca6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AligatorOpen: {fileID: 0}
-  player: {fileID: 0}
-  playerMovement: {fileID: 0}
+  Alligator: {fileID: 1605783260}
+  anim: {fileID: 1605783261}
+  player: {fileID: 1027710537}
+  playerMovement: {fileID: 1027710539}
+  FishingHandler: {fileID: 1758959217}
 --- !u!61 &1605783259
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7804,11 +7806,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.23401332
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.2701707
+      value: 3.09649
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7848,7 +7850,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6635384
+      value: -0.23401332
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
