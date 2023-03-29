@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Lvl3Aligator : MonoBehaviour
 {
 	// [SerializeField] Timeline GameObject
-    [SerializeField] PlayableDirector AligatorOpen;
+    [SerializeField] PlayableDirector Alligator;
 	
     // Animation members
     private Animator anim; // Reference to animator component
@@ -22,24 +22,20 @@ public class Lvl3Aligator : MonoBehaviour
 	
 	void OnTriggerEnter2D(Collider2D collision)
 	 {
-	     if(collision.gameObject.tag == "Player")
-	     {
-	         anim.SetBool("InCollider", true);
-	     }
+	     anim.SetBool("InCollider", true);
 	  }
  
 	 void OnTriggerExit2D(Collider2D collision)
 	 {
-	     if(collision.gameObject.tag == "Player")
-	     {
-	         anim.SetBool("InCollider", false);
-	     }
+	     anim.SetBool("InCollider", false);
 	 }
-
-	 if(FishHandler.fishCount == 3)
-	 {
-	     playerMovement.DisableMovement();
-	     AlligatorRoll.Play();
-		 playerMovement.EnableMovement();
+     void Update()
+     {
+	    if(FishingHandler.fishCount == 3)
+	    {
+	        playerMovement.DisableMovement();
+	        Alligator.Play();
+		    playerMovement.EnableMovement();
+	    }
 	 }
 }
