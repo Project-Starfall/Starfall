@@ -3061,6 +3061,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 1154866614501205414, guid: f48879124358d984eab8d3716c83ca4f, type: 3}
+      propertyPath: lineMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 1154866614501205414, guid: f48879124358d984eab8d3716c83ca4f, type: 3}
       propertyPath: game1Interact
       value: 
       objectReference: {fileID: 1270083386}
@@ -3072,6 +3076,10 @@ PrefabInstance:
       propertyPath: game3Interact
       value: 
       objectReference: {fileID: 1849637964}
+    - target: {fileID: 1154866614501205414, guid: f48879124358d984eab8d3716c83ca4f, type: 3}
+      propertyPath: lineSpriteMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 1154866614501205414, guid: f48879124358d984eab8d3716c83ca4f, type: 3}
       propertyPath: uiLayermask.m_Bits
       value: 32
@@ -7434,7 +7442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6635384
+      value: 2.9766326
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7478,7 +7486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6635384
+      value: -2.9766326
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
