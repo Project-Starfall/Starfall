@@ -26,6 +26,7 @@ public class FishingGameMovement : MonoBehaviour
     [SerializeField] private GameObject hookConnection; // Where the line connects to the hook
     [SerializeField] private SpriteRenderer hookedFishSprite; // Fish sprite from on the fishing hook
     private Color lineColor = Color.white; // Color of the fishing line
+    [SerializeField] private Material lineSpriteMaterial; // Material of the fishing material
     [SerializeField] private SpriteRenderer movingFishSprite; // Fish sprite from bottom of water
     [SerializeField] private GameObject rodConnection; // Where the line connects to the rod
     private int trashLayer; // Int value of the "Trash" layer mask
@@ -44,11 +45,13 @@ public class FishingGameMovement : MonoBehaviour
     void Start()
     {
         LineRenderer line = gameObject.AddComponent<LineRenderer>();
-        line.widthMultiplier = 0.05f;
         line.positionCount = 2;
         line.sortingOrder = 4;
         Material lineMaterial = GetComponent<LineRenderer>().material;
+        lineMaterial = lineSpriteMaterial;
         lineMaterial.color = lineColor;
+        line.material = lineMaterial;
+        line.widthMultiplier = 0.05f;
         line.sortingLayerName = "UI";
 
         hookCollider = hook.GetComponent<CircleCollider2D>();
@@ -65,8 +68,6 @@ public class FishingGameMovement : MonoBehaviour
         {
             // Move the character
             horizontal = Input.GetAxisRaw("Horizontal");
-            transform.Translate(new Vector3((horizontal * playerSpeed) * Time.deltaTime, 0, 0));
-            transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, -2.9f, 3.2f), 0, 0);
 
             // Cast the fishing rode
             if (Input.GetButtonDown("Cast"))
@@ -107,15 +108,22 @@ public class FishingGameMovement : MonoBehaviour
         if (!isReeling && !isCasting && !gameCompleted)
             DisableMovement(false);
 
+        // Set fishing line position
+        line.SetPosition(0, rodConnection.transform.position);
+        line.SetPosition(1, hookConnection.transform.position);
+    }
+
+    private void FixedUpdate()
+    {
+        // Moves the character
+        transform.Translate(new Vector3((horizontal * playerSpeed) * Time.deltaTime, 0, 0));
+        transform.localPosition = new Vector3(Mathf.Clamp(transform.localPosition.x, -2.9f, 3.2f), 0, 0);
+
         // Handles casting and reeling the rod
         if (isCasting)
             hook.transform.Translate(new Vector3(0, (hookSpeed * -1) * Time.deltaTime, 0));
         if (isReeling)
             hook.transform.Translate(new Vector3(0, (hookSpeed * 1) * Time.deltaTime, 0));
-
-        // Set fishing line position
-        line.SetPosition(0, rodConnection.transform.position);
-        line.SetPosition(1, hookConnection.transform.position);
     }
 
     // Disable character movement

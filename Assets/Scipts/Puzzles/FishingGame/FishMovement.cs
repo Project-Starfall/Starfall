@@ -19,22 +19,19 @@ public class FishMovement : MonoBehaviour
       FishSprite.flipX = direction == -1 ? false : true;
    }
 
-
-
-   // Update is called once per frame
-   void Update()
-   {
-      // Move fish back and forth, flipping its sprite to match its movements
-      transform.Translate(new Vector3((direction * speed) * Time.deltaTime, 0, 0));
-      if (transform.localPosition.x <= -2.9)
-      {
-         direction = 1;
-         FishSprite.flipX = true;
-      }
-      if (transform.localPosition.x >= 3)
-      {
-         direction = -1;
-         FishSprite.flipX = false;
-      }
-   }
+    private void FixedUpdate()
+    {
+        // Move fish back and forth, flipping its sprite to match its movements
+        transform.Translate(new Vector3((direction * speed) * Time.deltaTime, 0, 0));
+        if (transform.localPosition.x <= -2.9)
+        {
+            direction = 1;
+            FishSprite.flipX = true;
+        }
+        if (transform.localPosition.x >= 3)
+        {
+            direction = -1;
+            FishSprite.flipX = false;
+        }
+    }
 }
