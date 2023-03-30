@@ -23,8 +23,7 @@ public class TrashMovement : MonoBehaviour
         trashSprite = GetComponentInChildren<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         // Move trash back and forth
         transform.Translate(new Vector3((direction * movementSpeed) * Time.deltaTime, 0, 0));
