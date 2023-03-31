@@ -132,6 +132,7 @@ public class FishingGameMovement : MonoBehaviour
         if (p == true)
         {
             movementEnabled = false;
+            horizontal = 0f;
         }
         else if (p == false)
         {

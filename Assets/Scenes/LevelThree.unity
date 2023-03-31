@@ -7442,7 +7442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.6635384
+      value: 2.083906
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7486,7 +7486,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6635384
+      value: -2.083906
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -9528,6 +9528,14 @@ PrefabInstance:
     - target: {fileID: 2320069163184428186, guid: dc20be95411820c4ebb2c7c501a6782d, type: 3}
       propertyPath: m_Name
       value: Lv3.Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395134258359990051, guid: dc20be95411820c4ebb2c7c501a6782d, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395134258359990051, guid: dc20be95411820c4ebb2c7c501a6782d, type: 3}
+      propertyPath: m_FlipY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7753964582473821953, guid: dc20be95411820c4ebb2c7c501a6782d, type: 3}
       propertyPath: m_RootOrder
