@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5544500995653959933}
   - component: {fileID: 5544500995653959932}
-  - component: {fileID: 5544500995653959930}
+  - component: {fileID: 3613378179800049291}
   m_Layer: 0
   m_Name: Lv4.CaveCeiling_0 (1)
   m_TagString: Untagged
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 612687665
-  m_SortingLayer: 5
+  m_SortingLayerID: 1036971331
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -108801959, guid: ede3236a6fc294e029cbf9ee233bd927, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &5544500995653959930
-PolygonCollider2D:
+--- !u!61 &3613378179800049291
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -98,7 +98,7 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.05922538}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -108,30 +108,6 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.12, y: -1.8399999}
-      - {x: 0.06, y: -1.8199999}
-      - {x: 0.28, y: -1.79}
-      - {x: 0.45, y: -1.8}
-      - {x: 0.59999996, y: -1.76}
-      - {x: 0.78999996, y: -1.75}
-      - {x: 1.15, y: -1.74}
-      - {x: 1.3199999, y: -1.75}
-      - {x: 1.5699999, y: -1.8}
-      - {x: 2.09, y: -1.81}
-      - {x: 2.2, y: -1.79}
-      - {x: 2.4199998, y: -1.7199999}
-      - {x: 2.56, y: -1.7199999}
-      - {x: 2.56, y: 1.8499999}
-      - {x: -2.56, y: 1.8499999}
-      - {x: -2.56, y: -1.73}
-      - {x: -2.26, y: -1.76}
-      - {x: -1.76, y: -1.8399999}
-      - {x: -1.48, y: -1.8299999}
-      - {x: -1.17, y: -1.8199999}
-      - {x: -1.02, y: -1.8399999}
-      - {x: -0.87, y: -1.8399999}
-      - {x: -0.68, y: -1.8}
-      - {x: -0.37, y: -1.81}
-      - {x: -0.19, y: -1.8399999}
+  serializedVersion: 2
+  m_Size: {x: 5.12, y: 3.5815492}
+  m_EdgeRadius: 0
