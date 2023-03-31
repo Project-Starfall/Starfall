@@ -83,7 +83,6 @@ public class NoteInteractable : MonoBehaviour, Interactable
          note.SetActive(false);
          StartCoroutine(delayedDeactive());
          menu.isUIOpen = false;
-         setEnabled(true);
          playerMovement.EnableMovement();
       }
 
@@ -138,7 +137,8 @@ public class NoteInteractable : MonoBehaviour, Interactable
    public IEnumerator delayedDeactive()
    {
       yield return new WaitForSeconds(0.1f);
-      active = false;
+        setEnabled(true);
+        active = false;
       yield return null;
    }
 }

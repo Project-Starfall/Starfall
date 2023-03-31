@@ -88,7 +88,6 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
          playerMovement.EnableMovement();
          pipecanvas.SetActive(false);
          menu.isUIOpen = false;
-         setEnabled(true);
       }
 
    }
@@ -220,14 +219,15 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    public IEnumerator delayedActive()
    {
       yield return new WaitForSeconds(0.10f);
-      active = true;
+        active = true;
       yield return null;
    }
 
    public IEnumerator delayedDeactive()
    {
       yield return new WaitForSeconds(0.10f);
-      active = false;
+        setEnabled(true);
+        active = false;
       yield return null;
    }
 }
