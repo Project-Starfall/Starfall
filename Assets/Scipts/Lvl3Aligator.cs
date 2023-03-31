@@ -23,19 +23,16 @@ public class Lvl3Aligator : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collision)
 	 {
 	     anim.SetBool("InCollider", true);
-	  }
- 
-	 void OnTriggerExit2D(Collider2D collision)
-	 {
-	     anim.SetBool("InCollider", false);
-	 }
-     void Update()
-     {
 	    if(FishingHandler.fishCount == 3)
 	    {
 	        playerMovement.DisableMovement();
 	        Alligator.Play();
 		    playerMovement.EnableMovement();
 	    }
+	  }
+ 
+	 void OnTriggerExit2D(Collider2D collision)
+	 {
+	     anim.SetBool("InCollider", false);
 	 }
 }
