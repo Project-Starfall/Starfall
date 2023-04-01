@@ -247,6 +247,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerCharacter
       objectReference: {fileID: 0}
+    - target: {fileID: 1955112867038073859, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468676948043518202, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1446030468}
+    - target: {fileID: 2468676948043518202, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6210514447402423030, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -297,7 +309,7 @@ PrefabInstance:
       objectReference: {fileID: 1536885041}
     - target: {fileID: 6824588430596058833, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: swimmingJumpMult
-      value: 0.75
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6824588430596058833, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: normalJumpStrength
@@ -305,7 +317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6824588430596058833, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: swimmingGravityMult
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6824588430596058833, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
       propertyPath: swimmingLayer.m_Bits
@@ -648,13 +660,18 @@ MonoBehaviour:
     source: {fileID: 0}
   fadeTime: 9
   musicVolume: 0.2
+--- !u!95 &1446030468 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 561063081, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
+  m_PrefabInstance: {fileID: 376929108}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1536885041 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2468676948043518202, guid: 9b4e2e22d1b6a954c8ff0df7437b3f6f, type: 3}
   m_PrefabInstance: {fileID: 376929108}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 77e8f7c1392466c478daf6fdbd03531c, type: 3}
   m_Name: 
