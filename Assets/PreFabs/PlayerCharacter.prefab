@@ -210,8 +210,8 @@ MonoBehaviour:
   dashTime: 0.2
   dashRender: {fileID: 4141533303585814755}
   walkingSound: {fileID: 4982922287143141717}
-  grappleStartSpeed: 15
-  grappleEndSpeed: 4
+  grappleStartSpeed: 11
+  grappleEndSpeed: 1.5
   grappleRope: {fileID: 0}
   swimmingGravityMult: 0.3
   swimmingJumpMult: 0.5
