@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour {
     private float horizontal; // Player's movement direction
     private bool isFacingRight = true; // Player orientation
     private float jumpStrength; // Player's jump force
-    [SerializeField] private float normalJumpStrength = 16;
-    [SerializeField] private float speed = 8f; // Player's movement speed
+    [SerializeField] private float normalJumpStrength; // 16f
+    [SerializeField] private float speed; // Player's movement speed - 8f
     private bool isActing; // Is the player performing an action?
     public bool disableMovement { get; set; } = false;
     private float gravity;
@@ -27,9 +27,9 @@ public class PlayerMovement : MonoBehaviour {
     bool canDash = true; // Can the player dash yet?
     private float dashDirection = 1f; // Direction the player will dash in
                                       // (positive = right, negative = left)
-    [SerializeField] float dashRate = 0.5f;
-    [SerializeField] private float dashSpeed = 15f; // Velocity of the player's dash
-    [SerializeField] private float dashTime = 0.4f; // Duration of the player's dash
+    [SerializeField] float dashRate; // 0.5f
+    [SerializeField] private float dashSpeed; // Velocity of the player's dash - 15f
+    [SerializeField] private float dashTime; // Duration of the player's dash - 0.4f
     public bool disableDash { get; set; } = false;
     private float nextDash = 0f; // When the player can dash next
 
@@ -45,8 +45,8 @@ public class PlayerMovement : MonoBehaviour {
     bool isToArc = false; // Is the player to the arc of the grapple?
     float step; // Time parameter for initial grapple movement
     float t; // Time parameter for the grapple curve
-    [SerializeField] private float grappleStartSpeed = 15.0f;
-    [SerializeField] private float grappleEndSpeed = 4.0f;
+    [SerializeField] private float grappleStartSpeed; // 15f
+    [SerializeField] private float grappleEndSpeed; // 4f
     [SerializeField] private GrappleRope grappleRope;
     private (Transform, Transform, Transform, Transform, Transform) grapplePoints;
 

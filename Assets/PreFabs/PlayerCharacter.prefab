@@ -191,8 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 5826138619121241355}
-  jumpStrength: 11
-  starPower: 1
+  normalJumpStrength: 11
   speed: 8
   groundCheck: {fileID: 747899491}
   groundLayer:
@@ -214,6 +213,8 @@ MonoBehaviour:
   grappleStartSpeed: 15
   grappleEndSpeed: 4
   grappleRope: {fileID: 0}
+  swimmingGravityMult: 0.3
+  swimmingJumpMult: 0.5
 --- !u!114 &5826138619121241355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3979e9c8cfd78424ca203a8f8a99d903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seed: 0
   level: 4
 --- !u!95 &561063081
 Animator:
@@ -487,6 +489,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77e8f7c1392466c478daf6fdbd03531c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   m_lineRenderer: {fileID: 1955112867038073859}
   firePoint: {fileID: 4948098915081986305}
   grapplePoint: {fileID: 0}
