@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour {
     private Player player; // Player Script
     private float horizontal; // Player's movement direction
     private bool isFacingRight = true; // Player orientation
-    [SerializeField] private float jumpStrength = 16f; // Player's jump force
+    private float jumpStrength; // Player's jump force
+    [SerializeField] private float normalJumpStrength = 16;
     [SerializeField] private float speed = 8f; // Player's movement speed
     private bool isActing; // Is the player performing an action?
-   public bool disableMovement { get; set; } = false;
+    public bool disableMovement { get; set; } = false;
     private float gravity;
 
     // Physics members
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] float dashRate = 0.5f;
     [SerializeField] private float dashSpeed = 15f; // Velocity of the player's dash
     [SerializeField] private float dashTime = 0.4f; // Duration of the player's dash
+    public bool disableDash { get; set; } = false;
     private float nextDash = 0f; // When the player can dash next
 
     // Animation members
@@ -48,6 +50,13 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private GrappleRope grappleRope;
     private (Transform, Transform, Transform, Transform, Transform) grapplePoints;
 
+    // Swimming members
+    private bool isSwimming; // Is the player swimming or not?
+    [SerializeField] private float swimmingGravityMult; // Multiplier for player gravity whiles swimming
+    private float swimmingGravity; // Gravity of player while swimming
+    [SerializeField] private float swimmingJumpMult; // Multiplier for the player jump while swimming
+    private float swimmingJumpStrength; // Jump force of the player while swimming
+
     private void Start()
     {
         anim = GetComponent<Animator>(); // Sets animator reference
@@ -57,6 +66,9 @@ public class PlayerMovement : MonoBehaviour {
         step = 0f;
         isGrappling = false;
         gravity = rb.gravityScale;
+        swimmingGravity = gravity * swimmingGravityMult;
+        jumpStrength = normalJumpStrength;
+        swimmingJumpStrength = jumpStrength * swimmingJumpMult;
         grappleRope.enabled = false;
     }
 
@@ -68,7 +80,7 @@ public class PlayerMovement : MonoBehaviour {
             horizontal = Input.GetAxisRaw("Horizontal");
 
             // Jump when jump button is pressed (w or up) and play jump sound effect
-            if (Input.GetButtonDown("Jump") && IsGrounded())
+            if (Input.GetButtonDown("Jump") && (IsGrounded() || isSwimming))
             {
                 FindObjectOfType<audioManager>().play("jumpSound");
                 anim.SetBool("isJumping", true);
@@ -91,7 +103,7 @@ public class PlayerMovement : MonoBehaviour {
             // Performs the dash
             if (Input.GetButtonDown("Dash"))
             {
-                if (nextDash < Time.time && canDash == true)
+                if (nextDash < Time.time && canDash == true && disableDash == false)
                 {
                     canDash = false;
                     nextDash = Time.time + dashRate;
@@ -265,5 +277,35 @@ public class PlayerMovement : MonoBehaviour {
     public void EnableMovement()
     {
         disableMovement = false;
+    }
+
+    public void DisableDash(bool v)
+    {
+        if (v)
+            disableDash = true;
+        else
+            disableDash = false;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Swimmable")
+        {
+            isSwimming = true;
+            rb.gravityScale = swimmingGravity;
+            jumpStrength = swimmingJumpStrength;
+            DisableDash(true);
+        }
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Swimmable")
+        {
+            isSwimming = false;
+            rb.gravityScale = gravity;
+            jumpStrength = normalJumpStrength;
+            DisableDash(false);
+        }
     }
 }
