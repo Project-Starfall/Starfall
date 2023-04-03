@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: InteractGlow
+  m_Name: InteractGlow 1
   m_Shader: {fileID: -6465566751694194690, guid: b5d78b9c4f29f0b469e9a55893baabff, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -40,5 +40,5 @@ Material:
     m_Floats:
     - _Fade: 1
     m_Colors:
-    - _Color: {r: 11.181761, g: 11.181761, b: 11.181761, a: 0}
+    - _Color: {r: 0.20698164, g: 2.1940055, b: 0, a: 0}
   m_BuildTextureStacks: []

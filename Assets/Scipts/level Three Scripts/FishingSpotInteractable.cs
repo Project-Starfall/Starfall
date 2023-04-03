@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class FishingSpotInteractable : MonoBehaviour, Interactable
@@ -14,6 +12,8 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    [SerializeField] FishingGameMovement fishingGameMovement;
    [SerializeField] FishingHandler fishingHandler;
    [SerializeField] SpriteRenderer spriteRenderer;
+   [SerializeField] SpriteRenderer spotRenderer;
+   [SerializeField] ParticleSystem particles;
    [SerializeField] PauseMenu menu;
    [SerializeField] PlayerMovement playerMovement;
 
@@ -26,14 +26,18 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    // InteractGlow data
    private Material glowMaterial;
    private bool isFade = false;
+   private bool isFadeSpot = false;
    private bool fadeIn = false;
    private float fade = 0f;
+   private float fadeSpot = 0f;
+    private float fadeSpeed = 0.5f;
 
    // Setup the glow material at very first start tick
    public void Start()
    {
         glowMaterial = spriteRenderer.material;
-        // glowMaterial.SetFloat("_Fade", 0f); not enabled until glow material is made
+        glowMaterial.SetFloat("_Fade", 0f);
+        spotRenderer.color = new Color(spotRenderer.color.r, spotRenderer.color.g, spotRenderer.color.b, 0f);
 
         interactEnabled = true;
         isComplete = false;
@@ -71,17 +75,17 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
       if (completed)
       {
          fishingGame.SetActive(false); // closes the game on the canvas
-         StartCoroutine(delayedDeactive());
+         active = false;
          menu.isUIOpen = false;
          playerMovement.EnableMovement();
          AddFish();
+         particles.Stop();
       }
       else
       {
          fishingGame.SetActive(false); // closes the game on the canvas
          StartCoroutine(delayedDeactive());
          menu.isUIOpen = false;
-         setEnabled(true);
          playerMovement.EnableMovement();
       }
    }
@@ -92,8 +96,7 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    private void Update()
    {
       // Handles the fade of the glow
-      // Not enabled until glow material is made
-      /*if (isFade)
+      if (isFade)
       {
          if (!fadeIn)
          {
@@ -115,10 +118,33 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
          }
          glowMaterial.SetFloat("_Fade", fade);
       }
-      */ 
 
-      // Dont even bother checking the inputs, the game isnt active
-      if (!active) return;
+        // Fade the floor spot
+        if (isFadeSpot)
+        {
+            if (!fadeIn)
+            {
+                fadeSpot -= (fadeSpeed * Time.deltaTime);
+                if (fadeSpot <= 0f)
+                {
+                    fadeSpot = 0f;
+                    isFadeSpot = false;
+                }
+            }
+            else
+            {
+                fadeSpot += (fadeSpeed * Time.deltaTime);
+                if (fadeSpot >= 1f)
+                {
+                    fadeSpot = 1f;
+                    isFadeSpot = false;
+                }
+            }
+            spotRenderer.color = new Color(spotRenderer.color.r, spotRenderer.color.g, spotRenderer.color.b, fadeSpot);
+        }
+
+        // Dont even bother checking the inputs, the game isnt active
+        if (!active) return;
 
       if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("Action"))
       {
@@ -148,12 +174,14 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    public void onEnter()
    {
       isFade = true;
+      isFadeSpot = true;
       fadeIn = true;
    }
 
    public void onLeave()
    {
       isFade = true;
+      isFadeSpot = true;
       fadeIn = false;
    }
 
@@ -180,7 +208,8 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    public IEnumerator delayedDeactive()
    {
       yield return new WaitForSeconds(0.1f);
-      active = false;
+        setEnabled(true);
+        active = false;
       yield return null;
    }
 
@@ -200,7 +229,7 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    // Calls the on enter and on leave functions from the interface when the collider is entered or left
    public void OnTriggerEnter2D(Collider2D collision)
    {
-      onEnter();
+      if(interactEnabled) onEnter();
    }
 
    public void OnTriggerExit2D(Collider2D collision)
