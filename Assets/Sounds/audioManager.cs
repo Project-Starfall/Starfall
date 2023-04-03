@@ -106,4 +106,19 @@ public class audioManager : MonoBehaviour
     }
 
     // FindObjectOfType<audioManager>().play("dashSound"); example of calling in other scripts
+
+    // change menu music volume on the fly
+    public void musicVolumeChange(int volume)
+    {
+        musicVolume = volume;
+        sound musicClip = Array.Find(sounds, sound => sound.name == "menuMusic");
+        if (musicClip.source == null)
+        {
+            Debug.LogWarning("music name not recognized");
+            return;
+        }
+        musicClip.source.volume = musicVolume;
+
+        return;
+    }
 }
