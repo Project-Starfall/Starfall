@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 using Cinemachine;
 using static SaveSystem;
 
-public class level3Handler : MonoBehaviour
+public class LevelThreeHandler : MonoBehaviour
 {
     // Camera
     [SerializeField] CinemachineConfiner2D cameraConfine;
@@ -20,7 +20,6 @@ public class level3Handler : MonoBehaviour
         // transition background music into level one music
         FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
         FindObjectOfType<audioManager>().musicFadeOut("levelTwoMusic");
-        FindObjectOfType<audioManager>().musicFadeIn("levelThreeMusic");
     }
 
     // Start is called before the first frame update
@@ -32,7 +31,5 @@ public class level3Handler : MonoBehaviour
         // load player save
         LoadGame();
         Debug.Log("Loading the game...");
-
-
     }
 }
