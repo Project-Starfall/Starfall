@@ -42,11 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-<<<<<<< HEAD
-  spriteMode: 1
-=======
   spriteMode: 2
->>>>>>> level-4
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -105,11 +101,6 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-<<<<<<< HEAD
-  spriteSheet:
-    serializedVersion: 2
-    sprites: []
-=======
   - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
@@ -146,7 +137,6 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
->>>>>>> level-4
     outline: []
     physicsShape: []
     bones: []
@@ -157,18 +147,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-<<<<<<< HEAD
-    nameFileIdTable: {}
-  spritePackingTag: 
-  pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
-=======
     nameFileIdTable:
       Lv4.Geiser_0: 75200390
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1
->>>>>>> level-4
   userData: 
   assetBundleName: 
   assetBundleVariant: 
