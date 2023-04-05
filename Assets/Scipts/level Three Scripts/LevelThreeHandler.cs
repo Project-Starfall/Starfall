@@ -4,19 +4,21 @@ using UnityEngine;
 using UnityEngine.Playables;
 using Cinemachine;
 using static SaveSystem;
+using static Constants.Scenes;
+using UnityEngine.SceneManagement;
 
 public class LevelThreeHandler : MonoBehaviour
 {
     // Camera
     [SerializeField] CinemachineConfiner2D cameraConfine;
-
+    [SerializeField] PlayableDirector endTimeline;
     // Player
     [SerializeField] Player player;
+    [SerializeField] PlayerMovement playerMovement;
 
     private void Awake()
     {
         Application.targetFrameRate = 60;
-        Debug.Log($"{name}");
 
         // transition background music into level one music
         FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
@@ -33,7 +35,17 @@ public class LevelThreeHandler : MonoBehaviour
         // load player save
         LoadGame();
         Debug.Log("Loading the game...");
-
-
     }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        playerMovement.DisableMovement();
+        endTimeline.Play();
+    }
+
+    public void endLevelThree()
+    {
+        SceneManager.LoadScene(LevelFour, LoadSceneMode.Single);
+    }
+
 }

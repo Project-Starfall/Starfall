@@ -9,7 +9,6 @@ public class Lvl3Aligator : MonoBehaviour
 {
 	// [SerializeField] Timeline GameObject
     [SerializeField] PlayableDirector AlligatorFlop;
-	[SerializeField] PlayableDirector AlligatorSwimAway;
 	
     // Animation members
     [SerializeField] Animator anim; // Reference to animator component
@@ -27,9 +26,13 @@ public class Lvl3Aligator : MonoBehaviour
 	SpriteRenderer popupRenderer;
 
 	// Colliders
+	[SerializeField]
 	CinemachineConfiner2D cameraConfiner;
+	[SerializeField]
 	PolygonCollider2D confiner;
+	[SerializeField]
 	BoxCollider2D blocker;
+	[SerializeField]
 	BoxCollider2D interactSpot;
 
 	// Fade controls
@@ -47,9 +50,11 @@ public class Lvl3Aligator : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
 	 {
-		if (FishingHandler.fishCount == 3)
+		if(FishingHandler.fishCount != 3)
+		//if (FishingHandler.fishCount == 3)
 		{
 			playerMovement.DisableMovement();
+			interactSpot.enabled = false;
 			AlligatorFlop.Play();
 		}
 		else 
@@ -99,6 +104,7 @@ public class Lvl3Aligator : MonoBehaviour
     {
 		interactSpot.enabled = false;
 		playerMovement.EnableMovement();
-		AlligatorSwimAway.Play();
+		blocker.enabled = false;
+		cameraConfiner.m_BoundingShape2D = confiner;
 	}
 }
