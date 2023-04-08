@@ -50,8 +50,8 @@ public class Lvl3Aligator : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
 	 {
-		if(FishingHandler.fishCount != 3)
-		//if (FishingHandler.fishCount == 3)
+		//if(FishingHandler.fishCount != 3)
+		if (FishingHandler.fishCount == 3)
 		{
 			playerMovement.DisableMovement();
 			interactSpot.enabled = false;
