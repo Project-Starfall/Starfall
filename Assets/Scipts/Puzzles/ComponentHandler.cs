@@ -109,8 +109,8 @@ public class ComponentHandler : MonoBehaviour
    {
       System.Random random = new System.Random(seed); // random numbers go brrr
       
-      // Generate the 5 length equation for the component puzzle
-      for (int x = 0; x < 5; x++)
+      // Generate the 4 length equation for the component puzzle
+      for (int x = 0; x < 4; x++)
       {
          for (int y = 0; y < 2; y++)
          {
@@ -126,7 +126,7 @@ public class ComponentHandler : MonoBehaviour
       }
 
       // Calculate and set the total amount needed to be achieved
-      for (int x = 0; x < 5; x++)
+      for (int x = 0; x < 4; x++)
       {
          if (equation[x, 0] == Subtract) // Subtraction :I
          {
