@@ -4,17 +4,14 @@ using UnityEngine;
 using UnityEngine.Playables;
 using Cinemachine;
 using static SaveSystem;
-using static Constants.Scenes;
-using UnityEngine.SceneManagement;
 
 public class LevelThreeHandler : MonoBehaviour
 {
     // Camera
     [SerializeField] CinemachineConfiner2D cameraConfine;
-    [SerializeField] PlayableDirector endTimeline;
+
     // Player
     [SerializeField] Player player;
-    [SerializeField] PlayerMovement playerMovement;
 
     private void Awake()
     {
@@ -35,16 +32,4 @@ public class LevelThreeHandler : MonoBehaviour
         LoadGame();
         Debug.Log("Loading the game...");
     }
-
-    public void OnTriggerEnter2D(Collider2D collision)
-    {
-        playerMovement.DisableMovement();
-        endTimeline.Play();
-    }
-
-    public void endLevelThree()
-    {
-        SceneManager.LoadScene(LevelFour, LoadSceneMode.Single);
-    }
-
 }
