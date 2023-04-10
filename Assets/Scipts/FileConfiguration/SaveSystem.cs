@@ -10,6 +10,10 @@ public static class SaveSystem
 {
     public static string Path { get; set; } = Application.persistentDataPath + "/SaveGame.config";
 
+    /// <summary>
+    /// Checks if a save file exists.
+    /// </summary>
+    /// <returns></returns>
     public static bool saveExist()
     {
         return File.Exists(Path);
@@ -59,28 +63,21 @@ public static class SaveSystem
     }
 
     /// <summary>
-    /// Resume the player from the latest saved data.
+    /// Resumes the players latest saved data
     /// </summary>
-    public static void ResumePlayer()
+    /// <param name="player"></param>
+    public static void ResumeGame(Player player)
     {
-        PlayerData data = LoadGame();
-        if(data != null)
+        if(saveExist())
         {
-            Player player = GameObject.FindObjectOfType<Player>();
-            if(player != null)
-            {
-                player.transform.position = player.transform.position + new Vector3(data.position[0],
-                                                                                    data.position[1],
-                                                                                    data.position[2]);
-            }
-            else
-            {
-                Debug.LogWarning("No player object found in the scene.");
-            }
+            PlayerData data = LoadGame();
+
+            // Restore the player data
+            player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
         }
         else
         {
-            Debug.LogWarning("Unable to resume player as no saved data was found.");
+            Debug.LogError("Cannot resume game. Save game not found at " + Path);
         }
     }
 
