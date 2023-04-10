@@ -58,6 +58,32 @@ public static class SaveSystem
         }
     }
 
+    /// <summary>
+    /// Resume the player from the latest saved data.
+    /// </summary>
+    public static void ResumePlayer()
+    {
+        PlayerData data = LoadGame();
+        if(data != null)
+        {
+            Player player = GameObject.FindObjectOfType<Player>();
+            if(player != null)
+            {
+                player.transform.position = player.transform.position + new Vector3(data.position[0],
+                                                                                    data.position[1],
+                                                                                    data.position[2]);
+            }
+            else
+            {
+                Debug.LogWarning("No player object found in the scene.");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Unable to resume player as no saved data was found.");
+        }
+    }
+
     /*
     public static void SaveConfig(GameConfig gameConfig, string configPath)
     {

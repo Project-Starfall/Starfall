@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MapUI : MonoBehaviour
 {
+    [SerializeField] public PauseMenu PauseMenu;
+
     // Set game to false
     public static bool MapIsOpen = false;
     public bool isUIOpen { get; set; } = false;
@@ -14,13 +16,18 @@ public class MapUI : MonoBehaviour
     void Update()
     {
         if (isUIOpen) return;
+        // Close map if open when escape is pressed down
+        if (Input.GetKeyDown(KeyCode.Escape) && PauseMenu.isUIOpen)
+        {
+            HideMap();
+        }
         // Pause if "M" is pressed down
         if (Input.GetKeyDown(KeyCode.M))
         {
             // if map is opened resume game
             if (MapIsOpen)
             {
-                Resume();
+                HideMap();
             }
             else
             {
@@ -30,7 +37,7 @@ public class MapUI : MonoBehaviour
     }
 
     // This function resumes the game
-    public void Resume()
+    public void HideMap()
     {
         // The Map is on showing
         Map.SetActive(false);
