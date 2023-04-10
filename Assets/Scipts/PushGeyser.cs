@@ -30,6 +30,7 @@ public class PushGeyser : MonoBehaviour
 
     }
 
+    // Turns the geyser on and off
     public void EnableGeyser(bool v)
     {
         var em = ps.emission;
@@ -38,6 +39,7 @@ public class PushGeyser : MonoBehaviour
         em.enabled = v;        
     }
 
+    // Cycles turning the geyser on and off
     private IEnumerator GeyserCycle()
     {
         yield return new WaitForSeconds(WaitToStart);

@@ -11,6 +11,7 @@ public class BlockGeyser : MonoBehaviour
     [SerializeField] private float WaitToStart;
     [SerializeField] private float geyserOnSeconds;
     [SerializeField] private float geyserOffSeconds;
+    [SerializeField] private bool  pushLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,8 @@ public class BlockGeyser : MonoBehaviour
         ps = GetComponent<ParticleSystem>();
 
         effector2D.forceMagnitude = forceMagnitude;
+        effector2D.useGlobalAngle = false;
+        effector2D.forceAngle = pushLeft ? 180f : 0f;
         EnableGeyser(false);
 
         StartCoroutine("GeyserCycle");
@@ -30,6 +33,7 @@ public class BlockGeyser : MonoBehaviour
         
     }
 
+    // Turns the geyser on and off
     public void EnableGeyser(bool v)
     {
         var em = ps.emission;
@@ -38,6 +42,7 @@ public class BlockGeyser : MonoBehaviour
         em.enabled = v;
     }
 
+    // Cycles turning the geyser on and off
     private IEnumerator GeyserCycle()
     {
         yield return new WaitForSeconds(WaitToStart);
