@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Test 1
+  m_Name: level1Star
   m_Shader: {fileID: -6465566751694194690, guid: ce01ac8c25b79cc4c996b18e3e53f606, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
