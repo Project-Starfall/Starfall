@@ -137,6 +137,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Lv4.CaveRockShade
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 554
+        height: 508
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd9ae6da8dcaa94f8f64386f972c870
+      internalID: -813774645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -148,6 +169,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Lv4.CaveRockShade: -813774645
       Lv4.CaveOutsideCornerR_0: 164674718
   spritePackingTag: 
   pSDRemoveMatte: 0
