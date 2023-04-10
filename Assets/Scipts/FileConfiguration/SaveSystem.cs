@@ -39,7 +39,7 @@ public static class SaveSystem
     /// <summary>
     /// Loads a game from a save file.
     /// </summary>
-    /// <returns></returns>
+    /// <returns>The PlayerData object containing the saved data.</returns>
     public static PlayerData LoadGame()
     {
         // Check if the file exists
@@ -65,7 +65,7 @@ public static class SaveSystem
     /// <summary>
     /// Resumes the players latest saved data
     /// </summary>
-    /// <param name="player"></param>
+    /// <param name="player">The current Player object.</param>
     public static void ResumeGame(Player player)
     {
         if(saveExist())
