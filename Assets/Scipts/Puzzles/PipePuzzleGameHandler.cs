@@ -42,6 +42,7 @@ public class Point
 
 public class PipePuzzleGameHandler : MonoBehaviour
 {
+   public bool canPlay { get; private set; } = true;
    private int grid_max = 8;                      // The max size of the playable grid
    private int grid_min = 1;                      // The min size of the playable grid
    private Pipe[,] puzzleGrid = new Pipe[10, 10]; // The pipe puzzle grid
@@ -66,6 +67,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
    public void startGame(WirePuzzleScript wirebox)
    {
       this.wirebox = wirebox;
+      canPlay = true;
       Pipe[] pipesInGrid = pipeContainer.GetComponentsInChildren<Pipe>();
       foreach(Pipe pipe in pipesInGrid) {
          pipe.loadRenderer();
@@ -128,6 +130,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
             if (endPipe.getDefinition()[(RIGHT + endPipe.getOrientation()) % 4] == 1)
             {
                 wirebox.completeCheck(true);
+            canPlay = false;
             }
         }
     }

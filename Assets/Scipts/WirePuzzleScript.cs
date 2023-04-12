@@ -157,8 +157,19 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    /*******************************************************************
     * Enable and disable puzzle UI
     ******************************************************************/
-   public void showPuzzle(bool state)
+   public void showPuzzle(bool state, bool completed = false)
    {
+      if(completed)
+      {
+         setEnabled(false);
+         
+         StartCoroutine(completedDelay());
+         playerMovement.EnableMovement();
+         particles.Stop();
+         // make light go green
+         // play victory noise
+         return;
+      }
       if (state)
       {
          setEnabled(false);
@@ -186,33 +197,25 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       {
          case 1:
             Debug.Log("Copmleted Puzzle 1");
-            showPuzzle(false);
+            showPuzzle(false, true);
             handler.openExteriorDoorSequence();
             handler.copmletePipe(1);
-            setEnabled(false);
-            particles.Stop();
             break;
          case 2:
             Debug.Log("Copmleted Puzzle 2");
-            showPuzzle(false);
+            showPuzzle(false, true);
             handler.copmletePipe(2);
-            setEnabled(false);
-                particles.Stop();
                 break;
          case 3:
             Debug.Log("Copmleted Puzzle 3");
-            showPuzzle(false);
+            showPuzzle(false, true);
             handler.copmletePipe(3);
-            setEnabled(false);
-                particles.Stop();
                 break;
          case 4:
             Debug.Log("Copmleted Puzzle 4");
-            showPuzzle(false);
+            showPuzzle(false, true);
             handler.copmletePipe(4);
-            setEnabled(false);
-                particles.Stop();
-                break;
+            break;
       }
       
    }
@@ -228,6 +231,15 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       yield return new WaitForSeconds(0.10f);
         setEnabled(true);
         active = false;
+      yield return null;
+   }
+
+   public IEnumerator completedDelay()
+   {
+      yield return new WaitForSeconds(1f);
+      menu.isUIOpen = false;
+      active = false;
+      pipecanvas.SetActive(false);
       yield return null;
    }
 }
