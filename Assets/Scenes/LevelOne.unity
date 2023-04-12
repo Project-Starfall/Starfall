@@ -2637,7 +2637,7 @@ PrefabInstance:
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: particles
       value: 
-      objectReference: {fileID: 1458771576}
+      objectReference: {fileID: 722491264}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: pipecanvas
       value: 
@@ -6499,6 +6499,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6bbc8c209b5ca045a16b1ac118185aa, type: 3}
+--- !u!198 &436917152 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+  m_PrefabInstance: {fileID: 1510953917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &444570080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3103869621260973998, guid: e6bbc8c209b5ca045a16b1ac118185aa, type: 3}
@@ -8343,6 +8348,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4628818780806999241, guid: 8dc4cf704cb106c43bbb9132300fe651, type: 3}
   m_PrefabInstance: {fileID: 633003511}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &635215140 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+  m_PrefabInstance: {fileID: 8180291601494334582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &639406466
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9661,6 +9671,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6080376506578603661, guid: ea7d55cb743469a44aa9632381c4cb96, type: 3}
   m_PrefabInstance: {fileID: 598210104}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &722491264 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+  m_PrefabInstance: {fileID: 189070192}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &725122100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3103869621260973998, guid: e6bbc8c209b5ca045a16b1ac118185aa, type: 3}
@@ -9905,11 +9920,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!198 &745572615 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
-  m_PrefabInstance: {fileID: 8180291601494334582}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &746159039
 Mesh:
   m_ObjectHideFlags: 0
@@ -15025,11 +15035,6 @@ PlayableDirector:
     value: {fileID: 96698976}
   m_ExposedReferences:
     m_References: []
---- !u!198 &1172632040 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
-  m_PrefabInstance: {fileID: 1510953917}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1189106243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15795,11 +15800,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!198 &1234143885 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
-  m_PrefabInstance: {fileID: 1432248246}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1236418967
 Mesh:
   m_ObjectHideFlags: 0
@@ -16467,6 +16467,11 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2506569819931624328, guid: e6bbc8c209b5ca045a16b1ac118185aa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e6bbc8c209b5ca045a16b1ac118185aa, type: 3}
+--- !u!198 &1265471577 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+  m_PrefabInstance: {fileID: 1432248246}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1276825803
 Mesh:
   m_ObjectHideFlags: 0
@@ -19482,7 +19487,7 @@ PrefabInstance:
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: particles
       value: 
-      objectReference: {fileID: 1234143885}
+      objectReference: {fileID: 1265471577}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: pipecanvas
       value: 
@@ -19694,11 +19699,6 @@ Mesh:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6851803004238392056, guid: a28d6fcbf01f0774cbfdbaeca3525f7c, type: 3}
   m_PrefabInstance: {fileID: 903089422}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1458771576 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8210283041604241470, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
-  m_PrefabInstance: {fileID: 189070192}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1461100396
 GameObject:
@@ -21012,7 +21012,7 @@ PrefabInstance:
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: particles
       value: 
-      objectReference: {fileID: 1172632040}
+      objectReference: {fileID: 436917152}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: pipecanvas
       value: 
@@ -24517,7 +24517,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 17.33, y: 8.000948}
+    oldSize: {x: 17.33, y: 20.042374}
     newSize: {x: 17.34, y: 8.000948}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -26912,7 +26912,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.290127
+      value: -45.23599
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26956,7 +26956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.7198715
+      value: -10.77401
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30445,7 +30445,7 @@ PrefabInstance:
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: particles
       value: 
-      objectReference: {fileID: 745572615}
+      objectReference: {fileID: 635215140}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: pipecanvas
       value: 

@@ -197,24 +197,26 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       {
          case 1:
             Debug.Log("Copmleted Puzzle 1");
-            showPuzzle(false, true);
             handler.openExteriorDoorSequence();
             handler.copmletePipe(1);
+            showPuzzle(false, true);
             break;
          case 2:
             Debug.Log("Copmleted Puzzle 2");
-            showPuzzle(false, true);
             handler.copmletePipe(2);
+               showPuzzle(false, true);
                 break;
          case 3:
             Debug.Log("Copmleted Puzzle 3");
-            showPuzzle(false, true);
+            
             handler.copmletePipe(3);
+            showPuzzle(false, true);
                 break;
          case 4:
             Debug.Log("Copmleted Puzzle 4");
-            showPuzzle(false, true);
+            
             handler.copmletePipe(4);
+            showPuzzle(false, true);
             break;
       }
       
