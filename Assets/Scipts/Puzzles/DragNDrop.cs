@@ -21,6 +21,9 @@ public class DragNDrop : MonoBehaviour
    public int componentValue {get; set;} // The value of the component
    public int operation { get; set;} // The operation of the component
 
+   private Material colorBandMaterial;
+    private Color[] colors = {new Color(0f,0f,0f), new Color(0.50f, 0.24f, 0.09f), new Color(1f, 0f, 0f), new Color(1f, 0.45f, 0f), new Color(1f, 1f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(0.498f,0f,1f), new Color(0.7f, 0.7f, 0.7f), new Color(1f,1f,1f)};
+
    /**********************************************************************
     * Unity's Start function, just setting up the reset position and 
     * setting component transform to stop unecessary calls of the
@@ -28,6 +31,7 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    private void Start()
    {
+      
       componentTransform = transform;
       resetPosition = transform.position;
    }
@@ -38,6 +42,7 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    public void initPart(ComponentHandler handler, int value, int operation)
    {
+      colorBandMaterial = spriteRenderer.material;
       this.handler   = handler;
       componentValue = value;
       this.operation = operation;
@@ -45,7 +50,8 @@ public class DragNDrop : MonoBehaviour
       text += ((operation == 0) ? "-" : "+");
       text += $"{value}";
       number.text = text;
-   }
+      colorBandMaterial.SetColor("_Color", colors[componentValue]);
+    }
 
    /**********************************************************************
     * Unity's Update function. Make the part follow the pointer when

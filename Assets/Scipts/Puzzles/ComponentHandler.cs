@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using static Constants.ComponentsPuzzle;
 
 public class ComponentHandler : MonoBehaviour
@@ -9,9 +10,14 @@ public class ComponentHandler : MonoBehaviour
    [SerializeField] DragNDrop[] componentPart;   // The parts with their drag and drop functionality
    [SerializeField] TMP_Text ssDisplay;          // The Seven Segment Display
    [SerializeField] TMP_Text solutionValue;      // The silk screened solution
-   private int[,] equation = new int[5, 2];      // The generated equation
+    [SerializeField] Light2D completeLight;
+    [SerializeField] Light2D incompleteLight;
+
+
+    private int[,] equation = new int[5, 2];      // The generated equation
    private int total = 0;                        // The total value needed to be achieved 
    private int seed;                             // Random seed
+
 
    /**********************************************************************
     * Delete when putting into level 5 used to start the game in the 
@@ -78,8 +84,18 @@ public class ComponentHandler : MonoBehaviour
       if(totalCheck == total && completed) 
       {
          //Win condition
+         completeLight.enabled = true;
+         incompleteLight.enabled = false;
          Debug.Log("You Win!");
          completedPuzzle();
+      } 
+      else if(!completed)
+        {
+            incompleteLight.enabled = false;
+        }
+      else if(completed)
+      {
+            incompleteLight.enabled = true;
       }
       
    }
