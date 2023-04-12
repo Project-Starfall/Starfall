@@ -3684,14 +3684,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 19357896}
     m_Modifications:
-    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
-      propertyPath: m_Size.y
-      value: 6.3559747
-      objectReference: {fileID: 0}
-    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
-      propertyPath: m_Offset.y
-      value: 1.4524343
-      objectReference: {fileID: 0}
     - target: {fileID: 1421999705249490038, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
       propertyPath: m_Name
       value: Lv3.Ceiling (2)
@@ -9420,14 +9412,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 19357896}
     m_Modifications:
-    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
-      propertyPath: m_Size.y
-      value: 7.5149994
-      objectReference: {fileID: 0}
-    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
-      propertyPath: m_Offset.y
-      value: 2.0319467
-      objectReference: {fileID: 0}
     - target: {fileID: 1421999705249490038, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
       propertyPath: m_Name
       value: Lv3.Ceiling

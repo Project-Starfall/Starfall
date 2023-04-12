@@ -5864,10 +5864,6 @@ PrefabInstance:
       value: 5.8948755
       objectReference: {fileID: 0}
     - target: {fileID: 2230714518893652855, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
-      propertyPath: particles
-      value: 
-      objectReference: {fileID: 1287938699}
-    - target: {fileID: 2230714518893652855, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
       propertyPath: grappleRope
       value: 
       objectReference: {fileID: 897808418}
@@ -5902,7 +5898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.8360014
+      value: -7.8429947
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5946,7 +5942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.183999
+      value: -13.177006
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6861,11 +6857,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6389fc76b65743349b410877f4488ee9, type: 3}
---- !u!198 &1161251729 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9030346739926223621, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
-  m_PrefabInstance: {fileID: 2230714518778531617}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1176452119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7496,11 +7487,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2564614249926140611, guid: 6389fc76b65743349b410877f4488ee9, type: 3}
   m_PrefabInstance: {fileID: 35278840}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &1287938699 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 9030346739926223621, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
-  m_PrefabInstance: {fileID: 824571952}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1297081439
 PrefabInstance:
@@ -13399,10 +13385,6 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -10.773483
       objectReference: {fileID: 0}
-    - target: {fileID: 2230714518893652855, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
-      propertyPath: particles
-      value: 
-      objectReference: {fileID: 1161251729}
     - target: {fileID: 2230714518893652855, guid: 2fc953654148d264097fc9f604fcf1fc, type: 3}
       propertyPath: grappleRope
       value: 
