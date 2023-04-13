@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: -1634286783
   m_SortingLayer: 8
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: ff3defdbc4bf5ab4a96d8c86d4a22599, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 75978208597d648ca9b481d041466ed1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -84,7 +84,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &7114088675998846600
@@ -106,6 +106,7 @@ MonoBehaviour:
   puzzleNumber: 1
   completed: 0
   spriteRenderer: {fileID: 0}
+  particles: {fileID: 0}
   menu: {fileID: 0}
 --- !u!61 &1968333985
 BoxCollider2D:

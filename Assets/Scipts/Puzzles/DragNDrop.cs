@@ -9,6 +9,7 @@ public class DragNDrop : MonoBehaviour
    [SerializeField] TMP_Text number;               // Number displayed on component
    [SerializeField] SpriteRenderer spriteRenderer; // Sprite Renderer
    [SerializeField] MeshRenderer textRenderer;     // Text Renderer
+   [SerializeField] Camera overlayCamera;
    private bool moving = false;     // If the component is currently being moved
    private float startPosX;         // The change in where the mouse moved from
    private float startPosY;         // The change in where the mouse moved from but in y
@@ -33,7 +34,7 @@ public class DragNDrop : MonoBehaviour
    {
       
       componentTransform = transform;
-      resetPosition = transform.position;
+      resetPosition = transform.localPosition;
    }
 
    /**********************************************************************
@@ -62,7 +63,7 @@ public class DragNDrop : MonoBehaviour
       if (moving)
       {
          Vector3 mousePos = Input.mousePosition;
-         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+         mousePos = overlayCamera.ScreenToWorldPoint(mousePos);
 
          componentTransform.position = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, componentTransform.position.z);
       }
@@ -76,7 +77,7 @@ public class DragNDrop : MonoBehaviour
       if (Input.GetMouseButtonDown(0))
       {
          Vector3 mousePos = Input.mousePosition;
-         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+         mousePos = overlayCamera.ScreenToWorldPoint(mousePos);
          spriteRenderer.sortingOrder = 20;
          textRenderer.sortingOrder = 21;
          startPosX = mousePos.x - transform.position.x;
@@ -114,7 +115,7 @@ public class DragNDrop : MonoBehaviour
                cell.component = this;
 
                // Set the component into the cell and check for completness
-               componentTransform.position = new Vector2(cell.cellTransform.position.x, cell.cellTransform.position.y);
+               componentTransform.position = new Vector3(cell.cellTransform.position.x, cell.cellTransform.position.y, 0f);
                handler.evaluateCells();
                return; // stop looking through cells
             }
@@ -123,7 +124,7 @@ public class DragNDrop : MonoBehaviour
       // Not close enough to any cells send to reset position and clean up if was previously in a cell
       if (currentCell != null) currentCell.component = null;
       currentCell = null;
-      componentTransform.position = resetPosition;
+      componentTransform.localPosition = resetPosition;
       // check for completness
       handler.evaluateCells();
    }
