@@ -41,6 +41,8 @@ public class TutoritalHandler : MonoBehaviour
    {
       SaveGame(player); // Saving the player data
       Debug.Log("Saving the Player...");
+      LoadGame();
+      Debug.Log("Loading the game...");
       cameraConfiner.m_BoundingShape2D = cameraConfinerNew;
       blocker.enabled = false;
    }
@@ -55,6 +57,9 @@ public class TutoritalHandler : MonoBehaviour
    public IEnumerator EndSequence()
    {
       SaveGame(player); // Saving the player data
+      Debug.Log("Saving the Player...");
+      LoadGame();
+      Debug.Log("Loading the game...");
       playerMovement.DisableMovement();
       Debug.Log("Saving the Player...");
       yield return new WaitForSeconds(1);
