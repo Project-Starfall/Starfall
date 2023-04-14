@@ -98,8 +98,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.6181766, y: 2.811074}
-      - {x: -0.5541494, y: 2.8126256}
+    - - {x: 1.1264157, y: 6.6928053}
+      - {x: -0.9833343, y: 6.6812005}
       - {x: -0.01342804, y: -0.41138417}
 --- !u!198 &564308640632440396
 ParticleSystem:
@@ -1611,7 +1611,7 @@ ParticleSystem:
     y:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 4.5
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -4906,8 +4906,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564308641297936032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15874429, y: 0.15874429, z: 0.15874429}
+  m_LocalPosition: {x: 0.04, y: -0.065, z: 0}
+  m_LocalScale: {x: 0.20630407, y: 0.20630407, z: 0.20630407}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 564308640632440496}
@@ -4951,8 +4951,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1036971331
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 75200390, guid: 54d02598b4e224da297a8ae3e4d66d56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
