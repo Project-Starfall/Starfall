@@ -6,34 +6,28 @@ using static Constants.ComponentsPuzzle;
 
 public class ComponentHandler : MonoBehaviour
 {
-   [SerializeField] public Cells componentCells; // The cells in which parts are placed
-   [SerializeField] DragNDrop[] componentPart;   // The parts with their drag and drop functionality
-   [SerializeField] TMP_Text ssDisplay;          // The Seven Segment Display
-   [SerializeField] TMP_Text solutionValue;      // The silk screened solution
+    [SerializeField] public Cells componentCells; // The cells in which parts are placed
+    [SerializeField] DragNDrop[] componentPart;   // The parts with their drag and drop functionality
+    [SerializeField] TMP_Text ssDisplay;          // The Seven Segment Display
+    [SerializeField] TMP_Text solutionValue;      // The silk screened solution
     [SerializeField] Light2D completeLight;
     [SerializeField] Light2D incompleteLight;
 
+    private ComponentPuzzleInteractable componentPanel;
 
-    private int[,] equation = new int[5, 2];      // The generated equation
+   public bool CanPlay {get; set;}
+   private int[,] equation = new int[5, 2];      // The generated equation
    private int total = 0;                        // The total value needed to be achieved 
    private int seed;                             // Random seed
-
-
-   /**********************************************************************
-    * Delete when putting into level 5 used to start the game in the 
-    * puzzle test scene.
-    *********************************************************************/
-   private void Start()
-   {
-      startGame(new System.Random().Next());
-   }
 
    /**********************************************************************
     * Starts the game and initializes all the components
     *********************************************************************/
-   public void startGame(int seed)
+   public void startGame(int seed, ComponentPuzzleInteractable componentSpot)
    {
+      componentPanel = componentSpot;
       this.seed = seed;
+      CanPlay = true;
       generateEquation();
       initializeComponents();
    }
@@ -43,8 +37,11 @@ public class ComponentHandler : MonoBehaviour
     *********************************************************************/
    public void completedPuzzle()
    {
-      throw new NotImplementedException("This is not implemented into a level 5 handler yet");
-   }
+        completeLight.enabled = true;
+        incompleteLight.enabled = false;
+        CanPlay = false;
+        componentPanel.completed();
+    }
 
    /**********************************************************************
     * Evaluate the cells updating the seven segment display and checking
@@ -84,9 +81,6 @@ public class ComponentHandler : MonoBehaviour
       if(totalCheck == total && completed) 
       {
          //Win condition
-         completeLight.enabled = true;
-         incompleteLight.enabled = false;
-         Debug.Log("You Win!");
          completedPuzzle();
       } 
       else if(!completed)

@@ -2647,6 +2647,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+      propertyPath: level1handler
+      value: 
+      objectReference: {fileID: 96698975}
+    - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: playerMovement
       value: 
       objectReference: {fileID: 1842615443}
@@ -19497,6 +19501,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+      propertyPath: level1handler
+      value: 
+      objectReference: {fileID: 96698975}
+    - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: CameraConfiner
       value: 
       objectReference: {fileID: 539479023}
@@ -21021,6 +21029,10 @@ PrefabInstance:
       propertyPath: puzzleNumber
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+      propertyPath: level1handler
+      value: 
+      objectReference: {fileID: 96698975}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: playerMovement
       value: 
@@ -26912,7 +26924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -45.23599
+      value: -45.233353
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -26956,7 +26968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.77401
+      value: -10.776646
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30454,6 +30466,10 @@ PrefabInstance:
       propertyPath: puzzleNumber
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
+      propertyPath: level1handler
+      value: 
+      objectReference: {fileID: 96698975}
     - target: {fileID: 7114088675998846600, guid: b48b399030c6dd8419cf69f4655e3361, type: 3}
       propertyPath: playerMovement
       value: 

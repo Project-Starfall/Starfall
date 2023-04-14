@@ -21,7 +21,6 @@ public class DragNDrop : MonoBehaviour
    private Cell currentCell = null;  // The current cell the component is in
    public int componentValue {get; set;} // The value of the component
    public int operation { get; set;} // The operation of the component
-
    private Material colorBandMaterial;
     private Color[] colors = {new Color(0f,0f,0f), new Color(0.50f, 0.24f, 0.09f), new Color(1f, 0f, 0f), new Color(1f, 0.45f, 0f), new Color(1f, 1f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(0.498f,0f,1f), new Color(0.7f, 0.7f, 0.7f), new Color(1f,1f,1f)};
 
@@ -32,7 +31,6 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    private void Start()
    {
-      
       componentTransform = transform;
       resetPosition = transform.localPosition;
    }
@@ -43,10 +41,13 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    public void initPart(ComponentHandler handler, int value, int operation)
    {
+      
       colorBandMaterial = spriteRenderer.material;
       this.handler   = handler;
+      
       componentValue = value;
       this.operation = operation;
+      
       string text = "";
       text += ((operation == 0) ? "-" : "+");
       text += $"{value}";
@@ -74,7 +75,7 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    private void OnMouseDown()
    {
-      if (Input.GetMouseButtonDown(0))
+      if (Input.GetMouseButtonDown(0) && handler.CanPlay)
       {
          Vector3 mousePos = Input.mousePosition;
          mousePos = overlayCamera.ScreenToWorldPoint(mousePos);
