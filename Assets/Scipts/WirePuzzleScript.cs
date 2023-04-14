@@ -218,6 +218,10 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             handler.copmletePipe(4);
             showPuzzle(false, true);
             break;
+         case 5:
+            Debug.Log("Completed Puzzle 5");
+            showPuzzle(false, true);
+            break;
       }
       
    }
