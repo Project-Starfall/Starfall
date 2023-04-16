@@ -50,14 +50,16 @@ public class ComponentPuzzleInteractable : MonoBehaviour, Interactable
     {
         if (completed)
         {
-            componentGame.SetActive(false); // closes the game on the canvas
-            active = false;
-            menu.isUIOpen = false;
+            setEnabled(false);
+            StartCoroutine(completedDelay());
             playerMovement.EnableMovement();
             particles.Stop();
+            isFade = true;
+            fadeIn = false;
         }
         else
         {
+            componentHandler.closeGame();
             componentGame.SetActive(false); // closes the game on the canvas
             StartCoroutine(delayedDeactive());
             menu.isUIOpen = false;
@@ -109,7 +111,19 @@ public class ComponentPuzzleInteractable : MonoBehaviour, Interactable
     #region Interface Methods
     public bool run(Player player)
     {
-        componentHandler.startGame(level5Handler.component1Seed, this);
+      switch(puzzleNumber)
+      {
+         case 1:
+            componentHandler.startGame(level5Handler.component1Seed, this);
+            break;
+         case 2:
+            componentHandler.startGame(level5Handler.component2Seed, this);
+            break;
+         case 3:
+            componentHandler.startGame(level5Handler.component3Seed, this);
+            break;
+      }
+        
         openGame();
         return true;
     }
@@ -158,9 +172,19 @@ public class ComponentPuzzleInteractable : MonoBehaviour, Interactable
         yield return null;
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+   public IEnumerator completedDelay()
+   {
+      yield return new WaitForSeconds(1f);
+      menu.isUIOpen = false;
+      active = false;
+      componentHandler.closeGame();
+      componentGame.SetActive(false);
+      yield return null;
+   }
+
+   public void OnTriggerEnter2D(Collider2D collision)
     {
-        onEnter();
+        if(interactEnabled) onEnter();
     }
 
     public void OnTriggerExit2D(Collider2D collision)

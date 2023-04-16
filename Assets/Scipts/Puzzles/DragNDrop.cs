@@ -19,10 +19,10 @@ public class DragNDrop : MonoBehaviour
    public float toleranceY; // Cell fit tolerance but Y
    private ComponentHandler handler; // The puzzle handler
    private Cell currentCell = null;  // The current cell the component is in
-   public int componentValue {get; set;} // The value of the component
-   public int operation { get; set;} // The operation of the component
+   public int componentValue { get; set; } // The value of the component
+   public int operation { get; set; } // The operation of the component
    private Material colorBandMaterial;
-    private Color[] colors = {new Color(0f,0f,0f), new Color(0.50f, 0.24f, 0.09f), new Color(1f, 0f, 0f), new Color(1f, 0.45f, 0f), new Color(1f, 1f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(0.498f,0f,1f), new Color(0.7f, 0.7f, 0.7f), new Color(1f,1f,1f)};
+   private Color[] colors = { new Color(0f, 0f, 0f), new Color(0.50f, 0.24f, 0.09f), new Color(1f, 0f, 0f), new Color(1f, 0.45f, 0f), new Color(1f, 1f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(0.498f, 0f, 1f), new Color(0.7f, 0.7f, 0.7f), new Color(1f, 1f, 1f) };
 
    /**********************************************************************
     * Unity's Start function, just setting up the reset position and 
@@ -41,19 +41,25 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    public void initPart(ComponentHandler handler, int value, int operation)
    {
-      
       colorBandMaterial = spriteRenderer.material;
-      this.handler   = handler;
-      
+      this.handler = handler;
+
       componentValue = value;
       this.operation = operation;
-      
+
       string text = "";
       text += ((operation == 0) ? "-" : "+");
       text += $"{value}";
       number.text = text;
+     // number.faceColor = colors[componentValue];
       colorBandMaterial.SetColor("_Color", colors[componentValue]);
-    }
+   }
+
+   public void resetPart()
+   {
+      componentTransform.localPosition = resetPosition;
+      currentCell = null;
+   }
 
    /**********************************************************************
     * Unity's Update function. Make the part follow the pointer when
@@ -95,6 +101,7 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    private void OnMouseUp()
    {
+      if (!handler.CanPlay) return; 
       // Reset the render layers and stop moving
       moving = false;
       spriteRenderer.sortingOrder = 10;

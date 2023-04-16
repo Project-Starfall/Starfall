@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -30,6 +31,23 @@ public class ComponentHandler : MonoBehaviour
       CanPlay = true;
       generateEquation();
       initializeComponents();
+   }
+
+   public void closeGame()
+   {
+      total = 0;
+      ssDisplay.text = "000";
+      solutionValue.text = "000";
+      completeLight.enabled= false;
+      incompleteLight.enabled= false;
+      foreach(DragNDrop component in componentPart)
+      {
+         component.resetPart();
+      }
+      foreach(Cell cell in componentCells.GetCells())
+      {
+         cell.component = null;
+      }
    }
 
    /**********************************************************************
@@ -67,6 +85,7 @@ public class ComponentHandler : MonoBehaviour
             {
                totalCheck += cell.component.componentValue;
             }
+            completed = true;
          }
          else
          {
@@ -118,7 +137,8 @@ public class ComponentHandler : MonoBehaviour
    public void generateEquation()
    {
       System.Random random = new System.Random(seed); // random numbers go brrr
-      
+      total = 0;
+
       // Generate the 4 length equation for the component puzzle
       for (int x = 0; x < 4; x++)
       {
