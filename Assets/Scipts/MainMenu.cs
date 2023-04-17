@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static SaveSystem;
@@ -12,6 +13,8 @@ public class MainMenu : MonoBehaviour
 {
     // This is the pause menu
     public GameObject LoadButtonUI;
+
+    [SerializeField] PlayableDirector newGameStart;
 
     // Load button fields
     [SerializeField]
@@ -56,9 +59,7 @@ public class MainMenu : MonoBehaviour
         {
             File.Delete(SaveSystem.Path);
         }
-
-        // load game scene
-        SceneManager.LoadScene(Tutorial, LoadSceneMode.Single);
+        newGameStart.Play();
     }
 
     public void Quit ()
@@ -94,4 +95,9 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    public void playTutorial()
+    {
+        // load game scene
+        SceneManager.LoadScene(Tutorial, LoadSceneMode.Single);
+    }
 }
