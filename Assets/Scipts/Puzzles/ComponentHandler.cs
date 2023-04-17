@@ -1,35 +1,53 @@
 using System;
+using System.ComponentModel;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using static Constants.ComponentsPuzzle;
 
 public class ComponentHandler : MonoBehaviour
 {
-   [SerializeField] public Cells componentCells; // The cells in which parts are placed
-   [SerializeField] DragNDrop[] componentPart;   // The parts with their drag and drop functionality
-   [SerializeField] TMP_Text ssDisplay;          // The Seven Segment Display
-   [SerializeField] TMP_Text solutionValue;      // The silk screened solution
+    [SerializeField] public Cells componentCells; // The cells in which parts are placed
+    [SerializeField] DragNDrop[] componentPart;   // The parts with their drag and drop functionality
+    [SerializeField] TMP_Text ssDisplay;          // The Seven Segment Display
+    [SerializeField] TMP_Text solutionValue;      // The silk screened solution
+    [SerializeField] Light2D completeLight;
+    [SerializeField] Light2D incompleteLight;
+
+    private ComponentPuzzleInteractable componentPanel;
+
+   public bool CanPlay {get; set;}
    private int[,] equation = new int[5, 2];      // The generated equation
    private int total = 0;                        // The total value needed to be achieved 
    private int seed;                             // Random seed
 
    /**********************************************************************
-    * Delete when putting into level 5 used to start the game in the 
-    * puzzle test scene.
-    *********************************************************************/
-   private void Start()
-   {
-      startGame(new System.Random().Next());
-   }
-
-   /**********************************************************************
     * Starts the game and initializes all the components
     *********************************************************************/
-   public void startGame(int seed)
+   public void startGame(int seed, ComponentPuzzleInteractable componentSpot)
    {
+      componentPanel = componentSpot;
       this.seed = seed;
+      CanPlay = true;
       generateEquation();
       initializeComponents();
+   }
+
+   public void closeGame()
+   {
+      total = 0;
+      ssDisplay.text = "000";
+      solutionValue.text = "000";
+      completeLight.enabled= false;
+      incompleteLight.enabled= false;
+      foreach(DragNDrop component in componentPart)
+      {
+         component.resetPart();
+      }
+      foreach(Cell cell in componentCells.GetCells())
+      {
+         cell.component = null;
+      }
    }
 
    /**********************************************************************
@@ -37,8 +55,11 @@ public class ComponentHandler : MonoBehaviour
     *********************************************************************/
    public void completedPuzzle()
    {
-      throw new NotImplementedException("This is not implemented into a level 5 handler yet");
-   }
+        completeLight.enabled = true;
+        incompleteLight.enabled = false;
+        CanPlay = false;
+        componentPanel.completed();
+    }
 
    /**********************************************************************
     * Evaluate the cells updating the seven segment display and checking
@@ -78,8 +99,15 @@ public class ComponentHandler : MonoBehaviour
       if(totalCheck == total && completed) 
       {
          //Win condition
-         Debug.Log("You Win!");
          completedPuzzle();
+      } 
+      else if(!completed)
+        {
+            incompleteLight.enabled = false;
+        }
+      else if(completed)
+      {
+            incompleteLight.enabled = true;
       }
       
    }
@@ -108,9 +136,10 @@ public class ComponentHandler : MonoBehaviour
    public void generateEquation()
    {
       System.Random random = new System.Random(seed); // random numbers go brrr
-      
-      // Generate the 5 length equation for the component puzzle
-      for (int x = 0; x < 5; x++)
+      total = 0;
+
+      // Generate the 4 length equation for the component puzzle
+      for (int x = 0; x < 4; x++)
       {
          for (int y = 0; y < 2; y++)
          {
@@ -126,7 +155,7 @@ public class ComponentHandler : MonoBehaviour
       }
 
       // Calculate and set the total amount needed to be achieved
-      for (int x = 0; x < 5; x++)
+      for (int x = 0; x < 4; x++)
       {
          if (equation[x, 0] == Subtract) // Subtraction :I
          {

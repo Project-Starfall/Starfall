@@ -9,6 +9,7 @@ public class DragNDrop : MonoBehaviour
    [SerializeField] TMP_Text number;               // Number displayed on component
    [SerializeField] SpriteRenderer spriteRenderer; // Sprite Renderer
    [SerializeField] MeshRenderer textRenderer;     // Text Renderer
+   [SerializeField] Camera overlayCamera;
    private bool moving = false;     // If the component is currently being moved
    private float startPosX;         // The change in where the mouse moved from
    private float startPosY;         // The change in where the mouse moved from but in y
@@ -18,8 +19,10 @@ public class DragNDrop : MonoBehaviour
    public float toleranceY; // Cell fit tolerance but Y
    private ComponentHandler handler; // The puzzle handler
    private Cell currentCell = null;  // The current cell the component is in
-   public int componentValue {get; set;} // The value of the component
-   public int operation { get; set;} // The operation of the component
+   public int componentValue { get; set; } // The value of the component
+   public int operation { get; set; } // The operation of the component
+   private Material colorBandMaterial;
+   private Color[] colors = { new Color(0f, 0f, 0f), new Color(0.50f, 0.24f, 0.09f), new Color(1f, 0f, 0f), new Color(1f, 0.45f, 0f), new Color(1f, 1f, 0f), new Color(0f, 1f, 0f), new Color(0f, 0f, 1f), new Color(0.498f, 0f, 1f), new Color(0.7f, 0.7f, 0.7f), new Color(1f, 1f, 1f) };
 
    /**********************************************************************
     * Unity's Start function, just setting up the reset position and 
@@ -29,7 +32,7 @@ public class DragNDrop : MonoBehaviour
    private void Start()
    {
       componentTransform = transform;
-      resetPosition = transform.position;
+      resetPosition = transform.localPosition;
    }
 
    /**********************************************************************
@@ -38,13 +41,24 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    public void initPart(ComponentHandler handler, int value, int operation)
    {
-      this.handler   = handler;
+      colorBandMaterial = spriteRenderer.material;
+      this.handler = handler;
+
       componentValue = value;
       this.operation = operation;
+
       string text = "";
       text += ((operation == 0) ? "-" : "+");
       text += $"{value}";
       number.text = text;
+     // number.faceColor = colors[componentValue];
+      colorBandMaterial.SetColor("_Color", colors[componentValue]);
+   }
+
+   public void resetPart()
+   {
+      componentTransform.localPosition = resetPosition;
+      currentCell = null;
    }
 
    /**********************************************************************
@@ -56,7 +70,7 @@ public class DragNDrop : MonoBehaviour
       if (moving)
       {
          Vector3 mousePos = Input.mousePosition;
-         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+         mousePos = overlayCamera.ScreenToWorldPoint(mousePos);
 
          componentTransform.position = new Vector3(mousePos.x - startPosX, mousePos.y - startPosY, componentTransform.position.z);
       }
@@ -67,10 +81,10 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    private void OnMouseDown()
    {
-      if (Input.GetMouseButtonDown(0))
+      if (Input.GetMouseButtonDown(0) && handler.CanPlay)
       {
          Vector3 mousePos = Input.mousePosition;
-         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+         mousePos = overlayCamera.ScreenToWorldPoint(mousePos);
          spriteRenderer.sortingOrder = 20;
          textRenderer.sortingOrder = 21;
          startPosX = mousePos.x - transform.position.x;
@@ -87,6 +101,7 @@ public class DragNDrop : MonoBehaviour
     *********************************************************************/
    private void OnMouseUp()
    {
+      if (!handler.CanPlay) return; 
       // Reset the render layers and stop moving
       moving = false;
       spriteRenderer.sortingOrder = 10;
@@ -108,7 +123,7 @@ public class DragNDrop : MonoBehaviour
                cell.component = this;
 
                // Set the component into the cell and check for completness
-               componentTransform.position = new Vector2(cell.cellTransform.position.x, cell.cellTransform.position.y);
+               componentTransform.position = new Vector3(cell.cellTransform.position.x, cell.cellTransform.position.y, -0.001f);
                handler.evaluateCells();
                return; // stop looking through cells
             }
@@ -117,7 +132,7 @@ public class DragNDrop : MonoBehaviour
       // Not close enough to any cells send to reset position and clean up if was previously in a cell
       if (currentCell != null) currentCell.component = null;
       currentCell = null;
-      componentTransform.position = resetPosition;
+      componentTransform.localPosition = resetPosition;
       // check for completness
       handler.evaluateCells();
    }
