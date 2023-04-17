@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Rendering.Universal;
 using static SaveSystem;
+using static UnityEngine.ParticleSystem;
+
 public class Level5Handler : MonoBehaviour
 {
     // Player
@@ -26,6 +28,12 @@ public class Level5Handler : MonoBehaviour
    // Level objects
    [SerializeField]
    public Light2D[] rocketLights;
+   [SerializeField]
+   public ParticleSystem[] thrusterParticles;
+   [SerializeField] 
+   public ParticleSystem[] steamParticles;
+    [SerializeField]
+    public GroundLights groundLights;
 
    // Timelines
    [SerializeField] PlayableDirector startTimeline;
@@ -70,11 +78,57 @@ public class Level5Handler : MonoBehaviour
         componentPuzzle[0].setEnabled(true);
         componentPuzzle[1].setEnabled(true);
         componentPuzzle[2].setEnabled(true);
+        rocketStageOne();
+        for (int i = 0; i < 4; i++)
+        {
+            if (puzzleComplete[i] == 1) rocketLights[i].enabled = true;
+        }
     }
 
     public void completePuzzleComponent(int puzzleNumber)
     {
         puzzleComplete[puzzleNumber] = 1;
         currentPuzzle += 1;
+        for(int i = 0; i < 4; i++)
+        {
+            if (puzzleComplete[i] == 1) rocketLights[i].enabled = true;
+        }
+        if(currentPuzzle >= 4)
+        {
+            allPuzzleComplete();
+        }
+        rocketSubsequentStages();
+    }
+
+    public void allPuzzleComplete()
+    {
+        rocketLights[4].color = new Color(0f, 1f, 0f);
+        groundLights.lightColor = new Color(0f, 1f, 0f);
+    }
+
+    // Called after the pipe puzzle is first completed
+    public void rocketStageOne()
+    {
+        foreach (ParticleSystem particles in thrusterParticles)
+        {
+            EmissionModule emission= particles.emission;
+            emission.rateOverTime = 5;
+            particles.Play();         
+        }
+    }
+
+    // Every stage after the first one
+    public void rocketSubsequentStages()
+    {
+        foreach(ParticleSystem particles in thrusterParticles)
+        {
+            EmissionModule emission = particles.emission;
+            emission.rateOverTime = 10 * currentPuzzle;
+        }
+    }
+
+    public void rocketLaunch()
+    {
+
     }
 }
