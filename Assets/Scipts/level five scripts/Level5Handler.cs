@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Rendering.Universal;
 using static SaveSystem;
 public class Level5Handler : MonoBehaviour
 {
@@ -21,6 +23,12 @@ public class Level5Handler : MonoBehaviour
     public int[] puzzleComplete { get; set; } = { 0, 0, 0, 0 };
     public int currentPuzzle = 0;
 
+   // Level objects
+   [SerializeField]
+   public Light2D[] rocketLights;
+
+   // Timelines
+   [SerializeField] PlayableDirector startTimeline;
 
     private void Awake()
     {
@@ -36,6 +44,8 @@ public class Level5Handler : MonoBehaviour
         LoadGame();
         Debug.Log("Loading the game...");
 
+        playerMovement.manualFlip(false);
+        startTimeline.Play();
         //playerMovement.DisableMovement();
         //startTimeline.Play();
 

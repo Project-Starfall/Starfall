@@ -129,7 +129,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             {
                case 1:
                   player.transform.position = new Vector2(-32, 1);
-                  if (player.transform.localScale.x < 0) playerMovement.Flip();
+                  playerMovement.manualFlip(true);
                   pipegame.startGame(this);
                   pipegame.generateGrid(level1handler.pipe1seed);
                   break;

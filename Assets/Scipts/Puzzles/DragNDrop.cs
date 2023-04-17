@@ -123,7 +123,7 @@ public class DragNDrop : MonoBehaviour
                cell.component = this;
 
                // Set the component into the cell and check for completness
-               componentTransform.position = new Vector3(cell.cellTransform.position.x, cell.cellTransform.position.y, 0f);
+               componentTransform.position = new Vector3(cell.cellTransform.position.x, cell.cellTransform.position.y, -0.001f);
                handler.evaluateCells();
                return; // stop looking through cells
             }

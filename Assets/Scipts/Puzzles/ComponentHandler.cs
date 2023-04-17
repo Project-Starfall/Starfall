@@ -85,7 +85,6 @@ public class ComponentHandler : MonoBehaviour
             {
                totalCheck += cell.component.componentValue;
             }
-            completed = true;
          }
          else
          {

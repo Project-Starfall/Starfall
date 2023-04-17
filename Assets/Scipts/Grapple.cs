@@ -22,11 +22,11 @@ public class Grapple : MonoBehaviour, Grappleable
    private Transform playerPos;
    private Material glowMaterial;
    private Material spotMaterial;
-   private bool isFade = false;
-   private bool isFadeSpot = false;
-   private bool fadeIn = false;
-   private float fade = 0.0f;
-   private float fadeSpot = 0.0f;
+   public bool isFade = false;
+   public bool isFadeSpot = false;
+   public bool fadeIn = false;
+   public float fade = 0.0f;
+   public float fadeSpot = 0.0f;
 
    private bool isCameraMove = false;
    private bool moveToPoint = false;
@@ -39,7 +39,7 @@ public class Grapple : MonoBehaviour, Grappleable
    {
       glowMaterial = spriteRenderer.material;
       glowMaterial.SetFloat("_Fade", 0f);
-      spotRenderer.color = new Color(spotRenderer  .color.r, spotRenderer.color.g, spotRenderer.color.b, 0f);
+      spotRenderer.color = new Color(spotRenderer.color.r, spotRenderer.color.g, spotRenderer.color.b, 0f);
       vcam_offset = vcam.GetCinemachineComponent<CinemachineFramingTransposer>();
       if(vcam_offset == null)
       {
