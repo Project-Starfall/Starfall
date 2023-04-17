@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New Sprite Atlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 8192
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+      enableAlphaDilation: 0
+    secondaryTextureSettings: {}
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 37bc82371ff60436b851547a56799af5, type: 3}
+    bindAsDefault: 1
+    isAtlasV2: 0
+    cachedData: {fileID: 0}
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 1883036103, guid: 9c9bffe01077d4fbd9ac7fb8503cb484, type: 3}
+  - {fileID: 21300000, guid: 3ebf5152366d348bbaae6a0ca1171834, type: 3}
+  - {fileID: 2044203626, guid: aba893a3c01eb45c99810e853064dab9, type: 3}
+  - {fileID: 21300000, guid: 42d80af3a3ee24f43af8a26d50231390, type: 3}
+  - {fileID: 21300000, guid: 1ac9d14474cd15d4195404962ab11ea5, type: 3}
+  - {fileID: 21300000, guid: 8d5400364c89f714f82f85fe123d2033, type: 3}
+  - {fileID: -2413806693520163455, guid: bcffe26608dbc894bb0532bf46fd749b, type: 3}
+  - {fileID: 21300000, guid: 17ae04e719cf9429195646290f827f49, type: 3}
+  - {fileID: 21300000, guid: 57222a8b4b0c34232aa733e1e81dcab1, type: 3}
+  - {fileID: 1479909349, guid: 46b3dc0df8e494fc9a0111ea3116463b, type: 3}
+  - {fileID: 21300000, guid: c730b12decbef3f45a0a70272c2e5062, type: 3}
+  - {fileID: 21300000, guid: bf7c379d7ee534b3aa4f826415d82a7c, type: 3}
+  - {fileID: 21300000, guid: 2199d2bd3ebf148cca0048770b602185, type: 3}
+  - {fileID: 1096103094, guid: 73e601bfe3cd44a18968064989e241d2, type: 3}
+  - {fileID: -233861144, guid: 73e601bfe3cd44a18968064989e241d2, type: 3}
+  - {fileID: 651563401, guid: 73e601bfe3cd44a18968064989e241d2, type: 3}
+  - {fileID: 21300000, guid: 7f8e02bfa7ee3416bb119a04b1411d2c, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Lv5.Capacitor_0
+  - Geary poster
+  - Lv5.Catwalk_0
+  - Lv5.CapacitorPanel
+  - Lv5.Middleground
+  - Lv5.Hatch
+  - Circle
+  - Lv5.Rocket
+  - Lv5.Generator
+  - Lv5.HangingCatwalk_0
+  - Lv5.Background
+  - Lv5.LaunchButton
+  - Lv5.InsideOfHatch
+  - Lv5.Scaffolding_Leg_Section
+  - Lv5.Scaffolding_Walking_section
+  - Lv5.Scaffolding_0
+  - Lv5.CapacitorPuzzle
+  m_RenderDataMap: {}
+  m_Tag: New Sprite Atlas
+  m_IsVariant: 0

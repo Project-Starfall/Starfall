@@ -239,6 +239,26 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
+   // Called by handlers to flip the player manually, independent of player control
+   public void manualFlip(bool right)
+   {
+      Vector3 localScale = transform.localScale;
+      if (right)
+      {
+         isFacingRight = true;
+         dashDirection = 1f;
+         if (localScale.x < 0) localScale.x *= -1f;
+         transform.localScale = localScale;
+      }
+      else
+      {
+         isFacingRight = false;
+         dashDirection = -1f;
+         if(localScale.x > 0) localScale.x *= -1f; 
+         transform.localScale = localScale;
+      }
+   }
+
     // Determines if the player is on the ground
     private bool IsGrounded()
     {

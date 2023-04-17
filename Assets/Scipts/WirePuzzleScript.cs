@@ -5,7 +5,8 @@ using UnityEngine;
 public class WirePuzzleScript : MonoBehaviour, Interactable
 {
    [SerializeField] GameObject pipecanvas; // Pipegame UI
-   [SerializeField] Level1Handler handler; // Level 1 handler
+   [SerializeField] Level1Handler level1handler; // Level 1 handler
+    [SerializeField] Level5Handler level5Handler;
    [SerializeField] PipePuzzleGameHandler pipegame; // Pipegame handler
     [SerializeField] PlayerMovement playerMovement;
    [SerializeField] int puzzleNumber; // The number of the attached puzzle
@@ -128,23 +129,25 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             {
                case 1:
                   player.transform.position = new Vector2(-32, 1);
-                  if (player.transform.localScale.x < 0) playerMovement.Flip();
+                  playerMovement.manualFlip(true);
                   pipegame.startGame(this);
-                  pipegame.generateGrid(handler.pipe1seed);
-                  
+                  pipegame.generateGrid(level1handler.pipe1seed);
                   break;
                case 2:
                   pipegame.startGame(this);
-                  pipegame.generateGrid(handler.pipe2seed);
+                  pipegame.generateGrid(level1handler.pipe2seed);
                   break;
                case 3:
                   pipegame.startGame(this);
-                  pipegame.generateGrid(handler.pipe3seed);
-                  
+                  pipegame.generateGrid(level1handler.pipe3seed);
                   break;
                case 4:
                   pipegame.startGame(this);
-                  pipegame.generateGrid(handler.pipe4seed);
+                  pipegame.generateGrid(level1handler.pipe4seed);
+                  break;
+               case 5:
+                  pipegame.startGame(this);
+                  pipegame.generateGrid(level5Handler.pipe5Seed);
                   break;
                default:
                   return false;
@@ -197,25 +200,30 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       {
          case 1:
             Debug.Log("Copmleted Puzzle 1");
-            handler.openExteriorDoorSequence();
-            handler.copmletePipe(1);
+            level1handler.openExteriorDoorSequence();
+            level1handler.copmletePipe(1);
             showPuzzle(false, true);
             break;
          case 2:
             Debug.Log("Copmleted Puzzle 2");
-            handler.copmletePipe(2);
+            level1handler.copmletePipe(2);
                showPuzzle(false, true);
                 break;
          case 3:
             Debug.Log("Copmleted Puzzle 3");
             
-            handler.copmletePipe(3);
+            level1handler.copmletePipe(3);
             showPuzzle(false, true);
                 break;
          case 4:
             Debug.Log("Copmleted Puzzle 4");
             
-            handler.copmletePipe(4);
+            level1handler.copmletePipe(4);
+            showPuzzle(false, true);
+            break;
+         case 5:
+            Debug.Log("Completed Puzzle 5");
+            level5Handler.completePuzzlePipe();
             showPuzzle(false, true);
             break;
       }
