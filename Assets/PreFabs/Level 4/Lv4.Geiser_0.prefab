@@ -194,6 +194,18 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[1].y
       value: 10.438872
       objectReference: {fileID: 0}
+    - target: {fileID: 564308640632440399, guid: c9950e339912150478a5ca1c89e50c89, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 564308640632440399, guid: c9950e339912150478a5ca1c89e50c89, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 564308640632440399, guid: c9950e339912150478a5ca1c89e50c89, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1036971331
+      objectReference: {fileID: 0}
     - target: {fileID: 564308640632440496, guid: c9950e339912150478a5ca1c89e50c89, type: 3}
       propertyPath: m_RootOrder
       value: 0
