@@ -59,7 +59,7 @@ public class VolumeSettings : MonoBehaviour
 
     public void setMusicVolumeSlider(float masterVolume)
     {
-        audioManager.musicVolumeChange((int)masterVolume);
+        audioManager.musicVolumeChange(masterVolume);
 
         AudioSource[] musicSources = GameObject.FindObjectsOfType<AudioSource>();
         foreach (AudioSource musicSource in musicSources)
