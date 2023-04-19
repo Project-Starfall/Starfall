@@ -8,7 +8,6 @@ public class VolumeSettings : MonoBehaviour
 {
     // the field for the volume settings
     [SerializeField] public Slider MasterVolumeSlider;
-    [SerializeField] public Slider SFXVolumeSlider;
     [SerializeField] public Slider MusicVolumeSlider;
 
     // audio field
@@ -30,7 +29,6 @@ public class VolumeSettings : MonoBehaviour
     {
         // Load the current volume, sound volume, and music volume
         MasterVolumeSlider.value = PlayerPrefs.GetFloat("Volume", 1.0f);
-        SFXVolumeSlider.value    = PlayerPrefs.GetFloat("SoundVolume", 1.0f);
         MusicVolumeSlider.value  = PlayerPrefs.GetFloat("MusicVolume", 1.0f);
         audioManager.musicVolume = MusicVolumeSlider.value;
     }
@@ -41,20 +39,6 @@ public class VolumeSettings : MonoBehaviour
         AudioListener.volume = masterVolume;
         audioMixer.SetFloat("Volume", masterVolume);
         PlayerPrefs.SetFloat("Volume", masterVolume);
-    }
-
-    public void setSFXVolumeSlider(float masterVolume)
-    {
-        AudioSource[] sfxSources = GameObject.FindObjectsOfType<AudioSource>();
-        foreach(AudioSource sfxSource in sfxSources)
-        {
-            if(sfxSource.tag == "SFX")
-            {
-                sfxSource.volume = masterVolume;
-            }
-        }
-        // Set the sound volume and save it to the playerprefs
-        PlayerPrefs.SetFloat("SFXVolume", masterVolume);
     }
 
     public void setMusicVolumeSlider(float masterVolume)
