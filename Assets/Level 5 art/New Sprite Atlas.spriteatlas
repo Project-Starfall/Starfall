@@ -54,6 +54,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3ebf5152366d348bbaae6a0ca1171834, type: 3}
   - {fileID: 2044203626, guid: aba893a3c01eb45c99810e853064dab9, type: 3}
   - {fileID: 21300000, guid: 42d80af3a3ee24f43af8a26d50231390, type: 3}
+  - {fileID: 21300000, guid: 23b91c14933374c15809a14d744b64f4, type: 3}
   - {fileID: 21300000, guid: 1ac9d14474cd15d4195404962ab11ea5, type: 3}
   - {fileID: 21300000, guid: 8d5400364c89f714f82f85fe123d2033, type: 3}
   - {fileID: -2413806693520163455, guid: bcffe26608dbc894bb0532bf46fd749b, type: 3}
@@ -72,6 +73,7 @@ SpriteAtlas:
   - Geary poster
   - Lv5.Catwalk_0
   - Lv5.CapacitorPanel
+  - Lv5.LakeBackground
   - Lv5.Middleground
   - Lv5.Hatch
   - Circle
