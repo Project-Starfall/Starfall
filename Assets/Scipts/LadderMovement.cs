@@ -15,9 +15,12 @@ public class LadderMovement : MonoBehaviour
     {
         // have a chance to play ladder sound when climbing a ladder
         vertical = Input.GetAxisRaw("Vertical");
-        ladderSound = GetComponent<AudioSource>();
+        //ladderSound = GetComponent<AudioSource>();
         if (other.tag == "Player" && Random.Range(0, 12) == 0 && vertical != 0 && !other.IsTouchingLayers(LayerMask.GetMask("Ground/Platform")) && !ladderSound.isPlaying)
-            FindObjectOfType<audioManager>().play("ladderSound");
+            ladderSound.Play();
+
+        if (vertical == 0)
+            ladderSound.Stop();
 
         // ladder climbing capabilities when player is touching a ladder
         if (other.tag == "Player" && vertical > 0)
@@ -26,5 +29,9 @@ public class LadderMovement : MonoBehaviour
             other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -LadderMoveSpeed);
         else
             other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0.55f);
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        ladderSound.Stop();
     }
 }

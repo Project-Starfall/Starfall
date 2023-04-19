@@ -64,7 +64,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: ladderSound
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+    clip: {fileID: 8300000, guid: 0ab6fabd39986c044b1f83348acc2080, type: 3}
     volume: 0.08
     pitch: 1
     loop: 0
@@ -87,14 +87,8 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
-  - name: levelThreeMusic
-    clip: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
   - name: levelFourMusic
-    clip: {fileID: 8300000, guid: 4dcadc1f6a84bb64e83c87691d50b03b, type: 3}
+    clip: {fileID: 8300000, guid: ff5f90b46672f3443a10791489cdbf3e, type: 3}
     volume: 0
     pitch: 1
     loop: 1
@@ -106,7 +100,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: endingMusic
-    clip: {fileID: 8300000, guid: 4dcadc1f6a84bb64e83c87691d50b03b, type: 3}
+    clip: {fileID: 8300000, guid: bd7789da1c9c1b14689620b5ba190feb, type: 3}
     volume: 0
     pitch: 1
     loop: 1
