@@ -206,8 +206,8 @@ MonoBehaviour:
     m_Bits: 131072
   rb: {fileID: 1571940032822836572}
   dashRate: 0.5
-  dashSpeed: 20
-  dashTime: 0.2
+  dashSpeed: 23
+  dashTime: 0.3
   dashRender: {fileID: 4141533303585814755}
   walkingSound: {fileID: 4982922287143141717}
   grappleStartSpeed: 11
