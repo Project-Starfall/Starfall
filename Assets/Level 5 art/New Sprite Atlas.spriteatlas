@@ -39,7 +39,7 @@ SpriteAtlas:
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
-      enableTightPacking: 1
+      enableTightPacking: 0
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
     variantMultiplier: 1
@@ -50,11 +50,12 @@ SpriteAtlas:
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 1883036103, guid: 9c9bffe01077d4fbd9ac7fb8503cb484, type: 3}
   - {fileID: 21300000, guid: 3ebf5152366d348bbaae6a0ca1171834, type: 3}
   - {fileID: 2044203626, guid: aba893a3c01eb45c99810e853064dab9, type: 3}
   - {fileID: 21300000, guid: 42d80af3a3ee24f43af8a26d50231390, type: 3}
-  - {fileID: 21300000, guid: 23b91c14933374c15809a14d744b64f4, type: 3}
+  - {fileID: -144623154, guid: 23b91c14933374c15809a14d744b64f4, type: 3}
+  - {fileID: -59272273, guid: 23b91c14933374c15809a14d744b64f4, type: 3}
+  - {fileID: -2028425241, guid: 23b91c14933374c15809a14d744b64f4, type: 3}
   - {fileID: 21300000, guid: 1ac9d14474cd15d4195404962ab11ea5, type: 3}
   - {fileID: 21300000, guid: 8d5400364c89f714f82f85fe123d2033, type: 3}
   - {fileID: -2413806693520163455, guid: bcffe26608dbc894bb0532bf46fd749b, type: 3}
@@ -69,11 +70,12 @@ SpriteAtlas:
   - {fileID: 651563401, guid: 73e601bfe3cd44a18968064989e241d2, type: 3}
   - {fileID: 21300000, guid: 7f8e02bfa7ee3416bb119a04b1411d2c, type: 3}
   m_PackedSpriteNamesToIndex:
-  - Lv5.Capacitor_0
   - Geary poster
   - Lv5.Catwalk_0
   - Lv5.CapacitorPanel
-  - Lv5.LakeBackground
+  - Lv5.LakeBackground_0
+  - Lv5.LakeBackground_1
+  - Lv5.LakeBackground_2
   - Lv5.Middleground
   - Lv5.Hatch
   - Circle
