@@ -105,5 +105,35 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: pipeRotate
+    clip: {fileID: 8300000, guid: 42e537c24aba4a644b7ab35f9b8ea476, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pinPress
+    clip: {fileID: 8300000, guid: 3d85cf6aad6cbc745b41ea7e6f5566d9, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pinComplete
+    clip: {fileID: 8300000, guid: 13080545e589be3418aecce00f16745f, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: powerOff
+    clip: {fileID: 8300000, guid: 742d5857472d67e40a63c2756f718012, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: pipeComplete
+    clip: {fileID: 8300000, guid: 022c6fc8ac73e0a458011d1bfca5b64e, type: 3}
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   fadeTime: 9
   musicVolume: 0.2

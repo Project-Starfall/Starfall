@@ -171,6 +171,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
          particles.Stop();
          // make light go green
          // play victory noise
+         FindObjectOfType<audioManager>().play("pipeComplete");
          return;
       }
       if (state)

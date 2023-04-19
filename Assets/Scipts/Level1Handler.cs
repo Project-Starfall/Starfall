@@ -180,7 +180,8 @@ public class Level1Handler : MonoBehaviour
     ******************************************************************/
    public void lastWireCompleted()
    {
-      lightsOut.Play();
+        FindObjectOfType<audioManager>().play("powerOff");
+        lightsOut.Play();
       for (int i = 0; i < 4; i++) wallNumbers[i].enabled = true;
    }
 

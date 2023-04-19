@@ -33,6 +33,7 @@ public class Pipe : MonoBehaviour {
 
    private void OnMouseDown() {
       if (!handler.canPlay) return;
+      FindObjectOfType<audioManager>().play("pipeRotate");
       orientation = (orientation + 1) % 4;
       transform.Rotate(new Vector3(0, 0, -90));
       handler.checkPower();

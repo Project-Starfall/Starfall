@@ -149,7 +149,8 @@ public class PinPadHandler : MonoBehaviour
    {
       lights[0].enabled = false;
       lights[1].enabled = true;
-      // TODO: SOUND: play success noise
+      // SOUND: play success noise
+      FindObjectOfType<audioManager>().play("pinComplete");
       StartCoroutine(delayedClose());
       particles.Stop();
       pinpad.setEnabled(false);
