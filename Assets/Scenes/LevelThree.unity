@@ -3884,6 +3884,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 19357896}
     m_Modifications:
+    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
+      propertyPath: m_Size.y
+      value: 8.689689
+      objectReference: {fileID: 0}
+    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.6192913
+      objectReference: {fileID: 0}
     - target: {fileID: 1421999705249490038, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
       propertyPath: m_Name
       value: Lv3.Ceiling (2)
@@ -8671,7 +8679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.2777982
+      value: 0.24108925
       objectReference: {fileID: 0}
     - target: {fileID: 6587339212833980949, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8715,7 +8723,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.2777982
+      value: -0.24108925
       objectReference: {fileID: 0}
     - target: {fileID: 6587339213068703574, guid: 59c2cdd3f50b6e947819bf8982774ace, type: 3}
       propertyPath: m_LocalPosition.y
@@ -10686,6 +10694,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 19357896}
     m_Modifications:
+    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
+      propertyPath: m_Size.y
+      value: 11.7509365
+      objectReference: {fileID: 0}
+    - target: {fileID: 251946101833114204, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
+      propertyPath: m_Offset.y
+      value: 4.1499147
+      objectReference: {fileID: 0}
     - target: {fileID: 1421999705249490038, guid: 0e524271257650649871ee6d54cf48b1, type: 3}
       propertyPath: m_Name
       value: Lv3.Ceiling
