@@ -156,7 +156,6 @@ public class Level1Handler : MonoBehaviour
       variableColliders[1].enabled = false;
       playerMovement.DisableMovement();
       openExterior.Play();
-      StartCoroutine(waitForTimeline());
       return;
    }
 
@@ -211,9 +210,8 @@ public class Level1Handler : MonoBehaviour
    /*******************************************************************
     * Runs when the pinpad puzzle is complete
     ******************************************************************/
-   IEnumerator waitForTimeline()
+   public void waitForTimeline()
    {
-      yield return new WaitForSeconds(6f);
       playerRenderer.sortingLayerName = "Player & Platforms";
       dashRenderer.sortingLayerName = "Player & Platforms";
       Destroy(exterior);
@@ -221,7 +219,6 @@ public class Level1Handler : MonoBehaviour
       playerMovement.EnableMovement();
       SaveGame(player);
       Debug.Log("Saving the player...");
-      yield return null;
    }
 
     /*******************************************************************

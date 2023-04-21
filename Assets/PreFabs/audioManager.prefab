@@ -65,7 +65,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: ladderSound
     clip: {fileID: 8300000, guid: 0ab6fabd39986c044b1f83348acc2080, type: 3}
-    volume: 0.08
+    volume: 0.2
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -107,14 +107,14 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: pipeRotate
     clip: {fileID: 8300000, guid: 42e537c24aba4a644b7ab35f9b8ea476, type: 3}
-    volume: 0.2
+    volume: 0.4
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: pinPress
     clip: {fileID: 8300000, guid: 3d85cf6aad6cbc745b41ea7e6f5566d9, type: 3}
     volume: 0.2
-    pitch: 1
+    pitch: 0.8
     loop: 0
     source: {fileID: 0}
   - name: pinComplete
