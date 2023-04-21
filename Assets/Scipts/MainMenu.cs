@@ -55,9 +55,9 @@ public class MainMenu : MonoBehaviour
 
         // Reset grapple
 
-        if (File.Exists(SaveSystem.Path))
+        if (File.Exists(SaveSystem.path))
         {
-            File.Delete(SaveSystem.Path);
+            File.Delete(SaveSystem.path);
         }
         newGameStart.Play();
     }
@@ -86,7 +86,7 @@ public class MainMenu : MonoBehaviour
             playerData = LoadGame();
             // SaveSystem.LoadGame(SceneManager.GetActiveScene().path);
             // load scene ()
-            SceneManager.LoadScene(playerData.level);
+            SceneManager.LoadScene(playerData.Level);
         }
         else
         {

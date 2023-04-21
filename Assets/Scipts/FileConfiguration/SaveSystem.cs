@@ -8,7 +8,7 @@ using System;
 /// </summary>
 public static class SaveSystem
 {
-    public static string Path { get; set; } = Application.persistentDataPath + "/SaveGame.config";
+    public static readonly string path = Path.Combine(Application.persistentDataPath, "/SaveGame.config");
 
     /// <summary>
     /// Checks if a save file exists.
@@ -16,7 +16,7 @@ public static class SaveSystem
     /// <returns></returns>
     public static bool saveExist()
     {
-        return File.Exists(Path);
+        return File.Exists(path);
     }
 
     /// <summary>
@@ -26,13 +26,28 @@ public static class SaveSystem
     public static void SaveGame(Player player)
     {
         // Convert to binary and create a file
-        BinaryFormatter formatter = new BinaryFormatter();
-        FileStream stream = new FileStream(Path, FileMode.Create);
+        FileStream stream   = new FileStream(path, FileMode.Create);
+        BinaryWriter writer = new BinaryWriter(stream);
 
-        PlayerData data = new PlayerData(player);
+        PlayerData data = PlayerData.FromPlayer(player);
+        writer.Write(data.Level);
+        writer.Write(data.hasMap);
+        writer.Write(data.hasGrapple);
+
+        if (data.Position == null)
+        {
+            writer.Write(0);
+        }
+        else
+        {
+            writer.Write(data.Position.Length);
+            foreach (var value in data.Position)
+            {
+                writer.Write(value);
+            }
+        }
 
         // Close the file
-        formatter.Serialize(stream, data);
         stream.Close();
     }
 
@@ -43,23 +58,31 @@ public static class SaveSystem
     public static PlayerData LoadGame()
     {
         // Check if the file exists
-        if (File.Exists(Path))
+        if (!File.Exists(path))
         {
-            // Convert to binary and open file
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(Path, FileMode.Open);
+            Debug.LogError("Save game not found in the " + path);
+            return null;
+        }
 
-            PlayerData data = formatter.Deserialize(stream) as PlayerData;
+            // Convert to binary and open file
+            FileStream stream   = new FileStream(path, FileMode.Open);
+            BinaryReader reader = new BinaryReader(stream);
+
+            PlayerData data = new PlayerData();
+            data.Level      = reader.ReadInt32();
+            data.hasGrapple = reader.ReadBoolean();
+            data.hasMap     = reader.ReadBoolean();
+
+            int length = reader.ReadInt32();
+            data.Position = new float[length];
+            for (int index = 0; index < length; index++)
+            {
+                data.Position[index] = reader.ReadSingle();
+            }
 
             stream.Close(); // close the stream
 
             return data;
-        }
-        else
-        {
-            Debug.LogError("Save game not found in the " + Path);
-            return null;
-        }
     }
 
     /// <summary>
@@ -73,11 +96,11 @@ public static class SaveSystem
             PlayerData data = LoadGame();
 
             // Restore the player data
-            player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+            player.transform.position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
         }
         else
         {
-            Debug.LogError("Cannot resume game. Save game not found at " + Path);
+            Debug.LogError("Cannot resume game. Save game not found at " + path);
         }
     }
 

@@ -17,13 +17,13 @@ public class Player : MonoBehaviour
         PlayerData data = SaveSystem.LoadGame();
 
         // The number/stage of the level
-        level = data.level;
+        level = data.Level;
 
         // Save the player position
         Vector3 position;
-        position.x = data.position[0];
-        position.y = data.position[1];
-        position.z = data.position[2];
+        position.x = data.Position[0];
+        position.y = data.Position[1];
+        position.z = data.Position[2];
         transform.position = position;
 
         hasMap = data.hasMap;
