@@ -6,11 +6,10 @@ using UnityEngine;
 [System.Serializable]
 public class PlayerData
 {
-   public int level;        // The number of levels in the game
-   public float[] position; // The position of the player
-
-   public bool hasMap     { get; set; }
-   public bool hasGrapple { get; set; }
+   public int level        { get; set; } // The number of levels in the game
+   public float[] position { get; set; } // The position of the player
+   public bool hasMap      { get; set; }
+   public bool hasGrapple  { get; set; }
 
    public PlayerData(Player player)
    {

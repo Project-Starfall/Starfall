@@ -20,6 +20,9 @@ public class TutoritalHandler : MonoBehaviour
    [SerializeField] PolygonCollider2D cameraConfinerNew;
    [SerializeField] CinemachineConfiner2D cameraConfiner;
 
+    // check if the puzzel is already complete
+    private bool puzzleCompleted = false;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -28,6 +31,11 @@ public class TutoritalHandler : MonoBehaviour
         // transition background music into tutorial music
         FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
         FindObjectOfType<audioManager>().musicFadeIn("levelTutorialMusic");
+
+        if(saveExist())
+        {
+            PlayerData data = LoadGame();
+        }
     }
 
    private void OnTriggerEnter2D(Collider2D collision)
@@ -55,7 +63,7 @@ public class TutoritalHandler : MonoBehaviour
    }
 
    public IEnumerator EndSequence()
-   {
+   {      
       SaveGame(player); // Saving the player data
       Debug.Log("Saving the Player...");
       LoadGame();
@@ -63,6 +71,16 @@ public class TutoritalHandler : MonoBehaviour
       playerMovement.DisableMovement();
       Debug.Log("Saving the Player...");
       yield return new WaitForSeconds(1);
-      SceneManager.LoadScene(LevelOne, LoadSceneMode.Single);
+      
+
+        if(puzzleCompleted)
+        {
+            PlayerData data = LoadGame();
+            playerTransform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+        }
+        else
+        {
+            SceneManager.LoadScene(LevelOne, LoadSceneMode.Single);
+        }
    }
 }
