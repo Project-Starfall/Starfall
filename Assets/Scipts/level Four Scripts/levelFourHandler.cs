@@ -20,7 +20,7 @@ public class levelFourHandler : MonoBehaviour
     {
         Application.targetFrameRate = 60;
 
-        // transition background music into level one music
+        // transition background music into level four music
         FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
         FindObjectOfType<audioManager>().musicFadeIn("levelFourMusic");
     }

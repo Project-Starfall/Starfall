@@ -41,6 +41,11 @@ public class Level5Handler : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
+
+        // transition background music into level five music
+        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeOut("levelFourMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("levelFiveMusic");
     }
 
     void Start()
