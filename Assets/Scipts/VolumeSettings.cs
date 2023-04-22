@@ -15,16 +15,6 @@ public class VolumeSettings : MonoBehaviour
 
     public AudioMixer audioMixer;
 
-    public AudioSource musicVolume;
-
-    public bool isMuted = false;
-
-    public void OnMute()
-    {
-        isMuted = !isMuted;
-        musicVolume.mute = isMuted;
-    }
-
     public void Start()
     {
         // Load the current volume, sound volume, and music volume
