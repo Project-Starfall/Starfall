@@ -10,9 +10,9 @@ public class menuMusicManager : MonoBehaviour
         FindObjectOfType<audioManager>().musicFadeOut("levelTutorialMusic");
         FindObjectOfType<audioManager>().musicFadeOut("levelOneMusic");
         FindObjectOfType<audioManager>().musicFadeOut("levelTwoMusic");
-        FindObjectOfType<audioManager>().musicFadeOut("levelThreeMusic");
         FindObjectOfType<audioManager>().musicFadeOut("levelFourMusic");
         FindObjectOfType<audioManager>().musicFadeOut("levelFiveMusic");
+        FindObjectOfType<audioManager>().musicFadeOut("endingMusic");
         FindObjectOfType<audioManager>().musicFadeIn("menuMusic");
     }
 }

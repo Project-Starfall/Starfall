@@ -1304,8 +1304,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: 6351978431197948385, guid: e66a72914f0e32447bce6e404ed24027, type: 2}
     value: {fileID: 2136353140}
-  - key: {fileID: -8211251770356400818, guid: e66a72914f0e32447bce6e404ed24027, type: 2}
-    value: {fileID: 2136353135}
   - key: {fileID: -8321502723826470025, guid: e66a72914f0e32447bce6e404ed24027, type: 2}
     value: {fileID: 398604131}
   - key: {fileID: 168716851708553394, guid: e66a72914f0e32447bce6e404ed24027, type: 2}
@@ -1314,6 +1312,8 @@ PlayableDirector:
     value: {fileID: 2136353141}
   - key: {fileID: -4042647929600868717, guid: e66a72914f0e32447bce6e404ed24027, type: 2}
     value: {fileID: 1395702609}
+  - key: {fileID: -5836609153808028210, guid: e66a72914f0e32447bce6e404ed24027, type: 2}
+    value: {fileID: 615228497}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &826252462
@@ -1931,7 +1931,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 86bc13af0605241deae1f22168470234, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3170,8 +3170,6 @@ MonoBehaviour:
   MusicVolumeSlider: {fileID: 993816172}
   audioManager: {fileID: 842894611}
   audioMixer: {fileID: 24100000, guid: 6b4ae9edf40ca2842b8c96df64482809, type: 2}
-  musicVolume: {fileID: 0}
-  isMuted: 0
 --- !u!1 &1707289239
 GameObject:
   m_ObjectHideFlags: 0
