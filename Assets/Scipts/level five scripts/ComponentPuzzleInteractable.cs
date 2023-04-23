@@ -31,8 +31,6 @@ public class ComponentPuzzleInteractable : MonoBehaviour, Interactable
     {
         glowMaterial = spriteRenderer.material;
         glowMaterial.SetFloat("_Fade", 0f);
-
-        interactEnabled = true;
     }
 
     // Used to enable the game canvas

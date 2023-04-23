@@ -57,11 +57,35 @@ SpriteAtlas:
   - {fileID: -59272273, guid: 23b91c14933374c15809a14d744b64f4, type: 3}
   - {fileID: -2028425241, guid: 23b91c14933374c15809a14d744b64f4, type: 3}
   - {fileID: 21300000, guid: 1ac9d14474cd15d4195404962ab11ea5, type: 3}
-  - {fileID: 21300000, guid: 8d5400364c89f714f82f85fe123d2033, type: 3}
+  - {fileID: 1327315544, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: 1429976209, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -927716444, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: 712943619, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: 1146137011, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -474091802, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -1031557577, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: 839273942, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: 1309485552, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -241731906, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -62727508, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: 2141562422, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -1725152547, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -1306254536, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: 2007068861, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -195573998, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -1063342897, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
+  - {fileID: -1035495448, guid: 067e9215b99a56e479b80b44f066cd61, type: 3}
   - {fileID: -2413806693520163455, guid: bcffe26608dbc894bb0532bf46fd749b, type: 3}
   - {fileID: 21300000, guid: 17ae04e719cf9429195646290f827f49, type: 3}
+  - {fileID: 620245317, guid: 361b00da006b50240954e783826dd027, type: 3}
+  - {fileID: 663432960, guid: 361b00da006b50240954e783826dd027, type: 3}
+  - {fileID: -56560104, guid: 361b00da006b50240954e783826dd027, type: 3}
+  - {fileID: 959961921, guid: 361b00da006b50240954e783826dd027, type: 3}
+  - {fileID: -749389402, guid: 361b00da006b50240954e783826dd027, type: 3}
+  - {fileID: -571019424, guid: 361b00da006b50240954e783826dd027, type: 3}
   - {fileID: 21300000, guid: 57222a8b4b0c34232aa733e1e81dcab1, type: 3}
   - {fileID: 1479909349, guid: 46b3dc0df8e494fc9a0111ea3116463b, type: 3}
+  - {fileID: 21300000, guid: ceaf7a1d361fd87448b6e332c3a7619b, type: 3}
   - {fileID: 21300000, guid: c730b12decbef3f45a0a70272c2e5062, type: 3}
   - {fileID: 21300000, guid: bf7c379d7ee534b3aa4f826415d82a7c, type: 3}
   - {fileID: 21300000, guid: 2199d2bd3ebf148cca0048770b602185, type: 3}
@@ -77,11 +101,35 @@ SpriteAtlas:
   - Lv5.LakeBackground_1
   - Lv5.LakeBackground_2
   - Lv5.Middleground
-  - Lv5.Hatch
+  - rocketburner_grow_4
+  - rocketburner_grow_5
+  - rocketburner_grow_6
+  - rocketburner_grow_1
+  - rocketburner_grow_2
+  - rocketburner_grow_3
+  - rocketburner_active_6
+  - rocketburner_active_5
+  - rocketburner_active_4
+  - rocketburner_active_3
+  - rocketburner_active_2
+  - rocketburner_active_1
+  - rocketburner_shrink_2
+  - rocketburner_shrink_3
+  - rocketburner_shrink_1
+  - rocketburner_shrink_6
+  - rocketburner_shrink_4
+  - rocketburner_shrink_5
   - Circle
   - Lv5.Rocket
+  - Clouds_0
+  - Clouds_1
+  - Clouds_2
+  - Clouds_3
+  - Clouds_4
+  - Clouds_5
   - Lv5.Generator
   - Lv5.HangingCatwalk_0
+  - Lv5.InsideOfHatchPassangers
   - Lv5.Background
   - Lv5.LaunchButton
   - Lv5.InsideOfHatch

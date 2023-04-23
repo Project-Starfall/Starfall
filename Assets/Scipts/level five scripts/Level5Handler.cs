@@ -34,6 +34,7 @@ public class Level5Handler : MonoBehaviour
    public ParticleSystem[] steamParticles;
     [SerializeField]
     public GroundLights groundLights;
+   [SerializeField] HatchInteractable launchButton;
 
    // Timelines
    [SerializeField] PlayableDirector startTimeline;
@@ -58,6 +59,7 @@ public class Level5Handler : MonoBehaviour
         Debug.Log("Loading the game...");
 
         playerMovement.manualFlip(false);
+      playerMovement.DisableMovement();
         startTimeline.Play();
         //playerMovement.DisableMovement();
         //startTimeline.Play();
@@ -73,6 +75,7 @@ public class Level5Handler : MonoBehaviour
         componentPuzzle[0].setEnabled(false);
         componentPuzzle[1].setEnabled(false);
         componentPuzzle[2].setEnabled(false);
+        launchButton.setEnabled(false);
     }
 
     public void completePuzzlePipe()
@@ -88,7 +91,11 @@ public class Level5Handler : MonoBehaviour
         {
             if (puzzleComplete[i] == 1) rocketLights[i].enabled = true;
         }
-    }
+        if (currentPuzzle >= 4)
+        {
+           allPuzzleComplete();
+        }
+   }
 
     public void completePuzzleComponent(int puzzleNumber)
     {
@@ -109,6 +116,7 @@ public class Level5Handler : MonoBehaviour
     {
         rocketLights[4].color = new Color(0f, 1f, 0f);
         groundLights.lightColor = new Color(0f, 1f, 0f);
+        launchButton.setEnabled(true);
     }
 
     // Called after the pipe puzzle is first completed
@@ -132,8 +140,13 @@ public class Level5Handler : MonoBehaviour
         }
     }
 
-    public void rocketLaunch()
-    {
+     public bool isComplete()
+     {
+         return currentPuzzle >= 4;
+     }
 
-    }
+   public void unlockPlayer()
+   {
+      playerMovement.EnableMovement();
+   }
 }

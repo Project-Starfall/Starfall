@@ -21,7 +21,8 @@ namespace Constants
       public const int LevelThree = 4;
       public const int LevelFour = 5;
       public const int LevelFive = 6;
-      public const int Transistion = 7;
+      public const int FinalCutscene = 7;
+      public const int Transistion = 8;
    }
 
    public static class ComponentsPuzzle
