@@ -1,6 +1,4 @@
-using Cinemachine;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class RescueLevelOne : MonoBehaviour
@@ -27,7 +25,13 @@ public class RescueLevelOne : MonoBehaviour
    public void endRescue()
    {
       handler.officeRescue();
-      handler.enablePlayerMove();
+      
+      
+   }
+
+   public void movePlayer()
+   {
       star.SetActive(false);
+      handler.enablePlayerMove();
    }
 }

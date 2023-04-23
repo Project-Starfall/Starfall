@@ -37,6 +37,7 @@ public class Pipe : MonoBehaviour {
       orientation = (orientation + 1) % 4;
       transform.Rotate(new Vector3(0, 0, -90));
       handler.checkPower();
+      handler.wirebox.firstPuzzleClickHelp.SetActive(false);
    }
 
    public void setPoweredMaterial(bool powered)

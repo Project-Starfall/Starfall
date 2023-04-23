@@ -14,6 +14,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
    [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] ParticleSystem particles;
     [SerializeField] PauseMenu menu;
+   [SerializeField] public GameObject firstPuzzleClickHelp;
    private bool active = false; // if UI is active
 
    // Interface methods
@@ -128,10 +129,12 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
             switch (puzzleNumber)
             {
                case 1:
+                  
                   player.transform.position = new Vector2(-32, 1);
                   playerMovement.manualFlip(true);
                   pipegame.startGame(this);
                   pipegame.generateGrid(level1handler.pipe1seed);
+                  firstPuzzleClickHelp.SetActive(true);
                   break;
                case 2:
                   pipegame.startGame(this);
@@ -201,7 +204,6 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
       {
          case 1:
             Debug.Log("Copmleted Puzzle 1");
-            
             level1handler.copmletePipe(1);
             showPuzzle(false, true);
             level1handler.openExteriorDoorSequence();

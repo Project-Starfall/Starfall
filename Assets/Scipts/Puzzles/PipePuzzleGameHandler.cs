@@ -50,7 +50,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
    [SerializeField] Player player;                // Reference to the Player
    [SerializeField] GameObject pipeContainer;     // The container with the pipe gameobjects
    [SerializeField] Sprite[] sprites;             // Pipe sprite sheet
-   WirePuzzleScript wirebox;
+   public WirePuzzleScript wirebox;
     
    // Start is called before the first frame update
    void Start()
@@ -105,7 +105,6 @@ public class PipePuzzleGameHandler : MonoBehaviour
             puzzleGrid[x, y].setIsPowered(false);
          }
       }
-
       //iterate through valid path setting powered
       recursiveIsPowered(puzzleGrid[start.x + 1, start.y], 32, LEFT);
 
