@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class FishingSpotInteractable : MonoBehaviour, Interactable
@@ -15,6 +16,10 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    [SerializeField] ParticleSystem particles;
    [SerializeField] PauseMenu menu;
    [SerializeField] PlayerMovement playerMovement;
+   [SerializeField] public GameObject Popup;
+
+   [SerializeField] GameObject UI_FishCount;
+   [SerializeField] TMP_Text UI_Text;
 
    // Data
    private bool active = false; // if UI is active
@@ -61,6 +66,7 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
    // Used to enable the game canvas
    private void openGame()
    {
+      if(fishingHandler.fishCount == 0) Popup.SetActive(true);
       fishingGame.SetActive(true); // SHOWS THE FISHING GAME
       menu.isUIOpen = true; // Tells the pause menu to ignore esc;
       setEnabled(false);    // prevents opening twice
@@ -223,6 +229,8 @@ public class FishingSpotInteractable : MonoBehaviour, Interactable
         if (!fishAdded)
             fishingHandler.fishCount += 1;
         fishAdded = true;
+        UI_FishCount.SetActive(true);
+        UI_Text.text = $"x{fishingHandler.fishCount}";
     }
 
    // Calls the on enter and on leave functions from the interface when the collider is entered or left

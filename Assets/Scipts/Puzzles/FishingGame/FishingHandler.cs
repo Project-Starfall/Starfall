@@ -18,10 +18,4 @@ public class FishingHandler : MonoBehaviour
         fishCount = 0;
         fishingGameParent.SetActive(false);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        // WHEN ALL FISHING GAMES ARE COMPLETE, fishCount WILL BE EQUAL TO 3
-    }
 }

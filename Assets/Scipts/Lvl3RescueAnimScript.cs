@@ -11,6 +11,7 @@ public class Lvl3RescueAnimScript : MonoBehaviour
     [SerializeField] Texture2D proneAlphaMask;
     [SerializeField] Texture2D rescueAlphaMask;
     [SerializeField] GameObject star;
+    [SerializeField] StarRescueFlying flyingStar;
     Material glowMaterial;
 
     // Player
@@ -29,16 +30,25 @@ public class Lvl3RescueAnimScript : MonoBehaviour
 
     public void endRescue()
     {
-        playerMovement.EnableMovement();
-        star.SetActive(false);
+        spriteRenderer.enabled= false;
     }
 
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        playerMovement.DisableMovement();
+       playerMovement.DisableMovement();
 	   Debug.Log("Entered anim collider");
  	   RescueAnimation.Play();
- 	   return;
     }
+
+   public void flyStar()
+   {
+      flyingStar.StartAnimation();
+   }
+
+   public void movePlayer()
+   {
+      playerMovement.EnableMovement();
+      star.SetActive(false);
+   }
 }

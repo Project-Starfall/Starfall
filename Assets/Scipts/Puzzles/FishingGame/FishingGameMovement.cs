@@ -74,6 +74,7 @@ public class FishingGameMovement : MonoBehaviour
             {
                 isCasting = true;
                 DisableMovement(true);
+                game1Interact.Popup.SetActive(false);
             }
         }
 

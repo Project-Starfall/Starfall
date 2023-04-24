@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using Cinemachine;
+using TMPro;
 
 public class Lvl3Aligator : MonoBehaviour
 {
 	// [SerializeField] Timeline GameObject
     [SerializeField] PlayableDirector AlligatorFlop;
+    [SerializeField] PlayableDirector fishingAcquired;
 	
     // Animation members
     [SerializeField] Animator anim; // Reference to animator component
@@ -35,12 +37,16 @@ public class Lvl3Aligator : MonoBehaviour
 	[SerializeField]
 	BoxCollider2D interactSpot;
 
+   [SerializeField] GameObject UI_FishCount;
+   [SerializeField] TMP_Text UI_Text;
+
 	// Fade controls
 	private bool isFade = false;
 	private bool fadeIn = false;
 	public float fadeSpeed = 0.5f;
 	private float fadeAmount = 0f;
 	Color objectColor;
+    public bool firstTime = true;
 
     public void Start()
     {
@@ -50,6 +56,7 @@ public class Lvl3Aligator : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
 	 {
+	    
 		//if(FishingHandler.fishCount != 3)
 		if (FishingHandler.fishCount == 3)
 		{
@@ -62,6 +69,13 @@ public class Lvl3Aligator : MonoBehaviour
 			anim.SetBool("InCollider", true);
 			isFade = true;
 			fadeIn = true;
+		    if (firstTime) {
+			   playerMovement.DisableMovement();
+		       firstTime = false;
+		       StartCoroutine(waitBeforeShowing());
+			   UI_FishCount.SetActive(true);
+			   UI_Text.text = "x0";
+		    }
 		}
 	  }
  
@@ -107,4 +121,16 @@ public class Lvl3Aligator : MonoBehaviour
 		blocker.enabled = false;
 		cameraConfiner.m_BoundingShape2D = confiner;
 	}
+
+    public void allowMove()
+   {
+	  playerMovement.EnableMovement();
+   }
+
+   public IEnumerator waitBeforeShowing()
+   {
+	  yield return new WaitForSeconds(2f);
+	  fishingAcquired.Play();
+	  yield return null;
+   }
 }

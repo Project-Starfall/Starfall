@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Level 3
-  m_Shader: {fileID: -6465566751694194690, guid: ce01ac8c25b79cc4c996b18e3e53f606, type: 3}
+  m_Name: TunnelGlow
+  m_Shader: {fileID: -6465566751694194690, guid: 0cac364f7b6c67945848dd418a450c74, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,12 +20,12 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaMask:
-        m_Texture: {fileID: 2800000, guid: 7eaa0b497879ead46a6bde0389e7ba58, type: 3}
+    - _GlowMask:
+        m_Texture: {fileID: 2800000, guid: 5865395160649a946af2cadba90b6361, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 91fb3dd09d57246f2a36b9b783d01432, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -41,7 +41,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
-    m_Floats: []
+    m_Floats:
+    - _Fade: 0
     m_Colors:
-    - _Color: {r: 0.21804914, g: 0.91556627, b: 0.9433962, a: 1}
+    - _Color: {r: 12.996038, g: 12.996038, b: 12.996038, a: 0}
   m_BuildTextureStacks: []
