@@ -74,6 +74,8 @@ public class Level1Handler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
    {
+      
+
       // save the player data
       SaveGame(player);
       Debug.Log("Saving the player...");
@@ -200,8 +202,7 @@ public class Level1Handler : MonoBehaviour
 
    public void officeRescue()
    {
-      cameraConfine.m_BoundingShape2D = cameraConfiners[2];
-      variableColliders[3].enabled = true;
+      
       popup.popup(true);
       SaveGame(player); // save player
       Debug.Log("Saving the player...");
@@ -240,4 +241,10 @@ public class Level1Handler : MonoBehaviour
         Debug.Log("Saving the player...");
         yield return null;
     }
+
+   public void setOfficeConfiner()
+   {
+      cameraConfine.m_BoundingShape2D = cameraConfiners[2];
+      variableColliders[3].enabled = true;
+   }
 }

@@ -8,6 +8,7 @@ public class RescueLevelOne : MonoBehaviour
    [SerializeField] Texture2D rescueAlphaMask;
    [SerializeField] GameObject star;
    [SerializeField] Level1Handler handler;
+   [SerializeField] StarRescueFlying flyingStar;
 
    Material glowMaterial;
     // Start is called before the first frame update
@@ -25,13 +26,17 @@ public class RescueLevelOne : MonoBehaviour
    public void endRescue()
    {
       handler.officeRescue();
-      
-      
+   
+   }
+
+   public void flyStar()
+   {
+      flyingStar.StartAnimation();
    }
 
    public void movePlayer()
    {
-      star.SetActive(false);
+      handler.setOfficeConfiner();
       handler.enablePlayerMove();
    }
 }

@@ -2,55 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class StarRescueFlying : MonoBehaviour
 {
    [SerializeField] Transform startTransform;
    [SerializeField] Transform endTransform;
-   [SerializeField] GameObject changingStar;
    [SerializeField] GameObject flyingStar;
    [SerializeField] AnimationCurve curve;
+   [SerializeField] Image starImage;
+   [SerializeField] Sprite emptyToFilled;
+   [SerializeField] ParticleSystem particles;
+   [SerializeField] SpriteRenderer spriteRenderer;
 
-   private Vector2 endWorldSpace;
-   private Vector2 startWorldSpace;
-   private Vector2 updatedPosition;
-   private float xPos = 0;
-   private float speed = 0.5f;
-   public bool test = false;
+   public float hudPosFromPlayerX = 0;
+   public float hudPosFromPlayerY = 0;
+
+   private float startX = 0;
+   private float startY = 0;
+   private float endX    = 0;
+   private float endY = 0;
+   private float posY   = 0;
+   private float posX   = 0;
+   public float speed  = 1f;
+   public float fadeSpeed = 1f;
+   public float padding = 0.25f;
 
 
-   public void Start()
+   public void StartAnimation()
    {
-      
-   }
-
-   public void Update()
-   {
-      if(test)
-      {
-         endWorldSpace = Camera.main.ViewportToWorldPoint(changingStar.transform.position);
-         startWorldSpace = startTransform.position;
-         updatedPosition = startWorldSpace;
-         xPos = (Math.Abs(startWorldSpace.x) - Math.Abs(endWorldSpace.x)) / Math.Abs(startWorldSpace.x);
-         test = false;
-         StartCoroutine(Play());
-      }
+      particles.Play();
+      endX = endTransform.position.x + hudPosFromPlayerX;
+      endY = endTransform.position.y + hudPosFromPlayerY;
+      startX = startTransform.position.x;
+      startY = startTransform.position.y;
+      posX = 0f;
+      posY = 0f;
+      StartCoroutine(Play());
    }
 
    public void Playanimation()
    {
-      while(true)
-      {
-         Debug.Log($"{curve.Evaluate(startWorldSpace.x)}");
-         xPos += speed * Time.deltaTime;
-         startWorldSpace.x= xPos;
-         if (xPos >= 1f) return;
-      }
+  
    }
 
    public IEnumerator Play()
    {
-      Playanimation();
+      Color tempColor = spriteRenderer.color;
+      for(float interpolate = 0f; interpolate <= 1f; interpolate += speed * Time.deltaTime)
+      {
+         posX = Mathf.Lerp(startX, endX, curve.Evaluate(interpolate));
+         posY = Mathf.Lerp(startY, endY, interpolate);
+         if(Math.Abs(posX - endX) < padding && Math.Abs(posY - endY) < padding)
+         {
+            starImage.sprite = emptyToFilled;
+            startTransform.position = new Vector2(endX, endY);
+            break;
+         }
+         startTransform.position = new Vector2(posX, posY);
+         
+         yield return new WaitForEndOfFrame();
+      }
+
+      for(float fade = 1f; fade > 0f; fade -= fadeSpeed * Time.deltaTime)
+      {
+         spriteRenderer.color = new Color(tempColor.r, tempColor.g, tempColor.b, fade);
+         yield return new WaitForEndOfFrame();
+      }
+      particles.Stop();
+      spriteRenderer.color = new Color(tempColor.r, tempColor.g, tempColor.b, 0f);
       yield return null;
+      
    }
 }
