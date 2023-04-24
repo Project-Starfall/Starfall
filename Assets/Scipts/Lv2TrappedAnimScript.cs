@@ -13,7 +13,10 @@ public class Lv2TrappedAnimScript : MonoBehaviour
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Texture2D tiedUpAlphaMask;
     [SerializeField] Texture2D rescueAlphaMask;
-    
+    [SerializeField] Material rescueMaterial;
+
+   [SerializeField] StarRescueFlying flyingStar;
+
     // Player
     [SerializeField]
     PlayerMovement playerMovement;
@@ -34,13 +37,19 @@ public class Lv2TrappedAnimScript : MonoBehaviour
     void Start()
     {
         glowMaterial = spriteRenderer.material;
-        glowMaterial.SetTexture("_AlphaMask", tiedUpAlphaMask);
     }
 
     public void rescueMask()
     {
-        glowMaterial.SetTexture("_AlphaMask", rescueAlphaMask);
+      glowMaterial = rescueMaterial;
+      spriteRenderer.material = glowMaterial;
     }
+
+   public void startFlying()
+   {
+      spriteRenderer.enabled = false;
+      flyingStar.StartAnimation();
+   }
 
     public void endRescue()
     {

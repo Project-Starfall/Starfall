@@ -28,6 +28,17 @@ public class StarRescueFlying : MonoBehaviour
    public float fadeSpeed = 1f;
    public float padding = 0.25f;
 
+   public bool test;
+
+
+   public void Update()
+   {
+      if(test)
+      {
+         test = false;
+         StartAnimation();
+      }
+   }
 
    public void StartAnimation()
    {
@@ -41,11 +52,6 @@ public class StarRescueFlying : MonoBehaviour
       StartCoroutine(Play());
    }
 
-   public void Playanimation()
-   {
-  
-   }
-
    public IEnumerator Play()
    {
       Color tempColor = spriteRenderer.color;
@@ -53,6 +59,7 @@ public class StarRescueFlying : MonoBehaviour
       {
          posX = Mathf.Lerp(startX, endX, curve.Evaluate(interpolate));
          posY = Mathf.Lerp(startY, endY, interpolate);
+
          if(Math.Abs(posX - endX) < padding && Math.Abs(posY - endY) < padding)
          {
             starImage.sprite = emptyToFilled;
@@ -63,8 +70,8 @@ public class StarRescueFlying : MonoBehaviour
          
          yield return new WaitForEndOfFrame();
       }
-
-      for(float fade = 1f; fade > 0f; fade -= fadeSpeed * Time.deltaTime)
+      startTransform.position = new Vector2(endX, endY);
+      for (float fade = 1f; fade > 0f; fade -= fadeSpeed * Time.deltaTime)
       {
          spriteRenderer.color = new Color(tempColor.r, tempColor.g, tempColor.b, fade);
          yield return new WaitForEndOfFrame();
