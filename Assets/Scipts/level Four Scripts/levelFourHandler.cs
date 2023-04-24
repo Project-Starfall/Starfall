@@ -10,8 +10,8 @@ using UnityEngine.SceneManagement;
 public class levelFourHandler : MonoBehaviour
 {
     // Camera
-    [SerializeField] CinemachineConfiner2D cameraConfine;
     [SerializeField] PlayableDirector endTimeline;
+    [SerializeField] PlayableDirector startTimeline;
     // Player
     [SerializeField] Player player;
     [SerializeField] PlayerMovement playerMovement;
@@ -35,6 +35,8 @@ public class levelFourHandler : MonoBehaviour
         // load player save
         LoadGame();
         Debug.Log("Loading the game...");
+        playerMovement.DisableMovement();
+        startTimeline.Play();
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
@@ -46,5 +48,10 @@ public class levelFourHandler : MonoBehaviour
     public void endLevelFour()
     {
         SceneManager.LoadScene(LevelFive, LoadSceneMode.Single);
+    }
+
+    public void allowMove()
+    {
+        playerMovement.EnableMovement();
     }
 }
