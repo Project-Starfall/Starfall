@@ -181,9 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Phsyics programming -  Micah Lawson
-
-    Consectetur Adipiscing Elit'
+  m_text: Dr.  Michael Geary
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -1116,7 +1114,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Art & Animation Director
+  m_text: Art & Animation
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -1345,7 +1343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Programming
+  m_text: Executive Director
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -4194,7 +4192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Music title
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -11221,7 +11219,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Christi Loden
+  m_text: 'Christi Loden
+
+    Nathan Williams
+
+    Micah Donegan
+
+    Micah Lawson
+
+    Dapo
+    Adegunloye'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -18067,10 +18074,10 @@ MonoBehaviour:
 
     Dr. Jonathan Sparks
 
-    Mr. Bob Howell
+    Dr. Robert Howell
 
-    Mr. M.
-    Stemen'
+    Mr.
+    M. Stemen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -26063,11 +26070,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'Under a Glistening Canopy
 
-    Dolor Sit Amet
+    Find your way
 
-    Consectetur Adipiscing Elit'
+    Concrete Mare
+
+    Floating
+    Along
+
+    Ascend'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
