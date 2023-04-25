@@ -181,13 +181,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< Updated upstream
   m_text: 'Phsyics programming -  Micah Lawson
 
     Consectetur Adipiscing Elit'
-=======
   m_text: Dr. Michael Geary
->>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -1349,11 +1346,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-<<<<<<< Updated upstream
   m_text: Programming
-=======
   m_text: Executive Director
->>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
