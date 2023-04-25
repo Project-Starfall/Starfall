@@ -8072,6 +8072,7 @@ MonoBehaviour:
   interactSpot: {fileID: 1605783259}
   UI_FishCount: {fileID: 1276395963}
   UI_Text: {fileID: 343245594}
+  tunnel: {fileID: 1325930038}
   fadeSpeed: 1.5
   firstTime: 1
 --- !u!61 &1605783259
@@ -8091,7 +8092,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 15.58, y: 7.0457296}
+    oldSize: {x: 9.84, y: 3.2916062}
     newSize: {x: 9.84, y: 3.2916062}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

@@ -40,6 +40,8 @@ public class Lvl3Aligator : MonoBehaviour
    [SerializeField] GameObject UI_FishCount;
    [SerializeField] TMP_Text UI_Text;
 
+   [SerializeField] tunnelOne tunnel;
+
 	// Fade controls
 	private bool isFade = false;
 	private bool fadeIn = false;
@@ -63,6 +65,7 @@ public class Lvl3Aligator : MonoBehaviour
 			playerMovement.DisableMovement();
 			interactSpot.enabled = false;
 			AlligatorFlop.Play();
+			tunnel.setEnabled(false);
 		}
 		else 
 		{ 
