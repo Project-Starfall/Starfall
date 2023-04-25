@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 using static SaveSystem;
+using static Constants.Scenes;
 
 public class LevelTwoHandler : MonoBehaviour
 {
@@ -64,7 +65,7 @@ public class LevelTwoHandler : MonoBehaviour
         SaveGame(player); // Saving the player data
         Debug.Log("Saving the Player...");
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene(4, LoadSceneMode.Single);
+        SceneManager.LoadScene(Transistion, LoadSceneMode.Single);
         yield return null;
     }
 }

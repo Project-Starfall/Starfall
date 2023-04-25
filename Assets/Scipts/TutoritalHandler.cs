@@ -80,7 +80,7 @@ public class TutoritalHandler : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(LevelOne, LoadSceneMode.Single);
+            SceneManager.LoadScene(Transistion, LoadSceneMode.Single);
         }
    }
 }

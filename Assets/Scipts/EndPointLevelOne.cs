@@ -18,7 +18,7 @@ public class EndPointLevelOne : MonoBehaviour
    public IEnumerator delaySceneClose()
    {
       yield return new WaitForSeconds(1);
-      SceneManager.LoadScene(LevelTwo, LoadSceneMode.Single);
+      SceneManager.LoadScene(Transistion, LoadSceneMode.Single);
       yield return null;
    }
 }

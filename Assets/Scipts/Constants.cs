@@ -34,4 +34,13 @@ namespace Constants
       public const int Subtract = 0;
       public const int Addition = 1;
    }
+
+   public static class Transitions
+   {
+      public const int LV0_LV1 = 0;
+      public const int LV1_LV2 = 1;
+      public const int LV2_LV3 = 2;
+      public const int LV3_LV4 = 3;
+      public const int LV4_LV5 = 4;
+   }
 }

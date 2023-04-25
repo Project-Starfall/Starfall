@@ -62,6 +62,7 @@ SpriteAtlas:
   - {fileID: -971164397, guid: 65b1af47d7b6950459baf2359bf4863a, type: 3}
   - {fileID: 111308376, guid: 65b1af47d7b6950459baf2359bf4863a, type: 3}
   - {fileID: 21300000, guid: 3c8ef3789023b2c4abf53a5283baca11, type: 3}
+  - {fileID: 21300000, guid: 9b8ac6e86e747634f8e70c6dba89a4ef, type: 3}
   - {fileID: 21300000, guid: 32bf7859cc67da640b8c5c1473d39389, type: 3}
   - {fileID: 21300000, guid: e8aa6b6b1edfff6418fcb4de93008d02, type: 3}
   - {fileID: 21300000, guid: c6ab5ddb54b3a4b4c90518416a1e8e1a, type: 3}
@@ -83,6 +84,7 @@ SpriteAtlas:
   - Lv0.Background_0
   - Lv0.Background_1
   - Lv0.HayStalks
+  - Moon
   - Lv0.Hay
   - Lv0.NightSky
   - Lv0.HayStalk1

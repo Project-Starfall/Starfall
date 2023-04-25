@@ -44,7 +44,7 @@ public class LevelThreeHandler : MonoBehaviour
 
     public void endLevelThree()
     {
-        SceneManager.LoadScene(LevelFour, LoadSceneMode.Single);
+        SceneManager.LoadScene(Transistion, LoadSceneMode.Single);
     }
 
 }
