@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using static SaveSystem;
+using static GameTimer;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class PauseMenu : MonoBehaviour
     public bool isUIOpen { get; set; } = false;
     // This is the pause menu
     public GameObject PauseMenuUI;
+    [SerializeField] TMP_Text timerText; 
 
     // Update is called once per frame
     void Update()
@@ -38,7 +41,8 @@ public class PauseMenu : MonoBehaviour
     {
         // The game is not paused
         PauseMenuUI.SetActive(false);
-        // Resume time
+      // Resume time
+        
         Time.timeScale = 1f;
         // Play the game
         GameIsPaused = false;
@@ -52,6 +56,7 @@ public class PauseMenu : MonoBehaviour
         // Freeze the game objects
         Time.timeScale = 0f;
         // The game is paused
+        timerText.text = instance.timeText;
         GameIsPaused = true;
     }
 

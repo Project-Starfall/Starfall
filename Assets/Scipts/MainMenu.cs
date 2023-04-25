@@ -8,22 +8,29 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static SaveSystem;
 using static Constants.Scenes;
+using static GameTimer;
 
 public class MainMenu : MonoBehaviour
 {
     // This is the pause menu
     public GameObject LoadButtonUI;
+   
 
     [SerializeField] PlayableDirector newGameStart;
-    
-    /* is there a save -> set load button active
-     * if not -> disable load button
-     * 
-     */
+  // [SerializeField] GameObject timer;
+   /* is there a save -> set load button active
+    * if not -> disable load button
+    * 
+    */
+   public void Awake()
+   {
+     // Don
+   }
 
-    // newgame()
-    public void NewGame ()
+   // newgame()
+   public void NewGame ()
     {
+        
         // Resets the player's postions to zero
         // transform.position = new Vector3(0,0,0);
         // Reset map
@@ -34,7 +41,10 @@ public class MainMenu : MonoBehaviour
         {
             File.Delete(SaveSystem.Path);
         }
+       // timer.Onload
+        instance.beginTimer();
         newGameStart.Play();
+       
     }
 
     public void Quit ()

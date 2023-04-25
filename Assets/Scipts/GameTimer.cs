@@ -9,18 +9,19 @@ public class GameTimer : MonoBehaviour
    public static GameTimer instance;
 
    private TimeSpan time;
-   private Text timeText;
+   public string timeText { get; private set; }
    private bool timerGoing;
    private float elapsedTime;
 
    private void Awake()
    {
+      DontDestroyOnLoad(this);
       instance = this;
    }
 
    private void Start()
    {
-      timeText.text = "Time: 00:00:00";
+      timeText = "Time: 00:00:00";
       timerGoing = false;
    }
 
@@ -32,9 +33,17 @@ public class GameTimer : MonoBehaviour
       StartCoroutine(updateTimer());
    }
 
+   public void resumeTimer()
+   {
+      timerGoing = true;
+
+      StartCoroutine(updateTimer());
+   }
+
    public void endTimer()
    {
       timerGoing = false;
+
    }
 
    private IEnumerator updateTimer()
@@ -44,7 +53,7 @@ public class GameTimer : MonoBehaviour
          elapsedTime += Time.deltaTime;
          time = TimeSpan.FromSeconds(elapsedTime);
          string timePlayingStr = $"Time: {time:mm':'ss'.'ff}";
-         timeText.text = timePlayingStr;
+         timeText = timePlayingStr;
 
          yield return null;
       }
