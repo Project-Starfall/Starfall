@@ -44,8 +44,10 @@ public class Level5Handler : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // transition background music into level five music
-        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        //FindObjectOfType<audioManager>().musicFadeOut("menuMusic"); // only if save game feature is added
         FindObjectOfType<audioManager>().musicFadeOut("levelFourMusic");
+        FindObjectOfType<audioManager>().stop("levelFourMusic");
+        FindObjectOfType<audioManager>().play("levelFiveMusic");
         FindObjectOfType<audioManager>().musicFadeIn("levelFiveMusic");
     }
 

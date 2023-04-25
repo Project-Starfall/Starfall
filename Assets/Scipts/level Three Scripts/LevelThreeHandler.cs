@@ -21,8 +21,9 @@ public class LevelThreeHandler : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // transition background music into level one music
-        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        //FindObjectOfType<audioManager>().musicFadeOut("menuMusic"); // only if save game feature is added
         FindObjectOfType<audioManager>().musicFadeOut("levelTwoMusic");
+        FindObjectOfType<audioManager>().stop("levelTwoMusic");
     }
 
     // Start is called before the first frame update

@@ -30,6 +30,8 @@ public class TutoritalHandler : MonoBehaviour
 
         // transition background music into tutorial music
         FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        FindObjectOfType<audioManager>().stop("menuMusic");
+        FindObjectOfType<audioManager>().play("levelTutorialMusic");
         FindObjectOfType<audioManager>().musicFadeIn("levelTutorialMusic");
 
         if(saveExist())

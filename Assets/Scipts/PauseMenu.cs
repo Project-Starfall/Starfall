@@ -60,6 +60,8 @@ public class PauseMenu : MonoBehaviour
         //Time.timeScale = 0f;
         // This function starts the game
         Time.timeScale = 1f;
+        FindObjectOfType<audioManager>().play("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("menuMusic");
         SceneManager.LoadScene(0, LoadSceneMode.Single);
         Debug.Log("Loading Menu...");
     }

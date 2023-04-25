@@ -24,8 +24,10 @@ public class LevelTwoHandler : MonoBehaviour
         Application.targetFrameRate = 60;
 
         // transition background music into level two music
-        FindObjectOfType<audioManager>().musicFadeOut("menuMusic");
+        //FindObjectOfType<audioManager>().musicFadeOut("menuMusic"); // only if save game feature is added
         FindObjectOfType<audioManager>().musicFadeOut("levelOneMusic");
+        FindObjectOfType<audioManager>().stop("levelOneMusic");
+        FindObjectOfType<audioManager>().play("levelTwoMusic");
         FindObjectOfType<audioManager>().musicFadeIn("levelTwoMusic");
     }
 

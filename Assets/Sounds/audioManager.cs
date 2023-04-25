@@ -50,12 +50,11 @@ public class audioManager : MonoBehaviour
     {
         play("menuMusic");
         play("levelTutorialMusic");
-        play("levelOneMusic");
+        /*play("levelOneMusic");
         play("levelTwoMusic");
-        play("levelThreeMusic");
         play("levelFourMusic");
         play("levelFiveMusic");
-        play("endingMusic");
+        play("endingMusic");*/
     }
 
     // finds and plays audio clip of specified name
@@ -120,5 +119,22 @@ public class audioManager : MonoBehaviour
         musicClip.source.volume = musicVolume;
 
         return;
+    }
+
+    // finds and stops audio clip of specified name
+    public void stop(string name)
+    {
+        // find audio clip of said name within sounds file
+        sound s = Array.Find(sounds, sound => sound.name == name);
+
+        // if audio file name is not recognized dont play
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found.");
+            return;
+        }
+
+        // stops audio clip of said name
+        s.source.Stop();
     }
 }

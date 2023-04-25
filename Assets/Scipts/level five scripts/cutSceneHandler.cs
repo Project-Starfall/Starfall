@@ -8,14 +8,21 @@ public class cutSceneHandler : MonoBehaviour
 {
    [SerializeField] GameTimer timer;
 
+    private void Awake()
+    {
+        FindObjectOfType<audioManager>().musicFadeOut("levelFiveMusic");
+        FindObjectOfType<audioManager>().stop("levelFiveMusic");
+    }
 
-   public void showTime()
+    public void showTime()
    {
 
    }
 
    public void returnToMenu()
    {
-      SceneManager.LoadScene(Menu, LoadSceneMode.Single);
+        FindObjectOfType<audioManager>().play("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("menuMusic");
+        SceneManager.LoadScene(Menu, LoadSceneMode.Single);
    }
 }
