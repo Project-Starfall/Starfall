@@ -181,9 +181,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< Updated upstream
   m_text: 'Phsyics programming -  Micah Lawson
 
     Consectetur Adipiscing Elit'
+=======
+  m_text: Dr. Michael Geary
+>>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -516,7 +520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Game Testers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -822,11 +826,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'Luke Koser
 
-    Dolor Sit Amet
+    Nathan Williams
 
-    Consectetur Adipiscing Elit'
+    Micah Lawson'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -1116,7 +1120,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Art & Animation Director
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -1345,7 +1349,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
+<<<<<<< Updated upstream
   m_text: Programming
+=======
+  m_text: Executive Director
+>>>>>>> Stashed changes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -1732,7 +1740,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Team
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -1904,7 +1912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Music & Sounds Producer
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -2204,7 +2212,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: 'Honorable Mentions '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -2592,7 +2600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Project & Assitant Manager
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -2848,7 +2856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Programmers
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -10802,11 +10810,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'Elijah Clark
 
-    Dolor Sit Amet
-
-    Consectetur Adipiscing Elit'
+    Christi Loden'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -11146,11 +11152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
-
-    Dolor Sit Amet
-
-    Consectetur Adipiscing Elit'
+  m_text: Christi Loden
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -16786,11 +16788,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'Software Engineering II Class
 
-    Dolor Sit Amet
+    Computer Science Club
 
-    Consectetur Adipiscing Elit'
+    teammates
+
+    other
+    teams
+
+    Friends and
+
+    whoever is reading this'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -16962,11 +16971,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'Christi Loden
 
-    Dolor Sit Amet
+    Nathan Williams
 
-    Consectetur Adipiscing Elit'
+    Micah Donegan
+
+    Micah Lawson
+
+    Dapo
+    Adegunloye'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -17980,11 +17994,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'Ethan Huckabee
 
-    Dolor Sit Amet
+    Dr. Jonathan Sparks
 
-    Consectetur Adipiscing Elit'
+    Mr. Bob Howell
+
+    Mr. M.
+    Stemen'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -19998,11 +20015,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'White Star
 
-    Dolor Sit Amet
+    Yellow Star
 
-    Consectetur Adipiscing Elit'
+    Green Star
+
+    Blue Star
+
+    Red Star'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -20399,11 +20420,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lorum Ispum
+  m_text: 'Micah Donegan
 
-    Dolor Sit Amet
+    Micah Lawson
 
-    Consectetur Adipiscing Elit'
+    Dapo Adegunloye
+
+    Christi Loden
+
+    Nathan
+    Williams'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
@@ -25958,7 +25984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lorem Ipsum Dolor Sit Amet
+  m_text: Lead Casts
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
   m_sharedMaterial: {fileID: -3960200374939180860, guid: cf88028c426c84bb28318fa1502efdd6, type: 2}
