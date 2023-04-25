@@ -45,7 +45,5 @@ public class VolumeSettings : MonoBehaviour
         }
         // Set the music volume and save it to the playerprefs
         PlayerPrefs.SetFloat("MusicVolume", masterVolume);
-
     }
-
 }
