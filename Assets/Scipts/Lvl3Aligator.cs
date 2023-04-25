@@ -69,7 +69,7 @@ public class Lvl3Aligator : MonoBehaviour
 			anim.SetBool("InCollider", true);
 			isFade = true;
 			fadeIn = true;
-		    if (firstTime) {
+		    if (firstTime && FishingHandler.fishCount == 0) {
 			   playerMovement.DisableMovement();
 		       firstTime = false;
 		       StartCoroutine(waitBeforeShowing());
