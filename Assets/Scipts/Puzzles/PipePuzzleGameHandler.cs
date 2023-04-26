@@ -106,7 +106,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
          }
       }
       //iterate through valid path setting powered
-      recursiveIsPowered(puzzleGrid[start.x + 1, start.y], 32, LEFT);
+      recursiveIsPowered(puzzleGrid[start.x + 1, start.y], 25, LEFT);
 
       //set pipe material to powered or unpowered.
       for (int x = 1; x <= grid_max; x++)
@@ -386,13 +386,36 @@ public class PipePuzzleGameHandler : MonoBehaviour
          // Evaluate next point and choose appropriate pipe type
          if (dirCurrent == 1 && dirNew == 1 || dirCurrent != 1 && dirNew != 1)
          {
-            puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Straight);
-            puzzleGrid[currentPoint.x, currentPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[2];
+            int chance = random.Next(1, 100);
+            if (chance <= 80)
+            {
+               puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Straight);
+               puzzleGrid[currentPoint.x, currentPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[2];
+            }
+            else if (chance <= 85)
+            {
+               puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Cross);
+               puzzleGrid[currentPoint.x, currentPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[3];
+            }
+            else if (chance <= 100)
+            {
+               puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Junction);
+               puzzleGrid[currentPoint.x, currentPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[5];
+            }
          } 
          else if (dirCurrent == 1 && dirNew > 1 || dirCurrent != 1 && dirNew == 1)
          {
-            puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Corner);
-            puzzleGrid[currentPoint.x, currentPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[4];
+            int chance = random.Next(1, 100);
+            if (chance <= 80)
+            {
+               puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Corner);
+               puzzleGrid[currentPoint.x, currentPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[4];
+            } 
+            else if (chance <= 100)
+            {
+               puzzleGrid[currentPoint.x, currentPoint.y].setType(PIPE_TYPE.Junction);
+               puzzleGrid[currentPoint.x, currentPoint.y].GetComponentInParent<SpriteRenderer>().sprite = sprites[5];
+            }
          }
          
          if (nextPoint == endPoint) // reached end of path
