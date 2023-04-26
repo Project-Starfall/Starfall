@@ -48,7 +48,7 @@ public class Level5Handler : MonoBehaviour
         FindObjectOfType<audioManager>().musicFadeOut("levelFourMusic");
         FindObjectOfType<audioManager>().stop("levelFourMusic");
         FindObjectOfType<audioManager>().play("levelFiveMusic");
-        FindObjectOfType<audioManager>().musicFadeIn("menuMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("levelFiveMusic");
     }
 
     void Start()

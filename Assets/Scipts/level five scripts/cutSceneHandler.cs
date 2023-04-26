@@ -12,6 +12,8 @@ public class cutSceneHandler : MonoBehaviour
     {
         FindObjectOfType<audioManager>().musicFadeOut("levelFiveMusic");
         FindObjectOfType<audioManager>().stop("levelFiveMusic");
+        FindObjectOfType<audioManager>().play("endingMusic");
+        FindObjectOfType<audioManager>().musicFadeIn("endingMusic");
     }
 
     public void showTime()
