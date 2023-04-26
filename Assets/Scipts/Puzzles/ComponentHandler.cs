@@ -56,6 +56,7 @@ public class ComponentHandler : MonoBehaviour
    public void completedPuzzle()
    {
         completeLight.enabled = true;
+        FindObjectOfType<audioManager>().play("pinComplete");
         incompleteLight.enabled = false;
         CanPlay = false;
         componentPanel.completed();

@@ -50,11 +50,6 @@ public class audioManager : MonoBehaviour
     {
         play("menuMusic");
         play("levelTutorialMusic");
-        /*play("levelOneMusic");
-        play("levelTwoMusic");
-        play("levelFourMusic");
-        play("levelFiveMusic");
-        play("endingMusic");*/
     }
 
     // finds and plays audio clip of specified name

@@ -128,6 +128,10 @@ PlayableDirector:
     value: {fileID: 8297509749521685030}
   - key: {fileID: 850144357850219500, guid: 3ff1db95b424c4c1c8ccee6f3e239474, type: 2}
     value: {fileID: 8297509749521685035}
+  - key: {fileID: 7900329719667008877, guid: 3ff1db95b424c4c1c8ccee6f3e239474, type: 2}
+    value: {fileID: 0}
+  - key: {fileID: -4026847415678897826, guid: 3ff1db95b424c4c1c8ccee6f3e239474, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &8297509749521685034
@@ -147,6 +151,7 @@ MonoBehaviour:
   rescueAlphaMask: {fileID: 2800000, guid: 0f4f62887abfaf74ea4a7abf80d26708, type: 3}
   star: {fileID: 8297509749521685024}
   handler: {fileID: 0}
+  flyingStar: {fileID: 0}
 --- !u!114 &8297509749521685035
 MonoBehaviour:
   m_ObjectHideFlags: 0

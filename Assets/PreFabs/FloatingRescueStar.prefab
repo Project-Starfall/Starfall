@@ -111,6 +111,7 @@ MonoBehaviour:
   speed: 0.9
   fadeSpeed: 0.75
   padding: 0.5
+  test: 0
 --- !u!212 &3074685197909453431
 SpriteRenderer:
   m_ObjectHideFlags: 0
