@@ -42,11 +42,10 @@ public class PauseMenu : MonoBehaviour
     {
         // The game is not paused
         PauseMenuUI.SetActive(false);
-      // Resume time
-        
+        // Resume time
+        playerMovement.EnableMovement();
         Time.timeScale = 1f;
         // Play the game
-        playerMovement.EnableMovement();
         GameIsPaused = false;
     }
 
@@ -55,9 +54,9 @@ public class PauseMenu : MonoBehaviour
     {
         // Pause the game
         PauseMenuUI.SetActive(true);
+        playerMovement.DisableMovement();
         // Freeze the game objects
         Time.timeScale = 0f;
-        playerMovement.DisableMovement();
         // The game is paused
         timerText.text = instance.timeText;
         GameIsPaused = true;
