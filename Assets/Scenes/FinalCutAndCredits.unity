@@ -26070,14 +26070,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Under a Glistening Canopy
+  m_text: 'StarFall
+
+    Under a Glistening Canopy
 
     Find your way
 
-    Concrete Mare
+    Concrete
+    Mare
 
-    Floating
-    Along
+    Floating Along
 
     Ascend'
   m_isRightToLeft: 0
