@@ -9,6 +9,7 @@ public class PauseMenu : MonoBehaviour
     // player field
     [SerializeField]
     Player player;
+    [SerializeField] PlayerMovement playerMovement;
 
     // Set game to false
     public static bool GameIsPaused = false;
@@ -45,6 +46,7 @@ public class PauseMenu : MonoBehaviour
         
         Time.timeScale = 1f;
         // Play the game
+        playerMovement.EnableMovement();
         GameIsPaused = false;
     }
 
@@ -55,6 +57,7 @@ public class PauseMenu : MonoBehaviour
         PauseMenuUI.SetActive(true);
         // Freeze the game objects
         Time.timeScale = 0f;
+        playerMovement.DisableMovement();
         // The game is paused
         timerText.text = instance.timeText;
         GameIsPaused = true;
