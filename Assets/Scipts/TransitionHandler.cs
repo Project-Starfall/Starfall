@@ -106,6 +106,7 @@ public class TransitionHandler : MonoBehaviour
          case LV4_LV5:
             star4.SetActive(false);
             SceneManager.LoadScene(LevelFive, LoadSceneMode.Single);
+            setTransition(LV0_LV1);
             break;
       }
    }
