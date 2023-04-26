@@ -14,6 +14,7 @@ public class RescueLevel4 : MonoBehaviour
     [SerializeField] Texture2D rescueAlphaMask;
     [SerializeField] GameObject star;
     [SerializeField] StarRescueFlying flyingStar;
+    [SerializeField] BoxCollider2D collider;
     Material glowMaterial;
 
     // Player
@@ -51,6 +52,6 @@ public class RescueLevel4 : MonoBehaviour
     public void movePlayer()
     {
         playerMovement.EnableMovement();
-        star.SetActive(false);
+        collider.enabled = false;
     }
 }

@@ -12,6 +12,7 @@ public class Lvl3RescueAnimScript : MonoBehaviour
     [SerializeField] Texture2D rescueAlphaMask;
     [SerializeField] GameObject star;
     [SerializeField] StarRescueFlying flyingStar;
+    [SerializeField] PolygonCollider2D collider;
     Material glowMaterial;
 
     // Player
@@ -49,6 +50,6 @@ public class Lvl3RescueAnimScript : MonoBehaviour
    public void movePlayer()
    {
       playerMovement.EnableMovement();
-      star.SetActive(false);
+        collider.enabled = false;
    }
 }
