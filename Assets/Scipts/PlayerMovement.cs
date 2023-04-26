@@ -95,12 +95,12 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             // Performs the player action
-            if (Input.GetButtonDown("Action"))
+            if (Input.GetButtonDown("Action") && !isActing)
             {
                 Action();
             }
             // Performs the dash
-            else if (Input.GetButtonDown("Dash"))
+            else if (Input.GetButtonDown("Dash") && !isActing)
             {
                 if (nextDash < Time.time && canDash == true && disableDash == false)
                 {
