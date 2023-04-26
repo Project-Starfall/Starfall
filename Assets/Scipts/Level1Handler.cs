@@ -89,7 +89,7 @@ public class Level1Handler : MonoBehaviour
       startTimeline.Play();
 
       playerSeed = player.seed;
-      System.Random random = new System.Random(playerSeed);
+      System.Random random = new System.Random((int) Time.time);
 
       // generate the pincode
       for(int i = 0; i < 4; i++)

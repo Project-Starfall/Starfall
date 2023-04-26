@@ -67,7 +67,7 @@ public class Level5Handler : MonoBehaviour
         //startTimeline.Play();
 
         playerSeed = player.seed;
-        System.Random random = new System.Random(playerSeed);
+        System.Random random = new System.Random((int) Time.time);
 
         pipe5Seed = random.Next(0, 10000);
         component1Seed = random.Next(0, 1000);

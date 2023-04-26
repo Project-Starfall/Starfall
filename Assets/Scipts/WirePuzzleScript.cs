@@ -134,6 +134,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
                   playerMovement.manualFlip(true);
                   pipegame.startGame(this);
                   pipegame.generateGrid(level1handler.pipe1seed);
+                  pipegame.generateGrid(level1handler.pipe1seed);
                   firstPuzzleClickHelp.SetActive(true);
                   break;
                case 2:
@@ -150,6 +151,7 @@ public class WirePuzzleScript : MonoBehaviour, Interactable
                   break;
                case 5:
                   pipegame.startGame(this);
+                  pipegame.generateGrid(level5Handler.pipe5Seed);
                   pipegame.generateGrid(level5Handler.pipe5Seed);
                   break;
                default:

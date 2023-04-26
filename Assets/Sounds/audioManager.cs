@@ -88,19 +88,24 @@ public class audioManager : MonoBehaviour
             musicClip.source.volume += 0.01f / fadeTime;
         }
     }
+    public void musicFadeOut(string musicname)
+    {
+      StartCoroutine(musicFader(musicname));
+    }
 
     // fade out of background music of specified name
-    public void musicFadeOut(string musicname)
+    public IEnumerator musicFader(string musicname)
     {
         sound musicClip = Array.Find(sounds, sound => sound.name == musicname);
         if (musicClip.source == null)
         {
             Debug.LogWarning("music name not recognized");
-            return;
+            yield return null;
         }
         while (musicClip.source.volume > 0.0f)
         {
-            musicClip.source.volume -= 0.01f / fadeTime;
+            musicClip.source.volume -= 0.01f * Time.deltaTime;
+            yield return new WaitForEndOfFrame();
         }
     }
 

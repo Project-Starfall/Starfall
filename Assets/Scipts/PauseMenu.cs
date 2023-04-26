@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 using static SaveSystem;
 using static GameTimer;
 using TMPro;
+using static TransitionManager;
+using static Constants.Transitions;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -61,9 +63,10 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void loadMenu()
-    {
+    { 
         //Time.timeScale = 0f;
         // This function starts the game
+        transition = LV0_LV1;
         Time.timeScale = 1f;
         FindObjectOfType<audioManager>().play("menuMusic");
         FindObjectOfType<audioManager>().musicFadeIn("menuMusic");
