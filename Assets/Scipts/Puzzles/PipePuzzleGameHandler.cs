@@ -106,7 +106,7 @@ public class PipePuzzleGameHandler : MonoBehaviour
          }
       }
       //iterate through valid path setting powered
-      recursiveIsPowered(puzzleGrid[start.x + 1, start.y], 25, LEFT);
+      recursiveIsPowered(puzzleGrid[start.x + 1, start.y], 29, LEFT);
 
       //set pipe material to powered or unpowered.
       for (int x = 1; x <= grid_max; x++)

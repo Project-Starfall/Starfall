@@ -88,11 +88,11 @@ public class PlayerMovement : MonoBehaviour {
             }
 
             // Makes player's jump shorter if jump button is released
-            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+          /*if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
             {
                 anim.SetBool("isJumping", false);
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-            }
+            }*/
 
             // Performs the player action
             if (Input.GetButtonDown("Action") && !isActing)
